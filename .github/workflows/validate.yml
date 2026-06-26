@@ -1,0 +1,28 @@
+name: validate-registry
+
+on:
+  pull_request:
+    paths: ["registry/**", "schemas/**", "scripts/**", ".github/workflows/validate.yml"]
+  push:
+    branches: [main]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install deps
+        run: pip install pyyaml jsonschema
+      - name: Validate registry entries against schemas
+        run: python scripts/validate_registry.py
+      - name: Check INDEX.md is up to date
+        run: |
+          python scripts/build_index.py
+          if ! git diff --quiet -- registry/INDEX.md; then
+            echo "::error::registry/INDEX.md is stale. Run 'python scripts/build_index.py' and commit the result."
+            git --no-pager diff -- registry/INDEX.md
+            exit 1
+          fi

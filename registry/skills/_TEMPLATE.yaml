@@ -1,0 +1,36 @@
+# Copy this file to registry/skills/<your-skill-id>.yaml and fill it in.
+# Validate with:  python scripts/validate_registry.py
+# How-to:         docs/contribute-a-skill.md
+#
+# GOLDEN RULE: no secrets. Never commit keys or tokens.
+
+schema: trinity.hub.skill/v1
+
+id: your-skill-id                 # lowercase [a-z0-9-]; unique; equals filename
+name: Your Skill Name
+owner: Your Org or Name
+
+maintainers:
+  - github: your-github-handle
+    contact: you@example.org      # optional
+
+description: >-
+  One or two sentences: what capability this skill provides.
+
+trigger: >-
+  The phrases/intents that should invoke it, e.g. "predict XANES for <material>".
+
+domains:
+  - your-domain
+
+inputs: What the skill consumes (parameters, files, structures).      # optional
+outputs: What it produces.                                            # optional
+requirements: API keys, MCP servers, or system access needed.        # optional
+
+source:
+  repo: https://github.com/your-org/your-repo     # where the skill actually lives (HTTPS)
+  path: .claude/skills/your-skill-id              # optional path within the repo
+  license: MIT                                    # optional
+
+status: active                    # active | experimental | deprecated
+added: "2026-06"                  # YYYY-MM

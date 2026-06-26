@@ -1,0 +1,21 @@
+# Secrets — never commit. The registry holds public descriptors only.
+.env
+.env.*
+*.pem
+*.key
+*_token*
+*secret*
+credentials*.json
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+.pytest_cache/
+
+# OS / editor
+.DS_Store
+*.swp
+.idea/
+.vscode/

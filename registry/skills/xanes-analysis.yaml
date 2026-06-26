@@ -1,0 +1,36 @@
+# Worked example — a reusable skill registration.
+
+schema: trinity.hub.skill/v1
+
+id: xanes-analysis
+name: XANES Analysis
+owner: ALCF / Argonne National Laboratory
+
+maintainers:
+  - github: zhenghh04
+    contact: https://www.alcf.anl.gov
+
+description: >-
+  Predict and benchmark Ti K-edge XANES spectra with LightshowAI and Materials Project,
+  including Pearson/Spearman/cosine similarity metrics and energy-shift optimization
+  against experimental standards.
+
+trigger: >-
+  "predict XANES for <material>", "benchmark XANES", "Ti K-edge spectrum", "compare XANES to experiment".
+
+domains:
+  - materials-science
+  - xanes
+  - spectroscopy
+
+inputs: Materials Project id or structure; absorbing element; optional reference spectrum.
+outputs: Predicted spectrum, similarity metrics, optimized energy shift, optional plot.
+requirements: Materials Project API key; LightshowAI MCP server (optional).
+
+source:
+  repo: https://github.com/zhenghh04/trinity
+  path: .claude/skills/xanes-analysis
+  license: MIT
+
+status: active
+added: "2026-06"

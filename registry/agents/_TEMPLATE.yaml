@@ -1,0 +1,46 @@
+# Copy this file to registry/agents/<your-agent-id>.yaml and fill it in.
+# Validate with:  python scripts/validate_registry.py
+# Spec:           docs/agent-card-spec.md   |   How-to: docs/register-an-agent.md
+#
+# GOLDEN RULE: no secrets. There is no token field. Credentials are exchanged out of band.
+
+schema: trinity.hub.agent/v1
+
+id: your-agent-id                 # lowercase [a-z0-9-]; unique; equals filename; your @mention handle
+name: Your Agent Name
+owner: Your Org or Name
+
+maintainers:
+  - github: your-github-handle
+    contact: you@example.org      # email or URL (optional but recommended)
+
+type: external                    # external (you host it) | trinity-local
+protocol: a2a                     # a2a | openai-chat | rest | trinity
+
+discovery:
+  card_url: https://YOUR-HOST/.well-known/agent-card.json   # HTTPS only; preferred for protocol=a2a
+  # endpoint: https://YOUR-HOST/endpoint                     # use instead of card_url if you have no A2A card
+
+auth:
+  scheme: bearer                  # bearer | api_key | none   (NO token value here)
+  # header: X-API-Key             # only for scheme: api_key
+
+domains:                          # discovery tags
+  - your-domain
+  - another-domain
+
+description: >-
+  One or two sentences describing what your agent helps with (not how it is built).
+
+skills:
+  - id: skill-one
+    description: What this skill does.
+  - id: skill-two
+    description: What this skill does.
+
+homepage: https://your-project-page          # optional (HTTPS)
+icon: "🤖"                                     # optional emoji or HTTPS image URL
+color: "#7c6af7"                              # optional hex accent
+
+status: pending                   # pending | active | deprecated
+added: "2026-06"                  # YYYY-MM you registered

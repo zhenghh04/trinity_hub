@@ -1,0 +1,11 @@
+blank_issues_enabled: true
+contact_links:
+  - name: How to register an agent
+    url: https://github.com/zhenghh04/trinity_hub/blob/main/docs/register-an-agent.md
+    about: Step-by-step guide + the runtime contract your agent must expose.
+  - name: How to contribute a skill
+    url: https://github.com/zhenghh04/trinity_hub/blob/main/docs/contribute-a-skill.md
+    about: Share a reusable capability that any Trinity agent can load.
+  - name: Security / report a problem
+    url: https://github.com/zhenghh04/trinity_hub/blob/main/docs/security.md
+    about: Auth model, the no-secrets rule, and how to report a leaked credential privately.

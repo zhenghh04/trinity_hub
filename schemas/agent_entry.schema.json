@@ -1,0 +1,63 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/zhenghh04/trinity_hub/schemas/agent_entry.schema.json",
+  "title": "Trinity Hub agent entry",
+  "description": "Public descriptor of an agent registered in Trinity Hub. This is a pointer for discovery + curation, NOT the runtime A2A card and NOT a credential store. There is intentionally no token field.",
+  "type": "object",
+  "required": ["schema", "id", "name", "owner", "maintainers", "type", "protocol", "discovery", "auth", "domains", "description", "skills", "status", "added"],
+  "additionalProperties": false,
+  "properties": {
+    "schema":      {"const": "trinity.hub.agent/v1"},
+    "id":          {"type": "string", "pattern": "^[a-z0-9][a-z0-9-]*$", "maxLength": 64},
+    "name":        {"type": "string", "minLength": 1},
+    "owner":       {"type": "string", "minLength": 1},
+    "maintainers": {
+      "type": "array", "minItems": 1,
+      "items": {
+        "type": "object", "required": ["github"], "additionalProperties": false,
+        "properties": {
+          "github":  {"type": "string", "minLength": 1},
+          "contact": {"type": "string"}
+        }
+      }
+    },
+    "type":     {"enum": ["external", "trinity-local"]},
+    "protocol": {"enum": ["a2a", "openai-chat", "rest", "trinity"]},
+    "discovery": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "card_url": {"type": "string", "pattern": "^https://"},
+        "endpoint": {"type": "string", "pattern": "^https://"}
+      },
+      "anyOf": [{"required": ["card_url"]}, {"required": ["endpoint"]}]
+    },
+    "auth": {
+      "type": "object",
+      "required": ["scheme"],
+      "additionalProperties": false,
+      "not": {"required": ["token"]},
+      "properties": {
+        "scheme": {"enum": ["bearer", "api_key", "none"]},
+        "header": {"type": "string"}
+      }
+    },
+    "domains":     {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 1}},
+    "description": {"type": "string", "minLength": 1, "maxLength": 600},
+    "skills": {
+      "type": "array", "minItems": 1,
+      "items": {
+        "type": "object", "required": ["id", "description"], "additionalProperties": false,
+        "properties": {
+          "id":          {"type": "string", "pattern": "^[a-z0-9][a-z0-9-]*$"},
+          "description": {"type": "string", "minLength": 1}
+        }
+      }
+    },
+    "homepage": {"type": "string", "pattern": "^https://"},
+    "icon":     {"type": "string"},
+    "color":    {"type": "string", "pattern": "^#?[0-9a-fA-F]{3,8}$"},
+    "status":   {"enum": ["pending", "active", "deprecated"]},
+    "added":    {"type": "string", "pattern": "^[0-9]{4}-[0-9]{2}$"}
+  }
+}

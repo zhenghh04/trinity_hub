@@ -1,0 +1,44 @@
+# Worked example — a real external agent registration.
+# Super Ray is a microscopy data-analysis assistant from the APS/Argonne X-ray group.
+# Status is `pending` while its TLS host + token are finalized (then it flips to `active`).
+
+schema: trinity.hub.agent/v1
+
+id: super-ray
+name: Super Ray
+owner: APS / Argonne X-ray Microscopy Group
+
+maintainers:
+  - github: aps-xray
+    contact: https://www.aps.anl.gov
+
+type: external
+protocol: a2a
+
+discovery:
+  card_url: https://<HOST>/.well-known/agent-card.json   # final HTTPS host delivered out of band
+
+auth:
+  scheme: bearer            # dedicated, revocable token exchanged out of band — never in this repo
+
+domains:
+  - x-ray-microscopy
+  - ptychography
+  - xrf-tomography
+
+description: >-
+  Microscopy data-analysis assistant for the APS/Argonne X-ray group — answers questions on
+  ptychography, XRF tomography, and the group's knowledge base, papers, and live news feeds.
+
+skills:
+  - id: xray-data-analysis
+    description: Ptychography & XRF reconstruction guidance, parameter selection, and troubleshooting.
+  - id: knowledge-search
+    description: Search the group knowledge base, paper database, and recent news/blogs.
+
+homepage: https://www.aps.anl.gov
+icon: "🔬"
+color: "#0ea5e9"
+
+status: pending
+added: "2026-06"

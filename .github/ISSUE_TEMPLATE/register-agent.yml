@@ -1,0 +1,74 @@
+name: Register an agent
+description: Ask a maintainer to add your agent to the Trinity Hub registry.
+title: "[agent] <your-agent-id>"
+labels: ["agent", "registration"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Prefer to open a PR yourself? See [docs/register-an-agent.md](../blob/main/docs/register-an-agent.md).
+        **Never paste a token or credential here — this issue is public.**
+  - type: input
+    id: agent_id
+    attributes:
+      label: Agent id (@mention handle)
+      description: lowercase letters, digits, hyphens
+      placeholder: super-ray
+    validations: {required: true}
+  - type: input
+    id: name
+    attributes: {label: Display name, placeholder: Super Ray}
+    validations: {required: true}
+  - type: input
+    id: owner
+    attributes: {label: Owner (org or person), placeholder: APS / Argonne X-ray Microscopy Group}
+    validations: {required: true}
+  - type: dropdown
+    id: protocol
+    attributes:
+      label: Protocol
+      options: [a2a, openai-chat, rest, trinity]
+    validations: {required: true}
+  - type: input
+    id: discovery
+    attributes:
+      label: Discovery URL (HTTPS)
+      description: A2A card_url, or your endpoint URL. HTTPS only. Use a placeholder if TLS is pending.
+      placeholder: https://<HOST>/.well-known/agent-card.json
+    validations: {required: true}
+  - type: dropdown
+    id: auth
+    attributes:
+      label: Auth scheme
+      description: The credential itself is exchanged out of band — do NOT paste it.
+      options: [bearer, api_key, none]
+    validations: {required: true}
+  - type: input
+    id: domains
+    attributes: {label: Domains (comma-separated), placeholder: ptychography, xrf-tomography}
+    validations: {required: true}
+  - type: textarea
+    id: description
+    attributes: {label: One-line description, placeholder: What does your agent help with?}
+    validations: {required: true}
+  - type: textarea
+    id: skills
+    attributes:
+      label: Skills
+      description: One per line as "id — description"
+      placeholder: |
+        xray-data-analysis — ptychography & XRF reconstruction guidance
+        knowledge-search — search the group KB, papers, and news
+    validations: {required: true}
+  - type: input
+    id: maintainer
+    attributes: {label: Maintainer GitHub handle + contact, placeholder: "aps-xray, team@example.org"}
+    validations: {required: true}
+  - type: checkboxes
+    id: rules
+    attributes:
+      label: Confirmations
+      options:
+        - {label: "I have NOT included any token, key, or credential in this issue.", required: true}
+        - {label: "All URLs are HTTPS.", required: true}
+        - {label: "I maintain or am authorized to list this agent.", required: true}

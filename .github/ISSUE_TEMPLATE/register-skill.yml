@@ -1,0 +1,56 @@
+name: Contribute a skill
+description: Ask a maintainer to add your reusable skill to the Trinity Hub registry.
+title: "[skill] <your-skill-id>"
+labels: ["skill", "registration"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Prefer to open a PR yourself? See [docs/contribute-a-skill.md](../blob/main/docs/contribute-a-skill.md).
+        **Never paste a token or credential here — this issue is public.**
+  - type: input
+    id: skill_id
+    attributes: {label: Skill id, placeholder: xanes-analysis}
+    validations: {required: true}
+  - type: input
+    id: name
+    attributes: {label: Display name, placeholder: XANES Analysis}
+    validations: {required: true}
+  - type: input
+    id: owner
+    attributes: {label: Owner (org or person), placeholder: ALCF / Argonne National Laboratory}
+    validations: {required: true}
+  - type: textarea
+    id: description
+    attributes: {label: One-line description, placeholder: What capability does this skill provide?}
+    validations: {required: true}
+  - type: textarea
+    id: trigger
+    attributes:
+      label: Trigger phrases
+      description: What intents should invoke this skill?
+      placeholder: '"predict XANES for <material>", "benchmark XANES"'
+    validations: {required: true}
+  - type: input
+    id: domains
+    attributes: {label: Domains (comma-separated), placeholder: materials-science, spectroscopy}
+    validations: {required: true}
+  - type: input
+    id: repo
+    attributes:
+      label: Source repo (HTTPS)
+      description: Where the skill actually lives.
+      placeholder: https://github.com/your-org/your-repo
+    validations: {required: true}
+  - type: input
+    id: maintainer
+    attributes: {label: Maintainer GitHub handle + contact, placeholder: "your-handle, you@example.org"}
+    validations: {required: true}
+  - type: checkboxes
+    id: rules
+    attributes:
+      label: Confirmations
+      options:
+        - {label: "I have NOT included any token, key, or credential in this issue.", required: true}
+        - {label: "The source repo URL is HTTPS.", required: true}
+        - {label: "I maintain or am authorized to list this skill.", required: true}
