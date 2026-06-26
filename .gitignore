@@ -6,6 +6,7 @@
 *_token*
 *secret*
 credentials*.json
+operator-tokens.*          # operator-side {agent-id: token} map for scripts/sync_to_trinity.py
 
 # Python
 __pycache__/

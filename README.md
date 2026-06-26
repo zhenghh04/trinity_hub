@@ -66,6 +66,13 @@ issue instead and a maintainer will help land the entry.
 The descriptor here is the *public contract*. Going live is one operator call on the Trinity
 side (see [docs/architecture.md](docs/architecture.md)); your secret token never touches this repo.
 
+## For Trinity operators
+
+Running a Trinity server? Bulk-register the agents in this registry with one command —
+see **[docs/operator.md](docs/operator.md)** and [`scripts/sync_to_trinity.py`](scripts/sync_to_trinity.py)
+(reads each `registry/agents/*.yaml` → `POST /api/external-agents`; tokens stay in a local,
+git-ignored file).
+
 ## Contributing
 
 Read **[CONTRIBUTING.md](CONTRIBUTING.md)** first — it covers the entry format, validation,

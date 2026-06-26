@@ -1,0 +1,73 @@
+name: pr-validate-comment
+
+# Runs the registry validator on a PR and posts (or updates) a sticky comment with the
+# result, so contributors see a clear pass/fail without digging into the Checks tab.
+#
+# Uses the `pull_request` event with write permission to PR comments. For PRs from forks
+# GitHub makes the token read-only, so the comment step is best-effort (continue-on-error)
+# — the job still fails on invalid input, and the required `validate-registry` check
+# (validate.yml) remains the authoritative gate.
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+    paths: ["registry/**", "schemas/**", "scripts/**"]
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  validate-and-comment:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install pyyaml jsonschema
+
+      - name: Run validator
+        id: val
+        continue-on-error: true
+        run: |
+          set +e
+          python scripts/validate_registry.py > val.txt 2>&1
+          echo "rc=$?" >> "$GITHUB_OUTPUT"
+          cat val.txt
+
+      - name: Upsert PR comment
+        continue-on-error: true
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const out = fs.readFileSync('val.txt', 'utf8').slice(0, 60000);
+            const ok = '${{ steps.val.outputs.rc }}' === '0';
+            const marker = '<!-- trinity-hub-validate -->';
+            const body = [
+              marker,
+              `### Trinity Hub registry validation ${ok ? '✅ passed' : '❌ failed'}`,
+              '',
+              '```',
+              out.trim() || '(no output)',
+              '```',
+              ok
+                ? '_Looks good — a maintainer will review shortly. Make sure `registry/INDEX.md` is regenerated (`python scripts/build_index.py`)._'
+                : '_Fix the issues above, run `python scripts/validate_registry.py` locally, and push again._',
+            ].join('\n');
+            const { data: comments } = await github.rest.issues.listComments({
+              ...context.repo, issue_number: context.issue.number, per_page: 100,
+            });
+            const prev = comments.find(c => c.body && c.body.includes(marker));
+            if (prev) {
+              await github.rest.issues.updateComment({ ...context.repo, comment_id: prev.id, body });
+            } else {
+              await github.rest.issues.createComment({ ...context.repo, issue_number: context.issue.number, body });
+            }
+
+      - name: Fail if validation failed
+        if: steps.val.outputs.rc != '0'
+        run: |
+          echo "::error::registry validation failed — see the PR comment for details"
+          exit 1
