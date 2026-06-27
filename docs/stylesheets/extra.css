@@ -1,0 +1,23 @@
+/* Trinity brand palette — purple #7c6af7 */
+
+:root {
+  --md-primary-fg-color:        #7c6af7;
+  --md-primary-fg-color--light: #9a8cf9;
+  --md-primary-fg-color--dark:  #5b46d6;
+  --md-accent-fg-color:         #7c6af7;
+}
+
+/* Dark scheme: keep the purple readable against the slate background */
+[data-md-color-scheme="slate"] {
+  --md-primary-fg-color:        #9a8cf9;
+  --md-primary-fg-color--light: #b3a8fb;
+  --md-primary-fg-color--dark:  #7c6af7;
+  --md-accent-fg-color:         #9a8cf9;
+  --md-typeset-a-color:         #b3a8fb;
+}
+
+/* A little more contrast on the hero/landing cards */
+.md-typeset .grid.cards > :is(ul, ol) > li,
+.md-typeset .grid > .card {
+  border-radius: 0.6rem;
+}

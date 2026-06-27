@@ -2,7 +2,7 @@
 
 The registry is a curated list of *public descriptors*. To make those agents actually
 `@mention`-able in your Trinity, register them with your running server. The helper
-[`scripts/sync_to_trinity.py`](../scripts/sync_to_trinity.py) does this in bulk — it turns each
+[`scripts/sync_to_trinity.py`](https://github.com/zhenghh04/trinity_hub/blob/main/scripts/sync_to_trinity.py) does this in bulk — it turns each
 `registry/agents/<id>.yaml` into a `POST /api/external-agents` call.
 
 ## Prerequisites
@@ -23,7 +23,7 @@ the bearer token that agent gave you out of band:
 super-ray: "the-token-super-ray-issued-to-us"
 ```
 
-`operator-tokens.*` is in [`.gitignore`](../.gitignore). Do not move it anywhere tracked.
+`operator-tokens.*` is in [`.gitignore`](https://github.com/zhenghh04/trinity_hub/blob/main/.gitignore). Do not move it anywhere tracked.
 
 ## Usage
 

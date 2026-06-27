@@ -197,4 +197,4 @@ follow-up PR.
 - [ ] Errors return a JSON-RPC `error` (not an HTML 500).
 - [ ] Operator `/probe` returns `{"ok": true}` → set `status: active`.
 
-A complete worked example lives at [`registry/agents/super-ray.yaml`](../registry/agents/super-ray.yaml).
+A complete worked example lives at [`registry/agents/super-ray.yaml`](https://github.com/zhenghh04/trinity_hub/blob/main/registry/agents/super-ray.yaml).

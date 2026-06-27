@@ -1,0 +1,97 @@
+site_name: Trinity Hub
+site_description: >-
+  How to use Trinity — the multi-tenant agentic HPC workspace — and how to extend
+  it with your own agents and skills.
+site_url: https://zhenghh04.github.io/trinity_hub/
+site_author: ALCF / Argonne National Laboratory
+
+repo_url: https://github.com/zhenghh04/trinity_hub
+repo_name: zhenghh04/trinity_hub
+edit_uri: edit/main/docs/
+
+theme:
+  name: material
+  language: en
+  icon:
+    repo: fontawesome/brands/github
+    logo: material/triangle-outline
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: custom
+      accent: custom
+      toggle:
+        icon: material/weather-night
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: custom
+      accent: custom
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to light mode
+  features:
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.sections
+    - navigation.top
+    - navigation.indexes
+    - navigation.footer
+    - toc.follow
+    - content.code.copy
+    - content.action.edit
+    - search.suggest
+    - search.highlight
+
+extra_css:
+  - stylesheets/extra.css
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - md_in_html
+  - tables
+  - footnotes
+  - toc:
+      permalink: true
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/zhenghh04/trinity_hub
+    - icon: material/web
+      link: https://www.alcf.anl.gov
+  generator: false
+
+copyright: >-
+  Trinity is developed at ALCF / Argonne National Laboratory.
+
+nav:
+  - Home: index.md
+  - Using Trinity:
+      - Overview: using-trinity/index.md
+      - Getting started: using-trinity/getting-started.md
+      - The chat interface: using-trinity/chat.md
+      - Running HPC jobs: using-trinity/running-jobs.md
+      - Files & projects: using-trinity/files-and-projects.md
+      - Settings: using-trinity/settings.md
+      - Agents & rooms: using-trinity/agents-and-rooms.md
+      - Roles & access: using-trinity/roles-and-access.md
+      - FAQ: using-trinity/faq.md
+  - Extend:
+      - Register an agent: register-an-agent.md
+      - Contribute a skill: contribute-a-skill.md
+      - Agent Card spec: agent-card-spec.md
+  - Operate:
+      - How Trinity Hub works: architecture.md
+      - For operators: operator.md
+      - Security & trust: security.md

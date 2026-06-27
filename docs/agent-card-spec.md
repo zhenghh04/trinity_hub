@@ -7,7 +7,7 @@ There are **two related documents** in play. Don't confuse them:
 | Lives in | `registry/agents/<id>.yaml` | `https://<HOST>/.well-known/agent-card.json` |
 | Purpose | discovery + curation in Trinity Hub | the runtime contract Trinity calls |
 | Format | Trinity Hub YAML (`trinity.hub.agent/v1`) | Google A2A `AgentCard` JSON |
-| Validated by | [`schemas/agent_entry.schema.json`](../schemas/agent_entry.schema.json) | the A2A spec |
+| Validated by | [`schemas/agent_entry.schema.json`](https://github.com/zhenghh04/trinity_hub/blob/main/schemas/agent_entry.schema.json) | the A2A spec |
 | Contains secrets? | **Never** | Never (it's public discovery) |
 
 This page documents the **registry entry**. For the A2A card fields, see
@@ -66,7 +66,7 @@ See [contribute-a-skill.md](contribute-a-skill.md) for the full template. Requir
 
 ## Validation
 
-Every entry is checked against [`schemas/`](../schemas/) by `scripts/validate_registry.py`
+Every entry is checked against [`schemas/`](https://github.com/zhenghh04/trinity_hub/tree/main/schemas) by `scripts/validate_registry.py`
 locally and by CI on every PR. Run it before you push:
 
 ```bash
