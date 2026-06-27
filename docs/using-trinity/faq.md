@@ -2,7 +2,7 @@
 
 ### How do I get access?
 
-Go to **<https://trinity-hub.alcf.anl.gov>** and **Continue with Globus**. First
+Go to **<https://trinity.lionlambstone.org>** and **Continue with Globus**. First
 sign-in auto-provisions you as an **editor**. If your organization runs a private
 Trinity, ask its administrator to add you.
 

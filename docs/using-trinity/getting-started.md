@@ -2,7 +2,7 @@
 
 ## 1. Open Trinity
 
-Go to **<https://trinity-hub.alcf.anl.gov>** in your browser.
+Go to **<https://trinity.lionlambstone.org>** in your browser.
 
 ## 2. Sign in with Globus
 
