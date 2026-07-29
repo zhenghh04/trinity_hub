@@ -1,0 +1,9 @@
+<svg viewBox="0 0 96 96" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Trinity">
+  <rect x="8" y="8" width="80" height="80" rx="24" fill="#0f172a"/>
+  <path d="M48 15 L78 32 V64 L48 81 L18 64 V32 Z" fill="none" stroke="#94a3b8" stroke-width="1.5" opacity=".24"/>
+  <g fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="6.5">
+    <ellipse cx="48" cy="34" rx="13" ry="26" transform="rotate(0 48 48)" stroke="#38bdf8"/>
+    <ellipse cx="48" cy="34" rx="13" ry="26" transform="rotate(120 48 48)" stroke="#2dd4bf"/>
+    <ellipse cx="48" cy="34" rx="13" ry="26" transform="rotate(240 48 48)" stroke="#a3e635"/>
+  </g>
+</svg>

@@ -12,9 +12,10 @@ edit_uri: edit/main/docs/
 theme:
   name: material
   language: en
+  logo: assets/logo.svg
+  favicon: assets/logo.svg
   icon:
     repo: fontawesome/brands/github
-    logo: material/triangle-outline
   palette:
     - media: "(prefers-color-scheme: light)"
       scheme: default

@@ -82,3 +82,13 @@ a read-only knowledge base and a library of reusable workflows. Access is by
     Start with **[Getting started](using-trinity/getting-started.md)** to log in,
     then skim **[The chat interface](using-trinity/chat.md)** to learn how to ask
     Trinity for work.
+
+## Maintainer
+
+Trinity and Trinity Hub are created and maintained by **Huihuo Zheng**
+([@zhenghh04](https://github.com/zhenghh04)), Argonne Leadership Computing
+Facility (ALCF) / Argonne National Laboratory. See
+[GOVERNANCE.md](https://github.com/zhenghh04/trinity_hub/blob/main/GOVERNANCE.md)
+for how contributions are reviewed, and
+[CONTRIBUTING.md](https://github.com/zhenghh04/trinity_hub/blob/main/CONTRIBUTING.md)
+to get involved.

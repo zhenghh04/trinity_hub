@@ -8,17 +8,10 @@ Go to **<https://trinity.lionlambstone.org>** in your browser.
 
 Click **Continue with Globus**. You authenticate with your existing DOE facility
 identity (the same Globus login you use for data transfer), so there is no separate
-Trinity password to manage.
+Trinity password to manage. A username/password field is also available, for
+admin-provisioned accounts.
 
-```
-┌───────────────────────────────┐
-│            Trinity            │
-│                               │
-│   [ Continue with Globus ]    │  ← primary login
-│                               │
-│   or sign in with username    │  ← secondary (admin-provisioned accounts)
-└───────────────────────────────┘
-```
+![Trinity login page](../assets/screenshots/login.png)
 
 On first sign-in, Trinity **auto-provisions** your account with the **editor**
 role — enough to chat, submit jobs, run tools, and browse your own files. (See
@@ -52,6 +45,8 @@ can just say *"submit a 2-node job"* and it knows where and under what allocatio
 → [Settings](settings.md)
 
 ## 5. Say hello
+
+![Trinity workspace after login](../assets/screenshots/after-login.png)
 
 Open **Chat** and try something small to confirm everything is wired up:
 

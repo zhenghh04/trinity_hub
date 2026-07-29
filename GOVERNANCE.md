@@ -7,7 +7,8 @@ review to keep entries safe, accurate, and secret-free.
 
 - **Contributors** — anyone who opens a PR or issue to add/update an agent or skill.
 - **Maintainers** — review and merge PRs, triage issues, and keep the schema/CI healthy.
-  The current maintainer is the Trinity Agent Hub team (ALCF / Argonne National Laboratory).
+  The current maintainer is **Huihuo Zheng** ([@zhenghh04](https://github.com/zhenghh04)),
+  Argonne Leadership Computing Facility (ALCF) / Argonne National Laboratory.
 
 ## Review checklist (what a maintainer verifies before merge)
 

@@ -10,6 +10,20 @@ Crux, Sophia, Sirius), NERSC (Perlmutter), and OLCF (Frontier)**.
     in with **Globus** using your existing DOE facility identity — no new password
     required.
 
+<div class="grid" markdown>
+
+<figure markdown>
+  ![Trinity login page](../assets/screenshots/login.png)
+  <figcaption>Sign in with Globus, or connect an ALCF/NERSC/OLCF facility in one step.</figcaption>
+</figure>
+
+<figure markdown>
+  ![Trinity workspace after login](../assets/screenshots/after-login.png)
+  <figcaption>The workspace after login — chat, jobs, agents, and rooms in one sidebar.</figcaption>
+</figure>
+
+</div>
+
 ## What you can do
 
 - **Run jobs** — DFT/MD/ML/benchmarks and arbitrary batch work. Trinity writes the
