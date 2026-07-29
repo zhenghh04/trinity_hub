@@ -18,14 +18,13 @@ own agents and reusable skills.
 
 ## What Trinity is
 
-Trinity is an agentic platform for **autonomous scientific computing** on DOE
-leadership-class systems, built at the Argonne Leadership Computing Facility. It
-runs on the **Claude Agent SDK** for reasoning and tool use, and rides **Globus**
-for identity, data movement, and compute — so one authenticated conversation can
+Built at the Argonne Leadership Computing Facility, Trinity runs on the
+**Claude Agent SDK** for reasoning and tool use, and rides **Globus** for
+identity, data movement, and compute — so one authenticated conversation can
 reach every facility you're authorized to use.
 
-Under the hood, it composes reusable building blocks rather than improvising
-from scratch each time:
+It composes reusable building blocks rather than improvising from scratch each
+time:
 
 - **Agents** — domain specialists (DFT, molecular dynamics, performance
   engineering, storage benchmarking, and more) that plan and run multi-step
@@ -39,9 +38,7 @@ from scratch each time:
 Every action is recorded as **Knowledge** (validated domain facts that improve
 future runs), **Traces** (a full timeline of tool calls and observations), and
 **Provenance** (why a decision was made) — so results stay auditable and
-reproducible. Trinity is **multi-tenant** by design: each user's tokens,
-sessions, files, and credentials are isolated, while a read-only knowledge base
-and workflow library are shared across everyone. See
+reproducible, not just "the agent said so." See
 [How it works](architecture.md) for the registry-vs-runtime split that lets
 outside agents and skills plug in.
 
@@ -92,7 +89,7 @@ outside agents and skills plug in.
 | *"Is Perlmutter up? What's the queue?"* | queries facility status and reports availability and load. |
 | *"Move these outputs to my laptop."* | runs a Globus transfer and reports the task status. |
 
-Under the hood, Trinity runs an embedded coding agent with tools for the ALCF/NERSC/OLCF
+Day to day, Trinity runs an embedded coding agent with tools for the ALCF/NERSC/OLCF
 integrated research-infrastructure APIs, Globus transfer & compute, and experiment
 tracking — but you never touch those directly. You stay in the chat.
 
