@@ -41,6 +41,10 @@ The **Jobs** view lists background tasks and submissions with live status. A bad
 in the sidebar shows how many are active. Open it to see each job's state
 (queued → running → completed/failed), and jump back to the chat that launched it.
 
+![The Jobs view](../assets/screenshots/jobs.png)
+
+Once something is running, entries look like:
+
 ```
 Jobs
 ────────────────────────────────────────────

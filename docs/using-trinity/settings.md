@@ -18,6 +18,8 @@ When submitting jobs, always confirm node count and walltime first.
 This is the single highest-leverage setting — it makes every session start with
 your context.
 
+![Settings — Assistant pane, with the custom instructions box](../assets/screenshots/settings.png)
+
 ## HPC & Compute (job defaults)
 
 **Settings → HPC & Compute** sets the defaults Trinity uses when you don't spell

@@ -18,12 +18,16 @@ agent has a **card** describing:
 Click an agent to view its card; use **Copy A2A JSON** to grab the
 machine-readable, [A2A](https://github.com/google/A2A)-aligned descriptor.
 
+![AgentsHub — browsing available agents](../assets/screenshots/agents.png)
+
 ## Agent Rooms (group conversations)
 
 An **Agent Room** is a shared space with human **members** and AI **agents**, a
 durable transcript, and live updates. Use a room when a task spans more than one
 specialty — e.g. a DFT agent proposes structures, an ML agent screens them, and you
 steer the campaign.
+
+![Agent Rooms — shared spaces with agents and people](../assets/screenshots/rooms.png)
 
 ### Turn-taking
 

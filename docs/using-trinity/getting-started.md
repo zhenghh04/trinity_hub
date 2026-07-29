@@ -17,6 +17,8 @@ On first sign-in, Trinity **auto-provisions** your account with the **editor**
 role — enough to chat, submit jobs, run tools, and browse your own files. (See
 [Roles & access](roles-and-access.md) for what each role can do.)
 
+![Trinity workspace after login — AgentsHub, one of the views in the sidebar](../assets/screenshots/after-login.png)
+
 !!! note "Sessions"
     Your login is kept in a secure browser cookie that lasts ~24 hours. After it
     expires, just sign in with Globus again.
@@ -45,8 +47,6 @@ can just say *"submit a 2-node job"* and it knows where and under what allocatio
 → [Settings](settings.md)
 
 ## 5. Say hello
-
-![Trinity workspace after login](../assets/screenshots/after-login.png)
 
 Open **Chat** and try something small to confirm everything is wired up:
 
