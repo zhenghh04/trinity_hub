@@ -26,7 +26,10 @@ def _load(kind: str) -> list[dict]:
         for f in sorted(d.glob("*.yaml")):
             if f.name.startswith("_"):
                 continue
-            data = yaml.safe_load(f.read_text()) or {}
+            try:
+                data = yaml.safe_load(f.read_text()) or {}
+            except yaml.YAMLError as e:
+                sys.exit(f"{f.relative_to(ROOT)}: invalid YAML: {e}")
             if isinstance(data, dict) and data.get("id"):
                 out.append(data)
     return sorted(out, key=lambda e: e["id"])
@@ -55,7 +58,7 @@ def main() -> int:
     for e in agents:
         lines.append("| `{id}` | {name} | {domains} | {protocol} | {status} | {m} |".format(
             id=e["id"], name=e.get("name", ""),
-            domains=", ".join(e.get("domains", [])),
+            domains=", ".join(e.get("domains") or []),
             protocol=e.get("protocol", ""), status=e.get("status", ""), m=_maint(e)))
     if not agents:
         lines.append("| _none yet_ | | | | | |")
@@ -67,7 +70,7 @@ def main() -> int:
         src = (e.get("source") or {}).get("repo", "")
         lines.append("| `{id}` | {name} | {domains} | {status} | {src} |".format(
             id=e["id"], name=e.get("name", ""),
-            domains=", ".join(e.get("domains", [])),
+            domains=", ".join(e.get("domains") or []),
             status=e.get("status", ""), src=src))
     if not skills:
         lines.append("| _none yet_ | | | | |")

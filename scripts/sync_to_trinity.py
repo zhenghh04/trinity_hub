@@ -45,7 +45,10 @@ def _load_entries(only: str | None, statuses: set[str]) -> list[dict]:
     for f in sorted(AGENTS_DIR.glob("*.yaml")):
         if f.name.startswith("_"):
             continue
-        data = yaml.safe_load(f.read_text()) or {}
+        try:
+            data = yaml.safe_load(f.read_text()) or {}
+        except yaml.YAMLError as e:
+            sys.exit(f"{f.relative_to(ROOT)}: invalid YAML: {e}")
         if not isinstance(data, dict) or not data.get("id"):
             continue
         if only and data["id"] != only:
@@ -62,7 +65,10 @@ def _load_tokens(path: str | None) -> dict:
     p = Path(path)
     if not p.exists():
         sys.exit(f"tokens file not found: {path}")
-    return yaml.safe_load(p.read_text()) or {}
+    try:
+        return yaml.safe_load(p.read_text()) or {}
+    except yaml.YAMLError as e:
+        sys.exit(f"{path}: invalid YAML: {e}")
 
 
 def _body_for(entry: dict, token: str) -> dict:
@@ -72,7 +78,7 @@ def _body_for(entry: dict, token: str) -> dict:
         "id": entry["id"],
         "name": entry.get("name", ""),
         "protocol": entry.get("protocol", "a2a"),
-        "domains": entry.get("domains", []),
+        "domains": entry.get("domains") or [],
         "description": entry.get("description", ""),
         "icon": entry.get("icon", ""),
         "color": entry.get("color", ""),

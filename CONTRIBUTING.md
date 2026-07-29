@@ -31,7 +31,7 @@ cp registry/skills/_TEMPLATE.yaml registry/skills/<id>.yaml
 
 $EDITOR registry/<agents|skills>/<id>.yaml      # fill it in
 
-pip install pyyaml jsonschema
+pip install -r requirements.txt
 python scripts/validate_registry.py             # must pass
 python scripts/build_index.py                   # refresh registry/INDEX.md
 
