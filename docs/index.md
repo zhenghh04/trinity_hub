@@ -16,6 +16,37 @@ own agents and reusable skills.
 
 ---
 
+## What Trinity is
+
+Trinity is an agentic platform for **autonomous scientific computing** on DOE
+leadership-class systems, built at the Argonne Leadership Computing Facility. It
+runs on the **Claude Agent SDK** for reasoning and tool use, and rides **Globus**
+for identity, data movement, and compute — so one authenticated conversation can
+reach every facility you're authorized to use.
+
+Under the hood, it composes reusable building blocks rather than improvising
+from scratch each time:
+
+- **Agents** — domain specialists (DFT, molecular dynamics, performance
+  engineering, storage benchmarking, and more) that plan and run multi-step
+  campaigns, alone or together with people in a shared room.
+- **Workflows** — curated, parameterized HPC pipelines for common tasks (builds,
+  submissions, ports) that agents draw on instead of writing everything from
+  scratch.
+- **Skills** — atomic, reusable capabilities — a procedure, a tool wrapper, a
+  known fix — that any agent can load.
+
+Every action is recorded as **Knowledge** (validated domain facts that improve
+future runs), **Traces** (a full timeline of tool calls and observations), and
+**Provenance** (why a decision was made) — so results stay auditable and
+reproducible. Trinity is **multi-tenant** by design: each user's tokens,
+sessions, files, and credentials are isolated, while a read-only knowledge base
+and workflow library are shared across everyone. See
+[How it works](architecture.md) for the registry-vs-runtime split that lets
+outside agents and skills plug in.
+
+---
+
 ## Pick your path
 
 <div class="grid cards" markdown>
