@@ -1,3 +1,5 @@
 mkdocs-material>=9.5
+pillow
+cairosvg
 pyyaml
 jsonschema

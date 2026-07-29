@@ -27,11 +27,19 @@ theme:
     - navigation.top
     - navigation.indexes
     - navigation.footer
+    - navigation.instant
+    - navigation.instant.progress
     - toc.follow
     - content.code.copy
     - content.action.edit
     - search.suggest
     - search.highlight
+
+plugins:
+  - search
+  - social:
+      cards_layout_options:
+        background_color: "#7c6af7"
 
 extra_css:
   - stylesheets/extra.css
@@ -67,6 +75,7 @@ copyright: >-
 
 nav:
   - Home: index.md
+  - What's new: whats-new.md
   - Using Trinity:
       - Overview: using-trinity/index.md
       - Getting started: using-trinity/getting-started.md

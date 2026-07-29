@@ -32,6 +32,11 @@ jobs:
           python-version: "3.12"
           cache: pip
 
+      # libcairo2 is a runtime dependency of the mkdocs-material `social` plugin
+      # (social preview card generation) and isn't preinstalled on ubuntu-latest.
+      - name: Install system dependencies for social cards
+        run: sudo apt-get update && sudo apt-get install -y libcairo2-dev libfreetype6-dev libffi-dev libjpeg-dev libpng-dev libz-dev
+
       - run: pip install -r requirements.txt
 
       - name: Configure Pages (auto-enable on first run)
