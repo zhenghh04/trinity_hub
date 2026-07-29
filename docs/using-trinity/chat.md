@@ -4,6 +4,8 @@ The **Chat** view is where you do everything. You type a request; Trinity reason
 about it, calls the tools it needs (job submission, file access, data transfer,
 status checks), and streams the result back in real time.
 
+![A Trinity chat session checking facility status](../assets/screenshots/chat.png)
+
 ## Asking for work
 
 Be specific about **what**, **where**, and **how big**. Trinity fills the rest from

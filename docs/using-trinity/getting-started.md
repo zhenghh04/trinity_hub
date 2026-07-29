@@ -17,7 +17,7 @@ On first sign-in, Trinity **auto-provisions** your account with the **editor**
 role — enough to chat, submit jobs, run tools, and browse your own files. (See
 [Roles & access](roles-and-access.md) for what each role can do.)
 
-![Trinity workspace after login — AgentsHub, one of the views in the sidebar](../assets/screenshots/after-login.png)
+![Trinity Dashboard after login](../assets/screenshots/after-login.png)
 
 !!! note "Sessions"
     Your login is kept in a secure browser cookie that lasts ~24 hours. After it

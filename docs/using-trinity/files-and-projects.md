@@ -15,6 +15,8 @@ sessions and data stay together — e.g. a `qe-screening` project for a DFT stud
 - Your projects are **private to you** (tenant isolation); admins manage shared
   spaces.
 
+![The Projects view — empty until your first chat creates one](../assets/screenshots/projects.png)
+
 ## The file browser
 
 The **Files** view (and the file panel beside the chat) lets you:
@@ -25,6 +27,8 @@ The **Files** view (and the file panel beside the chat) lets you:
 - **Upload** files from your computer.
 - **Download** results back to your machine.
 - **Create, move, rename, and delete** files and folders.
+
+![The file panel open beside a chat](../assets/screenshots/files.png)
 
 !!! tip "Edit while you chat"
     Keep the file panel open next to the chat to inspect an input deck or a generated

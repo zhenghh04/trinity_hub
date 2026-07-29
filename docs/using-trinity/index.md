@@ -19,7 +19,7 @@ Crux, Sophia, Sirius), NERSC (Perlmutter), and OLCF (Frontier)**.
 
 <figure markdown>
   ![Trinity workspace after login](../assets/screenshots/after-login.png)
-  <figcaption>The workspace after login — here, AgentsHub, one of the views reachable from the sidebar.</figcaption>
+  <figcaption>The Dashboard — your landing page after login, with quick links and system status.</figcaption>
 </figure>
 
 </div>
