@@ -69,6 +69,22 @@ Yes — publish a small descriptor and your agent becomes `@mention`-able in roo
 while running on your own infrastructure. See
 [Register an agent](../register-an-agent.md).
 
+### How do I export a room's conversation?
+
+Open **⚙ Manage room** and use **⬇ Markdown** or **⬇ JSON** — both download the
+room's full transcript, not just what's currently on screen. →
+[Exporting a room's transcript](agents-and-rooms.md#exporting-a-rooms-transcript)
+
+### How is room cost calculated, and can I cap it?
+
+Cost is token usage priced against the same per-model table that backs the
+account-wide **Usage** view, shown live in the room header. Set a **max
+spend** when you create the room to stop agent replies once it's hit — the
+cap can't be changed after creation (start a new room for a different
+budget), and it only covers local Trinity agents, not externally-hosted
+ones. →
+[Tracking cost & setting a budget](agents-and-rooms.md#tracking-cost-setting-a-budget)
+
 ### Something else?
 
 Use the **Trace Timeline** on a session to see exactly what Trinity did, export the

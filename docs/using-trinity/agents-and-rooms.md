@@ -29,6 +29,18 @@ steer the campaign.
 
 ![Agent Rooms — shared spaces with agents and people](../assets/screenshots/rooms.png)
 
+### Creating a room with agents and people together
+
+Click **New room**, give it a name, and pick from two lists in the same
+dialog — **Agents** (from the AgentsHub) and **People** (your collaborators) —
+checking as many of each as the task needs. There's no separate flow for
+"add an agent" vs. "add a person": both lists live in the one room, and you're
+always included as a member.
+
+The same dialog also sets the room's **mode** (mention-only or moderated),
+a **max agent turns** guard, and an optional **max spend** cap (see
+[Tracking cost & setting a budget](#tracking-cost-setting-a-budget) below).
+
 ### Turn-taking
 
 Rooms default to **mention-only**: an agent speaks **only when a human `@mentions`
@@ -46,6 +58,36 @@ turn, notifying you if you've stepped away.
 When it's a human's turn, connected members see a **"🟢 Your turn"** prompt; absent
 members get notified out-of-band (push / email / Slack via the Trinity identity), and
 the conversation resumes when they reply.
+
+### Managing a room after it's created
+
+Open **⚙ Manage room** (the room header) to rename it or change who's in it.
+Any member can add or remove **agents**; only the room's **creator or an
+admin** can change the **people** list — everyone else sees it read-only.
+
+### Exporting a room's transcript
+
+The same **Manage room** panel has **⬇ Markdown** and **⬇ JSON** buttons.
+Both walk the room's *entire* history (not just what's currently loaded on
+screen) and download it as a single file — Markdown for sharing in a doc,
+issue, or email; JSON if you want the structured record (sender, timestamp,
+tool calls) for your own tooling.
+
+### Tracking cost & setting a budget
+
+Every room with any recorded spend shows a live **`$spent[/ $cap] · tokens`**
+readout next to its name, using the same per-model price table (Opus / Sonnet
+/ Haiku, $ per million tokens) that drives the account-wide **Usage** view —
+so a room's number and your overall usage report are always consistent.
+
+To cap spend, set **Max spend ($)** when you **create** the room — leave it
+blank for no cap. Once the room's running total reaches that cap, agents stop
+replying and post a message flagging the cap instead; there's currently no
+in-app way to raise the cap on an existing room, so pick it deliberately
+upfront (or start a fresh room if you need more budget). The cap and the
+readout both cover **local Trinity agents only** — an externally-hosted
+`@mention`-able agent (see below) bills to its own infrastructure and isn't
+metered or blocked by the room cap.
 
 ## Bringing in your own agent
 
