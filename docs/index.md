@@ -75,6 +75,15 @@ outside agents and skills plug in.
 
     [:octicons-arrow-right-24: How it works](architecture.md)
 
+-   :material-flask-outline: **See it in action** *(anyone)*
+
+    ---
+
+    Real DFT, molecular dynamics, GPU porting, and paper-reproduction campaigns run
+    end-to-end through Trinity — the prompt, what happened, and the result.
+
+    [:octicons-arrow-right-24: Browse Science Campaigns](campaigns/index.md)
+
 </div>
 
 ---

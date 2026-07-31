@@ -86,6 +86,57 @@ nav:
       - Agents & rooms: using-trinity/agents-and-rooms.md
       - Roles & access: using-trinity/roles-and-access.md
       - FAQ: using-trinity/faq.md
+  - Science Campaigns:
+      - Overview: campaigns/index.md
+      - Trinity runs:
+          - Overview: campaigns/trinity-runs/index.md
+          - "N2 gas MD (2 models)": campaigns/trinity-runs/lammps-n2-gas.md
+          - OpenFold GPU kernel fix: campaigns/trinity-runs/openfold-cuda-rebuild.md
+          - "MLPerf VectorDB: DAOS vs Lustre": campaigns/trinity-runs/mlperf-vectordb-aurora.md
+          - NWChem/QMCPACK/WRF verification: campaigns/trinity-runs/polaris-cseries.md
+          - Perlmutter smoke test: campaigns/trinity-runs/iri-smoketest-perlmutter.md
+          - SiC ground-state DFT: campaigns/trinity-runs/sic-dft.md
+          - Liquid argon MD: campaigns/trinity-runs/lammps-argon.md
+          - Graphene DFT convergence: campaigns/trinity-runs/dft-graphene.md
+          - TiO2 XANES prediction: campaigns/trinity-runs/xanes-tio2.md
+      - Autonomous science campaigns:
+          - Overview: campaigns/science-campaigns/index.md
+          - "C1: Argon melting point": campaigns/science-campaigns/c1-argon-melting.md
+          - "C2: Silicon band structure": campaigns/science-campaigns/c2-silicon-bands.md
+          - "C3: Trp-cage thermal stability": campaigns/science-campaigns/c3-gromacs-trp-cage.md
+          - "C4: Water dimer binding": campaigns/science-campaigns/c4-water-dimer.md
+          - "C5: NekRS cross-facility": campaigns/science-campaigns/c5-nekrs-turbulent-pipe.md
+          - "C6: HACC GPU bug": campaigns/science-campaigns/c6-hacc-gpu-bug.md
+          - "C7: GROMACS multi-facility": campaigns/science-campaigns/c7-gromacs-multi-facility.md
+          - "C8: BerkeleyGW G0W0": campaigns/science-campaigns/c8-berkeleygw-g0w0.md
+          - "C12: N2 dissociation (DMRG)": campaigns/science-campaigns/c12-block2-n2.md
+          - "T3.1: Copper melting": campaigns/science-campaigns/t3-1-cu-melting.md
+          - "T3.2: NekRS high-Re": campaigns/science-campaigns/t3-2-nekrs-high-re.md
+          - "T3.3: GROMACS ensemble": campaigns/science-campaigns/t3-3-gromacs-ensemble.md
+          - "T3.4: SiC phonons": campaigns/science-campaigns/t3-4-sic-phonons.md
+          - App smoke-test matrix: campaigns/science-campaigns/smoke-tests.md
+      - Engineering case studies:
+          - Overview: campaigns/engineering/index.md
+          - "BEM_2D CUDA port (1,041x)": campaigns/engineering/bem2d-cuda-port.md
+          - "BEM_3D CUDA port (502x)": campaigns/engineering/bem3d-cuda-port.md
+          - "GeoSeries PVC (7,638x)": campaigns/engineering/geoseries-pvc.md
+          - MOOSE+libCEED port: campaigns/engineering/moose-libceed.md
+          - OpenFold Intel XPU port: campaigns/engineering/openfold-xpu.md
+          - GROMACS Frontier GPU port: campaigns/engineering/gromacs-frontier-port.md
+          - "MATEY: AMD to NVIDIA port": campaigns/engineering/matey-port.md
+          - Chai-1 on Aurora: campaigns/engineering/chai-lab-aurora.md
+          - PyTorch build (Aurora): campaigns/engineering/aurora-pytorch-build.md
+          - PyTorch+Triton (Aurora): campaigns/engineering/aurora-pytorch-triton.md
+          - PyTorch build (Sophia): campaigns/engineering/sophia-pytorch-build.md
+          - HACC build (Polaris): campaigns/engineering/hacc-build.md
+          - LAMMPS PV=nRT check: campaigns/engineering/lammps-pvnrt.md
+      - Paper reproductions:
+          - Overview: campaigns/papers/index.md
+          - VO2 metal-insulator transition: campaigns/papers/vo2-mit.md
+          - "DFT cross-code Δ-factor": campaigns/papers/delta-factor-dft.md
+          - PtyRAD ptychography: campaigns/papers/ptyrad.md
+          - Nickelate oxygen imaging: campaigns/papers/nickelate-oxygen.md
+          - TRIQS toolkit validation: campaigns/papers/triqs.md
   - Extend:
       - Register an agent: register-an-agent.md
       - Contribute a skill: contribute-a-skill.md
