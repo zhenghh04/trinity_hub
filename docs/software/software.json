@@ -1,0 +1,1734 @@
+{
+ "generated": "2026-08-05T04:35:58Z",
+ "counts": {
+  "apps": 55,
+  "systems": 10,
+  "cards": 211,
+  "smoke": 28,
+  "passed": 28
+ },
+ "systems": [
+  {
+   "id": "polaris",
+   "name": "Polaris",
+   "facility": "ALCF",
+   "description": "560-node A100 GPU cluster at Argonne National Laboratory",
+   "app_count": 44
+  },
+  {
+   "id": "aurora",
+   "name": "Aurora",
+   "facility": "ALCF",
+   "description": "10,624-node Intel Data Center GPU Max Series exascale supercomputer at Argonne National Laboratory",
+   "app_count": 31
+  },
+  {
+   "id": "frontier",
+   "name": "Frontier",
+   "facility": "OLCF",
+   "description": "9408-node AMD MI250X exascale GPU system at Oak Ridge National Laboratory",
+   "app_count": 31
+  },
+  {
+   "id": "perlmutter",
+   "name": "Perlmutter",
+   "facility": "NERSC",
+   "description": "GPU/CPU hybrid supercomputer at NERSC (NVIDIA A100 GPUs + AMD Milan CPUs)",
+   "app_count": 29
+  },
+  {
+   "id": "crux",
+   "name": "Crux",
+   "facility": "ALCF",
+   "description": "256-node AMD EPYC CPU-only cluster at Argonne National Laboratory",
+   "app_count": 24
+  },
+  {
+   "id": "sirius",
+   "name": "Sirius",
+   "facility": "ALCF",
+   "description": "ALCF staging cluster",
+   "app_count": 16
+  },
+  {
+   "id": "odo",
+   "name": "Odo",
+   "facility": "OLCF",
+   "description": "30-node AMD MI250X training system at Oak Ridge National Laboratory (Frontier architecture clone)",
+   "app_count": 13
+  },
+  {
+   "id": "sophia",
+   "name": "Sophia",
+   "facility": "ALCF",
+   "description": "24-node DGX A100 GPU cluster at Argonne National Laboratory",
+   "app_count": 11
+  },
+  {
+   "id": "sunspot",
+   "name": "Sunspot",
+   "facility": "ALCF",
+   "description": "128-node Intel Data Center GPU Max Series testbed for Aurora at Argonne National Laboratory",
+   "app_count": 11
+  },
+  {
+   "id": "cerebras",
+   "name": "Cerebras",
+   "facility": "ALCF",
+   "description": "4 CS-3 wafer-scale engines + 4 worker nodes + 4 activation servers; AI testbed (Kubernetes appliance)",
+   "app_count": 1
+  }
+ ],
+ "apps": [
+  {
+   "key": "allegro",
+   "name": "allegro",
+   "category": "ml-framework",
+   "description": "Allegro E(3)-equivariant ML interatomic potential (NequIP extension, CUDA for Polaris A100)",
+   "systems": {
+    "polaris": {
+     "state": "available",
+     "build": "completed"
+    }
+   }
+  },
+  {
+   "key": "alphafold",
+   "name": "AlphaFold",
+   "category": "bioinformatics",
+   "description": "AlphaFold 2: protein structure prediction using JAX + TF (XPU-accelerated)",
+   "systems": {
+    "aurora": {
+     "state": "available",
+     "build": "installed"
+    },
+    "frontier": {
+     "state": "listed",
+     "build": ""
+    },
+    "perlmutter": {
+     "state": "available",
+     "build": "built"
+    },
+    "polaris": {
+     "state": "pass",
+     "build": "working",
+     "smoke": "pass",
+     "smoke_date": "2026-07-10",
+     "smoke_result": "FULL end-to-end PASS: MSA (features 3757s) -> 5-model JAX inference (~50-84s each) -> Amber GPU relaxation (Einit 1227.84 -> Efinal -1262.51, 0 residue violations) -> ranking. Wrote ranked_0.pdb, relaxed_model_1_pred_0.pdb, ranking_debug.json. pLDDT model_1=95.73 (95.7/95.6/93.2/89.8/89.7).",
+     "smoke_cmd": "run_alphafold.py, 78-res monomer, full_dbs, staged /eagle/datasets/alphafold; GPU relax"
+    }
+   }
+  },
+  {
+   "key": "berkeleygw",
+   "name": "BerkeleyGW",
+   "category": "simulation",
+   "description": "Many-body perturbation theory GW + Bethe-Salpeter (GW-BSE) code for excited-state electronic structure. CPU build with the Intel oneAPI (ifx/icx/icpx) toolchain + oneMKL ScaLAPACK/BLACS/FFTW3 + parallel HDF5 on ALCF Aurora.",
+   "systems": {
+    "aurora": {
+     "state": "pass",
+     "build": "success",
+     "smoke": "pass",
+     "smoke_date": "2026-06-26",
+     "smoke_result": "BLACS 2x2 grid; 40 matrix elements; polarizability over 4 ranks; 3 q-points:\n  q-pt 1 (q->0): Head of Epsilon = 16.96195,  Head of Epsilon Inverse = 0.0650199\n  q-pt 2:        Head of Epsilon =  3.10432,  Head of Epsilon Inverse = 0.361415\n  q-pt 3:        Head of Epsilon =  2.89448,  Head of Epsilon Inverse = 0.365704\nOutputs: eps0mat.h5 (119356 B, parallel collective write OK), epsilon.log, chi_converge.dat\n",
+     "smoke_cmd": "BerkeleyGW testsuite Si-EPM (real flavor) — empirical-pseudopotential mean field (no external DFT) + epsilon GW dielectric matrix"
+    },
+    "crux": {
+     "state": "available",
+     "build": "success"
+    },
+    "frontier": {
+     "state": "available",
+     "build": "built"
+    },
+    "odo": {
+     "state": "blocked",
+     "build": "blocked"
+    },
+    "perlmutter": {
+     "state": "available",
+     "build": "built"
+    },
+    "polaris": {
+     "state": "listed",
+     "build": ""
+    },
+    "sunspot": {
+     "state": "available",
+     "build": "success"
+    }
+   }
+  },
+  {
+   "key": "block2",
+   "name": "block2",
+   "category": "quantum-chemistry",
+   "description": "block2 (pyblock2) — DMRG / ab-initio matrix-product-state quantum-chemistry solver. CPU (serial/OpenMP) pip wheel installed into a venv off frameworks Python 3.12, with PySCF as the integral/FCIDUMP front end, on ALCF Aurora.",
+   "systems": {
+    "aurora": {
+     "state": "available",
+     "build": "success"
+    },
+    "crux": {
+     "state": "available",
+     "build": "working"
+    },
+    "frontier": {
+     "state": "available",
+     "build": "success"
+    },
+    "odo": {
+     "state": "available",
+     "build": "built"
+    },
+    "perlmutter": {
+     "state": "available",
+     "build": "working"
+    },
+    "polaris": {
+     "state": "available",
+     "build": "working"
+    },
+    "sunspot": {
+     "state": "available",
+     "build": "working"
+    }
+   }
+  },
+  {
+   "key": "cerebras_pt",
+   "name": "Cerebras PyTorch venv (R_2.9.0)",
+   "category": "ml-framework",
+   "description": "Python 3.11 virtualenv for Cerebras CS-3 PyTorch jobs on cer-usn-01/02",
+   "systems": {
+    "cerebras": {
+     "state": "listed",
+     "build": ""
+    }
+   }
+  },
+  {
+   "key": "chai_lab",
+   "name": "chai-lab",
+   "category": "ml-framework",
+   "description": "Chai-1 protein structure prediction model (XPU-ported fork for Aurora Intel PVC)",
+   "systems": {
+    "aurora": {
+     "state": "available",
+     "build": "completed"
+    },
+    "frontier": {
+     "state": "available",
+     "build": "completed"
+    },
+    "odo": {
+     "state": "available",
+     "build": "installed"
+    },
+    "perlmutter": {
+     "state": "available",
+     "build": "completed"
+    },
+    "polaris": {
+     "state": "available",
+     "build": "completed"
+    }
+   }
+  },
+  {
+   "key": "cp2k",
+   "name": "CP2K",
+   "category": "dft",
+   "description": "Quantum chemistry and molecular dynamics code with Intel oneAPI compilers on Aurora",
+   "systems": {
+    "aurora": {
+     "state": "available",
+     "build": "installed"
+    },
+    "crux": {
+     "state": "in_progress",
+     "build": "needs_build"
+    },
+    "frontier": {
+     "state": "listed",
+     "build": ""
+    },
+    "perlmutter": {
+     "state": "in_progress",
+     "build": "needs_build"
+    },
+    "polaris": {
+     "state": "pass",
+     "build": "installed (conda-forge cp2k.psmp)",
+     "smoke": "pass",
+     "smoke_date": "2026-07-09",
+     "smoke_result": "SCF converged 6/6; MD advanced 5 steps; T~300 K (287->316); E ~= -551.45 Ha; 0 warnings",
+     "smoke_cmd": "32-water BOMD, 5 NVT steps, DZVP-MOLOPT-SR-GTH/PBE, CUTOFF 300 (single rank + OMP=32)"
+    },
+    "sirius": {
+     "state": "in_progress",
+     "build": "pending"
+    },
+    "sophia": {
+     "state": "in_progress",
+     "build": "building"
+    }
+   }
+  },
+  {
+   "key": "deepspeed",
+   "name": "DeepSpeed (XPU)",
+   "category": "ml-framework",
+   "description": "Microsoft DeepSpeed with Intel XPU support, built on top of PyTorch XPU for Aurora",
+   "systems": {
+    "aurora": {
+     "state": "in_progress",
+     "build": "needs_build"
+    },
+    "frontier": {
+     "state": "listed",
+     "build": ""
+    },
+    "perlmutter": {
+     "state": "in_progress",
+     "build": "needs_build"
+    },
+    "polaris": {
+     "state": "pass",
+     "build": "installed",
+     "smoke": "pass",
+     "smoke_date": "2026-07-09",
+     "smoke_result": "loss 1.05 -> 1.03 over 60 steps, DONE_DEEPSPEED (coverage campaign)",
+     "smoke_cmd": "ZeRO-1 tiny MLP, fp16, 4x A100 via torchrun --nproc_per_node=4 train.py (base conda)"
+    },
+    "sirius": {
+     "state": "in_progress",
+     "build": "needs_build"
+    },
+    "sophia": {
+     "state": "available",
+     "build": "built"
+    }
+   }
+  },
+  {
+   "key": "e3sm_scream",
+   "name": "E3Sm Scream",
+   "category": "",
+   "description": "E3SM EAMxx / SCREAM — the C++/Kokkos rewrite of E3SM's atmosphere physics\n(P3 microphysics, SHOC turbulence, RRTMGP radiation, etc.), GPU-portable via\nKokkos. INCITE-demanded climate code (5 proposals), no prior Polaris recipe.\nThis is a STANDALONE library build of components/eamxx driven directly by\nCMake — deliberately NOT the CIME case / test-all-eamxx wrapper, which would\nrequire porting a CIME machine config for Polaris (out of scope for a first\nbuild). E3SM's own committed machine file cmake/machine-files/polaris.cmake\nsupplies the compiler + Kokkos config (it includes EKAT's nvidia-a100.cmake =>\nKokkos_ARCH_AMPERE80 + CMAKE_CUDA_ARCHITECTURES=80, and cuda.cmake =>\nKokkos_ENABLE_CUDA + CUDA_LAMBDA). Adapted from the WarpX/Polaris Kokkos-CUDA\nsibling (software/polaris/warpx.yaml) for the toolchain + nvcc-MPI lessons.\n",
+   "systems": {
+    "polaris": {
+     "state": "listed",
+     "build": ""
+    }
+   }
+  },
+  {
+   "key": "esmfold",
+   "name": "ESMFold",
+   "category": "ml-framework",
+   "description": "Single-sequence protein structure prediction using Meta's ESMFold (esmfold_v1) — fast, no MSA required",
+   "systems": {
+    "polaris": {
+     "state": "pass",
+     "build": "completed",
+     "smoke": "pass",
+     "smoke_date": "2026-07-09",
+     "smoke_result": "folded; mean pLDDT 69.2 (coverage campaign)",
+     "smoke_cmd": "78-res peptide via transformers EsmForProteinFolding (facebook/esmfold_v1), venv python"
+    }
+   }
+  },
+  {
+   "key": "flash",
+   "name": "FLASH",
+   "category": "simulation",
+   "description": "Adaptive mesh refinement astrophysics simulation code for reactive flows, MHD, and gravity",
+   "systems": {
+    "polaris": {
+     "state": "in_progress",
+     "build": "needs_build"
+    }
+   }
+  },
+  {
+   "key": "gamess_rimp2",
+   "name": "GAMESS RI-MP2 mini-app",
+   "category": "simulation",
+   "description": "DOE quantum-chemistry RI-MP2 correlation-energy kernel; cross-vendor benchmark",
+   "systems": {
+    "polaris": {
+     "state": "pass",
+     "build": "",
+     "smoke": "pass",
+     "smoke_date": "2026-07-09",
+     "smoke_result": "Passed :-) ; MP2 corr-energy rel.err 3e-16, wall 0.002 s (coverage campaign)",
+     "smoke_cmd": "cd inputs && rimp2-cublas benz.kern (cuBLAS GPU offload)"
+    }
+   }
+  },
+  {
+   "key": "globus_compute_env",
+   "name": "Globus Compute Endpoint Environment",
+   "category": "infrastructure",
+   "description": "Python 3.11 conda environment for running Globus Compute endpoints on Crux",
+   "systems": {
+    "crux": {
+     "state": "listed",
+     "build": ""
+    },
+    "polaris": {
+     "state": "listed",
+     "build": ""
+    }
+   }
+  },
+  {
+   "key": "grid",
+   "name": "grid",
+   "category": "application",
+   "description": "Grid — data-parallel C++ library for lattice QCD (HIP/gfx90a for Frontier MI250X)",
+   "systems": {
+    "frontier": {
+     "state": "available",
+     "build": "completed"
+    }
+   }
+  },
+  {
+   "key": "gromacs",
+   "name": "GROMACS",
+   "category": "simulation",
+   "description": "Molecular dynamics simulation with Intel GPU acceleration via SYCL backend",
+   "systems": {
+    "aurora": {
+     "state": "available",
+     "build": "built"
+    },
+    "crux": {
+     "state": "available",
+     "build": "installed"
+    },
+    "frontier": {
+     "state": "listed",
+     "build": ""
+    },
+    "odo": {
+     "state": "available",
+     "build": "installed"
+    },
+    "perlmutter": {
+     "state": "available",
+     "build": "built"
+    },
+    "polaris": {
+     "state": "pass",
+     "build": "built",
+     "smoke": "pass",
+     "smoke_date": "2026-07-09",
+     "smoke_result": "grompp rc=0; mdrun rc=0; Performance = 1547 ns/day (A100)",
+     "smoke_cmd": "solvate (empty [molecules]) -> grompp -> mdrun -nb gpu -pme gpu -ntomp 8 (TIP3P water, 4nm)"
+    },
+    "sirius": {
+     "state": "in_progress",
+     "build": "needs_build"
+    },
+    "sophia": {
+     "state": "in_progress",
+     "build": "needs_build"
+    }
+   }
+  },
+  {
+   "key": "gromacs_hip",
+   "name": "GROMACS (HIP/ROCm)",
+   "category": "simulation",
+   "description": "GPU-accelerated GROMACS via HIP/ROCm for AMD MI250X on Frontier",
+   "systems": {
+    "frontier": {
+     "state": "available",
+     "build": "built"
+    },
+    "odo": {
+     "state": "available",
+     "build": "installed"
+    }
+   }
+  },
+  {
+   "key": "gromacs_opencl",
+   "name": "Gromacs Opencl",
+   "category": "",
+   "description": "",
+   "systems": {
+    "frontier": {
+     "state": "listed",
+     "build": ""
+    }
+   }
+  },
+  {
+   "key": "hacc",
+   "name": "HACC (HACCabana)",
+   "category": "simulation",
+   "description": "Hardware/Hybrid Accelerated Cosmology Code - HACCabana proxy with Kokkos SYCL backend on Aurora",
+   "systems": {
+    "aurora": {
+     "state": "available",
+     "build": "installed"
+    },
+    "crux": {
+     "state": "available",
+     "build": "installed"
+    },
+    "frontier": {
+     "state": "listed",
+     "build": ""
+    },
+    "perlmutter": {
+     "state": "available",
+     "build": "built"
+    },
+    "polaris": {
+     "state": "pass",
+     "build": "",
+     "smoke": "pass",
+     "smoke_date": "2026-07-09",
+     "smoke_result": "rc=0; synthetic data range [8,72] rL=64 oL=8; 262144 particles; 5 subcycles; kick completed",
+     "smoke_cmd": "driver_short-range -s -t 0 -c 064.indat.params  (1 rank, 1 A100)"
+    }
+   }
+  },
+  {
+   "key": "hpl",
+   "name": "HPL",
+   "category": "benchmark",
+   "description": "High Performance Linpack benchmark using Intel MKL on Aurora",
+   "systems": {
+    "aurora": {
+     "state": "available",
+     "build": "built"
+    },
+    "crux": {
+     "state": "available",
+     "build": "built"
+    },
+    "frontier": {
+     "state": "listed",
+     "build": ""
+    },
+    "perlmutter": {
+     "state": "available",
+     "build": "installed"
+    },
+    "polaris": {
+     "state": "pass",
+     "build": "installed",
+     "smoke": "pass",
+     "smoke_date": "2026-07-09",
+     "smoke_result": "residual PASSED; 201 Gflops (campaign C18). Note: no HPL.dat is bundled - generate one.",
+     "smoke_cmd": "xhpl, HPL.dat N=20000 NB=192 P=2 Q=2 (4 ranks, CPU)"
+    }
+   }
+  },
+  {
+   "key": "ior",
+   "name": "IOR",
+   "category": "benchmark",
+   "description": "IOR/mdtest parallel I/O benchmark with native DAOS DFS backend on Aurora (also POSIX/MPIIO/MMAP)",
+   "systems": {
+    "aurora": {
+     "state": "available",
+     "build": "built"
+    }
+   }
+  },
+  {
+   "key": "lammps",
+   "name": "LAMMPS",
+   "category": "simulation",
+   "description": "Classical molecular dynamics with Intel GPU acceleration via Kokkos SYCL backend",
+   "systems": {
+    "aurora": {
+     "state": "available",
+     "build": "built"
+    },
+    "crux": {
+     "state": "available",
+     "build": "built"
+    },
+    "frontier": {
+     "state": "listed",
+     "build": ""
+    },
+    "perlmutter": {
+     "state": "listed",
+     "build": ""
+    },
+    "polaris": {
+     "state": "listed",
+     "build": ""
+    },
+    "sirius": {
+     "state": "in_progress",
+     "build": "needs_build"
+    },
+    "sophia": {
+     "state": "in_progress",
+     "build": "needs_build"
+    }
+   }
+  },
+  {
+   "key": "megatron",
+   "name": "Megatron-LM",
+   "category": "ml-framework",
+   "description": "NVIDIA Megatron-LM / Megatron-Core LLM training with tensor, pipeline, and data parallelism. Installed at /eagle/datascience/hzheng/software/polaris/megatron with a project-local venv layered on the ALCF mconda3.",
+   "systems": {
+    "polaris": {
+     "state": "blocked",
+     "build": "installed (venv BROKEN — needs rebuild before it runs)"
+    }
+   }
+  },
+  {
+   "key": "mfc",
+   "name": "MFC",
+   "category": "simulation",
+   "description": "GPU-native compressible many-physics flow solver (shock-capturing, multiphase, high-order WENO/MUSCL). Georgia Tech. FV.",
+   "systems": {
+    "polaris": {
+     "state": "available",
+     "build": "built"
+    }
+   }
+  },
+  {
+   "key": "moose",
+   "name": "MOOSE",
+   "category": "simulation",
+   "description": "Multiphysics Object-Oriented Simulation Environment - finite-element framework from INL",
+   "systems": {
+    "aurora": {
+     "state": "listed",
+     "build": ""
+    },
+    "frontier": {
+     "state": "listed",
+     "build": ""
+    },
+    "polaris": {
+     "state": "pass",
+     "build": "",
+     "smoke": "pass",
+     "smoke_date": "2026-07-09",
+     "smoke_result": "Solve Converged! (coverage campaign)",
+     "smoke_cmd": "test/tests simple_diffusion.i via mpiexec -n 4 moose_test-opt"
+    },
+    "sunspot": {
+     "state": "listed",
+     "build": ""
+    }
+   }
+  },
+  {
+   "key": "moose-libceed",
+   "name": "MOOSE-libCEED-XPU",
+   "category": "simulation",
+   "description": "MOOSE built against libCEED (SYCL backend on Intel PVC). Phase A: per-element CeedOperator (LibCeedDiffusion Kernel). Phase B: mesh-wide CeedOperator (LibCeedMeshOperator UserObject + LibCeedDiffusionGlobal trampoline Kernel). Both produce bit-for-bit identical residuals to standard MOOSE Diffusion on CPU and PVC up to 125K-element meshes. Microbench shows 40x kernel speedup PVC vs CPU at 50^3.",
+   "systems": {
+    "sunspot": {
+     "state": "listed",
+     "build": ""
+    }
+   }
+  },
+  {
+   "key": "namd",
+   "name": "NAMD",
+   "category": "simulation",
+   "description": "NAMD 2/3: Scalable Molecular Dynamics (GPU-offload for Intel PVC + CPU variants)",
+   "systems": {
+    "aurora": {
+     "state": "available",
+     "build": "installed"
+    },
+    "crux": {
+     "state": "in_progress",
+     "build": "needs_build"
+    },
+    "frontier": {
+     "state": "listed",
+     "build": ""
+    },
+    "perlmutter": {
+     "state": "listed",
+     "build": ""
+    },
+    "polaris": {
+     "state": "pass",
+     "build": "",
+     "smoke": "pass",
+     "smoke_date": "2026-07-10",
+     "smoke_result": "PASS: 500 steps, ~77 ns/day (0.0130 days/ns), End of program clean; wrote apoa1-out.coor/.vel/.xsc. Final TOTAL -222494.9 kcal/mol, TEMP 165.0 K.",
+     "smoke_cmd": "apoa1 (92k atoms, 500 steps, GPU-resident, 4x A100)"
+    },
+    "sirius": {
+     "state": "in_progress",
+     "build": "needs_build"
+    }
+   }
+  },
+  {
+   "key": "nek5000",
+   "name": "Nek5000",
+   "category": "simulation",
+   "description": "Spectral element CFD solver - CPU MPI build on Aurora with Intel oneAPI compilers",
+   "systems": {
+    "aurora": {
+     "state": "available",
+     "build": "built"
+    },
+    "crux": {
+     "state": "available",
+     "build": "built"
+    },
+    "frontier": {
+     "state": "listed",
+     "build": ""
+    },
+    "odo": {
+     "state": "available",
+     "build": "installed"
+    },
+    "perlmutter": {
+     "state": "available",
+     "build": "built"
+    },
+    "polaris": {
+     "state": "pass",
+     "build": "",
+     "smoke": "pass",
+     "smoke_date": "2026-07-09",
+     "smoke_result": "solver ran to 'end of time-step loop', total solver time 3.94 s (coverage campaign)",
+     "smoke_cmd": "examples/eddy_uv: cp SIZE.legacy SIZE; makenek eddy_uv; genmap; mpiexec -n 4 ./nek5000"
+    }
+   }
+  },
+  {
+   "key": "nekrs",
+   "name": "NekRS",
+   "category": "simulation",
+   "description": "GPU-accelerated spectral element CFD solver with OCCA/SYCL backend for Intel GPUs",
+   "systems": {
+    "aurora": {
+     "state": "available",
+     "build": "installed"
+    },
+    "crux": {
+     "state": "in_progress",
+     "build": "needs_build"
+    },
+    "frontier": {
+     "state": "listed",
+     "build": ""
+    },
+    "perlmutter": {
+     "state": "listed",
+     "build": ""
+    },
+    "polaris": {
+     "state": "listed",
+     "build": ""
+    },
+    "sophia": {
+     "state": "available",
+     "build": "built"
+    }
+   }
+  },
+  {
+   "key": "nixl",
+   "name": "NIXL",
+   "category": "",
+   "description": "NVIDIA Inference Xfer Library — high-perf point-to-point transfers for AI inference (KV-cache, TP comms)",
+   "systems": {
+    "polaris": {
+     "state": "listed",
+     "build": ""
+    }
+   }
+  },
+  {
+   "key": "nwchem",
+   "name": "NWChem",
+   "category": "dft",
+   "description": "Computational chemistry software with Intel oneAPI compilers on Aurora",
+   "systems": {
+    "aurora": {
+     "state": "available",
+     "build": "built"
+    },
+    "crux": {
+     "state": "in_progress",
+     "build": "needs_build"
+    },
+    "frontier": {
+     "state": "available",
+     "build": "installed"
+    },
+    "perlmutter": {
+     "state": "in_progress",
+     "build": "needs_build"
+    },
+    "polaris": {
+     "state": "pass",
+     "build": "built",
+     "smoke": "pass",
+     "smoke_date": "2026-07-09",
+     "smoke_result": "Total DFT energy = -76.408731 Ha (campaign C14). Correct basis lib path was the fix.",
+     "smoke_cmd": "mpiexec -n 4 --ppn 4 nwchem water.nw (water B3LYP/6-31G*, geometry noautoz nocenter)"
+    },
+    "sirius": {
+     "state": "in_progress",
+     "build": "in_progress"
+    }
+   }
+  },
+  {
+   "key": "nyx",
+   "name": "Nyx",
+   "category": "simulation",
+   "description": "AMReX-Astro adaptive-mesh cosmological hydrodynamics + N-body code, built with the AMReX SYCL/DPC++ backend for Intel PVC GPUs on Aurora",
+   "systems": {
+    "aurora": {
+     "state": "available",
+     "build": "installed"
+    },
+    "crux": {
+     "state": "available",
+     "build": "success"
+    },
+    "frontier": {
+     "state": "available",
+     "build": "installed"
+    },
+    "odo": {
+     "state": "available",
+     "build": "built"
+    },
+    "perlmutter": {
+     "state": "available",
+     "build": "working"
+    },
+    "polaris": {
+     "state": "pass",
+     "build": "working",
+     "smoke": "pass",
+     "smoke_date": "2026-07-09",
+     "smoke_result": "4x A100 detected; [Level 0 step 5] Advanced 32768 cells; STEP=5; Run time=0.198s; AMReX finalized; rc=0",
+     "smoke_cmd": "mpiexec -n 4 --ppn 4 nyx_minisb.ex inputs.32 max_step=5 (MPICH_GPU_SUPPORT_ENABLED unset)"
+    },
+    "sunspot": {
+     "state": "available",
+     "build": "installed"
+    }
+   }
+  },
+  {
+   "key": "openfoam",
+   "name": "OpenFOAM",
+   "category": "simulation",
+   "description": "OpenFOAM 11 (Foundation): open-source CFD with FVM, LES/RANS, multiphase",
+   "systems": {
+    "aurora": {
+     "state": "available",
+     "build": "installed"
+    },
+    "crux": {
+     "state": "available",
+     "build": "built"
+    },
+    "frontier": {
+     "state": "available",
+     "build": "installed"
+    },
+    "perlmutter": {
+     "state": "available",
+     "build": "installed"
+    },
+    "polaris": {
+     "state": "pass",
+     "build": "built",
+     "smoke": "pass",
+     "smoke_date": "2026-07-09",
+     "smoke_result": "solver converges: Ux resid->7.8e-7, p->5.6e-7, continuity 3e-10, time advancing (campaign C16)",
+     "smoke_cmd": "tutorials/fluid/pitzDaily via ./Allrun (blockMesh + foamRun -solver incompressibleFluid)"
+    }
+   }
+  },
+  {
+   "key": "openfold",
+   "name": "OpenFold",
+   "category": "bioinformatics",
+   "description": "AlphaFold2 PyTorch reimplementation — Intel XPU port for Aurora/Sunspot (PVC)",
+   "systems": {
+    "aurora": {
+     "state": "available",
+     "build": "built"
+    },
+    "frontier": {
+     "state": "available",
+     "build": "built"
+    },
+    "odo": {
+     "state": "available",
+     "build": "installed"
+    },
+    "perlmutter": {
+     "state": "available",
+     "build": "built"
+    },
+    "polaris": {
+     "state": "pass",
+     "build": "working",
+     "smoke": "pass",
+     "smoke_date": "2026-07-10",
+     "smoke_result": "PASS: GPU inference 9.18 s on one A100 (rebuilt attn_core CUDA kernel), wrote seq_model_1_ptm_unrelaxed.pdb (78 residues). mean pLDDT = 95.71 — matches the AlphaFold2 pass (95.7), same weights + sequence.",
+     "smoke_cmd": "run_pretrained_openfold.py, 78-res monomer, --config_preset model_1_ptm, --jax_param_path=/eagle/datasets/alphafold/params/params_model_1_ptm.npz, --use_precomputed_alignments, --skip_relaxation, --model_device cuda:0"
+    },
+    "sirius": {
+     "state": "available",
+     "build": "built"
+    },
+    "sunspot": {
+     "state": "available",
+     "build": "built"
+    }
+   }
+  },
+  {
+   "key": "openmc",
+   "name": "OpenMC",
+   "category": "simulation",
+   "description": "OpenMC: Monte Carlo neutron and photon transport for nuclear reactor physics, criticality, depletion, and shielding",
+   "systems": {
+    "aurora": {
+     "state": "available",
+     "build": "installed"
+    },
+    "crux": {
+     "state": "available",
+     "build": "installed"
+    },
+    "frontier": {
+     "state": "available",
+     "build": "installed"
+    },
+    "odo": {
+     "state": "available",
+     "build": "built"
+    },
+    "perlmutter": {
+     "state": "available",
+     "build": "installed"
+    },
+    "polaris": {
+     "state": "pass",
+     "build": "installed",
+     "smoke": "pass",
+     "smoke_date": "2026-07-09",
+     "smoke_result": "Combined k-effective = 1.01968 +/- 0.01554 (Godiva-like); rc=0",
+     "smoke_cmd": "bare U-235 sphere (r=8.7cm, vacuum) eigenvalue, 10 batches, on a COMPUTE node"
+    },
+    "sunspot": {
+     "state": "available",
+     "build": "installed"
+    }
+   }
+  },
+  {
+   "key": "openmm",
+   "name": "OpenMM",
+   "category": "simulation",
+   "description": "GPU-accelerated molecular dynamics — XPU/PVC support via OpenCL platform",
+   "systems": {
+    "aurora": {
+     "state": "available",
+     "build": "built"
+    },
+    "frontier": {
+     "state": "listed",
+     "build": ""
+    },
+    "perlmutter": {
+     "state": "available",
+     "build": "built"
+    },
+    "polaris": {
+     "state": "pass",
+     "build": "built",
+     "smoke": "pass",
+     "smoke_date": "2026-07-09",
+     "smoke_result": "1335 atoms, minimized + 20k steps completed (coverage campaign). OpenCL path also validated 2026-05-11 (30.7 ns/day).",
+     "smoke_cmd": "TIP3P water box (Modeller.addSolvent), NVT 20k steps, CPU platform (simulation.py)"
+    }
+   }
+  },
+  {
+   "key": "ptychox",
+   "name": "PtychoX",
+   "category": "library",
+   "description": "Unified PyTorch ptychographic reconstruction (analytic + autodiff): far/near-field X-ray, multislice, 4D-STEM.",
+   "systems": {
+    "polaris": {
+     "state": "listed",
+     "build": ""
+    }
+   }
+  },
+  {
+   "key": "ptyrad",
+   "name": "PtyRAD",
+   "category": "library",
+   "description": "PyTorch/automatic-differentiation multislice electron ptychography reconstruction framework (mixed probe/object states, physical constraints, Optuna hyperparameter tuning).",
+   "systems": {
+    "polaris": {
+     "state": "available",
+     "build": "installed"
+    },
+    "sirius": {
+     "state": "available",
+     "build": "installed"
+    }
+   }
+  },
+  {
+   "key": "pyscf",
+   "name": "PySCF",
+   "category": "quantum-chemistry",
+   "description": "Python-based Simulations of Chemistry Framework (CPU-only; gpu4pyscf requires CUDA)",
+   "systems": {
+    "aurora": {
+     "state": "listed",
+     "build": ""
+    },
+    "crux": {
+     "state": "available",
+     "build": "working"
+    },
+    "frontier": {
+     "state": "listed",
+     "build": ""
+    },
+    "perlmutter": {
+     "state": "listed",
+     "build": ""
+    },
+    "polaris": {
+     "state": "pass",
+     "build": "",
+     "smoke": "pass",
+     "smoke_date": "2026-07-09",
+     "smoke_result": "E(RHF)=-76.0268, E(MP2)=-76.2308 (Ecorr -0.204), E(B3LYP)=-76.4204 Ha (coverage campaign)",
+     "smoke_cmd": "H2O cc-pVDZ: RHF + MP2 + B3LYP (pyscf_dft.py), venv python + cudatoolkit-standalone"
+    },
+    "sirius": {
+     "state": "listed",
+     "build": ""
+    }
+   }
+  },
+  {
+   "key": "conda",
+   "name": "Python / Conda (frameworks)",
+   "category": "ml-framework",
+   "description": "Intel oneAPI ML stack via module load frameworks — PyTorch 2.8, vLLM 0.10.1rc2, DeepSpeed 0.17.5 on Intel PVC XPU",
+   "systems": {
+    "aurora": {
+     "state": "listed",
+     "build": ""
+    },
+    "crux": {
+     "state": "listed",
+     "build": ""
+    },
+    "odo": {
+     "state": "listed",
+     "build": ""
+    },
+    "perlmutter": {
+     "state": "listed",
+     "build": ""
+    },
+    "polaris": {
+     "state": "available",
+     "build": "installed"
+    },
+    "sirius": {
+     "state": "listed",
+     "build": ""
+    },
+    "sophia": {
+     "state": "listed",
+     "build": ""
+    },
+    "sunspot": {
+     "state": "listed",
+     "build": ""
+    }
+   }
+  },
+  {
+   "key": "pytorch",
+   "name": "PyTorch (XPU)",
+   "category": "ml-framework",
+   "description": "PyTorch with Intel XPU (GPU) support for Aurora Intel Data Center GPU Max Series",
+   "systems": {
+    "aurora": {
+     "state": "available",
+     "build": "built"
+    },
+    "frontier": {
+     "state": "listed",
+     "build": ""
+    },
+    "perlmutter": {
+     "state": "available",
+     "build": "installed"
+    },
+    "polaris": {
+     "state": "pass",
+     "build": "installed",
+     "smoke": "pass",
+     "smoke_date": "2026-07-09",
+     "smoke_result": "torch 2.8.0; world_size=4; loss 2.31 -> 0.31 over 60 steps (campaign C19)",
+     "smoke_cmd": "torchrun --standalone --nproc_per_node=4 train.py (DDP, NCCL, 4x A100)"
+    },
+    "sirius": {
+     "state": "in_progress",
+     "build": "needs_build"
+    },
+    "sophia": {
+     "state": "listed",
+     "build": ""
+    }
+   }
+  },
+  {
+   "key": "qmcpack",
+   "name": "QMCPACK",
+   "category": "dft",
+   "description": "Quantum Monte Carlo code with SYCL/OpenMP offload for Intel GPU acceleration",
+   "systems": {
+    "aurora": {
+     "state": "available",
+     "build": "built"
+    },
+    "crux": {
+     "state": "available",
+     "build": "built"
+    },
+    "frontier": {
+     "state": "listed",
+     "build": ""
+    },
+    "perlmutter": {
+     "state": "available",
+     "build": "built"
+    },
+    "polaris": {
+     "state": "pass",
+     "build": "",
+     "smoke": "pass",
+     "smoke_date": "2026-07-09",
+     "smoke_result": "H2 DMC mean LocalEnergy = -1.17407 Ha over 90 blocks (matches reference -1.174064 Ha to 5 digits); Total Execution 1401 s (campaign C15)",
+     "smoke_cmd": "PySCF RHF (bfd-vtz/bfd ECP) -> h5+XMLs -> qmcpack VMC(20)+DMC(100 blk), 4x A100"
+    },
+    "sirius": {
+     "state": "listed",
+     "build": ""
+    },
+    "sophia": {
+     "state": "available",
+     "build": "built"
+    }
+   }
+  },
+  {
+   "key": "qmcpack_hip",
+   "name": "QMCPACK (HIP)",
+   "category": "simulation",
+   "description": "Quantum Monte Carlo ab initio electronic structure code — HIP GPU build for Odo AMD MI250X",
+   "systems": {
+    "odo": {
+     "state": "available",
+     "build": "built"
+    }
+   }
+  },
+  {
+   "key": "qe",
+   "name": "Quantum ESPRESSO",
+   "category": "dft",
+   "description": "Plane-wave DFT code for electronic structure calculations on Aurora with Intel oneAPI",
+   "systems": {
+    "aurora": {
+     "state": "available",
+     "build": "installed"
+    },
+    "crux": {
+     "state": "available",
+     "build": "built"
+    },
+    "frontier": {
+     "state": "listed",
+     "build": ""
+    },
+    "perlmutter": {
+     "state": "listed",
+     "build": ""
+    },
+    "polaris": {
+     "state": "listed",
+     "build": ""
+    },
+    "sirius": {
+     "state": "listed",
+     "build": ""
+    },
+    "sophia": {
+     "state": "listed",
+     "build": ""
+    },
+    "sunspot": {
+     "state": "listed",
+     "build": ""
+    }
+   }
+  },
+  {
+   "key": "su2",
+   "name": "SU2",
+   "category": "simulation",
+   "description": "Open-source compressible CFD + adjoint optimization suite (Euler/RANS, transonic/supersonic). FV, C++/MPI.",
+   "systems": {
+    "polaris": {
+     "state": "pass",
+     "build": "built",
+     "smoke": "pass",
+     "smoke_date": "2026-07-09",
+     "smoke_result": "Exit Success (SU2_CFD); transonic NACA0012 converged (coverage campaign)",
+     "smoke_cmd": "QuickStart inv_NACA0012 (transonic Euler): wget cfg+mesh from su2code/SU2 master, mpiexec -n 32 SU2_CFD"
+    }
+   }
+  },
+  {
+   "key": "tensorflow",
+   "name": "TensorFlow (Intel Extension)",
+   "category": "ml-framework",
+   "description": "TensorFlow with Intel Extension for TensorFlow (itex) for XPU acceleration on Aurora",
+   "systems": {
+    "aurora": {
+     "state": "available",
+     "build": "built"
+    },
+    "frontier": {
+     "state": "listed",
+     "build": ""
+    },
+    "perlmutter": {
+     "state": "available",
+     "build": "installed"
+    },
+    "polaris": {
+     "state": "pass",
+     "build": "installed",
+     "smoke": "pass",
+     "smoke_date": "2026-07-09",
+     "smoke_result": "TF 2.21.0; test accuracy 0.9791 (coverage campaign)",
+     "smoke_cmd": "MNIST CNN 3 epochs via /soft/applications/conda/2025-09-28/tensorflow/bin/python"
+    },
+    "sophia": {
+     "state": "in_progress",
+     "build": "needs_build"
+    }
+   }
+  },
+  {
+   "key": "triqs",
+   "name": "TRIQS",
+   "category": "quantum-many-body",
+   "description": "TRIQS (Toolbox for Research on Interacting Quantum Systems) core library + TRIQS/CTHYB continuous-time hybridization-expansion quantum impurity solver. CPU-only conda-forge install for Crux EPYC.",
+   "systems": {
+    "crux": {
+     "state": "available",
+     "build": "working"
+    }
+   }
+  },
+  {
+   "key": "trl",
+   "name": "TRL (Transformer Reinforcement Learning)",
+   "category": "ml-framework",
+   "description": "HuggingFace TRL 0.19.1 with GRPOTrainer for reinforcement learning fine-tuning on Aurora Intel XPU. Compatible with Aurora's custom vLLM 0.10.1rc2 XPU build.",
+   "systems": {
+    "aurora": {
+     "state": "listed",
+     "build": ""
+    }
+   }
+  },
+  {
+   "key": "unsloth",
+   "name": "Unsloth",
+   "category": "ml-framework",
+   "description": "2x faster LoRA/QLoRA fine-tuning of Llama/Qwen/Mistral via fused Triton kernels (single-GPU on Sirius A100)",
+   "systems": {
+    "sirius": {
+     "state": "in_progress",
+     "build": "needs_build"
+    }
+   }
+  },
+  {
+   "key": "vasp",
+   "name": "VASP",
+   "category": "dft",
+   "description": "Vienna Ab initio Simulation Package (VASP) plane-wave DFT (CPU-only build, license required)",
+   "systems": {
+    "crux": {
+     "state": "blocked",
+     "build": "license_required"
+    },
+    "perlmutter": {
+     "state": "listed",
+     "build": ""
+    },
+    "polaris": {
+     "state": "listed",
+     "build": ""
+    }
+   }
+  },
+  {
+   "key": "video-diffusion",
+   "name": "Video Diffusion (open T2V/I2V)",
+   "category": "ml-framework",
+   "description": "Open-source text/image-to-video generation (LTX-Video, HunyuanVideo-1.5, Wan 2.2, Mochi) via diffusers — backs the video-creator generative mode",
+   "systems": {
+    "polaris": {
+     "state": "pass",
+     "build": "built",
+     "smoke": "pass",
+     "smoke_date": "2026-07-17",
+     "smoke_result": "ltx_smoke.mp4 generated, decode-verified 1.04s @ 24fps, 73K, H.264; torch 2.6.0+cu124 avail True on A100-SXM4-40GB",
+     "smoke_cmd": "LTXPipeline (Lightricks/LTX-Video, bf16, cpu_offload) 512x320, 25 frames, 20 steps"
+    },
+    "sirius": {
+     "state": "blocked",
+     "build": "not_built"
+    }
+   }
+  },
+  {
+   "key": "vllm",
+   "name": "vLLM (Intel XPU, frameworks-shipped)",
+   "category": "ml-framework",
+   "description": "vLLM XPU inference on Aurora Intel PVC. The vllm bits ship inside the Aurora `frameworks` module (currently 25.190.0): vllm 0.10.1rc2 XPU + torch 2.8 in /input/frameworks/25.190.0/wheelhouse/. There is NO per-user venv to activate — `module load frameworks` then use the module's `python` directly. (Verified 2026-05-13 via IRI ls: neither /home/hzheng/envs/vllm-aurora-xpu nor any clearml_agent_setup/aurora/venvs/clearml/bin/python exists. The jobs/aurora/mfi-serve-v[3-5]/run.sh scripts source those paths with `|| true` — the activate is a no-op and python resolves to the framework one. See memory feedback_aurora_user_venv_empty.md.)\n",
+   "systems": {
+    "aurora": {
+     "state": "available",
+     "build": "shipped-with-module"
+    },
+    "crux": {
+     "state": "available",
+     "build": "built"
+    },
+    "frontier": {
+     "state": "available",
+     "build": "built"
+    },
+    "odo": {
+     "state": "available",
+     "build": "built"
+    },
+    "perlmutter": {
+     "state": "available",
+     "build": "built"
+    },
+    "polaris": {
+     "state": "pass",
+     "build": "built",
+     "smoke": "pass",
+     "smoke_date": "2026-07-09",
+     "smoke_result": "1721.8 tok/s (coverage campaign); serving path earlier confirmed 2514 tok/s Llama-3.1-8B TP=4",
+     "smoke_cmd": "offline throughput: vllm.LLM(Qwen2.5-0.5B, TP=1, bf16, enforce_eager), 64 prompts x 128 tok"
+    },
+    "sirius": {
+     "state": "in_progress",
+     "build": "needs_build"
+    },
+    "sophia": {
+     "state": "available",
+     "build": "built"
+    }
+   }
+  },
+  {
+   "key": "warpx",
+   "name": "Warpx",
+   "category": "simulation",
+   "description": "WarpX — AMReX-based electromagnetic/electrostatic Particle-in-Cell (PIC)\nplasma code. 3D SYCL/DPC++ build for the Intel Data Center GPU Max Series\n(Ponte Vecchio / PVC). Built as a CMake superbuild that auto-fetches AMReX,\nPICSAR/ABLASTR, and openPMD-api. Adapted from the proven Frontier HIP build\n(software/frontier/warpx.yaml) by switching the backend HIP -> SYCL and using\nthe Aurora oneAPI/SYCL env that worked for Nyx (software/aurora/nyx.yaml).\n",
+   "systems": {
+    "aurora": {
+     "state": "listed",
+     "build": ""
+    },
+    "crux": {
+     "state": "listed",
+     "build": ""
+    },
+    "frontier": {
+     "state": "listed",
+     "build": ""
+    },
+    "odo": {
+     "state": "available",
+     "build": "built"
+    },
+    "perlmutter": {
+     "state": "listed",
+     "build": ""
+    },
+    "polaris": {
+     "state": "pass",
+     "build": "",
+     "smoke": "pass",
+     "smoke_date": "2026-07-09",
+     "smoke_result": "ran 100 steps; Total Time 0.29 s; rc=0 (campaign C10). No rebuild needed.",
+     "smoke_cmd": "uniform thermal e- plasma, 32^3 periodic yee, algo.particle_shape=1, max_step=100 (4 ranks A100)"
+    },
+    "sunspot": {
+     "state": "listed",
+     "build": ""
+    }
+   }
+  },
+  {
+   "key": "west",
+   "name": "WEST",
+   "category": "gw",
+   "description": "Without Empty STates — massively parallel many-body perturbation theory (GW, BSE) on top of Quantum ESPRESSO",
+   "systems": {
+    "polaris": {
+     "state": "pass",
+     "build": "built",
+     "smoke": "pass",
+     "smoke_date": "2026-07-09",
+     "smoke_result": "wstat.x (25.4MB), wfreq.x (26.5MB), westpp.x (26.0MB) built; ldd clean (libpython3.11 linked).",
+     "smoke_cmd": "make conf + make all with cray-python + explicit -lpython3.11 (conda stripped from PATH)"
+    }
+   }
+  },
+  {
+   "key": "wrf",
+   "name": "WRF",
+   "category": "simulation",
+   "description": "WRF 4.6.0: Weather Research and Forecasting Model (CPU-only, Intel oneAPI + Intel MPI)",
+   "systems": {
+    "aurora": {
+     "state": "available",
+     "build": "installed"
+    },
+    "crux": {
+     "state": "available",
+     "build": "built"
+    },
+    "frontier": {
+     "state": "available",
+     "build": "installed"
+    },
+    "perlmutter": {
+     "state": "in_progress",
+     "build": "needs_build"
+    },
+    "polaris": {
+     "state": "pass",
+     "build": "installed",
+     "smoke": "pass",
+     "smoke_date": "2026-07-09",
+     "smoke_result": "ideal rc=0, wrf rc=0; 'd01 ... wrf: SUCCESS COMPLETE WRF' after 1 simulated hour; wrfout_d01 (13.5MB) written (campaign C17)",
+     "smoke_cmd": "em_quarter_ss idealized case: compile em_quarter_ss -> ideal.exe -> wrf.exe (n=4)"
+    }
+   }
+  },
+  {
+   "key": "xpu-smi",
+   "name": "XPU SMI",
+   "category": "profiling",
+   "description": "Intel XPU System Management Interface — GPU utilization, memory, power monitoring for Intel PVC (Data Center GPU Max).",
+   "systems": {
+    "sunspot": {
+     "state": "available",
+     "build": "installed"
+    }
+   }
+  }
+ ],
+ "smokes": [
+  {
+   "app": "Video Diffusion (open T2V/I2V)",
+   "key": "video-diffusion",
+   "system": "polaris",
+   "state": "pass",
+   "date": "2026-07-17",
+   "result": "ltx_smoke.mp4 generated, decode-verified 1.04s @ 24fps, 73K, H.264; torch 2.6.0+cu124 avail True on A100-SXM4-40GB",
+   "cmd": "LTXPipeline (Lightricks/LTX-Video, bf16, cpu_offload) 512x320, 25 frames, 20 steps"
+  },
+  {
+   "app": "OpenFold",
+   "key": "openfold",
+   "system": "polaris",
+   "state": "pass",
+   "date": "2026-07-10",
+   "result": "PASS: GPU inference 9.18 s on one A100 (rebuilt attn_core CUDA kernel), wrote seq_model_1_ptm_unrelaxed.pdb (78 residues). mean pLDDT = 95.71 — matches the AlphaFold2 pass (95.7), same weights + sequence.",
+   "cmd": "run_pretrained_openfold.py, 78-res monomer, --config_preset model_1_ptm, --jax_param_path=/eagle/datasets/alphafold/params/params_model_1_ptm.npz, --use_precomputed_alignments, --skip_relaxation, --model_device cuda:0"
+  },
+  {
+   "app": "NAMD",
+   "key": "namd",
+   "system": "polaris",
+   "state": "pass",
+   "date": "2026-07-10",
+   "result": "PASS: 500 steps, ~77 ns/day (0.0130 days/ns), End of program clean; wrote apoa1-out.coor/.vel/.xsc. Final TOTAL -222494.9 kcal/mol, TEMP 165.0 K.",
+   "cmd": "apoa1 (92k atoms, 500 steps, GPU-resident, 4x A100)"
+  },
+  {
+   "app": "AlphaFold",
+   "key": "alphafold",
+   "system": "polaris",
+   "state": "pass",
+   "date": "2026-07-10",
+   "result": "FULL end-to-end PASS: MSA (features 3757s) -> 5-model JAX inference (~50-84s each) -> Amber GPU relaxation (Einit 1227.84 -> Efinal -1262.51, 0 residue violations) -> ranking. Wrote ranked_0.pdb, relaxed_model_1_pred_0.pdb, ranking_debug.json. pLDDT model_1=95.73 (95.7/95.6/93.2/89.8/89.7).",
+   "cmd": "run_alphafold.py, 78-res monomer, full_dbs, staged /eagle/datasets/alphafold; GPU relax"
+  },
+  {
+   "app": "WRF",
+   "key": "wrf",
+   "system": "polaris",
+   "state": "pass",
+   "date": "2026-07-09",
+   "result": "ideal rc=0, wrf rc=0; 'd01 ... wrf: SUCCESS COMPLETE WRF' after 1 simulated hour; wrfout_d01 (13.5MB) written (campaign C17)",
+   "cmd": "em_quarter_ss idealized case: compile em_quarter_ss -> ideal.exe -> wrf.exe (n=4)"
+  },
+  {
+   "app": "WEST",
+   "key": "west",
+   "system": "polaris",
+   "state": "pass",
+   "date": "2026-07-09",
+   "result": "wstat.x (25.4MB), wfreq.x (26.5MB), westpp.x (26.0MB) built; ldd clean (libpython3.11 linked).",
+   "cmd": "make conf + make all with cray-python + explicit -lpython3.11 (conda stripped from PATH)"
+  },
+  {
+   "app": "Warpx",
+   "key": "warpx",
+   "system": "polaris",
+   "state": "pass",
+   "date": "2026-07-09",
+   "result": "ran 100 steps; Total Time 0.29 s; rc=0 (campaign C10). No rebuild needed.",
+   "cmd": "uniform thermal e- plasma, 32^3 periodic yee, algo.particle_shape=1, max_step=100 (4 ranks A100)"
+  },
+  {
+   "app": "vLLM (Intel XPU, frameworks-shipped)",
+   "key": "vllm",
+   "system": "polaris",
+   "state": "pass",
+   "date": "2026-07-09",
+   "result": "1721.8 tok/s (coverage campaign); serving path earlier confirmed 2514 tok/s Llama-3.1-8B TP=4",
+   "cmd": "offline throughput: vllm.LLM(Qwen2.5-0.5B, TP=1, bf16, enforce_eager), 64 prompts x 128 tok"
+  },
+  {
+   "app": "TensorFlow (Intel Extension)",
+   "key": "tensorflow",
+   "system": "polaris",
+   "state": "pass",
+   "date": "2026-07-09",
+   "result": "TF 2.21.0; test accuracy 0.9791 (coverage campaign)",
+   "cmd": "MNIST CNN 3 epochs via /soft/applications/conda/2025-09-28/tensorflow/bin/python"
+  },
+  {
+   "app": "SU2",
+   "key": "su2",
+   "system": "polaris",
+   "state": "pass",
+   "date": "2026-07-09",
+   "result": "Exit Success (SU2_CFD); transonic NACA0012 converged (coverage campaign)",
+   "cmd": "QuickStart inv_NACA0012 (transonic Euler): wget cfg+mesh from su2code/SU2 master, mpiexec -n 32 SU2_CFD"
+  },
+  {
+   "app": "QMCPACK",
+   "key": "qmcpack",
+   "system": "polaris",
+   "state": "pass",
+   "date": "2026-07-09",
+   "result": "H2 DMC mean LocalEnergy = -1.17407 Ha over 90 blocks (matches reference -1.174064 Ha to 5 digits); Total Execution 1401 s (campaign C15)",
+   "cmd": "PySCF RHF (bfd-vtz/bfd ECP) -> h5+XMLs -> qmcpack VMC(20)+DMC(100 blk), 4x A100"
+  },
+  {
+   "app": "PyTorch (XPU)",
+   "key": "pytorch",
+   "system": "polaris",
+   "state": "pass",
+   "date": "2026-07-09",
+   "result": "torch 2.8.0; world_size=4; loss 2.31 -> 0.31 over 60 steps (campaign C19)",
+   "cmd": "torchrun --standalone --nproc_per_node=4 train.py (DDP, NCCL, 4x A100)"
+  },
+  {
+   "app": "PySCF",
+   "key": "pyscf",
+   "system": "polaris",
+   "state": "pass",
+   "date": "2026-07-09",
+   "result": "E(RHF)=-76.0268, E(MP2)=-76.2308 (Ecorr -0.204), E(B3LYP)=-76.4204 Ha (coverage campaign)",
+   "cmd": "H2O cc-pVDZ: RHF + MP2 + B3LYP (pyscf_dft.py), venv python + cudatoolkit-standalone"
+  },
+  {
+   "app": "OpenMM",
+   "key": "openmm",
+   "system": "polaris",
+   "state": "pass",
+   "date": "2026-07-09",
+   "result": "1335 atoms, minimized + 20k steps completed (coverage campaign). OpenCL path also validated 2026-05-11 (30.7 ns/day).",
+   "cmd": "TIP3P water box (Modeller.addSolvent), NVT 20k steps, CPU platform (simulation.py)"
+  },
+  {
+   "app": "OpenMC",
+   "key": "openmc",
+   "system": "polaris",
+   "state": "pass",
+   "date": "2026-07-09",
+   "result": "Combined k-effective = 1.01968 +/- 0.01554 (Godiva-like); rc=0",
+   "cmd": "bare U-235 sphere (r=8.7cm, vacuum) eigenvalue, 10 batches, on a COMPUTE node"
+  },
+  {
+   "app": "OpenFOAM",
+   "key": "openfoam",
+   "system": "polaris",
+   "state": "pass",
+   "date": "2026-07-09",
+   "result": "solver converges: Ux resid->7.8e-7, p->5.6e-7, continuity 3e-10, time advancing (campaign C16)",
+   "cmd": "tutorials/fluid/pitzDaily via ./Allrun (blockMesh + foamRun -solver incompressibleFluid)"
+  },
+  {
+   "app": "Nyx",
+   "key": "nyx",
+   "system": "polaris",
+   "state": "pass",
+   "date": "2026-07-09",
+   "result": "4x A100 detected; [Level 0 step 5] Advanced 32768 cells; STEP=5; Run time=0.198s; AMReX finalized; rc=0",
+   "cmd": "mpiexec -n 4 --ppn 4 nyx_minisb.ex inputs.32 max_step=5 (MPICH_GPU_SUPPORT_ENABLED unset)"
+  },
+  {
+   "app": "NWChem",
+   "key": "nwchem",
+   "system": "polaris",
+   "state": "pass",
+   "date": "2026-07-09",
+   "result": "Total DFT energy = -76.408731 Ha (campaign C14). Correct basis lib path was the fix.",
+   "cmd": "mpiexec -n 4 --ppn 4 nwchem water.nw (water B3LYP/6-31G*, geometry noautoz nocenter)"
+  },
+  {
+   "app": "Nek5000",
+   "key": "nek5000",
+   "system": "polaris",
+   "state": "pass",
+   "date": "2026-07-09",
+   "result": "solver ran to 'end of time-step loop', total solver time 3.94 s (coverage campaign)",
+   "cmd": "examples/eddy_uv: cp SIZE.legacy SIZE; makenek eddy_uv; genmap; mpiexec -n 4 ./nek5000"
+  },
+  {
+   "app": "MOOSE",
+   "key": "moose",
+   "system": "polaris",
+   "state": "pass",
+   "date": "2026-07-09",
+   "result": "Solve Converged! (coverage campaign)",
+   "cmd": "test/tests simple_diffusion.i via mpiexec -n 4 moose_test-opt"
+  },
+  {
+   "app": "HPL",
+   "key": "hpl",
+   "system": "polaris",
+   "state": "pass",
+   "date": "2026-07-09",
+   "result": "residual PASSED; 201 Gflops (campaign C18). Note: no HPL.dat is bundled - generate one.",
+   "cmd": "xhpl, HPL.dat N=20000 NB=192 P=2 Q=2 (4 ranks, CPU)"
+  },
+  {
+   "app": "HACC (HACCabana)",
+   "key": "hacc",
+   "system": "polaris",
+   "state": "pass",
+   "date": "2026-07-09",
+   "result": "rc=0; synthetic data range [8,72] rL=64 oL=8; 262144 particles; 5 subcycles; kick completed",
+   "cmd": "driver_short-range -s -t 0 -c 064.indat.params  (1 rank, 1 A100)"
+  },
+  {
+   "app": "GROMACS",
+   "key": "gromacs",
+   "system": "polaris",
+   "state": "pass",
+   "date": "2026-07-09",
+   "result": "grompp rc=0; mdrun rc=0; Performance = 1547 ns/day (A100)",
+   "cmd": "solvate (empty [molecules]) -> grompp -> mdrun -nb gpu -pme gpu -ntomp 8 (TIP3P water, 4nm)"
+  },
+  {
+   "app": "GAMESS RI-MP2 mini-app",
+   "key": "gamess_rimp2",
+   "system": "polaris",
+   "state": "pass",
+   "date": "2026-07-09",
+   "result": "Passed :-) ; MP2 corr-energy rel.err 3e-16, wall 0.002 s (coverage campaign)",
+   "cmd": "cd inputs && rimp2-cublas benz.kern (cuBLAS GPU offload)"
+  },
+  {
+   "app": "ESMFold",
+   "key": "esmfold",
+   "system": "polaris",
+   "state": "pass",
+   "date": "2026-07-09",
+   "result": "folded; mean pLDDT 69.2 (coverage campaign)",
+   "cmd": "78-res peptide via transformers EsmForProteinFolding (facebook/esmfold_v1), venv python"
+  },
+  {
+   "app": "DeepSpeed (XPU)",
+   "key": "deepspeed",
+   "system": "polaris",
+   "state": "pass",
+   "date": "2026-07-09",
+   "result": "loss 1.05 -> 1.03 over 60 steps, DONE_DEEPSPEED (coverage campaign)",
+   "cmd": "ZeRO-1 tiny MLP, fp16, 4x A100 via torchrun --nproc_per_node=4 train.py (base conda)"
+  },
+  {
+   "app": "CP2K",
+   "key": "cp2k",
+   "system": "polaris",
+   "state": "pass",
+   "date": "2026-07-09",
+   "result": "SCF converged 6/6; MD advanced 5 steps; T~300 K (287->316); E ~= -551.45 Ha; 0 warnings",
+   "cmd": "32-water BOMD, 5 NVT steps, DZVP-MOLOPT-SR-GTH/PBE, CUTOFF 300 (single rank + OMP=32)"
+  },
+  {
+   "app": "BerkeleyGW",
+   "key": "berkeleygw",
+   "system": "aurora",
+   "state": "pass",
+   "date": "2026-06-26",
+   "result": "BLACS 2x2 grid; 40 matrix elements; polarizability over 4 ranks; 3 q-points:\n  q-pt 1 (q->0): Head of Epsilon = 16.96195,  Head of Epsilon Inverse = 0.0650199\n  q-pt 2:        Head of Epsilon =  3.10432,  Head of Epsilon Inverse = 0.361415\n  q-pt 3:        Head of Epsilon =  2.89448,  Head of Epsilon Inverse = 0.365704\nOutputs: eps0mat.h5 (119356 B, parallel collective write OK), epsilon.log, chi_converge.dat\n",
+   "cmd": "BerkeleyGW testsuite Si-EPM (real flavor) — empirical-pseudopotential mean field (no external DFT) + epsilon GW dielectric matrix"
+  }
+ ]
+}

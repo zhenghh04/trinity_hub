@@ -44,6 +44,9 @@ plugins:
 extra_css:
   - stylesheets/extra.css
 
+extra_javascript:
+  - javascripts/software-dashboard.js
+
 markdown_extensions:
   - admonition
   - attr_list
@@ -76,6 +79,7 @@ copyright: >-
 nav:
   - Home: index.md
   - What's new: whats-new.md
+  - Supported software: software/index.md
   - Using Trinity:
       - Overview: using-trinity/index.md
       - Getting started: using-trinity/getting-started.md
