@@ -1,0 +1,34 @@
+schema: trinity.hub.agent/v1
+
+id: drxas
+name: Dr.XAS
+owner: Jing Tang — APS / Dr.XAS
+
+maintainers:
+  - github: JingTang-Enid
+    contact: https://github.com/JingTang-Enid
+
+type: external
+protocol: a2a
+
+discovery:
+  card_url: https://drxas.xray.aps.anl.gov:8443/.well-known/agent-card.json
+
+auth:
+  scheme: bearer
+
+domains:
+  - xanes
+  - x-ray-spectroscopy
+
+description: >-
+  Connectivity and workflow test agent for the Dr.XAS project: on each turn it
+  grabs a random XANES input file and sends it back as a job. Validates Trinity integration.
+
+skills:
+  - id: send-xanes-input
+    description: Grab a random XANES .input file and send it over as a job.
+
+icon: "🧪"
+status: pending
+added: "2026-07"
