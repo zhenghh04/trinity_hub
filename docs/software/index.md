@@ -1,11 +1,11 @@
 # Supported software
 
-*Auto-generated from Trinity's internal software cards on 2026-08-05T04:35:58Z. Do not edit
+*Auto-generated from Trinity's internal software cards on 2026-08-06T09:00:33Z. Do not edit
 by hand — regenerate with `scripts/build_software_dashboard.py`.*
 
 Trinity maintains verified build + run recipes ("software cards") for HPC
-applications across DOE systems. This dashboard shows **55 applications** with
-**211 recipes** across **10 systems**, and the **28 functional
+applications across DOE systems. This dashboard shows **58 applications** with
+**214 recipes** across **10 systems**, and the **28 functional
 smoke tests** (28 passing) that confirm an app doesn't just compile but
 produces a physically sensible result.
 
@@ -48,14 +48,14 @@ produces a physically sensible result.
 
 | System | Facility | Description | Recipes |
 |---|---|---|---|
-| **Aurora** | ALCF | 10,624-node Intel Data Center GPU Max Series exascale supercomputer at Argonne National… | 31 |
+| **Aurora** | ALCF | 10,624-node Intel Data Center GPU Max Series exascale supercomputer at Argonne National… | 32 |
 | **Cerebras** | ALCF | 4 CS-3 wafer-scale engines + 4 worker nodes + 4 activation servers; AI testbed (Kuberne… | 1 |
 | **Crux** | ALCF | 256-node AMD EPYC CPU-only cluster at Argonne National Laboratory | 24 |
 | **Polaris** | ALCF | 560-node A100 GPU cluster at Argonne National Laboratory | 44 |
 | **Sirius** | ALCF | ALCF staging cluster | 16 |
 | **Sophia** | ALCF | 24-node DGX A100 GPU cluster at Argonne National Laboratory | 11 |
 | **Sunspot** | ALCF | 128-node Intel Data Center GPU Max Series testbed for Aurora at Argonne National Labora… | 11 |
-| **Perlmutter** | NERSC | GPU/CPU hybrid supercomputer at NERSC (NVIDIA A100 GPUs + AMD Milan CPUs) | 29 |
+| **Perlmutter** | NERSC | GPU/CPU hybrid supercomputer at NERSC (NVIDIA A100 GPUs + AMD Milan CPUs) | 31 |
 | **Frontier** | OLCF | 9408-node AMD MI250X exascale GPU system at Oak Ridge National Laboratory | 31 |
 | **Odo** | OLCF | 30-node AMD MI250X training system at Oak Ridge National Laboratory (Frontier architect… | 13 |
 

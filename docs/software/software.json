@@ -1,9 +1,9 @@
 {
- "generated": "2026-08-05T04:35:58Z",
+ "generated": "2026-08-06T09:00:33Z",
  "counts": {
-  "apps": 55,
+  "apps": 58,
   "systems": 10,
-  "cards": 211,
+  "cards": 214,
   "smoke": 28,
   "passed": 28
  },
@@ -20,7 +20,7 @@
    "name": "Aurora",
    "facility": "ALCF",
    "description": "10,624-node Intel Data Center GPU Max Series exascale supercomputer at Argonne National Laboratory",
-   "app_count": 31
+   "app_count": 32
   },
   {
    "id": "frontier",
@@ -34,7 +34,7 @@
    "name": "Perlmutter",
    "facility": "NERSC",
    "description": "GPU/CPU hybrid supercomputer at NERSC (NVIDIA A100 GPUs + AMD Milan CPUs)",
-   "app_count": 29
+   "app_count": 31
   },
   {
    "id": "crux",
@@ -117,6 +117,18 @@
      "smoke_date": "2026-07-10",
      "smoke_result": "FULL end-to-end PASS: MSA (features 3757s) -> 5-model JAX inference (~50-84s each) -> Amber GPU relaxation (Einit 1227.84 -> Efinal -1262.51, 0 residue violations) -> ranking. Wrote ranked_0.pdb, relaxed_model_1_pred_0.pdb, ranking_debug.json. pLDDT model_1=95.73 (95.7/95.6/93.2/89.8/89.7).",
      "smoke_cmd": "run_alphafold.py, 78-res monomer, full_dbs, staged /eagle/datasets/alphafold; GPU relax"
+    }
+   }
+  },
+  {
+   "key": "athenak",
+   "name": "AthenaK",
+   "category": "simulation",
+   "description": "Performance-portable astrophysics: (GR)MHD, dynamical-GR (Z4c), radiation, and particles on Kokkos. Aurora build targets Intel PVC via the Kokkos SYCL backend.",
+   "systems": {
+    "aurora": {
+     "state": "available",
+     "build": "installed"
     }
    }
   },
@@ -337,6 +349,18 @@
      "smoke_date": "2026-07-09",
      "smoke_result": "folded; mean pLDDT 69.2 (coverage campaign)",
      "smoke_cmd": "78-res peptide via transformers EsmForProteinFolding (facebook/esmfold_v1), venv python"
+    }
+   }
+  },
+  {
+   "key": "flare",
+   "name": "FLARE",
+   "category": "machine_learning",
+   "description": "Bayesian ML interatomic force fields (GP / sparse GP FFs) — mir-group/flare",
+   "systems": {
+    "perlmutter": {
+     "state": "listed",
+     "build": ""
     }
    }
   },
@@ -727,16 +751,16 @@
      "build": "installed"
     },
     "crux": {
-     "state": "in_progress",
-     "build": "needs_build"
+     "state": "available",
+     "build": "installed"
     },
     "frontier": {
      "state": "listed",
      "build": ""
     },
     "perlmutter": {
-     "state": "listed",
-     "build": ""
+     "state": "available",
+     "build": "installed"
     },
     "polaris": {
      "state": "listed",
@@ -1203,6 +1227,18 @@
      "build": ""
     },
     "sunspot": {
+     "state": "listed",
+     "build": ""
+    }
+   }
+  },
+  {
+   "key": "quda",
+   "name": "QUDA",
+   "category": "simulation",
+   "description": "Lattice QCD library for GPUs (Wilson/staggered dslash, solvers) on CUDA",
+   "systems": {
+    "perlmutter": {
      "state": "listed",
      "build": ""
     }
