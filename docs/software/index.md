@@ -1,6 +1,6 @@
 # Supported software
 
-*Auto-generated from Trinity's internal software cards on 2026-08-06T09:00:33Z. Do not edit
+*Auto-generated from Trinity's internal software cards on 2026-08-06T19:55:03Z. Do not edit
 by hand — regenerate with `scripts/build_software_dashboard.py`.*
 
 Trinity maintains verified build + run recipes ("software cards") for HPC

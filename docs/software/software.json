@@ -1,5 +1,5 @@
 {
- "generated": "2026-08-06T09:00:33Z",
+ "generated": "2026-08-06T19:55:03Z",
  "counts": {
   "apps": 58,
   "systems": 10,
@@ -103,8 +103,8 @@
      "build": "installed"
     },
     "frontier": {
-     "state": "listed",
-     "build": ""
+     "state": "available",
+     "build": "installed"
     },
     "perlmutter": {
      "state": "available",
@@ -163,7 +163,7 @@
      "build": "built"
     },
     "polaris": {
-     "state": "listed",
+     "state": "available",
      "build": ""
     },
     "sunspot": {
@@ -263,8 +263,8 @@
      "build": "needs_build"
     },
     "frontier": {
-     "state": "listed",
-     "build": ""
+     "state": "available",
+     "build": "installed"
     },
     "perlmutter": {
      "state": "in_progress",
@@ -299,8 +299,8 @@
      "build": "needs_build"
     },
     "frontier": {
-     "state": "listed",
-     "build": ""
+     "state": "available",
+     "build": "installed"
     },
     "perlmutter": {
      "state": "in_progress",
@@ -331,8 +331,8 @@
    "description": "E3SM EAMxx / SCREAM — the C++/Kokkos rewrite of E3SM's atmosphere physics\n(P3 microphysics, SHOC turbulence, RRTMGP radiation, etc.), GPU-portable via\nKokkos. INCITE-demanded climate code (5 proposals), no prior Polaris recipe.\nThis is a STANDALONE library build of components/eamxx driven directly by\nCMake — deliberately NOT the CIME case / test-all-eamxx wrapper, which would\nrequire porting a CIME machine config for Polaris (out of scope for a first\nbuild). E3SM's own committed machine file cmake/machine-files/polaris.cmake\nsupplies the compiler + Kokkos config (it includes EKAT's nvidia-a100.cmake =>\nKokkos_ARCH_AMPERE80 + CMAKE_CUDA_ARCHITECTURES=80, and cuda.cmake =>\nKokkos_ENABLE_CUDA + CUDA_LAMBDA). Adapted from the WarpX/Polaris Kokkos-CUDA\nsibling (software/polaris/warpx.yaml) for the toolchain + nvcc-MPI lessons.\n",
    "systems": {
     "polaris": {
-     "state": "listed",
-     "build": ""
+     "state": "available",
+     "build": "working"
     }
    }
   },
@@ -359,7 +359,7 @@
    "description": "Bayesian ML interatomic force fields (GP / sparse GP FFs) — mir-group/flare",
    "systems": {
     "perlmutter": {
-     "state": "listed",
+     "state": "available",
      "build": ""
     }
    }
@@ -435,8 +435,8 @@
      "build": "installed"
     },
     "frontier": {
-     "state": "listed",
-     "build": ""
+     "state": "available",
+     "build": "installed"
     },
     "odo": {
      "state": "available",
@@ -487,8 +487,8 @@
    "description": "",
    "systems": {
     "frontier": {
-     "state": "listed",
-     "build": ""
+     "state": "available",
+     "build": "installed"
     }
    }
   },
@@ -507,8 +507,8 @@
      "build": "installed"
     },
     "frontier": {
-     "state": "listed",
-     "build": ""
+     "state": "available",
+     "build": "installed"
     },
     "perlmutter": {
      "state": "available",
@@ -539,8 +539,8 @@
      "build": "built"
     },
     "frontier": {
-     "state": "listed",
-     "build": ""
+     "state": "available",
+     "build": "installed"
     },
     "perlmutter": {
      "state": "available",
@@ -583,15 +583,15 @@
      "build": "built"
     },
     "frontier": {
-     "state": "listed",
-     "build": ""
+     "state": "available",
+     "build": "installed"
     },
     "perlmutter": {
-     "state": "listed",
+     "state": "available",
      "build": ""
     },
     "polaris": {
-     "state": "listed",
+     "state": "available",
      "build": ""
     },
     "sirius": {
@@ -635,11 +635,11 @@
    "description": "Multiphysics Object-Oriented Simulation Environment - finite-element framework from INL",
    "systems": {
     "aurora": {
-     "state": "listed",
+     "state": "available",
      "build": ""
     },
     "frontier": {
-     "state": "listed",
+     "state": "available",
      "build": ""
     },
     "polaris": {
@@ -651,7 +651,7 @@
      "smoke_cmd": "test/tests simple_diffusion.i via mpiexec -n 4 moose_test-opt"
     },
     "sunspot": {
-     "state": "listed",
+     "state": "available",
      "build": ""
     }
    }
@@ -663,7 +663,7 @@
    "description": "MOOSE built against libCEED (SYCL backend on Intel PVC). Phase A: per-element CeedOperator (LibCeedDiffusion Kernel). Phase B: mesh-wide CeedOperator (LibCeedMeshOperator UserObject + LibCeedDiffusionGlobal trampoline Kernel). Both produce bit-for-bit identical residuals to standard MOOSE Diffusion on CPU and PVC up to 125K-element meshes. Microbench shows 40x kernel speedup PVC vs CPU at 50^3.",
    "systems": {
     "sunspot": {
-     "state": "listed",
+     "state": "available",
      "build": ""
     }
    }
@@ -683,11 +683,11 @@
      "build": "needs_build"
     },
     "frontier": {
-     "state": "listed",
+     "state": "available",
      "build": ""
     },
     "perlmutter": {
-     "state": "listed",
+     "state": "available",
      "build": ""
     },
     "polaris": {
@@ -719,8 +719,8 @@
      "build": "built"
     },
     "frontier": {
-     "state": "listed",
-     "build": ""
+     "state": "available",
+     "build": "installed"
     },
     "odo": {
      "state": "available",
@@ -755,15 +755,15 @@
      "build": "installed"
     },
     "frontier": {
-     "state": "listed",
-     "build": ""
+     "state": "available",
+     "build": "installed"
     },
     "perlmutter": {
      "state": "available",
      "build": "installed"
     },
     "polaris": {
-     "state": "listed",
+     "state": "available",
      "build": ""
     },
     "sophia": {
@@ -779,7 +779,7 @@
    "description": "NVIDIA Inference Xfer Library — high-perf point-to-point transfers for AI inference (KV-cache, TP comms)",
    "systems": {
     "polaris": {
-     "state": "listed",
+     "state": "available",
      "build": ""
     }
    }
@@ -983,8 +983,8 @@
      "build": "built"
     },
     "frontier": {
-     "state": "listed",
-     "build": ""
+     "state": "available",
+     "build": "installed"
     },
     "perlmutter": {
      "state": "available",
@@ -1007,7 +1007,7 @@
    "description": "Unified PyTorch ptychographic reconstruction (analytic + autodiff): far/near-field X-ray, multislice, 4D-STEM.",
    "systems": {
     "polaris": {
-     "state": "listed",
+     "state": "available",
      "build": ""
     }
    }
@@ -1035,7 +1035,7 @@
    "description": "Python-based Simulations of Chemistry Framework (CPU-only; gpu4pyscf requires CUDA)",
    "systems": {
     "aurora": {
-     "state": "listed",
+     "state": "available",
      "build": ""
     },
     "crux": {
@@ -1043,11 +1043,11 @@
      "build": "working"
     },
     "frontier": {
-     "state": "listed",
+     "state": "available",
      "build": ""
     },
     "perlmutter": {
-     "state": "listed",
+     "state": "available",
      "build": ""
     },
     "polaris": {
@@ -1059,7 +1059,7 @@
      "smoke_cmd": "H2O cc-pVDZ: RHF + MP2 + B3LYP (pyscf_dft.py), venv python + cudatoolkit-standalone"
     },
     "sirius": {
-     "state": "listed",
+     "state": "available",
      "build": ""
     }
    }
@@ -1071,7 +1071,7 @@
    "description": "Intel oneAPI ML stack via module load frameworks — PyTorch 2.8, vLLM 0.10.1rc2, DeepSpeed 0.17.5 on Intel PVC XPU",
    "systems": {
     "aurora": {
-     "state": "listed",
+     "state": "available",
      "build": ""
     },
     "crux": {
@@ -1079,11 +1079,11 @@
      "build": ""
     },
     "odo": {
-     "state": "listed",
+     "state": "available",
      "build": ""
     },
     "perlmutter": {
-     "state": "listed",
+     "state": "available",
      "build": ""
     },
     "polaris": {
@@ -1091,15 +1091,15 @@
      "build": "installed"
     },
     "sirius": {
-     "state": "listed",
+     "state": "available",
      "build": ""
     },
     "sophia": {
-     "state": "listed",
+     "state": "available",
      "build": ""
     },
     "sunspot": {
-     "state": "listed",
+     "state": "available",
      "build": ""
     }
    }
@@ -1115,8 +1115,8 @@
      "build": "built"
     },
     "frontier": {
-     "state": "listed",
-     "build": ""
+     "state": "available",
+     "build": "installed"
     },
     "perlmutter": {
      "state": "available",
@@ -1135,7 +1135,7 @@
      "build": "needs_build"
     },
     "sophia": {
-     "state": "listed",
+     "state": "available",
      "build": ""
     }
    }
@@ -1155,8 +1155,8 @@
      "build": "built"
     },
     "frontier": {
-     "state": "listed",
-     "build": ""
+     "state": "available",
+     "build": "installed"
     },
     "perlmutter": {
      "state": "available",
@@ -1171,7 +1171,7 @@
      "smoke_cmd": "PySCF RHF (bfd-vtz/bfd ECP) -> h5+XMLs -> qmcpack VMC(20)+DMC(100 blk), 4x A100"
     },
     "sirius": {
-     "state": "listed",
+     "state": "available",
      "build": ""
     },
     "sophia": {
@@ -1207,27 +1207,27 @@
      "build": "built"
     },
     "frontier": {
-     "state": "listed",
-     "build": ""
+     "state": "available",
+     "build": "installed"
     },
     "perlmutter": {
-     "state": "listed",
+     "state": "available",
      "build": ""
     },
     "polaris": {
-     "state": "listed",
+     "state": "available",
      "build": ""
     },
     "sirius": {
-     "state": "listed",
+     "state": "available",
      "build": ""
     },
     "sophia": {
-     "state": "listed",
+     "state": "available",
      "build": ""
     },
     "sunspot": {
-     "state": "listed",
+     "state": "available",
      "build": ""
     }
    }
@@ -1239,7 +1239,7 @@
    "description": "Lattice QCD library for GPUs (Wilson/staggered dslash, solvers) on CUDA",
    "systems": {
     "perlmutter": {
-     "state": "listed",
+     "state": "available",
      "build": ""
     }
    }
@@ -1271,8 +1271,8 @@
      "build": "built"
     },
     "frontier": {
-     "state": "listed",
-     "build": ""
+     "state": "available",
+     "build": "installed"
     },
     "perlmutter": {
      "state": "available",
@@ -1311,7 +1311,7 @@
    "description": "HuggingFace TRL 0.19.1 with GRPOTrainer for reinforcement learning fine-tuning on Aurora Intel XPU. Compatible with Aurora's custom vLLM 0.10.1rc2 XPU build.",
    "systems": {
     "aurora": {
-     "state": "listed",
+     "state": "available",
      "build": ""
     }
    }
@@ -1339,11 +1339,11 @@
      "build": "license_required"
     },
     "perlmutter": {
-     "state": "listed",
+     "state": "available",
      "build": ""
     },
     "polaris": {
-     "state": "listed",
+     "state": "available",
      "build": ""
     }
    }
@@ -1419,36 +1419,36 @@
    "description": "WarpX — AMReX-based electromagnetic/electrostatic Particle-in-Cell (PIC)\nplasma code. 3D SYCL/DPC++ build for the Intel Data Center GPU Max Series\n(Ponte Vecchio / PVC). Built as a CMake superbuild that auto-fetches AMReX,\nPICSAR/ABLASTR, and openPMD-api. Adapted from the proven Frontier HIP build\n(software/frontier/warpx.yaml) by switching the backend HIP -> SYCL and using\nthe Aurora oneAPI/SYCL env that worked for Nyx (software/aurora/nyx.yaml).\n",
    "systems": {
     "aurora": {
-     "state": "listed",
-     "build": ""
+     "state": "available",
+     "build": "working"
     },
     "crux": {
-     "state": "listed",
-     "build": ""
+     "state": "available",
+     "build": "installed"
     },
     "frontier": {
-     "state": "listed",
-     "build": ""
+     "state": "available",
+     "build": "installed"
     },
     "odo": {
      "state": "available",
      "build": "built"
     },
     "perlmutter": {
-     "state": "listed",
-     "build": ""
+     "state": "available",
+     "build": "working"
     },
     "polaris": {
      "state": "pass",
-     "build": "",
+     "build": "working",
      "smoke": "pass",
      "smoke_date": "2026-07-09",
      "smoke_result": "ran 100 steps; Total Time 0.29 s; rc=0 (campaign C10). No rebuild needed.",
      "smoke_cmd": "uniform thermal e- plasma, 32^3 periodic yee, algo.particle_shape=1, max_step=100 (4 ranks A100)"
     },
     "sunspot": {
-     "state": "listed",
-     "build": ""
+     "state": "available",
+     "build": "working"
     }
    }
   },
