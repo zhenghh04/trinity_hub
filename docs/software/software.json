@@ -1,11 +1,11 @@
 {
- "generated": "2026-08-06T19:55:03Z",
+ "generated": "2026-08-06T22:16:55Z",
  "counts": {
   "apps": 58,
   "systems": 10,
   "cards": 214,
-  "smoke": 28,
-  "passed": 28
+  "smoke": 73,
+  "passed": 50
  },
  "systems": [
   {
@@ -87,8 +87,12 @@
    "description": "Allegro E(3)-equivariant ML interatomic potential (NequIP extension, CUDA for Polaris A100)",
    "systems": {
     "polaris": {
-     "state": "available",
-     "build": "completed"
+     "state": "pass",
+     "build": "completed",
+     "smoke": "pass",
+     "smoke_date": "2026-08-05",
+     "smoke_result": "",
+     "smoke_cmd": "python -c \""
     }
    }
   },
@@ -115,7 +119,7 @@
      "build": "working",
      "smoke": "pass",
      "smoke_date": "2026-07-10",
-     "smoke_result": "FULL end-to-end PASS: MSA (features 3757s) -> 5-model JAX inference (~50-84s each) -> Amber GPU relaxation (Einit 1227.84 -> Efinal -1262.51, 0 residue violations) -> ranking. Wrote ranked_0.pdb, relaxed_model_1_pred_0.pdb, ranking_debug.json. pLDDT model_1=95.73 (95.7/95.6/93.2/89.8/89.7).",
+     "smoke_result": "FULL end-to-end PASS: MSA (features 3757s) -> 5-model JAX inference (~50-84s each) -> Amber GPU relaxation (Einit 1227.84 -> Efinal -1262.51, 0 residue violations) -> ranking. Wrote ranked_0.pdb, rel…",
      "smoke_cmd": "run_alphafold.py, 78-res monomer, full_dbs, staged /eagle/datasets/alphafold; GPU relax"
     }
    }
@@ -128,7 +132,11 @@
    "systems": {
     "aurora": {
      "state": "available",
-     "build": "installed"
+     "build": "installed",
+     "smoke": "recorded",
+     "smoke_date": "",
+     "smoke_result": "",
+     "smoke_cmd": "# SYCL/PVC binary: needs a GPU, so this ABORTS on a login node (expected):"
     }
    }
   },
@@ -143,12 +151,16 @@
      "build": "success",
      "smoke": "pass",
      "smoke_date": "2026-06-26",
-     "smoke_result": "BLACS 2x2 grid; 40 matrix elements; polarizability over 4 ranks; 3 q-points:\n  q-pt 1 (q->0): Head of Epsilon = 16.96195,  Head of Epsilon Inverse = 0.0650199\n  q-pt 2:        Head of Epsilon =  3.10432,  Head of Epsilon Inverse = 0.361415\n  q-pt 3:        Head of Epsilon =  2.89448,  Head of Epsilon Inverse = 0.365704\nOutputs: eps0mat.h5 (119356 B, parallel collective write OK), epsilon.log, chi_converge.dat\n",
+     "smoke_result": "BLACS 2x2 grid; 40 matrix elements; polarizability over 4 ranks; 3 q-points:",
      "smoke_cmd": "BerkeleyGW testsuite Si-EPM (real flavor) — empirical-pseudopotential mean field (no external DFT) + epsilon GW dielectric matrix"
     },
     "crux": {
-     "state": "available",
-     "build": "success"
+     "state": "pass",
+     "build": "success",
+     "smoke": "pass",
+     "smoke_date": "",
+     "smoke_result": "PASS — build task 2153cade8f794315ac1ddd9292e271a0 completed; campaign-recorded crux 5/5 built+verified",
+     "smoke_cmd": ""
     },
     "frontier": {
      "state": "available",
@@ -167,8 +179,12 @@
      "build": ""
     },
     "sunspot": {
-     "state": "available",
-     "build": "success"
+     "state": "pass",
+     "build": "success",
+     "smoke": "pass",
+     "smoke_date": "",
+     "smoke_result": "PASS — 85 exes, all 8 core present, ldd epsilon.cplx.x clean",
+     "smoke_cmd": ""
     }
    }
   },
@@ -179,32 +195,60 @@
    "description": "block2 (pyblock2) — DMRG / ab-initio matrix-product-state quantum-chemistry solver. CPU (serial/OpenMP) pip wheel installed into a venv off frameworks Python 3.12, with PySCF as the integral/FCIDUMP front end, on ALCF Aurora.",
    "systems": {
     "aurora": {
-     "state": "available",
-     "build": "success"
+     "state": "pass",
+     "build": "success",
+     "smoke": "pass",
+     "smoke_date": "",
+     "smoke_result": "PASS — BLOCK2_SMOKE_PASS in build task b0656efc09324652aa0e3c690a3ded29 (H4/STO-3G DMRG matches FCI < 1e-6 Ha)",
+     "smoke_cmd": ""
     },
     "crux": {
-     "state": "available",
-     "build": "working"
+     "state": "pass",
+     "build": "working",
+     "smoke": "pass",
+     "smoke_date": "",
+     "smoke_result": "DMRG reproduces FCI for H4/sto-3g.",
+     "smoke_cmd": "python -c \"import block2; from importlib.metadata import version; from pyblock2.driver.core import DMRGDriver, SymmetryTypes; print('block2', version('block2'), 'DMRGDriver OK')\""
     },
     "frontier": {
-     "state": "available",
-     "build": "success"
+     "state": "pass",
+     "build": "success",
+     "smoke": "pass",
+     "smoke_date": "",
+     "smoke_result": "DMRG reproduces FCI for H4/sto-3g.",
+     "smoke_cmd": "PY=/lustre/orion/csc708/scratch/hzheng/software/frontier/pyscf/venv/bin/python"
     },
     "odo": {
-     "state": "available",
-     "build": "built"
+     "state": "pass",
+     "build": "built",
+     "smoke": "pass",
+     "smoke_date": "",
+     "smoke_result": "DMRG reproduces FCI for H4/sto-3g.",
+     "smoke_cmd": "PY=/gpfs/wolf2/olcf/csc708/world-shared/hzheng/software/block2/venv/bin/python"
     },
     "perlmutter": {
-     "state": "available",
-     "build": "working"
+     "state": "pass",
+     "build": "working",
+     "smoke": "pass",
+     "smoke_date": "",
+     "smoke_result": "DMRG reproduces FCI for H4/sto-3g.",
+     "smoke_cmd": "python -c \"import block2; from importlib.metadata import version; from pyblock2.driver.core import DMRGDriver, SymmetryTypes; print('block2', version('block2'), 'DMRGDriver OK')\""
     },
     "polaris": {
-     "state": "available",
-     "build": "working"
+     "state": "pass",
+     "build": "working",
+     "smoke": "pass",
+     "smoke_date": "",
+     "smoke_result": "DMRG reproduces FCI for H4/STO-3G.",
+     "smoke_cmd": "python -c \"import block2; from importlib.metadata import version; print('block2', version('block2'))\""
     },
     "sunspot": {
-     "state": "available",
-     "build": "working"
+     "state": "pass",
+     "build": "working",
+     "smoke": "pass",
+     "smoke_date": "",
+     "smoke_result": "DMRG reproduces FCI for H4/sto-3g.",
+     "smoke_cmd": "python -c \"import block2; from importlib.metadata import version; from pyblock2.driver.core import DMRGDriver, SymmetryTypes; print('block2', version('block2'), 'DMRGDriver OK')\""
     }
    }
   },
@@ -216,7 +260,11 @@
    "systems": {
     "cerebras": {
      "state": "listed",
-     "build": ""
+     "build": "",
+     "smoke": "recorded",
+     "smoke_date": "",
+     "smoke_result": "",
+     "smoke_cmd": "source ~/R_2.9.0/venv_cerebras_pt/bin/activate"
     }
    }
   },
@@ -232,7 +280,11 @@
     },
     "frontier": {
      "state": "available",
-     "build": "completed"
+     "build": "completed",
+     "smoke": "recorded",
+     "smoke_date": "",
+     "smoke_result": "",
+     "smoke_cmd": "${PY} -c \""
     },
     "odo": {
      "state": "available",
@@ -244,7 +296,11 @@
     },
     "polaris": {
      "state": "available",
-     "build": "completed"
+     "build": "completed",
+     "smoke": "recorded",
+     "smoke_date": "",
+     "smoke_result": "",
+     "smoke_cmd": "python -c \""
     }
    }
   },
@@ -331,8 +387,12 @@
    "description": "E3SM EAMxx / SCREAM — the C++/Kokkos rewrite of E3SM's atmosphere physics\n(P3 microphysics, SHOC turbulence, RRTMGP radiation, etc.), GPU-portable via\nKokkos. INCITE-demanded climate code (5 proposals), no prior Polaris recipe.\nThis is a STANDALONE library build of components/eamxx driven directly by\nCMake — deliberately NOT the CIME case / test-all-eamxx wrapper, which would\nrequire porting a CIME machine config for Polaris (out of scope for a first\nbuild). E3SM's own committed machine file cmake/machine-files/polaris.cmake\nsupplies the compiler + Kokkos config (it includes EKAT's nvidia-a100.cmake =>\nKokkos_ARCH_AMPERE80 + CMAKE_CUDA_ARCHITECTURES=80, and cuda.cmake =>\nKokkos_ENABLE_CUDA + CUDA_LAMBDA). Adapted from the WarpX/Polaris Kokkos-CUDA\nsibling (software/polaris/warpx.yaml) for the toolchain + nvcc-MPI lessons.\n",
    "systems": {
     "polaris": {
-     "state": "available",
-     "build": "working"
+     "state": "pass",
+     "build": "working",
+     "smoke": "pass",
+     "smoke_date": "",
+     "smoke_result": "Path (B), the lightest CREDIBLE GPU smoke: compiled a minimal Kokkos-CUDA probe",
+     "smoke_cmd": "# Library build success = 100% compile + install (verified: 45 lib*.a incl."
     }
    }
   },
@@ -415,8 +475,12 @@
    "description": "Grid — data-parallel C++ library for lattice QCD (HIP/gfx90a for Frontier MI250X)",
    "systems": {
     "frontier": {
-     "state": "available",
-     "build": "completed"
+     "state": "pass",
+     "build": "completed",
+     "smoke": "pass",
+     "smoke_date": "2026-08-06",
+     "smoke_result": "",
+     "smoke_cmd": "# 1 node, 8 GCDs, DWF 16^3x32. Per-rank HIP_VISIBLE_DEVICES REQUIRED; NO --gpu-bind."
     }
    }
   },
@@ -752,7 +816,11 @@
     },
     "crux": {
      "state": "available",
-     "build": "installed"
+     "build": "installed",
+     "smoke": "recorded",
+     "smoke_date": "",
+     "smoke_result": "",
+     "smoke_cmd": "nekrs --help"
     },
     "frontier": {
      "state": "available",
@@ -760,7 +828,11 @@
     },
     "perlmutter": {
      "state": "available",
-     "build": "installed"
+     "build": "installed",
+     "smoke": "recorded",
+     "smoke_date": "",
+     "smoke_result": "",
+     "smoke_cmd": "nekrs --help"
     },
     "polaris": {
      "state": "available",
@@ -828,23 +900,43 @@
    "systems": {
     "aurora": {
      "state": "available",
-     "build": "installed"
+     "build": "installed",
+     "smoke": "recorded",
+     "smoke_date": "",
+     "smoke_result": "",
+     "smoke_cmd": "# On a COMPUTE node (login node has no MPI fabric -> MPI_Init aborts):"
     },
     "crux": {
-     "state": "available",
-     "build": "success"
+     "state": "pass",
+     "build": "success",
+     "smoke": "pass",
+     "smoke_date": "",
+     "smoke_result": "PASS. MAKE_RC=0. Installed nyx_minisb.ex = 48269728 bytes (~32M).",
+     "smoke_cmd": "# Login-safe on-disk verification (NO exe execution; login node has no MPI fabric):"
     },
     "frontier": {
      "state": "available",
-     "build": "installed"
+     "build": "installed",
+     "smoke": "recorded",
+     "smoke_date": "",
+     "smoke_result": "Executable existence: PASS (47,677,528 B ELF x86-64, dynamically linked,",
+     "smoke_cmd": "# On a COMPUTE node (login node has no MPI fabric -> MPI aborts):"
     },
     "odo": {
-     "state": "available",
-     "build": "built"
+     "state": "pass",
+     "build": "built",
+     "smoke": "pass",
+     "smoke_date": "",
+     "smoke_result": "Executable existence: PASS — 47,690,544 B ELF x86-64, dynamically linked, links",
+     "smoke_cmd": "# On a COMPUTE node WITH a GPU allocation (login node has no MPI fabric, and a"
     },
     "perlmutter": {
      "state": "available",
-     "build": "working"
+     "build": "working",
+     "smoke": "recorded",
+     "smoke_date": "",
+     "smoke_result": "",
+     "smoke_cmd": "# On a GPU COMPUTE node (login node has no GPU / MPI fabric):"
     },
     "polaris": {
      "state": "pass",
@@ -856,7 +948,11 @@
     },
     "sunspot": {
      "state": "available",
-     "build": "installed"
+     "build": "installed",
+     "smoke": "recorded",
+     "smoke_date": "",
+     "smoke_result": "",
+     "smoke_cmd": "# On a COMPUTE node (login node has no MPI fabric -> MPI_Init aborts):"
     }
    }
   },
@@ -900,11 +996,19 @@
    "systems": {
     "aurora": {
      "state": "available",
-     "build": "built"
+     "build": "built",
+     "smoke": "recorded",
+     "smoke_date": "",
+     "smoke_result": "",
+     "smoke_cmd": "qsub ${WORKDIR:-$HOME/agentic_workflows}/jobs/aurora/build_openfold/smoke_xpu.sh"
     },
     "frontier": {
-     "state": "available",
-     "build": "built"
+     "state": "pass",
+     "build": "built",
+     "smoke": "pass",
+     "smoke_date": "",
+     "smoke_result": "",
+     "smoke_cmd": "# Run via sbatch or srun on compute node"
     },
     "odo": {
      "state": "available",
@@ -919,16 +1023,24 @@
      "build": "working",
      "smoke": "pass",
      "smoke_date": "2026-07-10",
-     "smoke_result": "PASS: GPU inference 9.18 s on one A100 (rebuilt attn_core CUDA kernel), wrote seq_model_1_ptm_unrelaxed.pdb (78 residues). mean pLDDT = 95.71 — matches the AlphaFold2 pass (95.7), same weights + sequence.",
-     "smoke_cmd": "run_pretrained_openfold.py, 78-res monomer, --config_preset model_1_ptm, --jax_param_path=/eagle/datasets/alphafold/params/params_model_1_ptm.npz, --use_precomputed_alignments, --skip_relaxation, --model_device cuda:0"
+     "smoke_result": "PASS: GPU inference 9.18 s on one A100 (rebuilt attn_core CUDA kernel), wrote seq_model_1_ptm_unrelaxed.pdb (78 residues). mean pLDDT = 95.71 — matches the AlphaFold2 pass (95.7), same weights + sequ…",
+     "smoke_cmd": "run_pretrained_openfold.py, 78-res monomer, --config_preset model_1_ptm, --jax_param_path=/eagle/datasets/alphafold/params/params_model_1_ptm.npz, --use_precomputed_alignments, --skip_relaxation, --m…"
     },
     "sirius": {
      "state": "available",
-     "build": "built"
+     "build": "built",
+     "smoke": "recorded",
+     "smoke_date": "",
+     "smoke_result": "",
+     "smoke_cmd": "bash ${WORKDIR:-$HOME/agentic_workflows}/jobs/sirius/openfold_bench/run.sh"
     },
     "sunspot": {
      "state": "available",
-     "build": "built"
+     "build": "built",
+     "smoke": "recorded",
+     "smoke_date": "",
+     "smoke_result": "",
+     "smoke_cmd": "# Submit to workq compute node"
     }
    }
   },
@@ -940,23 +1052,43 @@
    "systems": {
     "aurora": {
      "state": "available",
-     "build": "installed"
+     "build": "installed",
+     "smoke": "recorded",
+     "smoke_date": "",
+     "smoke_result": "",
+     "smoke_cmd": "# C++ binary (run on a COMPUTE node; --version aborts on a login UAN because the"
     },
     "crux": {
      "state": "available",
-     "build": "installed"
+     "build": "installed",
+     "smoke": "recorded",
+     "smoke_date": "",
+     "smoke_result": "",
+     "smoke_cmd": "# C++ binary: presence + ldd (MPI build calls MPI_Init, so `openmc --version` aborts on a"
     },
     "frontier": {
      "state": "available",
-     "build": "installed"
+     "build": "installed",
+     "smoke": "recorded",
+     "smoke_date": "",
+     "smoke_result": "",
+     "smoke_cmd": "# C++ binary (run on a COMPUTE node; --version aborts on a login node because the MPI"
     },
     "odo": {
-     "state": "available",
-     "build": "built"
+     "state": "pass",
+     "build": "built",
+     "smoke": "pass",
+     "smoke_date": "",
+     "smoke_result": "",
+     "smoke_cmd": "# Python API (works anywhere, incl. login — the authoritative login-safe smoke that PASSED):"
     },
     "perlmutter": {
      "state": "available",
-     "build": "installed"
+     "build": "installed",
+     "smoke": "recorded",
+     "smoke_date": "",
+     "smoke_result": "",
+     "smoke_cmd": "# C++ binary (run on a COMPUTE node; --version aborts on a login node because the MPI build"
     },
     "polaris": {
      "state": "pass",
@@ -968,7 +1100,11 @@
     },
     "sunspot": {
      "state": "available",
-     "build": "installed"
+     "build": "installed",
+     "smoke": "recorded",
+     "smoke_date": "",
+     "smoke_result": "",
+     "smoke_cmd": "# C++ binary: present (size>0) + ldd clean. NOTE the login-MPI caveat below — the"
     }
    }
   },
@@ -1007,8 +1143,12 @@
    "description": "Unified PyTorch ptychographic reconstruction (analytic + autodiff): far/near-field X-ray, multislice, 4D-STEM.",
    "systems": {
     "polaris": {
-     "state": "available",
-     "build": ""
+     "state": "pass",
+     "build": "",
+     "smoke": "pass",
+     "smoke_date": "",
+     "smoke_result": "",
+     "smoke_cmd": "python -c 'import ptychox, ptychox.pear; print(ptychox.__file__)'"
     }
    }
   },
@@ -1020,11 +1160,19 @@
    "systems": {
     "polaris": {
      "state": "available",
-     "build": "installed"
+     "build": "installed",
+     "smoke": "recorded",
+     "smoke_date": "",
+     "smoke_result": "",
+     "smoke_cmd": "env -u PYTHONPATH /eagle/datascience/hzheng/software/polaris/ptyrad/venv/bin/python -c 'import ptyrad; print(ptyrad.__version__)'"
     },
     "sirius": {
      "state": "available",
-     "build": "installed"
+     "build": "installed",
+     "smoke": "recorded",
+     "smoke_date": "",
+     "smoke_result": "",
+     "smoke_cmd": "env -u PYTHONPATH /lus/tegu/projects/PolarisAT/hzheng/software/sirius/ptyrad/venv/bin/python -c 'import ptyrad; print(ptyrad.__version__)'"
     }
    }
   },
@@ -1039,8 +1187,12 @@
      "build": ""
     },
     "crux": {
-     "state": "available",
-     "build": "working"
+     "state": "pass",
+     "build": "working",
+     "smoke": "pass",
+     "smoke_date": "",
+     "smoke_result": "H2 RHF/STO-3G total energy ≈ -1.117 Ha (verified -1.116759 Ha)",
+     "smoke_cmd": "python -c \"from pyscf import gto, scf; print(scf.RHF(gto.M(atom='H 0 0 0; H 0 0 0.74', basis='sto-3g')).run(verbose=0).e_tot)\""
     },
     "frontier": {
      "state": "available",
@@ -1299,8 +1451,12 @@
    "description": "TRIQS (Toolbox for Research on Interacting Quantum Systems) core library + TRIQS/CTHYB continuous-time hybridization-expansion quantum impurity solver. CPU-only conda-forge install for Crux EPYC.",
    "systems": {
     "crux": {
-     "state": "available",
-     "build": "working"
+     "state": "pass",
+     "build": "working",
+     "smoke": "pass",
+     "smoke_date": "",
+     "smoke_result": "Verified 2026-07-30 on a Crux debug-queue compute node (PBS job 237834,",
+     "smoke_cmd": "python3 -c \""
     }
    }
   },
@@ -1420,23 +1576,43 @@
    "systems": {
     "aurora": {
      "state": "available",
-     "build": "working"
+     "build": "working",
+     "smoke": "recorded",
+     "smoke_date": "",
+     "smoke_result": "BUILD verified on disk: the 151 MB executable",
+     "smoke_cmd": "${INSTALL}/bin/warpx.3d.MPI.SYCL.DP.PDP.OPMD.EB.QED --help   # ON A COMPUTE NODE"
     },
     "crux": {
-     "state": "available",
-     "build": "installed"
+     "state": "pass",
+     "build": "installed",
+     "smoke": "pass",
+     "smoke_date": "",
+     "smoke_result": "PASSED on the crux-uan login node (no GPU / no aprun needed for max_step=0).",
+     "smoke_cmd": "# WarpX does NOT implement --help/-h. `<binary> --help` is parsed as an inputs"
     },
     "frontier": {
-     "state": "available",
-     "build": "installed"
+     "state": "pass",
+     "build": "installed",
+     "smoke": "pass",
+     "smoke_date": "",
+     "smoke_result": "PASSED on login node (no GPU needed for --help). Printed the AMReX banner:",
+     "smoke_cmd": "${INSTALL}/bin/warpx.3d.MPI.HIP.DP.PDP.OPMD.EB.QED --help"
     },
     "odo": {
-     "state": "available",
-     "build": "built"
+     "state": "partial",
+     "build": "built",
+     "smoke": "partial",
+     "smoke_date": "",
+     "smoke_result": "PARTIAL — binary verified real on disk; runtime --help banner NOT obtained.",
+     "smoke_cmd": "${INSTALL}/bin/warpx.3d.MPI.HIP.DP.PDP.OPMD.EB.QED --help"
     },
     "perlmutter": {
-     "state": "available",
-     "build": "working"
+     "state": "pass",
+     "build": "working",
+     "smoke": "pass",
+     "smoke_date": "",
+     "smoke_result": "PASSED (GPU compute node, v3 inner Slurm job 55005568 on nid001340, exit 0).",
+     "smoke_cmd": "${INSTALL}/bin/warpx.3d.MPI.CUDA.DP.PDP.OPMD.EB.QED --help   # MUST run on a GPU compute node"
     },
     "polaris": {
      "state": "pass",
@@ -1448,7 +1624,11 @@
     },
     "sunspot": {
      "state": "available",
-     "build": "working"
+     "build": "working",
+     "smoke": "recorded",
+     "smoke_date": "",
+     "smoke_result": "PASS (login/cross build). Verified on disk in the build log:",
+     "smoke_cmd": "${INSTALL}/bin/warpx.3d.MPI.SYCL.DP.PDP.OPMD.EB.QED --help   # ON A COMPUTE NODE"
     }
    }
   },
@@ -1515,6 +1695,24 @@
  ],
  "smokes": [
   {
+   "app": "grid",
+   "key": "grid",
+   "system": "frontier",
+   "state": "pass",
+   "date": "2026-08-06",
+   "result": "",
+   "cmd": "# 1 node, 8 GCDs, DWF 16^3x32. Per-rank HIP_VISIBLE_DEVICES REQUIRED; NO --gpu-bind."
+  },
+  {
+   "app": "allegro",
+   "key": "allegro",
+   "system": "polaris",
+   "state": "pass",
+   "date": "2026-08-05",
+   "result": "",
+   "cmd": "python -c \""
+  },
+  {
    "app": "Video Diffusion (open T2V/I2V)",
    "key": "video-diffusion",
    "system": "polaris",
@@ -1529,8 +1727,8 @@
    "system": "polaris",
    "state": "pass",
    "date": "2026-07-10",
-   "result": "PASS: GPU inference 9.18 s on one A100 (rebuilt attn_core CUDA kernel), wrote seq_model_1_ptm_unrelaxed.pdb (78 residues). mean pLDDT = 95.71 — matches the AlphaFold2 pass (95.7), same weights + sequence.",
-   "cmd": "run_pretrained_openfold.py, 78-res monomer, --config_preset model_1_ptm, --jax_param_path=/eagle/datasets/alphafold/params/params_model_1_ptm.npz, --use_precomputed_alignments, --skip_relaxation, --model_device cuda:0"
+   "result": "PASS: GPU inference 9.18 s on one A100 (rebuilt attn_core CUDA kernel), wrote seq_model_1_ptm_unrelaxed.pdb (78 residues). mean pLDDT = 95.71 — matches the AlphaFold2 pass (95.7), same weights + sequ…",
+   "cmd": "run_pretrained_openfold.py, 78-res monomer, --config_preset model_1_ptm, --jax_param_path=/eagle/datasets/alphafold/params/params_model_1_ptm.npz, --use_precomputed_alignments, --skip_relaxation, --m…"
   },
   {
    "app": "NAMD",
@@ -1547,7 +1745,7 @@
    "system": "polaris",
    "state": "pass",
    "date": "2026-07-10",
-   "result": "FULL end-to-end PASS: MSA (features 3757s) -> 5-model JAX inference (~50-84s each) -> Amber GPU relaxation (Einit 1227.84 -> Efinal -1262.51, 0 residue violations) -> ranking. Wrote ranked_0.pdb, relaxed_model_1_pred_0.pdb, ranking_debug.json. pLDDT model_1=95.73 (95.7/95.6/93.2/89.8/89.7).",
+   "result": "FULL end-to-end PASS: MSA (features 3757s) -> 5-model JAX inference (~50-84s each) -> Amber GPU relaxation (Einit 1227.84 -> Efinal -1262.51, 0 residue violations) -> ranking. Wrote ranked_0.pdb, rel…",
    "cmd": "run_alphafold.py, 78-res monomer, full_dbs, staged /eagle/datasets/alphafold; GPU relax"
   },
   {
@@ -1763,8 +1961,395 @@
    "system": "aurora",
    "state": "pass",
    "date": "2026-06-26",
-   "result": "BLACS 2x2 grid; 40 matrix elements; polarizability over 4 ranks; 3 q-points:\n  q-pt 1 (q->0): Head of Epsilon = 16.96195,  Head of Epsilon Inverse = 0.0650199\n  q-pt 2:        Head of Epsilon =  3.10432,  Head of Epsilon Inverse = 0.361415\n  q-pt 3:        Head of Epsilon =  2.89448,  Head of Epsilon Inverse = 0.365704\nOutputs: eps0mat.h5 (119356 B, parallel collective write OK), epsilon.log, chi_converge.dat\n",
+   "result": "BLACS 2x2 grid; 40 matrix elements; polarizability over 4 ranks; 3 q-points:",
    "cmd": "BerkeleyGW testsuite Si-EPM (real flavor) — empirical-pseudopotential mean field (no external DFT) + epsilon GW dielectric matrix"
+  },
+  {
+   "app": "Warpx",
+   "key": "warpx",
+   "system": "aurora",
+   "state": "available",
+   "date": "",
+   "result": "BUILD verified on disk: the 151 MB executable",
+   "cmd": "${INSTALL}/bin/warpx.3d.MPI.SYCL.DP.PDP.OPMD.EB.QED --help   # ON A COMPUTE NODE"
+  },
+  {
+   "app": "Warpx",
+   "key": "warpx",
+   "system": "crux",
+   "state": "pass",
+   "date": "",
+   "result": "PASSED on the crux-uan login node (no GPU / no aprun needed for max_step=0).",
+   "cmd": "# WarpX does NOT implement --help/-h. `<binary> --help` is parsed as an inputs"
+  },
+  {
+   "app": "Warpx",
+   "key": "warpx",
+   "system": "frontier",
+   "state": "pass",
+   "date": "",
+   "result": "PASSED on login node (no GPU needed for --help). Printed the AMReX banner:",
+   "cmd": "${INSTALL}/bin/warpx.3d.MPI.HIP.DP.PDP.OPMD.EB.QED --help"
+  },
+  {
+   "app": "Warpx",
+   "key": "warpx",
+   "system": "odo",
+   "state": "partial",
+   "date": "",
+   "result": "PARTIAL — binary verified real on disk; runtime --help banner NOT obtained.",
+   "cmd": "${INSTALL}/bin/warpx.3d.MPI.HIP.DP.PDP.OPMD.EB.QED --help"
+  },
+  {
+   "app": "Warpx",
+   "key": "warpx",
+   "system": "perlmutter",
+   "state": "pass",
+   "date": "",
+   "result": "PASSED (GPU compute node, v3 inner Slurm job 55005568 on nid001340, exit 0).",
+   "cmd": "${INSTALL}/bin/warpx.3d.MPI.CUDA.DP.PDP.OPMD.EB.QED --help   # MUST run on a GPU compute node"
+  },
+  {
+   "app": "Warpx",
+   "key": "warpx",
+   "system": "sunspot",
+   "state": "available",
+   "date": "",
+   "result": "PASS (login/cross build). Verified on disk in the build log:",
+   "cmd": "${INSTALL}/bin/warpx.3d.MPI.SYCL.DP.PDP.OPMD.EB.QED --help   # ON A COMPUTE NODE"
+  },
+  {
+   "app": "TRIQS",
+   "key": "triqs",
+   "system": "crux",
+   "state": "pass",
+   "date": "",
+   "result": "Verified 2026-07-30 on a Crux debug-queue compute node (PBS job 237834,",
+   "cmd": "python3 -c \""
+  },
+  {
+   "app": "PySCF",
+   "key": "pyscf",
+   "system": "crux",
+   "state": "pass",
+   "date": "",
+   "result": "H2 RHF/STO-3G total energy ≈ -1.117 Ha (verified -1.116759 Ha)",
+   "cmd": "python -c \"from pyscf import gto, scf; print(scf.RHF(gto.M(atom='H 0 0 0; H 0 0 0.74', basis='sto-3g')).run(verbose=0).e_tot)\""
+  },
+  {
+   "app": "PtyRAD",
+   "key": "ptyrad",
+   "system": "polaris",
+   "state": "available",
+   "date": "",
+   "result": "",
+   "cmd": "env -u PYTHONPATH /eagle/datascience/hzheng/software/polaris/ptyrad/venv/bin/python -c 'import ptyrad; print(ptyrad.__version__)'"
+  },
+  {
+   "app": "PtyRAD",
+   "key": "ptyrad",
+   "system": "sirius",
+   "state": "available",
+   "date": "",
+   "result": "",
+   "cmd": "env -u PYTHONPATH /lus/tegu/projects/PolarisAT/hzheng/software/sirius/ptyrad/venv/bin/python -c 'import ptyrad; print(ptyrad.__version__)'"
+  },
+  {
+   "app": "PtychoX",
+   "key": "ptychox",
+   "system": "polaris",
+   "state": "pass",
+   "date": "",
+   "result": "",
+   "cmd": "python -c 'import ptychox, ptychox.pear; print(ptychox.__file__)'"
+  },
+  {
+   "app": "OpenMC",
+   "key": "openmc",
+   "system": "aurora",
+   "state": "available",
+   "date": "",
+   "result": "",
+   "cmd": "# C++ binary (run on a COMPUTE node; --version aborts on a login UAN because the"
+  },
+  {
+   "app": "OpenMC",
+   "key": "openmc",
+   "system": "crux",
+   "state": "available",
+   "date": "",
+   "result": "",
+   "cmd": "# C++ binary: presence + ldd (MPI build calls MPI_Init, so `openmc --version` aborts on a"
+  },
+  {
+   "app": "OpenMC",
+   "key": "openmc",
+   "system": "frontier",
+   "state": "available",
+   "date": "",
+   "result": "",
+   "cmd": "# C++ binary (run on a COMPUTE node; --version aborts on a login node because the MPI"
+  },
+  {
+   "app": "OpenMC",
+   "key": "openmc",
+   "system": "odo",
+   "state": "pass",
+   "date": "",
+   "result": "",
+   "cmd": "# Python API (works anywhere, incl. login — the authoritative login-safe smoke that PASSED):"
+  },
+  {
+   "app": "OpenMC",
+   "key": "openmc",
+   "system": "perlmutter",
+   "state": "available",
+   "date": "",
+   "result": "",
+   "cmd": "# C++ binary (run on a COMPUTE node; --version aborts on a login node because the MPI build"
+  },
+  {
+   "app": "OpenMC",
+   "key": "openmc",
+   "system": "sunspot",
+   "state": "available",
+   "date": "",
+   "result": "",
+   "cmd": "# C++ binary: present (size>0) + ldd clean. NOTE the login-MPI caveat below — the"
+  },
+  {
+   "app": "OpenFold",
+   "key": "openfold",
+   "system": "aurora",
+   "state": "available",
+   "date": "",
+   "result": "",
+   "cmd": "qsub ${WORKDIR:-$HOME/agentic_workflows}/jobs/aurora/build_openfold/smoke_xpu.sh"
+  },
+  {
+   "app": "OpenFold",
+   "key": "openfold",
+   "system": "frontier",
+   "state": "pass",
+   "date": "",
+   "result": "",
+   "cmd": "# Run via sbatch or srun on compute node"
+  },
+  {
+   "app": "OpenFold",
+   "key": "openfold",
+   "system": "sirius",
+   "state": "available",
+   "date": "",
+   "result": "",
+   "cmd": "bash ${WORKDIR:-$HOME/agentic_workflows}/jobs/sirius/openfold_bench/run.sh"
+  },
+  {
+   "app": "OpenFold",
+   "key": "openfold",
+   "system": "sunspot",
+   "state": "available",
+   "date": "",
+   "result": "",
+   "cmd": "# Submit to workq compute node"
+  },
+  {
+   "app": "Nyx",
+   "key": "nyx",
+   "system": "aurora",
+   "state": "available",
+   "date": "",
+   "result": "",
+   "cmd": "# On a COMPUTE node (login node has no MPI fabric -> MPI_Init aborts):"
+  },
+  {
+   "app": "Nyx",
+   "key": "nyx",
+   "system": "crux",
+   "state": "pass",
+   "date": "",
+   "result": "PASS. MAKE_RC=0. Installed nyx_minisb.ex = 48269728 bytes (~32M).",
+   "cmd": "# Login-safe on-disk verification (NO exe execution; login node has no MPI fabric):"
+  },
+  {
+   "app": "Nyx",
+   "key": "nyx",
+   "system": "frontier",
+   "state": "available",
+   "date": "",
+   "result": "Executable existence: PASS (47,677,528 B ELF x86-64, dynamically linked,",
+   "cmd": "# On a COMPUTE node (login node has no MPI fabric -> MPI aborts):"
+  },
+  {
+   "app": "Nyx",
+   "key": "nyx",
+   "system": "odo",
+   "state": "pass",
+   "date": "",
+   "result": "Executable existence: PASS — 47,690,544 B ELF x86-64, dynamically linked, links",
+   "cmd": "# On a COMPUTE node WITH a GPU allocation (login node has no MPI fabric, and a"
+  },
+  {
+   "app": "Nyx",
+   "key": "nyx",
+   "system": "perlmutter",
+   "state": "available",
+   "date": "",
+   "result": "",
+   "cmd": "# On a GPU COMPUTE node (login node has no GPU / MPI fabric):"
+  },
+  {
+   "app": "Nyx",
+   "key": "nyx",
+   "system": "sunspot",
+   "state": "available",
+   "date": "",
+   "result": "",
+   "cmd": "# On a COMPUTE node (login node has no MPI fabric -> MPI_Init aborts):"
+  },
+  {
+   "app": "NekRS",
+   "key": "nekrs",
+   "system": "crux",
+   "state": "available",
+   "date": "",
+   "result": "",
+   "cmd": "nekrs --help"
+  },
+  {
+   "app": "NekRS",
+   "key": "nekrs",
+   "system": "perlmutter",
+   "state": "available",
+   "date": "",
+   "result": "",
+   "cmd": "nekrs --help"
+  },
+  {
+   "app": "E3Sm Scream",
+   "key": "e3sm_scream",
+   "system": "polaris",
+   "state": "pass",
+   "date": "",
+   "result": "Path (B), the lightest CREDIBLE GPU smoke: compiled a minimal Kokkos-CUDA probe",
+   "cmd": "# Library build success = 100% compile + install (verified: 45 lib*.a incl."
+  },
+  {
+   "app": "chai-lab",
+   "key": "chai_lab",
+   "system": "frontier",
+   "state": "available",
+   "date": "",
+   "result": "",
+   "cmd": "${PY} -c \""
+  },
+  {
+   "app": "chai-lab",
+   "key": "chai_lab",
+   "system": "polaris",
+   "state": "available",
+   "date": "",
+   "result": "",
+   "cmd": "python -c \""
+  },
+  {
+   "app": "Cerebras PyTorch venv (R_2.9.0)",
+   "key": "cerebras_pt",
+   "system": "cerebras",
+   "state": "listed",
+   "date": "",
+   "result": "",
+   "cmd": "source ~/R_2.9.0/venv_cerebras_pt/bin/activate"
+  },
+  {
+   "app": "block2",
+   "key": "block2",
+   "system": "aurora",
+   "state": "pass",
+   "date": "",
+   "result": "PASS — BLOCK2_SMOKE_PASS in build task b0656efc09324652aa0e3c690a3ded29 (H4/STO-3G DMRG matches FCI < 1e-6 Ha)",
+   "cmd": ""
+  },
+  {
+   "app": "block2",
+   "key": "block2",
+   "system": "crux",
+   "state": "pass",
+   "date": "",
+   "result": "DMRG reproduces FCI for H4/sto-3g.",
+   "cmd": "python -c \"import block2; from importlib.metadata import version; from pyblock2.driver.core import DMRGDriver, SymmetryTypes; print('block2', version('block2'), 'DMRGDriver OK')\""
+  },
+  {
+   "app": "block2",
+   "key": "block2",
+   "system": "frontier",
+   "state": "pass",
+   "date": "",
+   "result": "DMRG reproduces FCI for H4/sto-3g.",
+   "cmd": "PY=/lustre/orion/csc708/scratch/hzheng/software/frontier/pyscf/venv/bin/python"
+  },
+  {
+   "app": "block2",
+   "key": "block2",
+   "system": "odo",
+   "state": "pass",
+   "date": "",
+   "result": "DMRG reproduces FCI for H4/sto-3g.",
+   "cmd": "PY=/gpfs/wolf2/olcf/csc708/world-shared/hzheng/software/block2/venv/bin/python"
+  },
+  {
+   "app": "block2",
+   "key": "block2",
+   "system": "perlmutter",
+   "state": "pass",
+   "date": "",
+   "result": "DMRG reproduces FCI for H4/sto-3g.",
+   "cmd": "python -c \"import block2; from importlib.metadata import version; from pyblock2.driver.core import DMRGDriver, SymmetryTypes; print('block2', version('block2'), 'DMRGDriver OK')\""
+  },
+  {
+   "app": "block2",
+   "key": "block2",
+   "system": "polaris",
+   "state": "pass",
+   "date": "",
+   "result": "DMRG reproduces FCI for H4/STO-3G.",
+   "cmd": "python -c \"import block2; from importlib.metadata import version; print('block2', version('block2'))\""
+  },
+  {
+   "app": "block2",
+   "key": "block2",
+   "system": "sunspot",
+   "state": "pass",
+   "date": "",
+   "result": "DMRG reproduces FCI for H4/sto-3g.",
+   "cmd": "python -c \"import block2; from importlib.metadata import version; from pyblock2.driver.core import DMRGDriver, SymmetryTypes; print('block2', version('block2'), 'DMRGDriver OK')\""
+  },
+  {
+   "app": "BerkeleyGW",
+   "key": "berkeleygw",
+   "system": "crux",
+   "state": "pass",
+   "date": "",
+   "result": "PASS — build task 2153cade8f794315ac1ddd9292e271a0 completed; campaign-recorded crux 5/5 built+verified",
+   "cmd": ""
+  },
+  {
+   "app": "BerkeleyGW",
+   "key": "berkeleygw",
+   "system": "sunspot",
+   "state": "pass",
+   "date": "",
+   "result": "PASS — 85 exes, all 8 core present, ldd epsilon.cplx.x clean",
+   "cmd": ""
+  },
+  {
+   "app": "AthenaK",
+   "key": "athenak",
+   "system": "aurora",
+   "state": "available",
+   "date": "",
+   "result": "",
+   "cmd": "# SYCL/PVC binary: needs a GPU, so this ABORTS on a login node (expected):"
   }
  ]
 }
