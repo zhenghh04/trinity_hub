@@ -1,11 +1,11 @@
 {
- "generated": "2026-08-07T01:27:53Z",
+ "generated": "2026-08-09T09:00:53Z",
  "counts": {
-  "apps": 58,
+  "apps": 59,
   "systems": 10,
-  "cards": 214,
-  "smoke": 70,
-  "passed": 52
+  "cards": 215,
+  "smoke": 84,
+  "passed": 67
  },
  "systems": [
   {
@@ -13,7 +13,7 @@
    "name": "Polaris",
    "facility": "ALCF",
    "description": "560-node A100 GPU cluster at Argonne National Laboratory",
-   "app_count": 44
+   "app_count": 45
   },
   {
    "id": "aurora",
@@ -219,8 +219,12 @@
      "build": "working"
     },
     "polaris": {
-     "state": "available",
-     "build": "working"
+     "state": "pass",
+     "build": "working",
+     "smoke": "pass",
+     "smoke_date": "2026-08-07",
+     "smoke_result": "block2 ok: imported block2 + pyblock2 (block2 has no __version__ attr by design; original smoke used it)",
+     "smoke_cmd": "python -c 'import block2, pyblock2; print(\"block2 ok\")'"
     },
     "sunspot": {
      "state": "available",
@@ -247,8 +251,12 @@
    "description": "Chai-1 protein structure prediction model (XPU-ported fork for Aurora Intel PVC)",
    "systems": {
     "aurora": {
-     "state": "available",
-     "build": "completed"
+     "state": "pass",
+     "build": "completed",
+     "smoke": "pass",
+     "smoke_date": "2026-08-07",
+     "smoke_result": "chai_lab 0.6.1",
+     "smoke_cmd": "python -c 'import torch, chai_lab; print(chai_lab.__version__)'"
     },
     "frontier": {
      "state": "available",
@@ -283,8 +291,12 @@
    "description": "Quantum chemistry and molecular dynamics code with Intel oneAPI compilers on Aurora",
    "systems": {
     "aurora": {
-     "state": "available",
-     "build": "installed"
+     "state": "pass",
+     "build": "installed",
+     "smoke": "pass",
+     "smoke_date": "2026-08-07",
+     "smoke_result": "CP2K version 2024.1; cp2kflags: omp libint fftw3 fftw3_mkl libxc parallel scalapack xsmm mkl",
+     "smoke_cmd": "cp2k.psmp --version 2>&1 | head -3"
     },
     "crux": {
      "state": "in_progress",
@@ -567,7 +579,7 @@
      "build": "built",
      "smoke": "partial",
      "smoke_date": "2026-08-07",
-     "smoke_result": "presence+ldd rc=0 (build-verified; console-only, tail on flare not IRI-accessible)",
+     "smoke_result": "exists: /lus/flare/projects/datascience/hzheng/software/aurora/hpl/bin/xhpl; ldd clean (build-verified)",
      "smoke_cmd": "test -x .../hpl/bin/xhpl && ldd ..."
     },
     "crux": {
@@ -603,8 +615,12 @@
    "description": "IOR/mdtest parallel I/O benchmark with native DAOS DFS backend on Aurora (also POSIX/MPIIO/MMAP)",
    "systems": {
     "aurora": {
-     "state": "available",
-     "build": "built"
+     "state": "pass",
+     "build": "built",
+     "smoke": "pass",
+     "smoke_date": "2026-08-07",
+     "smoke_result": "IOR help/synopsis banner (Synopsis ior; Flags -c --collective, -F filePerProc, ...)",
+     "smoke_cmd": "ior -h 2>&1 | head -15"
     }
    }
   },
@@ -615,8 +631,12 @@
    "description": "Classical molecular dynamics with Intel GPU acceleration via Kokkos SYCL backend",
    "systems": {
     "aurora": {
-     "state": "available",
-     "build": "built"
+     "state": "pass",
+     "build": "built",
+     "smoke": "pass",
+     "smoke_date": "2026-08-07",
+     "smoke_result": "Large-scale Atomic/Molecular Massively Parallel Simulator - 29 Aug 2024",
+     "smoke_cmd": "lmp -h 2>&1 | head -20"
     },
     "crux": {
      "state": "pass",
@@ -695,7 +715,7 @@
      "build": "",
      "smoke": "partial",
      "smoke_date": "2026-08-07",
-     "smoke_result": "presence+ldd rc=0 (build-verified; console-only, tail on flare not IRI-accessible)",
+     "smoke_result": "exists: /lus/flare/projects/datascience/hzheng/software/aurora/moose/bin/moose_test-opt; ldd clean (build-verified)",
      "smoke_cmd": "test -x .../moose/bin/moose_test-opt && ldd ..."
     },
     "frontier": {
@@ -743,8 +763,12 @@
    "description": "NAMD 2/3: Scalable Molecular Dynamics (GPU-offload for Intel PVC + CPU variants)",
    "systems": {
     "aurora": {
-     "state": "available",
-     "build": "installed"
+     "state": "pass",
+     "build": "installed",
+     "smoke": "pass",
+     "smoke_date": "2026-08-07",
+     "smoke_result": "NAMD/Charm++ v8.0.1 init; SYCL over Level-Zero; Intel Data Center GPU Max 1550 (448 EU) detected",
+     "smoke_cmd": "namd3 2>&1 | head -15"
     },
     "crux": {
      "state": "in_progress",
@@ -783,8 +807,8 @@
      "build": "built",
      "smoke": "partial",
      "smoke_date": "2026-08-07",
-     "smoke_result": "presence+ldd rc=0 (build-verified; console-only, tail on flare not IRI-accessible)",
-     "smoke_cmd": "test -x .../nek5000 binary && ldd ..."
+     "smoke_result": "exists: /lus/flare/projects/datascience/hzheng/software/aurora/nek5000/Nek5000/bin/makenek; ldd clean (build-verified)",
+     "smoke_cmd": "test -x .../nek5000/Nek5000/bin/makenek && ldd ..."
     },
     "crux": {
      "state": "partial",
@@ -887,7 +911,7 @@
      "build": "built",
      "smoke": "partial",
      "smoke_date": "2026-08-07",
-     "smoke_result": "presence+ldd rc=0 (build-verified; console-only, tail on flare not IRI-accessible)",
+     "smoke_result": "exists: /lus/flare/projects/datascience/hzheng/software/aurora/nwchem/bin/nwchem; ldd clean (build-verified)",
      "smoke_cmd": "test -x .../nwchem/bin/nwchem && ldd ..."
     },
     "crux": {
@@ -1051,8 +1075,12 @@
    "description": "OpenMC: Monte Carlo neutron and photon transport for nuclear reactor physics, criticality, depletion, and shielding",
    "systems": {
     "aurora": {
-     "state": "available",
-     "build": "installed"
+     "state": "pass",
+     "build": "installed",
+     "smoke": "pass",
+     "smoke_date": "2026-08-07",
+     "smoke_result": "OpenMC 0.15.2 (Python API; openmc CLI not on PATH)",
+     "smoke_cmd": "python -c 'import openmc; print(openmc.__version__)'"
     },
     "crux": {
      "state": "pass",
@@ -1099,8 +1127,12 @@
    "description": "GPU-accelerated molecular dynamics — XPU/PVC support via OpenCL platform",
    "systems": {
     "aurora": {
-     "state": "available",
-     "build": "built"
+     "state": "pass",
+     "build": "built",
+     "smoke": "pass",
+     "smoke_date": "2026-08-07",
+     "smoke_result": "openmm 8.3.1.dev-6e13f13",
+     "smoke_cmd": "python -c 'import openmm; print(openmm.version.version)'"
     },
     "frontier": {
      "state": "listed",
@@ -1127,8 +1159,12 @@
    "description": "Unified PyTorch ptychographic reconstruction (analytic + autodiff): far/near-field X-ray, multislice, 4D-STEM.",
    "systems": {
     "polaris": {
-     "state": "listed",
-     "build": ""
+     "state": "pass",
+     "build": "",
+     "smoke": "pass",
+     "smoke_date": "2026-08-07",
+     "smoke_result": "ptychox 0.1.0 (re-run: original harness set P= un-exported so bash -c child saw no python)",
+     "smoke_cmd": "venv/bin/python -c 'import ptychox; print(ptychox.__version__)'"
     }
    }
   },
@@ -1139,8 +1175,12 @@
    "description": "PyTorch/automatic-differentiation multislice electron ptychography reconstruction framework (mixed probe/object states, physical constraints, Optuna hyperparameter tuning).",
    "systems": {
     "polaris": {
-     "state": "available",
-     "build": "installed"
+     "state": "pass",
+     "build": "installed",
+     "smoke": "pass",
+     "smoke_date": "2026-08-07",
+     "smoke_result": "ptyrad 1.0.0 (re-run: original harness set P= un-exported so bash -c child saw no python)",
+     "smoke_cmd": "venv/bin/python -c 'import ptyrad; print(ptyrad.__version__)'"
     },
     "sirius": {
      "state": "available",
@@ -1199,8 +1239,12 @@
    "description": "Intel oneAPI ML stack via module load frameworks — PyTorch 2.8, vLLM 0.10.1rc2, DeepSpeed 0.17.5 on Intel PVC XPU",
    "systems": {
     "aurora": {
-     "state": "listed",
-     "build": ""
+     "state": "pass",
+     "build": "",
+     "smoke": "pass",
+     "smoke_date": "2026-08-07",
+     "smoke_result": "Python 3.10.14",
+     "smoke_cmd": "python --version"
     },
     "crux": {
      "state": "listed",
@@ -1283,16 +1327,20 @@
    "description": "Quantum Monte Carlo code with SYCL/OpenMP offload for Intel GPU acceleration",
    "systems": {
     "aurora": {
-     "state": "available",
-     "build": "built"
+     "state": "pass",
+     "build": "built",
+     "smoke": "pass",
+     "smoke_date": "2026-08-07",
+     "smoke_result": "QMCPACK version 4.0.0 built on Apr 25 2026",
+     "smoke_cmd": "qmcpack --version 2>&1 | head -10"
     },
     "crux": {
      "state": "pass",
      "build": "built",
      "smoke": "pass",
-     "smoke_date": "2026-08-07",
-     "smoke_result": "QMCPACK version 4.2.9 built on Jun 10 2026",
-     "smoke_cmd": "qmcpack --version 2>&1 | head -10"
+     "smoke_date": "2026-08-08",
+     "smoke_result": "H2O VMC+DMC completed. E_VMC=-17.2495 Ha, E_DMC≈-17.255 Ha.\nPBS 245794, run dir /eagle/datascience/hzheng/runs/crux/qmcpack_h2o_vmc_dmc/20260808-202843/.\nNOTE: qmcpack real binary crashes on ECP inputs (see notes). Use qmcpack_complex.\n",
+     "smoke_cmd": "mpiexec -n 1 --ppn 1 qmcpack_complex h2o-tmoves.xml"
     },
     "frontier": {
      "state": "listed",
@@ -1343,8 +1391,12 @@
    "description": "Plane-wave DFT code for electronic structure calculations on Aurora with Intel oneAPI",
    "systems": {
     "aurora": {
-     "state": "available",
-     "build": "installed"
+     "state": "pass",
+     "build": "installed",
+     "smoke": "pass",
+     "smoke_date": "2026-08-07",
+     "smoke_result": "Program PWSCF v.7.4 starts (git commit a546703, Oct 2024)",
+     "smoke_cmd": "pw.x < /dev/null 2>&1 | head -15"
     },
     "crux": {
      "state": "available",
@@ -1445,6 +1497,18 @@
    }
   },
   {
+   "key": "torchtitan",
+   "name": "TorchTitan",
+   "category": "ml-framework",
+   "description": "PyTorch-native LLM pretraining reference (llama3/llama4 etc.) with FSDP2, tensor/pipeline/context parallelism and float8. Pinned to tag v0.1.0 — the NEWEST torchtitan release importable under the ALCF module torch 2.8.0 (cuda 12.9). Installed at /eagle/datascience/hzheng/software/polaris/torchtitan with an isolated --system-site-packages venv layered on the ALCF conda torch.",
+   "systems": {
+    "polaris": {
+     "state": "available",
+     "build": "installed + confirmed (v0.1.0 imports and trains under torch 2.8.0)"
+    }
+   }
+  },
+  {
    "key": "triqs",
    "name": "TRIQS",
    "category": "quantum-many-body",
@@ -1467,8 +1531,12 @@
    "description": "HuggingFace TRL 0.19.1 with GRPOTrainer for reinforcement learning fine-tuning on Aurora Intel XPU. Compatible with Aurora's custom vLLM 0.10.1rc2 XPU build.",
    "systems": {
     "aurora": {
-     "state": "listed",
-     "build": ""
+     "state": "pass",
+     "build": "",
+     "smoke": "pass",
+     "smoke_date": "2026-08-07",
+     "smoke_result": "trl 0.19.1",
+     "smoke_cmd": "python -c 'import trl; print(trl.__version__)'"
     }
    }
   },
@@ -1531,8 +1599,12 @@
    "description": "vLLM XPU inference on Aurora Intel PVC. The vllm bits ship inside the Aurora `frameworks` module (currently 25.190.0): vllm 0.10.1rc2 XPU + torch 2.8 in /input/frameworks/25.190.0/wheelhouse/. There is NO per-user venv to activate — `module load frameworks` then use the module's `python` directly. (Verified 2026-05-13 via IRI ls: neither /home/hzheng/envs/vllm-aurora-xpu nor any clearml_agent_setup/aurora/venvs/clearml/bin/python exists. The jobs/aurora/mfi-serve-v[3-5]/run.sh scripts source those paths with `|| true` — the activate is a no-op and python resolves to the framework one. See memory feedback_aurora_user_venv_empty.md.)\n",
    "systems": {
     "aurora": {
-     "state": "available",
-     "build": "shipped-with-module"
+     "state": "pass",
+     "build": "shipped-with-module",
+     "smoke": "pass",
+     "smoke_date": "2026-08-07",
+     "smoke_result": "vllm 0.10.1rc2.dev189+ge2db1164a (torch.xpu True)",
+     "smoke_cmd": "python -c 'import vllm; print(vllm.__version__)'"
     },
     "crux": {
      "state": "available",
@@ -1635,12 +1707,8 @@
    "description": "WRF 4.6.0: Weather Research and Forecasting Model (CPU-only, Intel oneAPI + Intel MPI)",
    "systems": {
     "aurora": {
-     "state": "partial",
-     "build": "installed",
-     "smoke": "partial",
-     "smoke_date": "2026-08-07",
-     "smoke_result": "presence+ldd rc=0 (build-verified; console-only, tail on flare not IRI-accessible)",
-     "smoke_cmd": "test -x .../wrf/main/wrf.exe && ldd ..."
+     "state": "available",
+     "build": "installed"
     },
     "crux": {
      "state": "partial",
@@ -1683,13 +1751,13 @@
  ],
  "smokes": [
   {
-   "app": "WRF",
-   "key": "wrf",
-   "system": "aurora",
-   "state": "partial",
-   "date": "2026-08-07",
-   "result": "presence+ldd rc=0 (build-verified; console-only, tail on flare not IRI-accessible)",
-   "cmd": "test -x .../wrf/main/wrf.exe && ldd ..."
+   "app": "QMCPACK",
+   "key": "qmcpack",
+   "system": "crux",
+   "state": "pass",
+   "date": "2026-08-08",
+   "result": "H2O VMC+DMC completed. E_VMC=-17.2495 Ha, E_DMC≈-17.255 Ha.\nPBS 245794, run dir /eagle/datascience/hzheng/runs/crux/qmcpack_h2o_vmc_dmc/20260808-202843/.\nNOTE: qmcpack real binary crashes on ECP inputs (see notes). Use qmcpack_complex.\n",
+   "cmd": "mpiexec -n 1 --ppn 1 qmcpack_complex h2o-tmoves.xml"
   },
   {
    "app": "WRF",
@@ -1703,11 +1771,29 @@
   {
    "app": "vLLM (Intel XPU, frameworks-shipped)",
    "key": "vllm",
+   "system": "aurora",
+   "state": "pass",
+   "date": "2026-08-07",
+   "result": "vllm 0.10.1rc2.dev189+ge2db1164a (torch.xpu True)",
+   "cmd": "python -c 'import vllm; print(vllm.__version__)'"
+  },
+  {
+   "app": "vLLM (Intel XPU, frameworks-shipped)",
+   "key": "vllm",
    "system": "perlmutter",
    "state": "pass",
    "date": "2026-08-07",
    "result": "vllm 0.19.1",
    "cmd": "python -c 'import vllm; print(vllm.__version__)'"
+  },
+  {
+   "app": "TRL (Transformer Reinforcement Learning)",
+   "key": "trl",
+   "system": "aurora",
+   "state": "pass",
+   "date": "2026-08-07",
+   "result": "trl 0.19.1",
+   "cmd": "python -c 'import trl; print(trl.__version__)'"
   },
   {
    "app": "TRIQS",
@@ -1730,6 +1816,15 @@
   {
    "app": "Quantum ESPRESSO",
    "key": "qe",
+   "system": "aurora",
+   "state": "pass",
+   "date": "2026-08-07",
+   "result": "Program PWSCF v.7.4 starts (git commit a546703, Oct 2024)",
+   "cmd": "pw.x < /dev/null 2>&1 | head -15"
+  },
+  {
+   "app": "Quantum ESPRESSO",
+   "key": "qe",
    "system": "perlmutter",
    "state": "pass",
    "date": "2026-08-07",
@@ -1739,10 +1834,10 @@
   {
    "app": "QMCPACK",
    "key": "qmcpack",
-   "system": "crux",
+   "system": "aurora",
    "state": "pass",
    "date": "2026-08-07",
-   "result": "QMCPACK version 4.2.9 built on Jun 10 2026",
+   "result": "QMCPACK version 4.0.0 built on Apr 25 2026",
    "cmd": "qmcpack --version 2>&1 | head -10"
   },
   {
@@ -1753,6 +1848,15 @@
    "date": "2026-08-07",
    "result": "QMCPACK version 4.2.0 built on May 2 2026",
    "cmd": "qmcpack --version 2>&1 | head -10"
+  },
+  {
+   "app": "Python / Conda (frameworks)",
+   "key": "conda",
+   "system": "aurora",
+   "state": "pass",
+   "date": "2026-08-07",
+   "result": "Python 3.10.14",
+   "cmd": "python --version"
   },
   {
    "app": "Python / Conda (frameworks)",
@@ -1789,6 +1893,42 @@
    "date": "2026-08-07",
    "result": "pyscf 2.13.0",
    "cmd": "python -c 'import pyscf; print(pyscf.__version__)'"
+  },
+  {
+   "app": "PtyRAD",
+   "key": "ptyrad",
+   "system": "polaris",
+   "state": "pass",
+   "date": "2026-08-07",
+   "result": "ptyrad 1.0.0 (re-run: original harness set P= un-exported so bash -c child saw no python)",
+   "cmd": "venv/bin/python -c 'import ptyrad; print(ptyrad.__version__)'"
+  },
+  {
+   "app": "PtychoX",
+   "key": "ptychox",
+   "system": "polaris",
+   "state": "pass",
+   "date": "2026-08-07",
+   "result": "ptychox 0.1.0 (re-run: original harness set P= un-exported so bash -c child saw no python)",
+   "cmd": "venv/bin/python -c 'import ptychox; print(ptychox.__version__)'"
+  },
+  {
+   "app": "OpenMM",
+   "key": "openmm",
+   "system": "aurora",
+   "state": "pass",
+   "date": "2026-08-07",
+   "result": "openmm 8.3.1.dev-6e13f13",
+   "cmd": "python -c 'import openmm; print(openmm.version.version)'"
+  },
+  {
+   "app": "OpenMC",
+   "key": "openmc",
+   "system": "aurora",
+   "state": "pass",
+   "date": "2026-08-07",
+   "result": "OpenMC 0.15.2 (Python API; openmc CLI not on PATH)",
+   "cmd": "python -c 'import openmc; print(openmc.__version__)'"
   },
   {
    "app": "OpenMC",
@@ -1832,7 +1972,7 @@
    "system": "aurora",
    "state": "partial",
    "date": "2026-08-07",
-   "result": "presence+ldd rc=0 (build-verified; console-only, tail on flare not IRI-accessible)",
+   "result": "exists: /lus/flare/projects/datascience/hzheng/software/aurora/nwchem/bin/nwchem; ldd clean (build-verified)",
    "cmd": "test -x .../nwchem/bin/nwchem && ldd ..."
   },
   {
@@ -1895,8 +2035,8 @@
    "system": "aurora",
    "state": "partial",
    "date": "2026-08-07",
-   "result": "presence+ldd rc=0 (build-verified; console-only, tail on flare not IRI-accessible)",
-   "cmd": "test -x .../nek5000 binary && ldd ..."
+   "result": "exists: /lus/flare/projects/datascience/hzheng/software/aurora/nek5000/Nek5000/bin/makenek; ldd clean (build-verified)",
+   "cmd": "test -x .../nek5000/Nek5000/bin/makenek && ldd ..."
   },
   {
    "app": "Nek5000",
@@ -1906,6 +2046,15 @@
    "date": "2026-08-07",
    "result": "exists: .../crux/nek5000/bin/makenek; ldd clean (build-verified)",
    "cmd": "test -x .../nek5000/bin/makenek && ldd ..."
+  },
+  {
+   "app": "NAMD",
+   "key": "namd",
+   "system": "aurora",
+   "state": "pass",
+   "date": "2026-08-07",
+   "result": "NAMD/Charm++ v8.0.1 init; SYCL over Level-Zero; Intel Data Center GPU Max 1550 (448 EU) detected",
+   "cmd": "namd3 2>&1 | head -15"
   },
   {
    "app": "MOOSE-libCEED-XPU",
@@ -1922,7 +2071,7 @@
    "system": "aurora",
    "state": "partial",
    "date": "2026-08-07",
-   "result": "presence+ldd rc=0 (build-verified; console-only, tail on flare not IRI-accessible)",
+   "result": "exists: /lus/flare/projects/datascience/hzheng/software/aurora/moose/bin/moose_test-opt; ldd clean (build-verified)",
    "cmd": "test -x .../moose/bin/moose_test-opt && ldd ..."
   },
   {
@@ -1946,6 +2095,15 @@
   {
    "app": "LAMMPS",
    "key": "lammps",
+   "system": "aurora",
+   "state": "pass",
+   "date": "2026-08-07",
+   "result": "Large-scale Atomic/Molecular Massively Parallel Simulator - 29 Aug 2024",
+   "cmd": "lmp -h 2>&1 | head -20"
+  },
+  {
+   "app": "LAMMPS",
+   "key": "lammps",
    "system": "crux",
    "state": "pass",
    "date": "2026-08-07",
@@ -1971,12 +2129,21 @@
    "cmd": "lmp -h 2>&1 | head -20"
   },
   {
+   "app": "IOR",
+   "key": "ior",
+   "system": "aurora",
+   "state": "pass",
+   "date": "2026-08-07",
+   "result": "IOR help/synopsis banner (Synopsis ior; Flags -c --collective, -F filePerProc, ...)",
+   "cmd": "ior -h 2>&1 | head -15"
+  },
+  {
    "app": "HPL",
    "key": "hpl",
    "system": "aurora",
    "state": "partial",
    "date": "2026-08-07",
-   "result": "presence+ldd rc=0 (build-verified; console-only, tail on flare not IRI-accessible)",
+   "result": "exists: /lus/flare/projects/datascience/hzheng/software/aurora/hpl/bin/xhpl; ldd clean (build-verified)",
    "cmd": "test -x .../hpl/bin/xhpl && ldd ..."
   },
   {
@@ -1998,6 +2165,24 @@
    "cmd": "python -c 'import flare; print(flare.__version__)'"
   },
   {
+   "app": "CP2K",
+   "key": "cp2k",
+   "system": "aurora",
+   "state": "pass",
+   "date": "2026-08-07",
+   "result": "CP2K version 2024.1; cp2kflags: omp libint fftw3 fftw3_mkl libxc parallel scalapack xsmm mkl",
+   "cmd": "cp2k.psmp --version 2>&1 | head -3"
+  },
+  {
+   "app": "chai-lab",
+   "key": "chai_lab",
+   "system": "aurora",
+   "state": "pass",
+   "date": "2026-08-07",
+   "result": "chai_lab 0.6.1",
+   "cmd": "python -c 'import torch, chai_lab; print(chai_lab.__version__)'"
+  },
+  {
    "app": "chai-lab",
    "key": "chai_lab",
    "system": "perlmutter",
@@ -2014,6 +2199,15 @@
    "date": "2026-08-07",
    "result": "torch: 2.6.0+cu124 | cuda devices: 4; chai_lab: 0.6.1",
    "cmd": "python -c 'import torch, chai_lab; ...'"
+  },
+  {
+   "app": "block2",
+   "key": "block2",
+   "system": "polaris",
+   "state": "pass",
+   "date": "2026-08-07",
+   "result": "block2 ok: imported block2 + pyblock2 (block2 has no __version__ attr by design; original smoke used it)",
+   "cmd": "python -c 'import block2, pyblock2; print(\"block2 ok\")'"
   },
   {
    "app": "BerkeleyGW",

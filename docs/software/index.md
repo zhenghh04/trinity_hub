@@ -1,12 +1,12 @@
 # Supported software
 
-*Auto-generated from Trinity's internal software cards on 2026-08-07T01:27:53Z. Do not edit
+*Auto-generated from Trinity's internal software cards on 2026-08-09T09:00:53Z. Do not edit
 by hand — regenerate with `scripts/build_software_dashboard.py`.*
 
 Trinity maintains verified build + run recipes ("software cards") for HPC
-applications across DOE systems. This dashboard shows **58 applications** with
-**214 recipes** across **10 systems**, and the **70 functional
-smoke tests** (52 passing) that confirm an app doesn't just compile but
+applications across DOE systems. This dashboard shows **59 applications** with
+**215 recipes** across **10 systems**, and the **84 functional
+smoke tests** (67 passing) that confirm an app doesn't just compile but
 produces a physically sensible result.
 
 <div class="sw-legend">
@@ -51,7 +51,7 @@ produces a physically sensible result.
 | **Aurora** | ALCF | 10,624-node Intel Data Center GPU Max Series exascale supercomputer at Argonne National… | 32 |
 | **Cerebras** | ALCF | 4 CS-3 wafer-scale engines + 4 worker nodes + 4 activation servers; AI testbed (Kuberne… | 1 |
 | **Crux** | ALCF | 256-node AMD EPYC CPU-only cluster at Argonne National Laboratory | 24 |
-| **Polaris** | ALCF | 560-node A100 GPU cluster at Argonne National Laboratory | 44 |
+| **Polaris** | ALCF | 560-node A100 GPU cluster at Argonne National Laboratory | 45 |
 | **Sirius** | ALCF | ALCF staging cluster | 16 |
 | **Sophia** | ALCF | 24-node DGX A100 GPU cluster at Argonne National Laboratory | 11 |
 | **Sunspot** | ALCF | 128-node Intel Data Center GPU Max Series testbed for Aurora at Argonne National Labora… | 11 |
