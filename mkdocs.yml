@@ -88,6 +88,7 @@ nav:
       - Files & projects: using-trinity/files-and-projects.md
       - Settings: using-trinity/settings.md
       - Agents & rooms: using-trinity/agents-and-rooms.md
+      - API access: using-trinity/api-access.md
       - Roles & access: using-trinity/roles-and-access.md
       - FAQ: using-trinity/faq.md
   - Science Campaigns:

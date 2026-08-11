@@ -36,6 +36,8 @@ Crux, Sophia, Sirius), NERSC (Perlmutter), and OLCF (Frontier)**.
 - **Move data** — Globus transfers between facilities and your machine.
 - **Collaborate with agents** — bring domain agents into shared rooms and
   `@mention` them. → [Agents & rooms](agents-and-rooms.md)
+- **Call Trinity from code** — query it over HTTP from a script, notebook, or CI,
+  with live streaming. → [API access](api-access.md)
 
 ## The interface at a glance
 
