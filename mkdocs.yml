@@ -2,7 +2,7 @@ site_name: Trinity Hub
 site_description: >-
   How to use Trinity — the multi-tenant agentic HPC workspace — and how to extend
   it with your own agents and skills.
-site_url: https://zhenghh04.github.io/trinity_hub/
+site_url: https://trinityscience.org/
 site_author: ALCF / Argonne National Laboratory
 
 repo_url: https://github.com/zhenghh04/trinity_hub
