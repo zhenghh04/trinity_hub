@@ -6,7 +6,7 @@ in plain language and it does the mechanics for you — on **ALCF (Polaris, Auro
 Crux, Sophia, Sirius), NERSC (Perlmutter), and OLCF (Frontier)**.
 
 !!! info "Where it lives"
-    Trinity runs in your browser at **<https://trinity.lionlambstone.org>**. You sign
+    Trinity runs in your browser at **<https://trinityscience.org>**. You sign
     in with **Globus** using your existing DOE facility identity — no new password
     required.
 

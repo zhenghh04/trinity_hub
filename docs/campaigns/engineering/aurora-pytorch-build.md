@@ -2,6 +2,11 @@
 
 **Build:** PyTorch source → Intel GPU (SYCL) build · **System:** Aurora · **Status:** :material-cpu-64-bit: Completed
 
+<figure markdown>
+  ![aurora-pytorch-build system schematic](../../assets/campaigns/aurora-pytorch-build-system.png)
+  <figcaption>A GPU feeding a neural network.</figcaption>
+</figure>
+
 ## The ask
 
 > "please build pytorch on Aurora from scratch using ClearML on Aurora login queue"
@@ -12,7 +17,12 @@ The first approach, following the documented compiler configuration, hit a wall 
 
 ## Results
 
+<figure markdown>
+  ![aurora-pytorch-build chart](../../assets/campaigns/aurora-pytorch-build.png)
+  <figcaption>One failed toolchain, then 23 iterations on a second approach, to a working build.</figcaption>
+</figure>
+
 - 23 build iterations resolved autonomously; final build took about 2 hours on the login node.
 - Verified on a full compute node (6 Intel GPUs, over 800GB of combined GPU memory): correct results across three numeric precision modes on a matrix-multiply test, and all three distributed-training communication backends confirmed working.
 
-[← Back to Engineering case studies](index.md)
+[← Back to Performance engineering case studies](index.md)

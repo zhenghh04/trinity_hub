@@ -1,11 +1,11 @@
 {
- "generated": "2026-08-09T09:00:53Z",
+ "generated": "2026-08-13T04:01:38Z",
  "counts": {
-  "apps": 59,
+  "apps": 65,
   "systems": 10,
-  "cards": 215,
-  "smoke": 84,
-  "passed": 67
+  "cards": 225,
+  "smoke": 29,
+  "passed": 29
  },
  "systems": [
   {
@@ -14,6 +14,13 @@
    "facility": "ALCF",
    "description": "560-node A100 GPU cluster at Argonne National Laboratory",
    "app_count": 45
+  },
+  {
+   "id": "perlmutter",
+   "name": "Perlmutter",
+   "facility": "NERSC",
+   "description": "GPU/CPU hybrid supercomputer at NERSC (NVIDIA A100 GPUs + AMD Milan CPUs)",
+   "app_count": 41
   },
   {
    "id": "aurora",
@@ -27,13 +34,6 @@
    "name": "Frontier",
    "facility": "OLCF",
    "description": "9408-node AMD MI250X exascale GPU system at Oak Ridge National Laboratory",
-   "app_count": 31
-  },
-  {
-   "id": "perlmutter",
-   "name": "Perlmutter",
-   "facility": "NERSC",
-   "description": "GPU/CPU hybrid supercomputer at NERSC (NVIDIA A100 GPUs + AMD Milan CPUs)",
    "app_count": 31
   },
   {
@@ -81,18 +81,26 @@
  ],
  "apps": [
   {
+   "key": "abacus",
+   "name": "ABACUS",
+   "category": "simulation",
+   "description": "ABACUS (Atomic-orbital Based Ab-initio Computation at UStc) — first-principles DFT / electronic-structure package. This is the plane-wave (PW) parallel engine abacus_pw_para; the LCAO engine is disabled (needs ELPA, absent on Perlmutter).",
+   "systems": {
+    "perlmutter": {
+     "state": "available",
+     "build": "installed"
+    }
+   }
+  },
+  {
    "key": "allegro",
    "name": "allegro",
    "category": "ml-framework",
    "description": "Allegro E(3)-equivariant ML interatomic potential (NequIP extension, CUDA for Polaris A100)",
    "systems": {
     "polaris": {
-     "state": "pass",
-     "build": "completed",
-     "smoke": "pass",
-     "smoke_date": "2026-08-07",
-     "smoke_result": "torch 2.6.0+cu124 | cuda 12.4; nequip 0.19.0; allegro 0.8.3; Allegro_Module import OK",
-     "smoke_cmd": "python -c 'import torch, nequip, allegro; ...'"
+     "state": "available",
+     "build": "completed"
     }
    }
   },
@@ -107,8 +115,8 @@
      "build": "installed"
     },
     "frontier": {
-     "state": "listed",
-     "build": ""
+     "state": "available",
+     "build": "installed"
     },
     "perlmutter": {
      "state": "available",
@@ -133,6 +141,22 @@
     "aurora": {
      "state": "available",
      "build": "installed"
+    },
+    "perlmutter": {
+     "state": "available",
+     "build": "installed"
+    }
+   }
+  },
+  {
+   "key": "athenapk",
+   "name": "AthenaPK",
+   "category": "simulation",
+   "description": "AthenaPK — performance-portable astrophysical magnetohydrodynamics (MHD) code built on the Parthenon block-structured AMR framework + Kokkos. Compressible (M)HD with static/adaptive mesh refinement; the flagship driver is athenaPK. This is the CUDA (A100/sm_80) build.",
+   "systems": {
+    "perlmutter": {
+     "state": "available",
+     "build": "installed"
     }
    }
   },
@@ -151,12 +175,8 @@
      "smoke_cmd": "BerkeleyGW testsuite Si-EPM (real flavor) — empirical-pseudopotential mean field (no external DFT) + epsilon GW dielectric matrix"
     },
     "crux": {
-     "state": "partial",
-     "build": "success",
-     "smoke": "partial",
-     "smoke_date": "2026-08-07",
-     "smoke_result": "exists: .../crux/berkeleygw/4.0/bin/epsilon.cplx.x; ldd clean (build-verified)",
-     "smoke_cmd": "test -x .../berkeleygw/4.0/bin/epsilon.cplx.x && ldd ..."
+     "state": "available",
+     "build": "success"
     },
     "frontier": {
      "state": "available",
@@ -167,28 +187,16 @@
      "build": "blocked"
     },
     "perlmutter": {
-     "state": "partial",
-     "build": "built",
-     "smoke": "partial",
-     "smoke_date": "2026-08-07",
-     "smoke_result": "exists: .../perlmutter/berkeleygw/4.0/bin/epsilon.cplx.x; ldd clean (build-verified)",
-     "smoke_cmd": "test -x .../berkeleygw/4.0/bin/epsilon.cplx.x && ldd ..."
+     "state": "available",
+     "build": "built"
     },
     "polaris": {
-     "state": "partial",
-     "build": "",
-     "smoke": "partial",
-     "smoke_date": "2026-08-07",
-     "smoke_result": "exists: .../polaris/berkeleygw/4.0/bin/epsilon.cplx.x; ldd clean (build-verified)",
-     "smoke_cmd": "test -x .../berkeleygw/4.0/bin/epsilon.cplx.x && ldd ..."
+     "state": "available",
+     "build": ""
     },
     "sunspot": {
-     "state": "partial",
-     "build": "success",
-     "smoke": "partial",
-     "smoke_date": "2026-08-07",
-     "smoke_result": "presence+ldd rc=0 (build-verified; console-only, tail on tegu not IRI-accessible)",
-     "smoke_cmd": "test -x .../berkeleygw/4.0/bin/epsilon.cplx.x && ldd ..."
+     "state": "available",
+     "build": "success"
     }
    }
   },
@@ -219,12 +227,8 @@
      "build": "working"
     },
     "polaris": {
-     "state": "pass",
-     "build": "working",
-     "smoke": "pass",
-     "smoke_date": "2026-08-07",
-     "smoke_result": "block2 ok: imported block2 + pyblock2 (block2 has no __version__ attr by design; original smoke used it)",
-     "smoke_cmd": "python -c 'import block2, pyblock2; print(\"block2 ok\")'"
+     "state": "available",
+     "build": "working"
     },
     "sunspot": {
      "state": "available",
@@ -245,18 +249,26 @@
    }
   },
   {
+   "key": "cgyro",
+   "name": "CGYRO",
+   "category": "simulation",
+   "description": "CGYRO — Eulerian gyrokinetic solver for multiscale plasma turbulence in tokamaks (part of the GACODE suite, General Atomics). Solves the 5D gyrokinetic-Maxwell equations for electron+ion transport; MPI+OpenMP. Built from the gacode monorepo; the deliverable is the cgyro MPI executable.",
+   "systems": {
+    "perlmutter": {
+     "state": "available",
+     "build": "installed"
+    }
+   }
+  },
+  {
    "key": "chai_lab",
    "name": "chai-lab",
    "category": "ml-framework",
    "description": "Chai-1 protein structure prediction model (XPU-ported fork for Aurora Intel PVC)",
    "systems": {
     "aurora": {
-     "state": "pass",
-     "build": "completed",
-     "smoke": "pass",
-     "smoke_date": "2026-08-07",
-     "smoke_result": "chai_lab 0.6.1",
-     "smoke_cmd": "python -c 'import torch, chai_lab; print(chai_lab.__version__)'"
+     "state": "available",
+     "build": "completed"
     },
     "frontier": {
      "state": "available",
@@ -267,20 +279,12 @@
      "build": "installed"
     },
     "perlmutter": {
-     "state": "pass",
-     "build": "completed",
-     "smoke": "pass",
-     "smoke_date": "2026-08-07",
-     "smoke_result": "chai_lab 0.6.1",
-     "smoke_cmd": "python -c 'import torch, chai_lab; ...'"
+     "state": "available",
+     "build": "completed"
     },
     "polaris": {
-     "state": "pass",
-     "build": "completed",
-     "smoke": "pass",
-     "smoke_date": "2026-08-07",
-     "smoke_result": "torch: 2.6.0+cu124 | cuda devices: 4; chai_lab: 0.6.1",
-     "smoke_cmd": "python -c 'import torch, chai_lab; ...'"
+     "state": "available",
+     "build": "completed"
     }
    }
   },
@@ -291,20 +295,16 @@
    "description": "Quantum chemistry and molecular dynamics code with Intel oneAPI compilers on Aurora",
    "systems": {
     "aurora": {
-     "state": "pass",
-     "build": "installed",
-     "smoke": "pass",
-     "smoke_date": "2026-08-07",
-     "smoke_result": "CP2K version 2024.1; cp2kflags: omp libint fftw3 fftw3_mkl libxc parallel scalapack xsmm mkl",
-     "smoke_cmd": "cp2k.psmp --version 2>&1 | head -3"
+     "state": "available",
+     "build": "installed"
     },
     "crux": {
      "state": "in_progress",
      "build": "needs_build"
     },
     "frontier": {
-     "state": "listed",
-     "build": ""
+     "state": "available",
+     "build": "installed"
     },
     "perlmutter": {
      "state": "in_progress",
@@ -339,8 +339,8 @@
      "build": "needs_build"
     },
     "frontier": {
-     "state": "listed",
-     "build": ""
+     "state": "available",
+     "build": "installed"
     },
     "perlmutter": {
      "state": "in_progress",
@@ -371,8 +371,8 @@
    "description": "E3SM EAMxx / SCREAM — the C++/Kokkos rewrite of E3SM's atmosphere physics\n(P3 microphysics, SHOC turbulence, RRTMGP radiation, etc.), GPU-portable via\nKokkos. INCITE-demanded climate code (5 proposals), no prior Polaris recipe.\nThis is a STANDALONE library build of components/eamxx driven directly by\nCMake — deliberately NOT the CIME case / test-all-eamxx wrapper, which would\nrequire porting a CIME machine config for Polaris (out of scope for a first\nbuild). E3SM's own committed machine file cmake/machine-files/polaris.cmake\nsupplies the compiler + Kokkos config (it includes EKAT's nvidia-a100.cmake =>\nKokkos_ARCH_AMPERE80 + CMAKE_CUDA_ARCHITECTURES=80, and cuda.cmake =>\nKokkos_ENABLE_CUDA + CUDA_LAMBDA). Adapted from the WarpX/Polaris Kokkos-CUDA\nsibling (software/polaris/warpx.yaml) for the toolchain + nvcc-MPI lessons.\n",
    "systems": {
     "polaris": {
-     "state": "listed",
-     "build": ""
+     "state": "available",
+     "build": "working"
     }
    }
   },
@@ -399,12 +399,8 @@
    "description": "Bayesian ML interatomic force fields (GP / sparse GP FFs) — mir-group/flare",
    "systems": {
     "perlmutter": {
-     "state": "pass",
-     "build": "",
-     "smoke": "pass",
-     "smoke_date": "2026-08-07",
-     "smoke_result": "flare 1.4.0",
-     "smoke_cmd": "python -c 'import flare; print(flare.__version__)'"
+     "state": "available",
+     "build": ""
     }
    }
   },
@@ -421,6 +417,18 @@
    }
   },
   {
+   "key": "flutas",
+   "name": "FluTAS",
+   "category": "simulation",
+   "description": "FluTAS: Fluid Transport Accelerated Solver — finite-difference multiphase incompressible Navier-Stokes (VoF/MTHINC) with an FFT-based Poisson solver, for turbulent flows and heat transfer",
+   "systems": {
+    "perlmutter": {
+     "state": "available",
+     "build": "installed"
+    }
+   }
+  },
+  {
    "key": "gamess_rimp2",
    "name": "GAMESS RI-MP2 mini-app",
    "category": "simulation",
@@ -433,6 +441,18 @@
      "smoke_date": "2026-07-09",
      "smoke_result": "Passed :-) ; MP2 corr-energy rel.err 3e-16, wall 0.002 s (coverage campaign)",
      "smoke_cmd": "cd inputs && rimp2-cublas benz.kern (cuBLAS GPU offload)"
+    }
+   }
+  },
+  {
+   "key": "genesis",
+   "name": "GENESIS",
+   "category": "simulation",
+   "description": "GENESIS: GENeralized-Ensemble SImulation System — molecular dynamics for biomolecules (spdyn: large-system MD engine; atdyn: atomic-decomposition MD + REMD/replica-exchange, free-energy) from RIKEN R-CCS",
+   "systems": {
+    "perlmutter": {
+     "state": "available",
+     "build": "installed"
     }
    }
   },
@@ -461,6 +481,10 @@
     "frontier": {
      "state": "available",
      "build": "completed"
+    },
+    "perlmutter": {
+     "state": "available",
+     "build": "installed"
     }
    }
   },
@@ -479,8 +503,8 @@
      "build": "installed"
     },
     "frontier": {
-     "state": "listed",
-     "build": ""
+     "state": "available",
+     "build": "installed"
     },
     "odo": {
      "state": "available",
@@ -531,8 +555,8 @@
    "description": "",
    "systems": {
     "frontier": {
-     "state": "listed",
-     "build": ""
+     "state": "available",
+     "build": "installed"
     }
    }
   },
@@ -551,8 +575,8 @@
      "build": "installed"
     },
     "frontier": {
-     "state": "listed",
-     "build": ""
+     "state": "available",
+     "build": "installed"
     },
     "perlmutter": {
      "state": "available",
@@ -575,24 +599,16 @@
    "description": "High Performance Linpack benchmark using Intel MKL on Aurora",
    "systems": {
     "aurora": {
-     "state": "partial",
-     "build": "built",
-     "smoke": "partial",
-     "smoke_date": "2026-08-07",
-     "smoke_result": "exists: /lus/flare/projects/datascience/hzheng/software/aurora/hpl/bin/xhpl; ldd clean (build-verified)",
-     "smoke_cmd": "test -x .../hpl/bin/xhpl && ldd ..."
+     "state": "available",
+     "build": "built"
     },
     "crux": {
-     "state": "partial",
-     "build": "built",
-     "smoke": "partial",
-     "smoke_date": "2026-08-07",
-     "smoke_result": "exists: .../crux/hpl/bin/xhpl; ldd clean (build-verified)",
-     "smoke_cmd": "test -x .../hpl/bin/xhpl && ldd ..."
+     "state": "available",
+     "build": "built"
     },
     "frontier": {
-     "state": "listed",
-     "build": ""
+     "state": "available",
+     "build": "installed"
     },
     "perlmutter": {
      "state": "available",
@@ -615,12 +631,8 @@
    "description": "IOR/mdtest parallel I/O benchmark with native DAOS DFS backend on Aurora (also POSIX/MPIIO/MMAP)",
    "systems": {
     "aurora": {
-     "state": "pass",
-     "build": "built",
-     "smoke": "pass",
-     "smoke_date": "2026-08-07",
-     "smoke_result": "IOR help/synopsis banner (Synopsis ior; Flags -c --collective, -F filePerProc, ...)",
-     "smoke_cmd": "ior -h 2>&1 | head -15"
+     "state": "available",
+     "build": "built"
     }
    }
   },
@@ -631,40 +643,24 @@
    "description": "Classical molecular dynamics with Intel GPU acceleration via Kokkos SYCL backend",
    "systems": {
     "aurora": {
-     "state": "pass",
-     "build": "built",
-     "smoke": "pass",
-     "smoke_date": "2026-08-07",
-     "smoke_result": "Large-scale Atomic/Molecular Massively Parallel Simulator - 29 Aug 2024",
-     "smoke_cmd": "lmp -h 2>&1 | head -20"
+     "state": "available",
+     "build": "built"
     },
     "crux": {
-     "state": "pass",
-     "build": "built",
-     "smoke": "pass",
-     "smoke_date": "2026-08-07",
-     "smoke_result": "Large-scale Atomic/Molecular Massively Parallel Simulator - 2 Aug 2023 - Update 3",
-     "smoke_cmd": "lmp -h 2>&1 | head -20"
+     "state": "available",
+     "build": "built"
     },
     "frontier": {
-     "state": "listed",
-     "build": ""
+     "state": "available",
+     "build": "installed"
     },
     "perlmutter": {
-     "state": "pass",
-     "build": "",
-     "smoke": "pass",
-     "smoke_date": "2026-08-07",
-     "smoke_result": "Large-scale Atomic/Molecular Massively Parallel Simulator - 2 Aug 2023 - Update 3",
-     "smoke_cmd": "lmp -h 2>&1 | head -20"
+     "state": "available",
+     "build": ""
     },
     "polaris": {
-     "state": "pass",
-     "build": "",
-     "smoke": "pass",
-     "smoke_date": "2026-08-07",
-     "smoke_result": "Large-scale Atomic/Molecular Massively Parallel Simulator - 2 Aug 2023 - Update 3",
-     "smoke_cmd": "lmp -h 2>&1 | head -20"
+     "state": "available",
+     "build": ""
     },
     "sirius": {
      "state": "in_progress",
@@ -683,12 +679,8 @@
    "description": "NVIDIA Megatron-LM / Megatron-Core LLM training with tensor, pipeline, and data parallelism. Installed at /eagle/datascience/hzheng/software/polaris/megatron with a project-local venv layered on the ALCF mconda3.",
    "systems": {
     "polaris": {
-     "state": "pass",
-     "build": "installed (venv BROKEN — needs rebuild before it runs)",
-     "smoke": "pass",
-     "smoke_date": "2026-08-07",
-     "smoke_result": "megatron ok, torch 2.3.0",
-     "smoke_cmd": "python -c 'import torch, megatron; ...'"
+     "state": "blocked",
+     "build": "installed (venv BROKEN — needs rebuild before it runs)"
     }
    }
   },
@@ -696,8 +688,12 @@
    "key": "mfc",
    "name": "MFC",
    "category": "simulation",
-   "description": "GPU-native compressible many-physics flow solver (shock-capturing, multiphase, high-order WENO/MUSCL). Georgia Tech. FV.",
+   "description": "MFC (Multi-component Flow Code) — exascale compressible multiphase/multi-component flow solver (interface-capturing, shock-droplet, cavitation, bubble dynamics). Driven by mfc.sh, which builds a set of Fortran engines: pre_process (grid/IC), simulation (the flow solver), and post_process (I/O; NOT built here).",
    "systems": {
+    "perlmutter": {
+     "state": "available",
+     "build": "installed"
+    },
     "polaris": {
      "state": "available",
      "build": "built"
@@ -711,15 +707,11 @@
    "description": "Multiphysics Object-Oriented Simulation Environment - finite-element framework from INL",
    "systems": {
     "aurora": {
-     "state": "partial",
-     "build": "",
-     "smoke": "partial",
-     "smoke_date": "2026-08-07",
-     "smoke_result": "exists: /lus/flare/projects/datascience/hzheng/software/aurora/moose/bin/moose_test-opt; ldd clean (build-verified)",
-     "smoke_cmd": "test -x .../moose/bin/moose_test-opt && ldd ..."
+     "state": "available",
+     "build": ""
     },
     "frontier": {
-     "state": "listed",
+     "state": "available",
      "build": ""
     },
     "polaris": {
@@ -731,12 +723,8 @@
      "smoke_cmd": "test/tests simple_diffusion.i via mpiexec -n 4 moose_test-opt"
     },
     "sunspot": {
-     "state": "partial",
-     "build": "",
-     "smoke": "partial",
-     "smoke_date": "2026-08-07",
-     "smoke_result": "presence+ldd rc=0 (build-verified; console-only, tail on tegu not IRI-accessible)",
-     "smoke_cmd": "test -x .../moose/bin/moose_test-opt && ldd ..."
+     "state": "available",
+     "build": ""
     }
    }
   },
@@ -747,12 +735,8 @@
    "description": "MOOSE built against libCEED (SYCL backend on Intel PVC). Phase A: per-element CeedOperator (LibCeedDiffusion Kernel). Phase B: mesh-wide CeedOperator (LibCeedMeshOperator UserObject + LibCeedDiffusionGlobal trampoline Kernel). Both produce bit-for-bit identical residuals to standard MOOSE Diffusion on CPU and PVC up to 125K-element meshes. Microbench shows 40x kernel speedup PVC vs CPU at 50^3.",
    "systems": {
     "sunspot": {
-     "state": "partial",
-     "build": "",
-     "smoke": "partial",
-     "smoke_date": "2026-08-07",
-     "smoke_result": "presence+ldd rc=0 (build-verified; console-only, tail on tegu not IRI-accessible)",
-     "smoke_cmd": "test -x .../moose-libceed binary && ldd ..."
+     "state": "available",
+     "build": ""
     }
    }
   },
@@ -763,23 +747,19 @@
    "description": "NAMD 2/3: Scalable Molecular Dynamics (GPU-offload for Intel PVC + CPU variants)",
    "systems": {
     "aurora": {
-     "state": "pass",
-     "build": "installed",
-     "smoke": "pass",
-     "smoke_date": "2026-08-07",
-     "smoke_result": "NAMD/Charm++ v8.0.1 init; SYCL over Level-Zero; Intel Data Center GPU Max 1550 (448 EU) detected",
-     "smoke_cmd": "namd3 2>&1 | head -15"
+     "state": "available",
+     "build": "installed"
     },
     "crux": {
      "state": "in_progress",
      "build": "needs_build"
     },
     "frontier": {
-     "state": "listed",
+     "state": "available",
      "build": ""
     },
     "perlmutter": {
-     "state": "listed",
+     "state": "available",
      "build": ""
     },
     "polaris": {
@@ -803,24 +783,16 @@
    "description": "Spectral element CFD solver - CPU MPI build on Aurora with Intel oneAPI compilers",
    "systems": {
     "aurora": {
-     "state": "partial",
-     "build": "built",
-     "smoke": "partial",
-     "smoke_date": "2026-08-07",
-     "smoke_result": "exists: /lus/flare/projects/datascience/hzheng/software/aurora/nek5000/Nek5000/bin/makenek; ldd clean (build-verified)",
-     "smoke_cmd": "test -x .../nek5000/Nek5000/bin/makenek && ldd ..."
+     "state": "available",
+     "build": "built"
     },
     "crux": {
-     "state": "partial",
-     "build": "built",
-     "smoke": "partial",
-     "smoke_date": "2026-08-07",
-     "smoke_result": "exists: .../crux/nek5000/bin/makenek; ldd clean (build-verified)",
-     "smoke_cmd": "test -x .../nek5000/bin/makenek && ldd ..."
+     "state": "available",
+     "build": "built"
     },
     "frontier": {
-     "state": "listed",
-     "build": ""
+     "state": "available",
+     "build": "installed"
     },
     "odo": {
      "state": "available",
@@ -851,32 +823,20 @@
      "build": "installed"
     },
     "crux": {
-     "state": "pass",
-     "build": "installed",
-     "smoke": "pass",
-     "smoke_date": "2026-08-07",
-     "smoke_result": "prints nekrs usage banner (usage: ./nekrs ... --setup ...)",
-     "smoke_cmd": "nekrs --help"
+     "state": "available",
+     "build": "installed"
     },
     "frontier": {
-     "state": "listed",
-     "build": ""
+     "state": "available",
+     "build": "installed"
     },
     "perlmutter": {
-     "state": "pass",
-     "build": "installed",
-     "smoke": "pass",
-     "smoke_date": "2026-08-07",
-     "smoke_result": "prints nekrs usage banner",
-     "smoke_cmd": "nekrs --help"
+     "state": "available",
+     "build": "installed"
     },
     "polaris": {
-     "state": "pass",
-     "build": "",
-     "smoke": "pass",
-     "smoke_date": "2026-08-07",
-     "smoke_result": "prints nekrs usage banner (usage: ./nekrs ... --setup ...)",
-     "smoke_cmd": "nekrs --help"
+     "state": "available",
+     "build": ""
     },
     "sophia": {
      "state": "available",
@@ -891,12 +851,8 @@
    "description": "NVIDIA Inference Xfer Library — high-perf point-to-point transfers for AI inference (KV-cache, TP comms)",
    "systems": {
     "polaris": {
-     "state": "partial",
-     "build": "",
-     "smoke": "partial",
-     "smoke_date": "2026-08-07",
-     "smoke_result": "exists: .../polaris/nixl_stack/nixl/bin/nixlbench; ldd clean (build-verified)",
-     "smoke_cmd": "test -x .../nixl/bin/nixlbench && ldd ..."
+     "state": "available",
+     "build": ""
     }
    }
   },
@@ -907,32 +863,20 @@
    "description": "Computational chemistry software with Intel oneAPI compilers on Aurora",
    "systems": {
     "aurora": {
-     "state": "partial",
-     "build": "built",
-     "smoke": "partial",
-     "smoke_date": "2026-08-07",
-     "smoke_result": "exists: /lus/flare/projects/datascience/hzheng/software/aurora/nwchem/bin/nwchem; ldd clean (build-verified)",
-     "smoke_cmd": "test -x .../nwchem/bin/nwchem && ldd ..."
+     "state": "available",
+     "build": "built"
     },
     "crux": {
-     "state": "partial",
-     "build": "needs_build",
-     "smoke": "partial",
-     "smoke_date": "2026-08-07",
-     "smoke_result": "exists: .../crux/nwchem/bin/nwchem; ldd clean (build-verified)",
-     "smoke_cmd": "test -x .../nwchem/bin/nwchem && ldd ..."
+     "state": "in_progress",
+     "build": "needs_build"
     },
     "frontier": {
      "state": "available",
      "build": "installed"
     },
     "perlmutter": {
-     "state": "partial",
-     "build": "needs_build",
-     "smoke": "partial",
-     "smoke_date": "2026-08-07",
-     "smoke_result": "nwchem binary present (86 MB, -rwxrwxrwx nwchem) (build-verified)",
-     "smoke_cmd": "ls -la .../nwchem/bin"
+     "state": "available",
+     "build": "built"
     },
     "polaris": {
      "state": "pass",
@@ -943,8 +887,12 @@
      "smoke_cmd": "mpiexec -n 4 --ppn 4 nwchem water.nw (water B3LYP/6-31G*, geometry noautoz nocenter)"
     },
     "sirius": {
-     "state": "in_progress",
-     "build": "in_progress"
+     "state": "pass",
+     "build": "built",
+     "smoke": "pass",
+     "smoke_date": "2026-08-12",
+     "smoke_result": "SCF and DFT+COSMO+def2 both converge; def2 + Stuttgart-RSC ECP libraries present.",
+     "smoke_cmd": ""
     }
    }
   },
@@ -959,12 +907,8 @@
      "build": "installed"
     },
     "crux": {
-     "state": "partial",
-     "build": "success",
-     "smoke": "partial",
-     "smoke_date": "2026-08-07",
-     "smoke_result": "ldd resolves all libs (libssl/libcrypto/libkrb5 mapped); ldd clean (build-verified)",
-     "smoke_cmd": "ldd .../nyx binary"
+     "state": "available",
+     "build": "success"
     },
     "frontier": {
      "state": "available",
@@ -1043,12 +987,8 @@
      "build": "installed"
     },
     "perlmutter": {
-     "state": "pass",
-     "build": "built",
-     "smoke": "pass",
-     "smoke_date": "2026-08-07",
-     "smoke_result": "openfold ok",
-     "smoke_cmd": "python -c 'import openfold; print(\"openfold ok\")'"
+     "state": "available",
+     "build": "built"
     },
     "polaris": {
      "state": "pass",
@@ -1075,20 +1015,12 @@
    "description": "OpenMC: Monte Carlo neutron and photon transport for nuclear reactor physics, criticality, depletion, and shielding",
    "systems": {
     "aurora": {
-     "state": "pass",
-     "build": "installed",
-     "smoke": "pass",
-     "smoke_date": "2026-08-07",
-     "smoke_result": "OpenMC 0.15.2 (Python API; openmc CLI not on PATH)",
-     "smoke_cmd": "python -c 'import openmc; print(openmc.__version__)'"
+     "state": "available",
+     "build": "installed"
     },
     "crux": {
-     "state": "pass",
-     "build": "installed",
-     "smoke": "pass",
-     "smoke_date": "2026-08-07",
-     "smoke_result": "OpenMC version 0.15.2",
-     "smoke_cmd": "python -c 'import openmc; print(openmc.__version__)'"
+     "state": "available",
+     "build": "installed"
     },
     "frontier": {
      "state": "available",
@@ -1099,12 +1031,8 @@
      "build": "built"
     },
     "perlmutter": {
-     "state": "pass",
-     "build": "installed",
-     "smoke": "pass",
-     "smoke_date": "2026-08-07",
-     "smoke_result": "OpenMC version 0.15.2 (Python API)",
-     "smoke_cmd": "python -c 'import openmc; print(openmc.__version__)'"
+     "state": "available",
+     "build": "installed"
     },
     "polaris": {
      "state": "pass",
@@ -1127,16 +1055,12 @@
    "description": "GPU-accelerated molecular dynamics — XPU/PVC support via OpenCL platform",
    "systems": {
     "aurora": {
-     "state": "pass",
-     "build": "built",
-     "smoke": "pass",
-     "smoke_date": "2026-08-07",
-     "smoke_result": "openmm 8.3.1.dev-6e13f13",
-     "smoke_cmd": "python -c 'import openmm; print(openmm.version.version)'"
+     "state": "available",
+     "build": "built"
     },
     "frontier": {
-     "state": "listed",
-     "build": ""
+     "state": "available",
+     "build": "installed"
     },
     "perlmutter": {
      "state": "available",
@@ -1159,12 +1083,8 @@
    "description": "Unified PyTorch ptychographic reconstruction (analytic + autodiff): far/near-field X-ray, multislice, 4D-STEM.",
    "systems": {
     "polaris": {
-     "state": "pass",
-     "build": "",
-     "smoke": "pass",
-     "smoke_date": "2026-08-07",
-     "smoke_result": "ptychox 0.1.0 (re-run: original harness set P= un-exported so bash -c child saw no python)",
-     "smoke_cmd": "venv/bin/python -c 'import ptychox; print(ptychox.__version__)'"
+     "state": "available",
+     "build": ""
     }
    }
   },
@@ -1175,12 +1095,8 @@
    "description": "PyTorch/automatic-differentiation multislice electron ptychography reconstruction framework (mixed probe/object states, physical constraints, Optuna hyperparameter tuning).",
    "systems": {
     "polaris": {
-     "state": "pass",
-     "build": "installed",
-     "smoke": "pass",
-     "smoke_date": "2026-08-07",
-     "smoke_result": "ptyrad 1.0.0 (re-run: original harness set P= un-exported so bash -c child saw no python)",
-     "smoke_cmd": "venv/bin/python -c 'import ptyrad; print(ptyrad.__version__)'"
+     "state": "available",
+     "build": "installed"
     },
     "sirius": {
      "state": "available",
@@ -1195,28 +1111,20 @@
    "description": "Python-based Simulations of Chemistry Framework (CPU-only; gpu4pyscf requires CUDA)",
    "systems": {
     "aurora": {
-     "state": "listed",
+     "state": "available",
      "build": ""
     },
     "crux": {
-     "state": "pass",
-     "build": "working",
-     "smoke": "pass",
-     "smoke_date": "2026-08-07",
-     "smoke_result": "pyscf 2.13.1",
-     "smoke_cmd": "python -c 'import pyscf; print(pyscf.__version__)'"
+     "state": "available",
+     "build": "working"
     },
     "frontier": {
-     "state": "listed",
+     "state": "available",
      "build": ""
     },
     "perlmutter": {
-     "state": "pass",
-     "build": "",
-     "smoke": "pass",
-     "smoke_date": "2026-08-07",
-     "smoke_result": "pyscf 2.13.0",
-     "smoke_cmd": "python -c 'import pyscf; print(pyscf.__version__)'"
+     "state": "available",
+     "build": ""
     },
     "polaris": {
      "state": "pass",
@@ -1227,7 +1135,7 @@
      "smoke_cmd": "H2O cc-pVDZ: RHF + MP2 + B3LYP (pyscf_dft.py), venv python + cudatoolkit-standalone"
     },
     "sirius": {
-     "state": "listed",
+     "state": "available",
      "build": ""
     }
    }
@@ -1239,47 +1147,35 @@
    "description": "Intel oneAPI ML stack via module load frameworks — PyTorch 2.8, vLLM 0.10.1rc2, DeepSpeed 0.17.5 on Intel PVC XPU",
    "systems": {
     "aurora": {
-     "state": "pass",
-     "build": "",
-     "smoke": "pass",
-     "smoke_date": "2026-08-07",
-     "smoke_result": "Python 3.10.14",
-     "smoke_cmd": "python --version"
+     "state": "available",
+     "build": ""
     },
     "crux": {
      "state": "listed",
      "build": ""
     },
     "odo": {
-     "state": "listed",
+     "state": "available",
      "build": ""
     },
     "perlmutter": {
-     "state": "pass",
-     "build": "",
-     "smoke": "pass",
-     "smoke_date": "2026-08-07",
-     "smoke_result": "Python 3.12.13",
-     "smoke_cmd": "python --version"
+     "state": "available",
+     "build": ""
     },
     "polaris": {
-     "state": "pass",
-     "build": "installed",
-     "smoke": "pass",
-     "smoke_date": "2026-08-07",
-     "smoke_result": "Python 3.12.11",
-     "smoke_cmd": "python --version"
+     "state": "available",
+     "build": "installed"
     },
     "sirius": {
-     "state": "listed",
+     "state": "available",
      "build": ""
     },
     "sophia": {
-     "state": "listed",
+     "state": "available",
      "build": ""
     },
     "sunspot": {
-     "state": "listed",
+     "state": "available",
      "build": ""
     }
    }
@@ -1295,8 +1191,8 @@
      "build": "built"
     },
     "frontier": {
-     "state": "listed",
-     "build": ""
+     "state": "available",
+     "build": "installed"
     },
     "perlmutter": {
      "state": "available",
@@ -1315,7 +1211,7 @@
      "build": "needs_build"
     },
     "sophia": {
-     "state": "listed",
+     "state": "available",
      "build": ""
     }
    }
@@ -1327,32 +1223,20 @@
    "description": "Quantum Monte Carlo code with SYCL/OpenMP offload for Intel GPU acceleration",
    "systems": {
     "aurora": {
-     "state": "pass",
-     "build": "built",
-     "smoke": "pass",
-     "smoke_date": "2026-08-07",
-     "smoke_result": "QMCPACK version 4.0.0 built on Apr 25 2026",
-     "smoke_cmd": "qmcpack --version 2>&1 | head -10"
+     "state": "available",
+     "build": "built"
     },
     "crux": {
-     "state": "pass",
-     "build": "built",
-     "smoke": "pass",
-     "smoke_date": "2026-08-08",
-     "smoke_result": "H2O VMC+DMC completed. E_VMC=-17.2495 Ha, E_DMC≈-17.255 Ha.\nPBS 245794, run dir /eagle/datascience/hzheng/runs/crux/qmcpack_h2o_vmc_dmc/20260808-202843/.\nNOTE: qmcpack real binary crashes on ECP inputs (see notes). Use qmcpack_complex.\n",
-     "smoke_cmd": "mpiexec -n 1 --ppn 1 qmcpack_complex h2o-tmoves.xml"
+     "state": "available",
+     "build": "built"
     },
     "frontier": {
-     "state": "listed",
-     "build": ""
+     "state": "available",
+     "build": "installed"
     },
     "perlmutter": {
-     "state": "pass",
-     "build": "built",
-     "smoke": "pass",
-     "smoke_date": "2026-08-07",
-     "smoke_result": "QMCPACK version 4.2.0 built on May 2 2026",
-     "smoke_cmd": "qmcpack --version 2>&1 | head -10"
+     "state": "available",
+     "build": "built"
     },
     "polaris": {
      "state": "pass",
@@ -1363,7 +1247,7 @@
      "smoke_cmd": "PySCF RHF (bfd-vtz/bfd ECP) -> h5+XMLs -> qmcpack VMC(20)+DMC(100 blk), 4x A100"
     },
     "sirius": {
-     "state": "listed",
+     "state": "available",
      "build": ""
     },
     "sophia": {
@@ -1391,43 +1275,35 @@
    "description": "Plane-wave DFT code for electronic structure calculations on Aurora with Intel oneAPI",
    "systems": {
     "aurora": {
-     "state": "pass",
-     "build": "installed",
-     "smoke": "pass",
-     "smoke_date": "2026-08-07",
-     "smoke_result": "Program PWSCF v.7.4 starts (git commit a546703, Oct 2024)",
-     "smoke_cmd": "pw.x < /dev/null 2>&1 | head -15"
+     "state": "available",
+     "build": "installed"
     },
     "crux": {
      "state": "available",
      "build": "built"
     },
     "frontier": {
-     "state": "listed",
-     "build": ""
+     "state": "available",
+     "build": "installed"
     },
     "perlmutter": {
-     "state": "pass",
-     "build": "",
-     "smoke": "pass",
-     "smoke_date": "2026-08-07",
-     "smoke_result": "Program PWSCF v.7.5 starts on 6Aug2026 (espresso/7.5-libxc-7.0.0-gpu)",
-     "smoke_cmd": "pw.x < /dev/null 2>&1 | head -15"
+     "state": "available",
+     "build": ""
     },
     "polaris": {
-     "state": "listed",
+     "state": "available",
      "build": ""
     },
     "sirius": {
-     "state": "listed",
+     "state": "available",
      "build": ""
     },
     "sophia": {
-     "state": "listed",
+     "state": "available",
      "build": ""
     },
     "sunspot": {
-     "state": "listed",
+     "state": "available",
      "build": ""
     }
    }
@@ -1439,8 +1315,20 @@
    "description": "Lattice QCD library for GPUs (Wilson/staggered dslash, solvers) on CUDA",
    "systems": {
     "perlmutter": {
-     "state": "listed",
+     "state": "available",
      "build": ""
+    }
+   }
+  },
+  {
+   "key": "sparta",
+   "name": "SPARTA",
+   "category": "simulation",
+   "description": "SPARTA: Stochastic PArallel Rarefied-gas Time-accurate Analyzer — DSMC (Direct Simulation Monte Carlo) for low-density / rarefied gas flows (Sandia)",
+   "systems": {
+    "perlmutter": {
+     "state": "available",
+     "build": "installed"
     }
    }
   },
@@ -1448,8 +1336,12 @@
    "key": "su2",
    "name": "SU2",
    "category": "simulation",
-   "description": "Open-source compressible CFD + adjoint optimization suite (Euler/RANS, transonic/supersonic). FV, C++/MPI.",
+   "description": "SU2 v8.5.0 'Harrier' — open-source multiphysics CFD suite (compressible/incompressible RANS/LES, adjoint-based design optimization, FSI, heat). Core solvers SU2_CFD/SU2_DEF/SU2_SOL/SU2_DOT + Python design-automation scripts.",
    "systems": {
+    "perlmutter": {
+     "state": "available",
+     "build": "installed"
+    },
     "polaris": {
      "state": "pass",
      "build": "built",
@@ -1471,16 +1363,12 @@
      "build": "built"
     },
     "frontier": {
-     "state": "listed",
-     "build": ""
+     "state": "available",
+     "build": "installed"
     },
     "perlmutter": {
-     "state": "pass",
-     "build": "installed",
-     "smoke": "pass",
-     "smoke_date": "2026-08-07",
-     "smoke_result": "tensorflow 2.15.0",
-     "smoke_cmd": "python -c 'import tensorflow as tf; print(tf.__version__)'"
+     "state": "available",
+     "build": "installed"
     },
     "polaris": {
      "state": "pass",
@@ -1515,12 +1403,8 @@
    "description": "TRIQS (Toolbox for Research on Interacting Quantum Systems) core library + TRIQS/CTHYB continuous-time hybridization-expansion quantum impurity solver. CPU-only conda-forge install for Crux EPYC.",
    "systems": {
     "crux": {
-     "state": "pass",
-     "build": "working",
-     "smoke": "pass",
-     "smoke_date": "2026-08-07",
-     "smoke_result": "triqs 4.0.1",
-     "smoke_cmd": "python -c 'from triqs import version; print(version.version)'"
+     "state": "available",
+     "build": "working"
     }
    }
   },
@@ -1531,12 +1415,8 @@
    "description": "HuggingFace TRL 0.19.1 with GRPOTrainer for reinforcement learning fine-tuning on Aurora Intel XPU. Compatible with Aurora's custom vLLM 0.10.1rc2 XPU build.",
    "systems": {
     "aurora": {
-     "state": "pass",
-     "build": "",
-     "smoke": "pass",
-     "smoke_date": "2026-08-07",
-     "smoke_result": "trl 0.19.1",
-     "smoke_cmd": "python -c 'import trl; print(trl.__version__)'"
+     "state": "available",
+     "build": ""
     }
    }
   },
@@ -1563,11 +1443,11 @@
      "build": "license_required"
     },
     "perlmutter": {
-     "state": "listed",
+     "state": "available",
      "build": ""
     },
     "polaris": {
-     "state": "listed",
+     "state": "available",
      "build": ""
     }
    }
@@ -1599,12 +1479,8 @@
    "description": "vLLM XPU inference on Aurora Intel PVC. The vllm bits ship inside the Aurora `frameworks` module (currently 25.190.0): vllm 0.10.1rc2 XPU + torch 2.8 in /input/frameworks/25.190.0/wheelhouse/. There is NO per-user venv to activate — `module load frameworks` then use the module's `python` directly. (Verified 2026-05-13 via IRI ls: neither /home/hzheng/envs/vllm-aurora-xpu nor any clearml_agent_setup/aurora/venvs/clearml/bin/python exists. The jobs/aurora/mfi-serve-v[3-5]/run.sh scripts source those paths with `|| true` — the activate is a no-op and python resolves to the framework one. See memory feedback_aurora_user_venv_empty.md.)\n",
    "systems": {
     "aurora": {
-     "state": "pass",
-     "build": "shipped-with-module",
-     "smoke": "pass",
-     "smoke_date": "2026-08-07",
-     "smoke_result": "vllm 0.10.1rc2.dev189+ge2db1164a (torch.xpu True)",
-     "smoke_cmd": "python -c 'import vllm; print(vllm.__version__)'"
+     "state": "available",
+     "build": "shipped-with-module"
     },
     "crux": {
      "state": "available",
@@ -1619,12 +1495,8 @@
      "build": "built"
     },
     "perlmutter": {
-     "state": "pass",
-     "build": "built",
-     "smoke": "pass",
-     "smoke_date": "2026-08-07",
-     "smoke_result": "vllm 0.19.1",
-     "smoke_cmd": "python -c 'import vllm; print(vllm.__version__)'"
+     "state": "available",
+     "build": "built"
     },
     "polaris": {
      "state": "pass",
@@ -1651,36 +1523,36 @@
    "description": "WarpX — AMReX-based electromagnetic/electrostatic Particle-in-Cell (PIC)\nplasma code. 3D SYCL/DPC++ build for the Intel Data Center GPU Max Series\n(Ponte Vecchio / PVC). Built as a CMake superbuild that auto-fetches AMReX,\nPICSAR/ABLASTR, and openPMD-api. Adapted from the proven Frontier HIP build\n(software/frontier/warpx.yaml) by switching the backend HIP -> SYCL and using\nthe Aurora oneAPI/SYCL env that worked for Nyx (software/aurora/nyx.yaml).\n",
    "systems": {
     "aurora": {
-     "state": "listed",
-     "build": ""
+     "state": "available",
+     "build": "working"
     },
     "crux": {
-     "state": "listed",
-     "build": ""
+     "state": "available",
+     "build": "installed"
     },
     "frontier": {
-     "state": "listed",
-     "build": ""
+     "state": "available",
+     "build": "installed"
     },
     "odo": {
      "state": "available",
      "build": "built"
     },
     "perlmutter": {
-     "state": "listed",
-     "build": ""
+     "state": "available",
+     "build": "working"
     },
     "polaris": {
      "state": "pass",
-     "build": "",
+     "build": "working",
      "smoke": "pass",
      "smoke_date": "2026-07-09",
      "smoke_result": "ran 100 steps; Total Time 0.29 s; rc=0 (campaign C10). No rebuild needed.",
      "smoke_cmd": "uniform thermal e- plasma, 32^3 periodic yee, algo.particle_shape=1, max_step=100 (4 ranks A100)"
     },
     "sunspot": {
-     "state": "listed",
-     "build": ""
+     "state": "available",
+     "build": "working"
     }
    }
   },
@@ -1711,12 +1583,8 @@
      "build": "installed"
     },
     "crux": {
-     "state": "partial",
-     "build": "built",
-     "smoke": "partial",
-     "smoke_date": "2026-08-07",
-     "smoke_result": "exists: .../crux/wrf/main/wrf.exe; ldd clean (build-verified)",
-     "smoke_cmd": "test -x .../wrf/main/wrf.exe && ldd ..."
+     "state": "available",
+     "build": "built"
     },
     "frontier": {
      "state": "available",
@@ -1751,508 +1619,13 @@
  ],
  "smokes": [
   {
-   "app": "QMCPACK",
-   "key": "qmcpack",
-   "system": "crux",
-   "state": "pass",
-   "date": "2026-08-08",
-   "result": "H2O VMC+DMC completed. E_VMC=-17.2495 Ha, E_DMC≈-17.255 Ha.\nPBS 245794, run dir /eagle/datascience/hzheng/runs/crux/qmcpack_h2o_vmc_dmc/20260808-202843/.\nNOTE: qmcpack real binary crashes on ECP inputs (see notes). Use qmcpack_complex.\n",
-   "cmd": "mpiexec -n 1 --ppn 1 qmcpack_complex h2o-tmoves.xml"
-  },
-  {
-   "app": "WRF",
-   "key": "wrf",
-   "system": "crux",
-   "state": "partial",
-   "date": "2026-08-07",
-   "result": "exists: .../crux/wrf/main/wrf.exe; ldd clean (build-verified)",
-   "cmd": "test -x .../wrf/main/wrf.exe && ldd ..."
-  },
-  {
-   "app": "vLLM (Intel XPU, frameworks-shipped)",
-   "key": "vllm",
-   "system": "aurora",
-   "state": "pass",
-   "date": "2026-08-07",
-   "result": "vllm 0.10.1rc2.dev189+ge2db1164a (torch.xpu True)",
-   "cmd": "python -c 'import vllm; print(vllm.__version__)'"
-  },
-  {
-   "app": "vLLM (Intel XPU, frameworks-shipped)",
-   "key": "vllm",
-   "system": "perlmutter",
-   "state": "pass",
-   "date": "2026-08-07",
-   "result": "vllm 0.19.1",
-   "cmd": "python -c 'import vllm; print(vllm.__version__)'"
-  },
-  {
-   "app": "TRL (Transformer Reinforcement Learning)",
-   "key": "trl",
-   "system": "aurora",
-   "state": "pass",
-   "date": "2026-08-07",
-   "result": "trl 0.19.1",
-   "cmd": "python -c 'import trl; print(trl.__version__)'"
-  },
-  {
-   "app": "TRIQS",
-   "key": "triqs",
-   "system": "crux",
-   "state": "pass",
-   "date": "2026-08-07",
-   "result": "triqs 4.0.1",
-   "cmd": "python -c 'from triqs import version; print(version.version)'"
-  },
-  {
-   "app": "TensorFlow (Intel Extension)",
-   "key": "tensorflow",
-   "system": "perlmutter",
-   "state": "pass",
-   "date": "2026-08-07",
-   "result": "tensorflow 2.15.0",
-   "cmd": "python -c 'import tensorflow as tf; print(tf.__version__)'"
-  },
-  {
-   "app": "Quantum ESPRESSO",
-   "key": "qe",
-   "system": "aurora",
-   "state": "pass",
-   "date": "2026-08-07",
-   "result": "Program PWSCF v.7.4 starts (git commit a546703, Oct 2024)",
-   "cmd": "pw.x < /dev/null 2>&1 | head -15"
-  },
-  {
-   "app": "Quantum ESPRESSO",
-   "key": "qe",
-   "system": "perlmutter",
-   "state": "pass",
-   "date": "2026-08-07",
-   "result": "Program PWSCF v.7.5 starts on 6Aug2026 (espresso/7.5-libxc-7.0.0-gpu)",
-   "cmd": "pw.x < /dev/null 2>&1 | head -15"
-  },
-  {
-   "app": "QMCPACK",
-   "key": "qmcpack",
-   "system": "aurora",
-   "state": "pass",
-   "date": "2026-08-07",
-   "result": "QMCPACK version 4.0.0 built on Apr 25 2026",
-   "cmd": "qmcpack --version 2>&1 | head -10"
-  },
-  {
-   "app": "QMCPACK",
-   "key": "qmcpack",
-   "system": "perlmutter",
-   "state": "pass",
-   "date": "2026-08-07",
-   "result": "QMCPACK version 4.2.0 built on May 2 2026",
-   "cmd": "qmcpack --version 2>&1 | head -10"
-  },
-  {
-   "app": "Python / Conda (frameworks)",
-   "key": "conda",
-   "system": "aurora",
-   "state": "pass",
-   "date": "2026-08-07",
-   "result": "Python 3.10.14",
-   "cmd": "python --version"
-  },
-  {
-   "app": "Python / Conda (frameworks)",
-   "key": "conda",
-   "system": "perlmutter",
-   "state": "pass",
-   "date": "2026-08-07",
-   "result": "Python 3.12.13",
-   "cmd": "python --version"
-  },
-  {
-   "app": "Python / Conda (frameworks)",
-   "key": "conda",
-   "system": "polaris",
-   "state": "pass",
-   "date": "2026-08-07",
-   "result": "Python 3.12.11",
-   "cmd": "python --version"
-  },
-  {
-   "app": "PySCF",
-   "key": "pyscf",
-   "system": "crux",
-   "state": "pass",
-   "date": "2026-08-07",
-   "result": "pyscf 2.13.1",
-   "cmd": "python -c 'import pyscf; print(pyscf.__version__)'"
-  },
-  {
-   "app": "PySCF",
-   "key": "pyscf",
-   "system": "perlmutter",
-   "state": "pass",
-   "date": "2026-08-07",
-   "result": "pyscf 2.13.0",
-   "cmd": "python -c 'import pyscf; print(pyscf.__version__)'"
-  },
-  {
-   "app": "PtyRAD",
-   "key": "ptyrad",
-   "system": "polaris",
-   "state": "pass",
-   "date": "2026-08-07",
-   "result": "ptyrad 1.0.0 (re-run: original harness set P= un-exported so bash -c child saw no python)",
-   "cmd": "venv/bin/python -c 'import ptyrad; print(ptyrad.__version__)'"
-  },
-  {
-   "app": "PtychoX",
-   "key": "ptychox",
-   "system": "polaris",
-   "state": "pass",
-   "date": "2026-08-07",
-   "result": "ptychox 0.1.0 (re-run: original harness set P= un-exported so bash -c child saw no python)",
-   "cmd": "venv/bin/python -c 'import ptychox; print(ptychox.__version__)'"
-  },
-  {
-   "app": "OpenMM",
-   "key": "openmm",
-   "system": "aurora",
-   "state": "pass",
-   "date": "2026-08-07",
-   "result": "openmm 8.3.1.dev-6e13f13",
-   "cmd": "python -c 'import openmm; print(openmm.version.version)'"
-  },
-  {
-   "app": "OpenMC",
-   "key": "openmc",
-   "system": "aurora",
-   "state": "pass",
-   "date": "2026-08-07",
-   "result": "OpenMC 0.15.2 (Python API; openmc CLI not on PATH)",
-   "cmd": "python -c 'import openmc; print(openmc.__version__)'"
-  },
-  {
-   "app": "OpenMC",
-   "key": "openmc",
-   "system": "crux",
-   "state": "pass",
-   "date": "2026-08-07",
-   "result": "OpenMC version 0.15.2",
-   "cmd": "python -c 'import openmc; print(openmc.__version__)'"
-  },
-  {
-   "app": "OpenMC",
-   "key": "openmc",
-   "system": "perlmutter",
-   "state": "pass",
-   "date": "2026-08-07",
-   "result": "OpenMC version 0.15.2 (Python API)",
-   "cmd": "python -c 'import openmc; print(openmc.__version__)'"
-  },
-  {
-   "app": "OpenFold",
-   "key": "openfold",
-   "system": "perlmutter",
-   "state": "pass",
-   "date": "2026-08-07",
-   "result": "openfold ok",
-   "cmd": "python -c 'import openfold; print(\"openfold ok\")'"
-  },
-  {
-   "app": "Nyx",
-   "key": "nyx",
-   "system": "crux",
-   "state": "partial",
-   "date": "2026-08-07",
-   "result": "ldd resolves all libs (libssl/libcrypto/libkrb5 mapped); ldd clean (build-verified)",
-   "cmd": "ldd .../nyx binary"
-  },
-  {
    "app": "NWChem",
    "key": "nwchem",
-   "system": "aurora",
-   "state": "partial",
-   "date": "2026-08-07",
-   "result": "exists: /lus/flare/projects/datascience/hzheng/software/aurora/nwchem/bin/nwchem; ldd clean (build-verified)",
-   "cmd": "test -x .../nwchem/bin/nwchem && ldd ..."
-  },
-  {
-   "app": "NWChem",
-   "key": "nwchem",
-   "system": "crux",
-   "state": "partial",
-   "date": "2026-08-07",
-   "result": "exists: .../crux/nwchem/bin/nwchem; ldd clean (build-verified)",
-   "cmd": "test -x .../nwchem/bin/nwchem && ldd ..."
-  },
-  {
-   "app": "NWChem",
-   "key": "nwchem",
-   "system": "perlmutter",
-   "state": "partial",
-   "date": "2026-08-07",
-   "result": "nwchem binary present (86 MB, -rwxrwxrwx nwchem) (build-verified)",
-   "cmd": "ls -la .../nwchem/bin"
-  },
-  {
-   "app": "NIXL",
-   "key": "nixl",
-   "system": "polaris",
-   "state": "partial",
-   "date": "2026-08-07",
-   "result": "exists: .../polaris/nixl_stack/nixl/bin/nixlbench; ldd clean (build-verified)",
-   "cmd": "test -x .../nixl/bin/nixlbench && ldd ..."
-  },
-  {
-   "app": "NekRS",
-   "key": "nekrs",
-   "system": "crux",
+   "system": "sirius",
    "state": "pass",
-   "date": "2026-08-07",
-   "result": "prints nekrs usage banner (usage: ./nekrs ... --setup ...)",
-   "cmd": "nekrs --help"
-  },
-  {
-   "app": "NekRS",
-   "key": "nekrs",
-   "system": "perlmutter",
-   "state": "pass",
-   "date": "2026-08-07",
-   "result": "prints nekrs usage banner",
-   "cmd": "nekrs --help"
-  },
-  {
-   "app": "NekRS",
-   "key": "nekrs",
-   "system": "polaris",
-   "state": "pass",
-   "date": "2026-08-07",
-   "result": "prints nekrs usage banner (usage: ./nekrs ... --setup ...)",
-   "cmd": "nekrs --help"
-  },
-  {
-   "app": "Nek5000",
-   "key": "nek5000",
-   "system": "aurora",
-   "state": "partial",
-   "date": "2026-08-07",
-   "result": "exists: /lus/flare/projects/datascience/hzheng/software/aurora/nek5000/Nek5000/bin/makenek; ldd clean (build-verified)",
-   "cmd": "test -x .../nek5000/Nek5000/bin/makenek && ldd ..."
-  },
-  {
-   "app": "Nek5000",
-   "key": "nek5000",
-   "system": "crux",
-   "state": "partial",
-   "date": "2026-08-07",
-   "result": "exists: .../crux/nek5000/bin/makenek; ldd clean (build-verified)",
-   "cmd": "test -x .../nek5000/bin/makenek && ldd ..."
-  },
-  {
-   "app": "NAMD",
-   "key": "namd",
-   "system": "aurora",
-   "state": "pass",
-   "date": "2026-08-07",
-   "result": "NAMD/Charm++ v8.0.1 init; SYCL over Level-Zero; Intel Data Center GPU Max 1550 (448 EU) detected",
-   "cmd": "namd3 2>&1 | head -15"
-  },
-  {
-   "app": "MOOSE-libCEED-XPU",
-   "key": "moose-libceed",
-   "system": "sunspot",
-   "state": "partial",
-   "date": "2026-08-07",
-   "result": "presence+ldd rc=0 (build-verified; console-only, tail on tegu not IRI-accessible)",
-   "cmd": "test -x .../moose-libceed binary && ldd ..."
-  },
-  {
-   "app": "MOOSE",
-   "key": "moose",
-   "system": "aurora",
-   "state": "partial",
-   "date": "2026-08-07",
-   "result": "exists: /lus/flare/projects/datascience/hzheng/software/aurora/moose/bin/moose_test-opt; ldd clean (build-verified)",
-   "cmd": "test -x .../moose/bin/moose_test-opt && ldd ..."
-  },
-  {
-   "app": "MOOSE",
-   "key": "moose",
-   "system": "sunspot",
-   "state": "partial",
-   "date": "2026-08-07",
-   "result": "presence+ldd rc=0 (build-verified; console-only, tail on tegu not IRI-accessible)",
-   "cmd": "test -x .../moose/bin/moose_test-opt && ldd ..."
-  },
-  {
-   "app": "Megatron-LM",
-   "key": "megatron",
-   "system": "polaris",
-   "state": "pass",
-   "date": "2026-08-07",
-   "result": "megatron ok, torch 2.3.0",
-   "cmd": "python -c 'import torch, megatron; ...'"
-  },
-  {
-   "app": "LAMMPS",
-   "key": "lammps",
-   "system": "aurora",
-   "state": "pass",
-   "date": "2026-08-07",
-   "result": "Large-scale Atomic/Molecular Massively Parallel Simulator - 29 Aug 2024",
-   "cmd": "lmp -h 2>&1 | head -20"
-  },
-  {
-   "app": "LAMMPS",
-   "key": "lammps",
-   "system": "crux",
-   "state": "pass",
-   "date": "2026-08-07",
-   "result": "Large-scale Atomic/Molecular Massively Parallel Simulator - 2 Aug 2023 - Update 3",
-   "cmd": "lmp -h 2>&1 | head -20"
-  },
-  {
-   "app": "LAMMPS",
-   "key": "lammps",
-   "system": "perlmutter",
-   "state": "pass",
-   "date": "2026-08-07",
-   "result": "Large-scale Atomic/Molecular Massively Parallel Simulator - 2 Aug 2023 - Update 3",
-   "cmd": "lmp -h 2>&1 | head -20"
-  },
-  {
-   "app": "LAMMPS",
-   "key": "lammps",
-   "system": "polaris",
-   "state": "pass",
-   "date": "2026-08-07",
-   "result": "Large-scale Atomic/Molecular Massively Parallel Simulator - 2 Aug 2023 - Update 3",
-   "cmd": "lmp -h 2>&1 | head -20"
-  },
-  {
-   "app": "IOR",
-   "key": "ior",
-   "system": "aurora",
-   "state": "pass",
-   "date": "2026-08-07",
-   "result": "IOR help/synopsis banner (Synopsis ior; Flags -c --collective, -F filePerProc, ...)",
-   "cmd": "ior -h 2>&1 | head -15"
-  },
-  {
-   "app": "HPL",
-   "key": "hpl",
-   "system": "aurora",
-   "state": "partial",
-   "date": "2026-08-07",
-   "result": "exists: /lus/flare/projects/datascience/hzheng/software/aurora/hpl/bin/xhpl; ldd clean (build-verified)",
-   "cmd": "test -x .../hpl/bin/xhpl && ldd ..."
-  },
-  {
-   "app": "HPL",
-   "key": "hpl",
-   "system": "crux",
-   "state": "partial",
-   "date": "2026-08-07",
-   "result": "exists: .../crux/hpl/bin/xhpl; ldd clean (build-verified)",
-   "cmd": "test -x .../hpl/bin/xhpl && ldd ..."
-  },
-  {
-   "app": "FLARE",
-   "key": "flare",
-   "system": "perlmutter",
-   "state": "pass",
-   "date": "2026-08-07",
-   "result": "flare 1.4.0",
-   "cmd": "python -c 'import flare; print(flare.__version__)'"
-  },
-  {
-   "app": "CP2K",
-   "key": "cp2k",
-   "system": "aurora",
-   "state": "pass",
-   "date": "2026-08-07",
-   "result": "CP2K version 2024.1; cp2kflags: omp libint fftw3 fftw3_mkl libxc parallel scalapack xsmm mkl",
-   "cmd": "cp2k.psmp --version 2>&1 | head -3"
-  },
-  {
-   "app": "chai-lab",
-   "key": "chai_lab",
-   "system": "aurora",
-   "state": "pass",
-   "date": "2026-08-07",
-   "result": "chai_lab 0.6.1",
-   "cmd": "python -c 'import torch, chai_lab; print(chai_lab.__version__)'"
-  },
-  {
-   "app": "chai-lab",
-   "key": "chai_lab",
-   "system": "perlmutter",
-   "state": "pass",
-   "date": "2026-08-07",
-   "result": "chai_lab 0.6.1",
-   "cmd": "python -c 'import torch, chai_lab; ...'"
-  },
-  {
-   "app": "chai-lab",
-   "key": "chai_lab",
-   "system": "polaris",
-   "state": "pass",
-   "date": "2026-08-07",
-   "result": "torch: 2.6.0+cu124 | cuda devices: 4; chai_lab: 0.6.1",
-   "cmd": "python -c 'import torch, chai_lab; ...'"
-  },
-  {
-   "app": "block2",
-   "key": "block2",
-   "system": "polaris",
-   "state": "pass",
-   "date": "2026-08-07",
-   "result": "block2 ok: imported block2 + pyblock2 (block2 has no __version__ attr by design; original smoke used it)",
-   "cmd": "python -c 'import block2, pyblock2; print(\"block2 ok\")'"
-  },
-  {
-   "app": "BerkeleyGW",
-   "key": "berkeleygw",
-   "system": "crux",
-   "state": "partial",
-   "date": "2026-08-07",
-   "result": "exists: .../crux/berkeleygw/4.0/bin/epsilon.cplx.x; ldd clean (build-verified)",
-   "cmd": "test -x .../berkeleygw/4.0/bin/epsilon.cplx.x && ldd ..."
-  },
-  {
-   "app": "BerkeleyGW",
-   "key": "berkeleygw",
-   "system": "perlmutter",
-   "state": "partial",
-   "date": "2026-08-07",
-   "result": "exists: .../perlmutter/berkeleygw/4.0/bin/epsilon.cplx.x; ldd clean (build-verified)",
-   "cmd": "test -x .../berkeleygw/4.0/bin/epsilon.cplx.x && ldd ..."
-  },
-  {
-   "app": "BerkeleyGW",
-   "key": "berkeleygw",
-   "system": "polaris",
-   "state": "partial",
-   "date": "2026-08-07",
-   "result": "exists: .../polaris/berkeleygw/4.0/bin/epsilon.cplx.x; ldd clean (build-verified)",
-   "cmd": "test -x .../berkeleygw/4.0/bin/epsilon.cplx.x && ldd ..."
-  },
-  {
-   "app": "BerkeleyGW",
-   "key": "berkeleygw",
-   "system": "sunspot",
-   "state": "partial",
-   "date": "2026-08-07",
-   "result": "presence+ldd rc=0 (build-verified; console-only, tail on tegu not IRI-accessible)",
-   "cmd": "test -x .../berkeleygw/4.0/bin/epsilon.cplx.x && ldd ..."
-  },
-  {
-   "app": "allegro",
-   "key": "allegro",
-   "system": "polaris",
-   "state": "pass",
-   "date": "2026-08-07",
-   "result": "torch 2.6.0+cu124 | cuda 12.4; nequip 0.19.0; allegro 0.8.3; Allegro_Module import OK",
-   "cmd": "python -c 'import torch, nequip, allegro; ...'"
+   "date": "2026-08-12",
+   "result": "SCF and DFT+COSMO+def2 both converge; def2 + Stuttgart-RSC ECP libraries present.",
+   "cmd": ""
   },
   {
    "app": "Video Diffusion (open T2V/I2V)",

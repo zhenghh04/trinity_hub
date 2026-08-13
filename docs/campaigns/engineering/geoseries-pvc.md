@@ -2,6 +2,11 @@
 
 **Optimization:** OpenMP Target offload → tuned OpenMP Target → native SYCL kernel · **System:** Sunspot · **Status:** :material-chart-bell-curve: Completed
 
+<figure markdown>
+  ![geoseries-pvc system schematic](../../assets/campaigns/geoseries-pvc-system.png)
+  <figcaption>A geometric series: individual terms and their running sum.</figcaption>
+</figure>
+
 ## The ask
 
 *(No verbatim request on record — paraphrased from the project's documented goal.)*
@@ -16,9 +21,14 @@ After fixing all four, deeper profiling showed the code was now limited by a dif
 
 ## Results
 
+<figure markdown>
+  ![geoseries-pvc chart](../../assets/campaigns/geoseries-pvc.png)
+  <figcaption>Four independent bugs, fixed one at a time, compound into a 7,638× speedup.</figcaption>
+</figure>
+
 - 7,638x total speedup over the original code at the largest tested problem size.
 - Final double-precision throughput reached 52% of the GPU node's theoretical peak floating-point performance — 13x above the original performance target for this benchmark.
 - Fixing the data-corruption bug as a side effect of the performance fixes also improved numerical accuracy by roughly six orders of magnitude.
 - One negative result kept in the writeup rather than discarded: manually overriding certain GPU scheduling parameters actually made performance worse than trusting the compiler's default choices — a useful lesson against over-tuning.
 
-[← Back to Engineering case studies](index.md)
+[← Back to Performance engineering case studies](index.md)

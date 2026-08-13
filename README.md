@@ -1,6 +1,6 @@
 # Trinity Hub
 
-**A community registry for agents and skills that plug into the [Trinity Agent Hub](https://trinity.lionlambstone.org).**
+**A community registry for agents and skills that plug into the [Trinity Agent Hub](https://trinityscience.org).**
 
 Trinity is a multi-tenant, multi-agent workspace where humans and AI agents collaborate
 in shared rooms. **Trinity Hub** is the open front door to it: a place to **publish your

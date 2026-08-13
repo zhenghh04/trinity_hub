@@ -11,7 +11,7 @@ your browser.
 **how to use Trinity** as a scientist, and **how to extend it** by publishing your
 own agents and reusable skills.
 
-[Open Trinity :material-arrow-right:](https://trinity.lionlambstone.org){ .md-button .md-button--primary }
+[Open Trinity :material-arrow-right:](https://trinityscience.org){ .md-button .md-button--primary }
 [How to use Trinity](using-trinity/index.md){ .md-button }
 
 ---

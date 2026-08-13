@@ -2,6 +2,11 @@
 
 **Port:** CPU-only GROMACS → GPU-accelerated (AMD MI250X) · **System:** Frontier · **Status:** :material-sync: In progress
 
+<figure markdown>
+  ![gromacs-frontier-port system schematic](../../assets/campaigns/gromacs-frontier-port-system.png)
+  <figcaption>A box of water molecules.</figcaption>
+</figure>
+
 ## The ask
 
 *(No verbatim request on record — paraphrased from the project's documented goal.)*
@@ -16,9 +21,14 @@ The backend that does build and run is an older, deprecated GPU standard (OpenCL
 
 ## Results
 
+<figure markdown>
+  ![gromacs-frontier-port chart](../../assets/campaigns/gromacs-frontier-port.png)
+  <figcaption>An honest result: a real win at small scale, and a real regression once work is spread across GPUs.</figcaption>
+</figure>
+
 - Working GPU-accelerated build achieved via the older OpenCL backend, after the two preferred backends were both found to be unavailable on this system.
 - At small scale (single GPU, smaller system size), the GPU path is 2.29x faster than the CPU-only baseline — a genuine, clean win.
 - At realistic production scale (99,000 atoms, multiple GPUs), the current GPU path is actually slower than the CPU-only baseline (52.8 ns/day vs. 61.6 ns/day), because the backend doesn't distribute work across GPUs properly yet — an honestly disclosed current limitation, not a finished result.
 - Next step identified: a properly multi-GPU-aware backend is needed before this becomes a genuine production speedup; work continues.
 
-[← Back to Engineering case studies](index.md)
+[← Back to Performance engineering case studies](index.md)

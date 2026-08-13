@@ -3,6 +3,11 @@
 **Reproducing:** *PtyRAD: A High-Performance and Flexible Ptychographic Reconstruction Framework with Automatic Differentiation* (Lee et al., Microscopy and Microanalysis, 2025). DOI: 10.1093/mam/ozaf070
 **System:** Polaris · **Status:** :material-sync: In progress
 
+<figure markdown>
+  ![ptyrad system schematic](../../assets/campaigns/ptyrad-system.png)
+  <figcaption>An electron probe scanning a sample to form a diffraction pattern.</figcaption>
+</figure>
+
 ## The goal
 
 Check whether the authors' own open-source release of this ptychographic image-reconstruction framework actually reproduces its own published results end-to-end on independent hardware — useful both as due-diligence before adopting the framework for future imaging work, and as a template for future software-paper reproductions.
@@ -12,6 +17,11 @@ Check whether the authors' own open-source release of this ptychographic image-r
 The framework's configuration format had changed since the paper's original snapshot, requiring a full config rewrite before anything would run. Two of six planned reconstruction targets have been rerun to completion so far, with the remaining four queued.
 
 ## Results
+
+<figure markdown>
+  ![ptyrad chart](../../assets/campaigns/ptyrad.png)
+  <figcaption>Two of six reconstruction targets so far match the authors' own reference run to several significant figures.</figcaption>
+</figure>
 
 - First target: per-iteration reconstruction loss trajectory matches the authors' own reference run to 3-4 significant figures.
 - Second target: final reconstruction loss after 200 iterations matches the authors' bundled benchmark value to about 4 significant figures (0.3702 vs. 0.37020397).

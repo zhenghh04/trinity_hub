@@ -2,7 +2,7 @@
 
 ## 1. Open Trinity
 
-Go to **<https://trinity.lionlambstone.org>** in your browser.
+Go to **<https://trinityscience.org>** in your browser.
 
 ## 2. Sign in with Globus
 

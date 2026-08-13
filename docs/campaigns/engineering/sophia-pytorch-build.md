@@ -2,6 +2,11 @@
 
 **Build:** PyTorch source → CUDA + MPI build · **System:** Sophia · **Status:** :material-server: Completed
 
+<figure markdown>
+  ![sophia-pytorch-build system schematic](../../assets/campaigns/sophia-pytorch-build-system.png)
+  <figcaption>A GPU feeding a neural network.</figcaption>
+</figure>
+
 ## The ask
 
 *(No verbatim request on record — paraphrased from the project's documented goal.)*
@@ -14,8 +19,13 @@ The most infrastructure-discovery-heavy of the build efforts — both of the usu
 
 ## Results
 
+<figure markdown>
+  ![sophia-pytorch-build chart](../../assets/campaigns/sophia-pytorch-build.png)
+  <figcaption>Ten distinct build failures, mostly dependency-version conflicts, resolved end to end.</figcaption>
+</figure>
+
 - Two verified working installs, both with GPU acceleration, MPI, and both major GPU communication libraries enabled.
 - Verified correct GPU matrix-multiply results and successful multi-process CPU communication tests on both installs.
 - One real limitation noted honestly: direct GPU-to-GPU communication over MPI isn't available with this particular software combination — the GPU-native communication library is recommended instead for GPU-to-GPU work.
 
-[← Back to Engineering case studies](index.md)
+[← Back to Performance engineering case studies](index.md)

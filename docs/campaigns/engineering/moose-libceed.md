@@ -2,6 +2,11 @@
 
 **Port:** CUDA (NVIDIA A100, Polaris) → SYCL/oneAPI (Intel GPU, Sunspot) · **System:** Sunspot · **Status:** :material-chip: Completed
 
+<figure markdown>
+  ![moose-libceed system schematic](../../assets/campaigns/moose-libceed-system.png)
+  <figcaption>A finite-element mesh with a diffusing field.</figcaption>
+</figure>
+
 ## The ask
 
 *(No verbatim request on record — paraphrased from the project's documented goal.)*
@@ -16,9 +21,14 @@ The bigger challenge was architectural: the framework's own internal design fire
 
 ## Results
 
+<figure markdown>
+  ![moose-libceed chart](../../assets/campaigns/moose-libceed.png)
+  <figcaption>Bypassing the framework's own per-element loop was worth far more than the GPU port itself.</figcaption>
+</figure>
+
 - 3.26x end-to-end wall-time speedup for a representative solve.
 - 209.7x speedup specifically on the core matrix-multiply operation once the framework's own per-element loop was bypassed — verified bit-for-bit against the standard (unported) result.
 - Multi-process scaling confirmed correct after the numbering bug fix (1.65x speedup on 8 processes vs. 1 process on CPU for the same problem).
 - One open item disclosed honestly: a specific 4-process configuration with an advanced preconditioner still crashes intermittently; root cause not yet resolved.
 
-[← Back to Engineering case studies](index.md)
+[← Back to Performance engineering case studies](index.md)

@@ -120,7 +120,7 @@ nav:
           - "T3.3: GROMACS ensemble": campaigns/science-campaigns/t3-3-gromacs-ensemble.md
           - "T3.4: SiC phonons": campaigns/science-campaigns/t3-4-sic-phonons.md
           - App smoke-test matrix: campaigns/science-campaigns/smoke-tests.md
-      - Engineering case studies:
+      - Performance engineering case studies:
           - Overview: campaigns/engineering/index.md
           - "BEM_2D CUDA port (1,041x)": campaigns/engineering/bem2d-cuda-port.md
           - "BEM_3D CUDA port (502x)": campaigns/engineering/bem3d-cuda-port.md

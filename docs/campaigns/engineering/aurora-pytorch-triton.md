@@ -2,6 +2,11 @@
 
 **Build + diagnosis:** PyTorch + Triton compiler, Intel GPU backend · **System:** Aurora · **Status:** :material-bug-outline: Completed
 
+<figure markdown>
+  ![aurora-pytorch-triton system schematic](../../assets/campaigns/aurora-pytorch-triton-system.png)
+  <figcaption>A GPU feeding a compiled neural network.</figcaption>
+</figure>
+
 ## The ask
 
 > "Let's try to get PyTorch with optimized triton kernels on the latest dev stack on Aurora."
@@ -16,8 +21,13 @@ Along the way, a subtlety in the compiler's own internals meant an initial quick
 
 ## Results
 
+<figure markdown>
+  ![aurora-pytorch-triton chart](../../assets/campaigns/aurora-pytorch-triton.png)
+  <figcaption>Just-in-time compilation delivers a modest, real speedup on top of a working build.</figcaption>
+</figure>
+
 - 8 of 9 GPU verification tests passed (device detection, distributed backends, compiled and eager-mode execution).
 - Just-in-time compilation delivered a measured 1.31x speedup over standard eager-mode execution on a matrix-multiply benchmark.
 - Confirmed the previously known compiler bug still reproduces in the freshly built stack, and — more usefully — narrowed down exactly which kernel patterns trigger it (a specific multi-dimensional GPU work-grid configuration) versus which don't (a different, simpler configuration passed cleanly), correctly diagnosing it as an issue in Intel's closed-source compiler rather than something fixable from the PyTorch or Triton side.
 
-[← Back to Engineering case studies](index.md)
+[← Back to Performance engineering case studies](index.md)

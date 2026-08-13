@@ -3,6 +3,11 @@
 **Reproducing:** *Computation of the Correlated Metal-Insulator Transition in Vanadium Dioxide from First Principles* (H. Zheng & L. K. Wagner, Physical Review Letters 114, 176401, 2015). DOI: 10.1103/PhysRevLett.114.176401
 **System:** Local/HPC (DFT + Monte Carlo) · **Status:** :material-check-decagram: Completed
 
+<figure markdown>
+  ![vo2-mit system schematic](../../assets/campaigns/vo2-mit-system.png)
+  <figcaption>VO2's two phases: rutile (metallic) and monoclinic (insulating).</figcaption>
+</figure>
+
 ## The goal
 
 Check whether the paper's central finding — that the metallic (rutile) and insulating (monoclinic) phases of VO2 are correctly energetically ordered once electron correlation is properly captured — holds up when cross-validated with a cheaper method against the paper's own high-accuracy quantum Monte Carlo benchmark.
@@ -12,6 +17,11 @@ Check whether the paper's central finding — that the metallic (rutile) and ins
 This reproduction re-derives the paper's central result using density functional theory cross-checked against the original quantum Monte Carlo numbers, and separately models the material's magnetic behavior with a classical statistical-mechanics model, comparing directly against two independent experimental datasets from the 1960s-70s literature. A full three-way convergence study (checking sensitivity to pseudopotential choice, simulation cell size, and Monte Carlo time step) bounds the residual uncertainty. One honest caveat: the exact analysis script used to generate these results was never committed to version control and no longer exists — the results and figures themselves are preserved and complete, but the calculation cannot currently be re-run from scratch without rewriting that script.
 
 ## Results
+
+<figure markdown>
+  ![vo2-mit chart](../../assets/campaigns/vo2-mit.png)
+  <figcaption>Both magnetic energy differences reproduce the paper's qualitative ordering, with uncertainty bounds from a full convergence study.</figcaption>
+</figure>
 
 - Rutile-vs-monoclinic magnetic energy ordering: -10.6 ± 5.9 meV per formula unit, correctly reproducing the paper's qualitative finding.
 - Ferromagnetic-vs-antiferromagnetic energy difference in the rutile phase: +24.2 ± 5.8 meV per formula unit.

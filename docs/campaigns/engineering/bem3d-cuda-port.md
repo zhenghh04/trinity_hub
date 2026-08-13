@@ -2,6 +2,11 @@
 
 **Port:** Fortran 90 + OpenMP + LAPACK/ScaLAPACK (CPU) → CUDA / cuSolverDn + custom iterative solver (NVIDIA A100) · **System:** Sirius · **Status:** :material-cube-outline: Completed
 
+<figure markdown>
+  ![bem3d-cuda-port system schematic](../../assets/campaigns/bem3d-cuda-port-system.png)
+  <figcaption>A plane wave scattering off a 3D dielectric body.</figcaption>
+</figure>
+
 ## The ask
 
 *(No verbatim request on record — paraphrased from the project's documented goal.)*
@@ -16,9 +21,14 @@ The first version of this "matrix-free" approach used a naive parallel-update pa
 
 ## Results
 
+<figure markdown>
+  ![bem3d-cuda-port chart](../../assets/campaigns/bem3d-cuda-port.png)
+  <figcaption>A matrix-free solver reaches meshes far beyond what any dense method — or the original thesis — could handle.</figcaption>
+</figure>
+
 - 502x speedup vs. a 32-thread CPU baseline at a representative problem size using the dense direct solver.
 - The matrix-free iterative version reaches a problem size equivalent to a dense matrix of about 2 terabytes — completing in 6.5 minutes on a single 40GB GPU, roughly 4x the mesh resolution of the original 2010 PhD thesis, and simply impossible for any dense method to store, let alone solve.
 - Validated against the exact analytic solution for a sphere (Mie scattering theory): matches to within 0.35% at the largest mesh tested, and within 0.25% at an even larger mesh in an extended run.
 - Cross-validated the direct and iterative solvers against each other in the size range where both are feasible — they agree to 5-7 significant figures, confirming the from-scratch iterative solver is correct.
 
-[← Back to Engineering case studies](index.md)
+[← Back to Performance engineering case studies](index.md)

@@ -2,6 +2,11 @@
 
 **System(s):** Polaris · **Code:** Quantum ESPRESSO · **Outcome:** :material-atom: Success
 
+<figure markdown>
+  ![c2-silicon-bands system schematic](../../assets/campaigns/c2-silicon-bands-system.png)
+  <figcaption>Silicon's diamond-cubic crystal structure.</figcaption>
+</figure>
+
 ## The ask
 
 *(This campaign predates verbatim prompt logging — the request below is reconstructed from the campaign's documented design, not a direct quote.)*
@@ -13,6 +18,11 @@
 Trinity ran the full four-step Quantum ESPRESSO band-structure workflow (self-consistent field → non-self-consistent field → band calculation → post-processing) on a 2-atom silicon unit cell. Early attempts failed because the required pseudopotential library isn't bundled with the installed version of Quantum ESPRESSO on this system — it had to be found and staged first, a fact now captured for future runs.
 
 ## Results
+
+<figure markdown>
+  ![c2-silicon-bands chart](../../assets/campaigns/c2-silicon-bands.png)
+  <figcaption>DFT-PBE's band-gap underestimate here is the well-known ~50% effect for this method.</figcaption>
+</figure>
 
 - Computed an indirect band gap of 0.54 eV (DFT-PBE typically underestimates the experimental 1.17 eV band gap by roughly 50%, a well-known limitation of this method, not an error).
 - Full 4-step workflow completed in about 24 seconds total on one GPU node — roughly 50x faster than the same calculation would take on CPU.

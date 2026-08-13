@@ -2,6 +2,11 @@
 
 **System(s):** Polaris · **Code:** Quantum ESPRESSO + QMCPACK · **Outcome:** :material-alert-decagram-outline: Partial
 
+<figure markdown>
+  ![c4-water-dimer system schematic](../../assets/campaigns/c4-water-dimer-system.png)
+  <figcaption>Two water molecules joined by a hydrogen bond.</figcaption>
+</figure>
+
 ## The ask
 
 *(This campaign predates verbatim prompt logging — the request below is reconstructed from the campaign's documented design, not a direct quote.)*
@@ -13,6 +18,11 @@
 Trinity computed the water dimer (two water molecules) binding energy via DFT successfully, then attempted to hand the result off to QMCPACK for a more accurate quantum Monte Carlo treatment. The Monte Carlo step was blocked by a technical incompatibility in how the k-point sampling was specified between the two codes — a real, disclosed limitation rather than a silent failure. Trinity correctly recognized and reported this as a partial success rather than claiming full completion.
 
 ## Results
+
+<figure markdown>
+  ![c4-water-dimer chart](../../assets/campaigns/c4-water-dimer.png)
+  <figcaption>DFT-PBE underestimates the hydrogen-bond strength at this basis-set quality, as expected.</figcaption>
+</figure>
 
 - DFT-PBE binding energy: -0.067 eV, compared to a high-accuracy reference value of -0.215 eV — DFT-PBE is known to underestimate hydrogen-bond energies at this basis-set quality, consistent with expectations.
 - Quantum Monte Carlo refinement did not complete, due to a k-point sampling incompatibility between the two codes — flagged as a fixable configuration issue for a future run, not a dead end.

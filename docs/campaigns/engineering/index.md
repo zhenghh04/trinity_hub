@@ -1,4 +1,4 @@
-# Engineering case studies
+# Performance engineering case studies
 
 Porting and performance work — moving code across GPU vendors, fixing GPU kernels, building software from source — done end-to-end through Trinity's agentic workflow, with the debugging story and validated numbers, not just a final checkmark.
 

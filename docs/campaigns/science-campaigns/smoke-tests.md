@@ -2,6 +2,11 @@
 
 **Systems:** Aurora, Crux, Frontier, Odo, Perlmutter, Polaris, Sirius, Sophia, Sunspot · **Outcome:** :material-check-decagram: Ongoing coverage sweep
 
+<figure markdown>
+  ![smoke-tests system schematic](../../assets/campaigns/smoke-tests-system.png)
+  <figcaption>Applications (rows) checked across systems (columns).</figcaption>
+</figure>
+
 ## What this covers
 
 This isn't one scientific investigation — it's a systematic "does the app actually run and produce a physically sensible result" check across roughly 38 HPC applications and 9 DOE systems. Each check goes beyond "it compiled": Trinity runs a tiny real physics or science problem per application and confirms the output is physically sensible, not just that the job exited cleanly.
@@ -11,6 +16,11 @@ This isn't one scientific investigation — it's a systematic "does the app actu
 The playbook covers 38 applications across 9 systems (181 possible application/system pairs). As of this writing, 27 pairs have a recorded pass/partial/fail outcome, with more being filled in as agents run — this is ongoing infrastructure verification work, not a finished dataset.
 
 ## Highlights
+
+<figure markdown>
+  ![smoke-tests chart](../../assets/campaigns/smoke-tests.png)
+  <figcaption>An ongoing sweep — more application×system pairs are verified as agents run.</figcaption>
+</figure>
 
 - BerkeleyGW on Aurora: dielectric screening parameter (epsilon-infinity) of 16.96, matching expected physics for silicon.
 - block2 (DMRG quantum chemistry) matched exact full configuration interaction reference energies on Aurora, Frontier, and Polaris — a difference as small as 2.25×10⁻⁹ Hartree on Polaris.

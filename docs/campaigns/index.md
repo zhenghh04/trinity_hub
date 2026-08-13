@@ -34,7 +34,7 @@ of rigor than one that just reports success.
 
     [:octicons-arrow-right-24: Browse science campaigns](science-campaigns/index.md)
 
--   :material-chip: **Engineering case studies**
+-   :material-chip: **Performance engineering case studies**
 
     ---
 
@@ -42,7 +42,7 @@ of rigor than one that just reports success.
     kernels, building software from source — with the debugging story and validated
     numbers, not just a final checkmark.
 
-    [:octicons-arrow-right-24: Browse engineering case studies](engineering/index.md)
+    [:octicons-arrow-right-24: Browse performance engineering case studies](engineering/index.md)
 
 -   :material-file-document-check-outline: **Paper reproductions**
 

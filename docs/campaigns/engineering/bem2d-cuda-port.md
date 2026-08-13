@@ -2,6 +2,11 @@
 
 **Port:** Fortran 90 + OpenMP + LAPACK (CPU) → CUDA / cuSolverDn (NVIDIA A100) · **System:** Polaris · **Status:** :material-rocket-launch-outline: Completed
 
+<figure markdown>
+  ![bem2d-cuda-port system schematic](../../assets/campaigns/bem2d-cuda-port-system.png)
+  <figcaption>A plane wave scattering off a 2D dielectric cylinder.</figcaption>
+</figure>
+
 ## The ask
 
 *(No verbatim request on record — paraphrased from the project's documented goal.)*
@@ -16,9 +21,14 @@ Five rounds of optimization followed: a naive port, then a GPU-occupancy fix, th
 
 ## Results
 
+<figure markdown>
+  ![bem2d-cuda-port chart](../../assets/campaigns/bem2d-cuda-port.png)
+  <figcaption>A from-scratch GPU port of a 2008 PhD code, verified bit-identical to the CPU reference.</figcaption>
+</figure>
+
 - 1,041x wall-clock speedup at a representative problem size, compared to a 32-thread CPU baseline.
 - Every optimization stage produced numerically identical results to the CPU reference, to all printed digits — the tensor-core precision trick recovers full accuracy invisibly.
 - Fusing the assembly and solve steps alone cut data movement between CPU and GPU memory by over 5,000x.
 - Running the same workload across 8 GPUs on 2 nodes gives close to linear (8x) scaling for parameter sweeps — a sweep that would take days on CPU finishes in under a minute.
 
-[← Back to Engineering case studies](index.md)
+[← Back to Performance engineering case studies](index.md)

@@ -7,7 +7,7 @@ shapes: you `POST` a text query and get either a single final answer (blocking) 
 a live event stream (tokens + tool-call cards as they happen).
 
 !!! info "Base URL"
-    The hosted deployment is **`https://trinity.lionlambstone.org`**. A self-hosted
+    The hosted deployment is **`https://trinityscience.org`**. A self-hosted
     or local server is **`http://localhost:8765`**. Substitute your host in the
     examples below.
 
@@ -19,7 +19,7 @@ to *my* Trinity"):
 
 ```bash
 # You need a Trinity user session cookie/JWT to mint an agent token.
-curl -sX POST "https://trinity.lionlambstone.org/api/agents/trinity/token" \
+curl -sX POST "https://trinityscience.org/api/agents/trinity/token" \
   -H "Authorization: Bearer $TRINITY_SESSION_JWT" \
   -H "Content-Type: application/json" \
   -d '{"ttl_hours": 168}'
@@ -55,7 +55,7 @@ envelope** with the final answer. Simplest to script, but for a long turn (an HP
 job, a build) the caller waits with no feedback.
 
 ```bash
-curl -sX POST "https://trinity.lionlambstone.org/api/agents/trinity/query" \
+curl -sX POST "https://trinityscience.org/api/agents/trinity/query" \
   -H "Authorization: Bearer $TRINITY_TOKEN" \
   -H "Content-Type: application/json" \
   -d '{"parts":[{"kind":"text","text":"Which systems is LAMMPS built for in the catalog?"}]}'
@@ -83,7 +83,7 @@ Opt in **any** of three ways — `?stream=1` on the URL, an `Accept: text/event-
 header, or `"stream": true` in the body — and read with `curl -N` (unbuffered):
 
 ```bash
-curl -N -X POST "https://trinity.lionlambstone.org/api/agents/trinity/query?stream=1" \
+curl -N -X POST "https://trinityscience.org/api/agents/trinity/query?stream=1" \
   -H "Authorization: Bearer $TRINITY_TOKEN" \
   -H "Content-Type: application/json" \
   -H "Accept: text/event-stream" \
@@ -124,7 +124,7 @@ and replays it into each turn. Reuse the same id to continue; omit it for a fres
 stateless one-shot each call.
 
 ```bash
-curl -sX POST "https://trinity.lionlambstone.org/api/agents/trinity/query" \
+curl -sX POST "https://trinityscience.org/api/agents/trinity/query" \
   -H "Authorization: Bearer $TRINITY_TOKEN" \
   -H "Content-Type: application/json" \
   -d '{"conversation_id":"my-lammps-thread",

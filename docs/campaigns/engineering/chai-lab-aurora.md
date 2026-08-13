@@ -2,6 +2,11 @@
 
 **Port:** PyTorch/CUDA fork → PyTorch/Intel XPU · **System:** Aurora · **Status:** :material-dna: Completed
 
+<figure markdown>
+  ![chai-lab-aurora system schematic](../../assets/campaigns/chai-lab-aurora-system.png)
+  <figcaption>A folded peptide structure, schematically.</figcaption>
+</figure>
+
 ## The ask
 
 *(No verbatim request on record — paraphrased from the project's documented goal.)*
@@ -14,8 +19,13 @@ This is a more modest deployment story than the deep porting efforts elsewhere i
 
 ## Results
 
+<figure markdown>
+  ![chai-lab-aurora chart](../../assets/campaigns/chai-lab-aurora.png)
+  <figcaption>A full structure prediction completes in under 20 seconds once the model is warm.</figcaption>
+</figure>
+
 - End-to-end GPU inference verified: model loads, runs its full diffusion-based structure generation, and writes valid output structure files.
 - Roughly 16 diffusion steps/second in testing; a full structure prediction completes in under 20 seconds once the model is warm.
 - This is a functional-verification result (does it run correctly), not a performance comparison against other hardware.
 
-[← Back to Engineering case studies](index.md)
+[← Back to Performance engineering case studies](index.md)

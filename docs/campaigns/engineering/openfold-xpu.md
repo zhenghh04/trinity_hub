@@ -2,6 +2,11 @@
 
 **Port:** PyTorch/CUDA → PyTorch/Intel XPU (SYCL) · **System:** Sunspot · **Status:** :material-dna: Completed
 
+<figure markdown>
+  ![openfold-xpu system schematic](../../assets/campaigns/openfold-xpu-system.png)
+  <figcaption>A folded protein structure, schematically.</figcaption>
+</figure>
+
 ## The ask
 
 *(No verbatim request on record — paraphrased from the project's documented goal.)*
@@ -16,8 +21,13 @@ The lesson, stated plainly in the writeup: a port that only patches the obvious 
 
 ## Results
 
+<figure markdown>
+  ![openfold-xpu chart](../../assets/campaigns/openfold-xpu.png)
+  <figcaption>A single Intel GPU tile edges out a PCIe A100 on this specific inference workload.</figcaption>
+</figure>
+
 - Full model forward pass verified end-to-end on Intel GPU hardware, with no silent fallback to CPU anywhere in the computation.
 - 7 distinct compatibility issues resolved across the port.
 - A follow-on benchmark found the single-GPU Intel hardware used here about 6% faster than a comparable (PCIe, not the top-tier) NVIDIA A100 for this specific inference workload — an interesting data point, though not a fully apples-to-apples comparison (different A100 variant, one specific model configuration).
 
-[← Back to Engineering case studies](index.md)
+[← Back to Performance engineering case studies](index.md)

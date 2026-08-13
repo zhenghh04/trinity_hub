@@ -2,6 +2,11 @@
 
 **Build + run:** HACC cosmology proxy application · **System:** Polaris · **Status:** :material-orbit: Completed
 
+<figure markdown>
+  ![hacc-build system schematic](../../assets/campaigns/hacc-build-system.png)
+  <figcaption>A cosmological N-body particle distribution.</figcaption>
+</figure>
+
 ## The ask
 
 > "Lets build HACC code on Polaris."
@@ -16,8 +21,13 @@ The environment-loading mechanism used by the job-submission API doesn't behave 
 
 ## Results
 
+<figure markdown>
+  ![hacc-build chart](../../assets/campaigns/hacc-build.png)
+  <figcaption>Every fix came from reading logs alone — no direct terminal access to the system.</figcaption>
+</figure>
+
 - Working binary built after 8 submissions across 4 distinct bugs, entirely without direct system access.
 - Successfully ran a synthetic cosmological force-calculation problem with about 67 million particles across 4 GPUs, completing in about 5 seconds.
 - This is a build-and-functional-run story — no performance comparison against CPU is reported.
 
-[← Back to Engineering case studies](index.md)
+[← Back to Performance engineering case studies](index.md)

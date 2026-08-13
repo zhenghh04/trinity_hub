@@ -2,6 +2,11 @@
 
 **System:** Local (ML inference) · **Type:** ML spectral prediction · **Outcome:** :material-waveform: Success
 
+<figure markdown>
+  ![xanes-tio2 system schematic](../../assets/campaigns/xanes-tio2-system.png)
+  <figcaption>The shape of an X-ray absorption spectrum.</figcaption>
+</figure>
+
 ## The ask
 
 *(This campaign predates verbatim prompt logging — the request below is reconstructed from the campaign's recorded intent, not a direct quote.)*
@@ -13,6 +18,11 @@
 Trinity pulled all three TiO2 polymorph structures from Materials Project and compared their predicted Ti K-edge XANES spectra — via a machine-learned spectral-prediction model — against experimental reference standards, using five different similarity metrics plus an energy-shift optimization. All three predictions were correctly matched to their corresponding experimental standard. One subtlety: brookite and anatase were nearly tied on one similarity metric, and a derivative-based metric was needed as an unexpected tiebreaker to correctly tell them apart — a genuinely useful methodological finding for future spectral-matching work.
 
 ## Results
+
+<figure markdown>
+  ![xanes-tio2 chart](../../assets/campaigns/xanes-tio2.png)
+  <figcaption>All three polymorphs cleared the 0.9 similarity threshold against experiment.</figcaption>
+</figure>
 
 - Anatase: best correlation 0.971 with its reference standard.
 - Brookite: best correlation 0.944, correctly distinguished from anatase using a derivative-based tiebreaker metric.

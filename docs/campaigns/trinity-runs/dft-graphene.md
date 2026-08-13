@@ -2,6 +2,11 @@
 
 **System:** Polaris · **Type:** DFT calculation (Quantum ESPRESSO) · **Outcome:** :material-check-decagram: Success
 
+<figure markdown>
+  ![dft-graphene system schematic](../../assets/campaigns/dft-graphene-system.png)
+  <figcaption>Graphene's honeycomb carbon lattice.</figcaption>
+</figure>
+
 ## The ask
 
 > "Run a DFT calculation for graphene"
@@ -19,6 +24,11 @@ The second round tightened the smearing parameter and k-mesh per that feedback, 
 The third round added an even denser k-mesh, which shifted the energy by only 0.18 meV/atom — confirming the second mesh was already converged — and resolved an apparent "double the expected bands" anomaly from round two (a logging system had duplicated file content, not a physics bug). It closed out by proposing a general node-sizing rule and a benchmark plan for right-sizing future Quantum ESPRESSO runs on Polaris.
 
 ## Results
+
+<figure markdown>
+  ![dft-graphene chart](../../assets/campaigns/dft-graphene.png)
+  <figcaption>Each denser k-mesh moved the energy less than the last — the signature of convergence.</figcaption>
+</figure>
 
 - Zero-gap Dirac-cone semimetal confirmed in all three rounds — matches published PBE graphene results.
 - k-point convergence resolved: a 24x24x1 mesh is sufficient (only 0.18 meV/atom shift from an even denser mesh, well under the 1 meV/atom threshold).
