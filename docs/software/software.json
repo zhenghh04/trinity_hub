@@ -1,9 +1,9 @@
 {
- "generated": "2026-08-13T04:01:38Z",
+ "generated": "2026-08-14T09:00:16Z",
  "counts": {
-  "apps": 65,
-  "systems": 10,
-  "cards": 225,
+  "apps": 66,
+  "systems": 11,
+  "cards": 237,
   "smoke": 29,
   "passed": 29
  },
@@ -58,6 +58,13 @@
    "app_count": 13
   },
   {
+   "id": "sunspot",
+   "name": "Sunspot",
+   "facility": "ALCF",
+   "description": "128-node Intel Data Center GPU Max Series testbed for Aurora at Argonne National Laboratory",
+   "app_count": 12
+  },
+  {
    "id": "sophia",
    "name": "Sophia",
    "facility": "ALCF",
@@ -65,10 +72,10 @@
    "app_count": 11
   },
   {
-   "id": "sunspot",
-   "name": "Sunspot",
+   "id": "tara",
+   "name": "Tara",
    "facility": "ALCF",
-   "description": "128-node Intel Data Center GPU Max Series testbed for Aurora at Argonne National Laboratory",
+   "description": "ALCF Tara North — GH200 (Grace-Hopper) inference cluster; cabinet-isolated, max 112-node jobs",
    "app_count": 11
   },
   {
@@ -361,6 +368,10 @@
     "sophia": {
      "state": "available",
      "build": "built"
+    },
+    "tara": {
+     "state": "available",
+     "build": "built"
     }
    }
   },
@@ -529,6 +540,10 @@
     "sophia": {
      "state": "in_progress",
      "build": "needs_build"
+    },
+    "tara": {
+     "state": "available",
+     "build": "built"
     }
    }
   },
@@ -621,6 +636,10 @@
      "smoke_date": "2026-07-09",
      "smoke_result": "residual PASSED; 201 Gflops (campaign C18). Note: no HPL.dat is bundled - generate one.",
      "smoke_cmd": "xhpl, HPL.dat N=20000 NB=192 P=2 Q=2 (4 ranks, CPU)"
+    },
+    "tara": {
+     "state": "available",
+     "build": "built"
     }
    }
   },
@@ -631,6 +650,10 @@
    "description": "IOR/mdtest parallel I/O benchmark with native DAOS DFS backend on Aurora (also POSIX/MPIIO/MMAP)",
    "systems": {
     "aurora": {
+     "state": "available",
+     "build": "built"
+    },
+    "tara": {
      "state": "available",
      "build": "built"
     }
@@ -669,6 +692,10 @@
     "sophia": {
      "state": "in_progress",
      "build": "needs_build"
+    },
+    "tara": {
+     "state": "available",
+     "build": "built"
     }
    }
   },
@@ -809,6 +836,10 @@
      "smoke_date": "2026-07-09",
      "smoke_result": "solver ran to 'end of time-step loop', total solver time 3.94 s (coverage campaign)",
      "smoke_cmd": "examples/eddy_uv: cp SIZE.legacy SIZE; makenek eddy_uv; genmap; mpiexec -n 4 ./nek5000"
+    },
+    "sunspot": {
+     "state": "available",
+     "build": "built"
     }
    }
   },
@@ -893,6 +924,10 @@
      "smoke_date": "2026-08-12",
      "smoke_result": "SCF and DFT+COSMO+def2 both converge; def2 + Stuttgart-RSC ECP libraries present.",
      "smoke_cmd": ""
+    },
+    "tara": {
+     "state": "available",
+     "build": "built"
     }
    }
   },
@@ -1137,6 +1172,10 @@
     "sirius": {
      "state": "available",
      "build": ""
+    },
+    "tara": {
+     "state": "available",
+     "build": "built"
     }
    }
   },
@@ -1213,6 +1252,10 @@
     "sophia": {
      "state": "available",
      "build": ""
+    },
+    "tara": {
+     "state": "available",
+     "build": "built"
     }
    }
   },
@@ -1251,6 +1294,10 @@
      "build": ""
     },
     "sophia": {
+     "state": "available",
+     "build": "built"
+    },
+    "tara": {
      "state": "available",
      "build": "built"
     }
@@ -1305,6 +1352,18 @@
     "sunspot": {
      "state": "available",
      "build": ""
+    }
+   }
+  },
+  {
+   "key": "quantum_espresso",
+   "name": "Quantum ESPRESSO",
+   "category": "dft",
+   "description": "Plane-wave DFT (pw.x et al.) — CPU MPI+OpenMP+ScaLAPACK build on Tara North (aarch64 Grace) with cray-libsci",
+   "systems": {
+    "tara": {
+     "state": "available",
+     "build": "built"
     }
    }
   },
@@ -1511,6 +1570,10 @@
      "build": "needs_build"
     },
     "sophia": {
+     "state": "available",
+     "build": "built"
+    },
+    "tara": {
      "state": "available",
      "build": "built"
     }
