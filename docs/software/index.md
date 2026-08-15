@@ -1,11 +1,11 @@
 # Supported software
 
-*Auto-generated from Trinity's internal software cards on 2026-08-14T09:00:16Z. Do not edit
+*Auto-generated from Trinity's internal software cards on 2026-08-15T09:01:13Z. Do not edit
 by hand — regenerate with `scripts/build_software_dashboard.py`.*
 
 Trinity maintains verified build + run recipes ("software cards") for HPC
 applications across DOE systems. This dashboard shows **66 applications** with
-**237 recipes** across **11 systems**, and the **29 functional
+**245 recipes** across **11 systems**, and the **29 functional
 smoke tests** (29 passing) that confirm an app doesn't just compile but
 produces a physically sensible result.
 
@@ -54,7 +54,7 @@ produces a physically sensible result.
 | **Polaris** | ALCF | 560-node A100 GPU cluster at Argonne National Laboratory | 45 |
 | **Sirius** | ALCF | ALCF staging cluster | 16 |
 | **Sophia** | ALCF | 24-node DGX A100 GPU cluster at Argonne National Laboratory | 11 |
-| **Sunspot** | ALCF | 128-node Intel Data Center GPU Max Series testbed for Aurora at Argonne National Labora… | 12 |
+| **Sunspot** | ALCF | 128-node Intel Data Center GPU Max Series testbed for Aurora at Argonne National Labora… | 20 |
 | **Tara** | ALCF | ALCF Tara North — GH200 (Grace-Hopper) inference cluster; cabinet-isolated, max 112-nod… | 11 |
 | **Perlmutter** | NERSC | GPU/CPU hybrid supercomputer at NERSC (NVIDIA A100 GPUs + AMD Milan CPUs) | 41 |
 | **Frontier** | OLCF | 9408-node AMD MI250X exascale GPU system at Oak Ridge National Laboratory | 31 |

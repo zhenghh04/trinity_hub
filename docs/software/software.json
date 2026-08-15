@@ -1,9 +1,9 @@
 {
- "generated": "2026-08-14T09:00:16Z",
+ "generated": "2026-08-15T09:01:13Z",
  "counts": {
   "apps": 66,
   "systems": 11,
-  "cards": 237,
+  "cards": 245,
   "smoke": 29,
   "passed": 29
  },
@@ -44,6 +44,13 @@
    "app_count": 24
   },
   {
+   "id": "sunspot",
+   "name": "Sunspot",
+   "facility": "ALCF",
+   "description": "128-node Intel Data Center GPU Max Series testbed for Aurora at Argonne National Laboratory",
+   "app_count": 20
+  },
+  {
    "id": "sirius",
    "name": "Sirius",
    "facility": "ALCF",
@@ -56,13 +63,6 @@
    "facility": "OLCF",
    "description": "30-node AMD MI250X training system at Oak Ridge National Laboratory (Frontier architecture clone)",
    "app_count": 13
-  },
-  {
-   "id": "sunspot",
-   "name": "Sunspot",
-   "facility": "ALCF",
-   "description": "128-node Intel Data Center GPU Max Series testbed for Aurora at Argonne National Laboratory",
-   "app_count": 12
   },
   {
    "id": "sophia",
@@ -369,6 +369,10 @@
      "state": "available",
      "build": "built"
     },
+    "sunspot": {
+     "state": "available",
+     "build": "verified"
+    },
     "tara": {
      "state": "available",
      "build": "built"
@@ -541,6 +545,10 @@
      "state": "in_progress",
      "build": "needs_build"
     },
+    "sunspot": {
+     "state": "available",
+     "build": "built"
+    },
     "tara": {
      "state": "available",
      "build": "built"
@@ -637,6 +645,10 @@
      "smoke_result": "residual PASSED; 201 Gflops (campaign C18). Note: no HPL.dat is bundled - generate one.",
      "smoke_cmd": "xhpl, HPL.dat N=20000 NB=192 P=2 Q=2 (4 ranks, CPU)"
     },
+    "sunspot": {
+     "state": "available",
+     "build": "built"
+    },
     "tara": {
      "state": "available",
      "build": "built"
@@ -650,6 +662,10 @@
    "description": "IOR/mdtest parallel I/O benchmark with native DAOS DFS backend on Aurora (also POSIX/MPIIO/MMAP)",
    "systems": {
     "aurora": {
+     "state": "available",
+     "build": "built"
+    },
+    "sunspot": {
      "state": "available",
      "build": "built"
     },
@@ -924,6 +940,10 @@
      "smoke_date": "2026-08-12",
      "smoke_result": "SCF and DFT+COSMO+def2 both converge; def2 + Stuttgart-RSC ECP libraries present.",
      "smoke_cmd": ""
+    },
+    "sunspot": {
+     "state": "available",
+     "build": "built"
     },
     "tara": {
      "state": "available",
@@ -1253,6 +1273,10 @@
      "state": "available",
      "build": ""
     },
+    "sunspot": {
+     "state": "available",
+     "build": "verified"
+    },
     "tara": {
      "state": "available",
      "build": "built"
@@ -1294,6 +1318,10 @@
      "build": ""
     },
     "sophia": {
+     "state": "available",
+     "build": "built"
+    },
+    "sunspot": {
      "state": "available",
      "build": "built"
     },
@@ -1566,12 +1594,16 @@
      "smoke_cmd": "offline throughput: vllm.LLM(Qwen2.5-0.5B, TP=1, bf16, enforce_eager), 64 prompts x 128 tok"
     },
     "sirius": {
-     "state": "in_progress",
-     "build": "needs_build"
+     "state": "available",
+     "build": "built"
     },
     "sophia": {
      "state": "available",
      "build": "built"
+    },
+    "sunspot": {
+     "state": "available",
+     "build": "verified"
     },
     "tara": {
      "state": "available",
