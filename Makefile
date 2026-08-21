@@ -3,7 +3,7 @@
 PYTHON ?= python3
 PORT   ?= 8000
 
-.PHONY: help preview build regen validate
+.PHONY: help preview build regen validate linkcheck
 
 help:  ## Show this help
 	@grep -E '^[a-z][a-zA-Z_-]*:.*## ' $(MAKEFILE_LIST) | awk -F ':.*## ' '{printf "  make %-10s %s\n", $$1, $$2}'
@@ -18,6 +18,11 @@ regen:  ## Regenerate all generated artifacts from their sources
 	$(PYTHON) scripts/build_index.py
 	$(PYTHON) scripts/build_registry_page.py
 	$(PYTHON) scripts/build_campaign_index.py
+
+linkcheck:  ## Build offline and check every internal link and anchor
+	SOCIAL_CARDS=false mkdocs build --strict -d .linkcheck-site
+	$(PYTHON) scripts/check_links.py .linkcheck-site
+	rm -rf .linkcheck-site
 
 validate:  ## What CI checks: registry schemas + generated files are committed fresh
 	$(PYTHON) scripts/validate_registry.py

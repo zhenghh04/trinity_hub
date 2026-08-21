@@ -84,6 +84,7 @@ The site is MkDocs Material. Common tasks are wrapped in the Makefile:
 make preview    # live-reload preview at localhost:8000 — works offline
 make regen      # rebuild all generated files (registry index/catalog, campaign data)
 make validate   # what CI checks: registry schemas + generated files committed fresh
+make linkcheck  # build offline + verify every internal link and anchor resolves
 make build      # strict production build (social cards need network + cairo)
 ```
 
