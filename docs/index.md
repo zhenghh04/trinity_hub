@@ -1,20 +1,57 @@
-# Trinity Hub
+---
+title: Trinity Hub
+hide:
+  - navigation
+  - toc
+---
 
-**Trinity is a multi-tenant, multi-agent workspace where scientists and AI agents
-collaborate to run work on DOE leadership computing facilities.** You describe a
-task in plain language — *"run a Quantum ESPRESSO relaxation on Polaris"*, *"build
-LAMMPS on Aurora"*, *"is Frontier up?"* — and Trinity plans it, submits and
-monitors the HPC jobs, moves the data, and reports back, all from a chat window in
-your browser.
+<div class="tx-hero">
+  <svg class="tx-hero__orbits" viewBox="0 0 96 96" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <g fill="none" stroke-linecap="round" stroke-width="0.7">
+      <ellipse cx="48" cy="34" rx="13" ry="26" transform="rotate(0 48 48)" stroke="#38bdf8"/>
+      <ellipse cx="48" cy="34" rx="13" ry="26" transform="rotate(120 48 48)" stroke="#2dd4bf"/>
+      <ellipse cx="48" cy="34" rx="13" ry="26" transform="rotate(240 48 48)" stroke="#a3e635"/>
+    </g>
+  </svg>
+  <div class="tx-hero__inner">
+    <div class="tx-hero__copy">
+      <p class="tx-eyebrow">Argonne Leadership Computing Facility</p>
+      <h1>Ask for science.<br><em>Trinity runs the supercomputer.</em></h1>
+      <p class="tx-lead">Trinity is a multi-tenant workspace where scientists and AI agents collaborate on DOE leadership computing. Describe a task in plain language — Trinity plans it, submits and monitors the HPC jobs, moves the data, and reports back, all from a chat window.</p>
+      <p class="tx-hero__actions">
+        <a class="md-button md-button--primary" href="https://trinityscience.org">Open Trinity</a>
+        <a class="md-button" href="using-trinity/getting-started/">Getting started</a>
+      </p>
+    </div>
+    <div class="tx-hero__demo">
+      <div class="tx-terminal" role="img" aria-label="Example Trinity session: a user asks for a Quantum ESPRESSO relaxation on Polaris; Trinity plans, submits, monitors, and returns the result.">
+        <div class="tx-terminal__bar">
+          <span class="tx-dot"></span><span class="tx-dot"></span><span class="tx-dot"></span>
+          <span class="tx-terminal__title">trinity · room: polaris-dft</span>
+        </div>
+        <div class="tx-terminal__body">
+          <p class="tx-line tx-line--you"><span class="tx-who">you</span><span>Relax this structure with Quantum ESPRESSO on Polaris.</span></p>
+          <p class="tx-line"><span class="tx-tag tx-tag--plan">plan</span><span>pw.x vc-relax input + PBS script, debug queue</span></p>
+          <p class="tx-line"><span class="tx-tag tx-tag--submit">submit</span><span>job 4182931 → Polaris · 1 node · 32 ranks</span></p>
+          <p class="tx-line"><span class="tx-tag tx-tag--monitor">monitor</span><span>12 min · converged in 14 SCF steps</span></p>
+          <p class="tx-line"><span class="tx-tag tx-tag--result">result</span><span>forces &lt; 10⁻⁴ Ry/bohr · outputs staged to your project</span></p>
+          <p class="tx-line tx-line--done"><span class="tx-who">✓</span><span>done in 14 min<span class="tx-caret"></span></span></p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="tx-stats">
+    <div class="tx-stat"><span class="tx-stat__n" data-stat="apps">66</span><span class="tx-stat__l">applications</span></div>
+    <div class="tx-stat"><span class="tx-stat__n" data-stat="systems">11</span><span class="tx-stat__l">HPC systems</span></div>
+    <div class="tx-stat"><span class="tx-stat__n" data-stat="recipes">245</span><span class="tx-stat__l">verified recipes</span></div>
+    <div class="tx-stat"><span class="tx-stat__n" data-stat="smoke">29/29</span><span class="tx-stat__l">smoke tests passing</span></div>
+    <div class="tx-stat"><span class="tx-stat__n" data-stat="campaigns">40+</span><span class="tx-stat__l">documented campaigns</span></div>
+  </div>
+</div>
 
 **Trinity Hub** (this site) is the open front door to that platform. It documents
 **how to use Trinity** as a scientist, and **how to extend it** by publishing your
 own agents and reusable skills.
-
-[Open Trinity :material-arrow-right:](https://trinityscience.org){ .md-button .md-button--primary }
-[How to use Trinity](using-trinity/index.md){ .md-button }
-
----
 
 ## What Trinity is
 
@@ -41,8 +78,6 @@ future runs), **Traces** (a full timeline of tool calls and observations), and
 reproducible, not just "the agent said so." See
 [How it works](architecture.md) for the registry-vs-runtime split that lets
 outside agents and skills plug in.
-
----
 
 ## Pick your path
 
@@ -86,8 +121,6 @@ outside agents and skills plug in.
 
 </div>
 
----
-
 ## What Trinity does
 
 | You ask… | Trinity… |
@@ -104,9 +137,14 @@ tracking — but you never touch those directly. You stay in the chat.
 
 ## Supported facilities
 
-- **ALCF** — Polaris, Aurora, Crux, Sophia, Sirius
-- **NERSC** — Perlmutter
-- **OLCF** — Frontier
+<ul class="tx-facilities">
+  <li><strong>ALCF</strong> Polaris · Aurora · Crux · Sophia · Sirius</li>
+  <li><strong>NERSC</strong> Perlmutter</li>
+  <li><strong>OLCF</strong> Frontier</li>
+</ul>
+
+See the full [supported-software dashboard](software/index.md) — which
+applications are built, smoke-tested, and ready on each system.
 
 ## A platform built for many users
 

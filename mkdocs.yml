@@ -11,15 +11,30 @@ edit_uri: edit/main/docs/
 
 theme:
   name: material
+  custom_dir: overrides
   language: en
   logo: assets/logo.svg
   favicon: assets/logo.svg
   icon:
     repo: fontawesome/brands/github
+  font:
+    text: IBM Plex Sans
+    code: IBM Plex Mono
   palette:
-    - scheme: default
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
       primary: custom
       accent: custom
+      toggle:
+        icon: material/weather-night
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: custom
+      accent: custom
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to light mode
   features:
     - navigation.tabs
     - navigation.tabs.sticky
@@ -37,7 +52,10 @@ theme:
 
 plugins:
   - search
+  # Social cards need network + cairo at build time. `make preview` sets
+  # SOCIAL_CARDS=false so local/offline builds skip them; CI keeps the default.
   - social:
+      enabled: !ENV [SOCIAL_CARDS, true]
       cards_layout_options:
         background_color: "#7c6af7"
 
@@ -46,6 +64,9 @@ extra_css:
 
 extra_javascript:
   - javascripts/software-dashboard.js
+  - javascripts/campaign-index.js
+  - javascripts/campaign-meta.js
+  - javascripts/home-stats.js
 
 markdown_extensions:
   - admonition
@@ -143,6 +164,7 @@ nav:
           - Nickelate oxygen imaging: campaigns/papers/nickelate-oxygen.md
           - TRIQS toolkit validation: campaigns/papers/triqs.md
   - Extend:
+      - Registry catalog: registry/index.md
       - Register an agent: register-an-agent.md
       - Contribute a skill: contribute-a-skill.md
       - Agent Card spec: agent-card-spec.md

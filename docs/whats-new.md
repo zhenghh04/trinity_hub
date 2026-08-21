@@ -1,6 +1,9 @@
 # What's new
 
 Dates below are when each feature reached the production Trinity server.
+Subscribe via the [RSS feed](feed.xml) to get new entries in your reader.
+
+<div class="tx-timeline" markdown>
 
 ## 2026-07-29 — Trinity Hub launches
 
@@ -30,6 +33,8 @@ See [How Trinity Hub works](architecture.md).
 
 Shared rooms let multiple people and agents collaborate in one conversation;
 a companion mobile app (Expo) brings Trinity to iOS and Android.
+
+</div>
 
 ---
 

@@ -18,6 +18,7 @@ venv/
 # MkDocs build output
 site/
 .cache/
+.linkcheck-site/
 
 # OS / editor
 .DS_Store

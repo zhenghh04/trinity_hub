@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+<title>Trinity Hub — What&#8217;s new</title>
+<link>https://docs.trinityscience.org/whats-new/</link>
+<description>Feature announcements for Trinity, the multi-tenant agentic HPC workspace.</description>
+<language>en</language>
+<lastBuildDate>Wed, 29 Jul 2026 00:00:00 +0000</lastBuildDate>
+<atom:link href="https://docs.trinityscience.org/feed.xml" rel="self" type="application/rss+xml"/>
+<item>
+<title>2026-07-29 — Trinity Hub launches</title>
+<link>https://docs.trinityscience.org/whats-new/#2026-07-29-trinity-hub-launches</link>
+<guid isPermaLink="true">https://docs.trinityscience.org/whats-new/#2026-07-29-trinity-hub-launches</guid>
+<pubDate>Wed, 29 Jul 2026 00:00:00 +0000</pubDate>
+<description>&lt;p&gt;The community registry and this documentation site go live: register your own
+agent or skill and make it &lt;code&gt;@mention&lt;/code&gt;-able in any Trinity room without running
+Trinity yourself. See &lt;a href="register-an-agent.md"&gt;Register an agent&lt;/a&gt; and
+&lt;a href="contribute-a-skill.md"&gt;Contribute a skill&lt;/a&gt;.&lt;/p&gt;</description>
+</item>
+<item>
+<title>2026-07-11 — Usage tab, persistent sessions, opencode engine</title>
+<link>https://docs.trinityscience.org/whats-new/#2026-07-11-usage-tab-persistent-sessions-opencode-engine</link>
+<guid isPermaLink="true">https://docs.trinityscience.org/whats-new/#2026-07-11-usage-tab-persistent-sessions-opencode-engine</guid>
+<pubDate>Sat, 11 Jul 2026 00:00:00 +0000</pubDate>
+<description>&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Usage tab&lt;/strong&gt; — track token usage and estimated cost by day, project, and
+  model from the dashboard.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Persistent, steerable sessions&lt;/strong&gt; — long-running chats survive reconnects,
+  and you can steer a task while it's still running instead of waiting for it
+  to finish.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;opencode engine&lt;/strong&gt; — Trinity can drive non-Claude models (including
+  open-weight models on ALCF inference endpoints) through the same chat
+  interface.&lt;/li&gt;
+&lt;/ul&gt;</description>
+</item>
+<item>
+<title>2026-06-29 — Three-hub model</title>
+<link>https://docs.trinityscience.org/whats-new/#2026-06-29-three-hub-model</link>
+<guid isPermaLink="true">https://docs.trinityscience.org/whats-new/#2026-06-29-three-hub-model</guid>
+<pubDate>Mon, 29 Jun 2026 00:00:00 +0000</pubDate>
+<description>&lt;p&gt;Trinity's backend reorganizes around three hubs — &lt;strong&gt;Agent Hub&lt;/strong&gt;, &lt;strong&gt;Skill
+Hub&lt;/strong&gt;, and &lt;strong&gt;Workflow Hub&lt;/strong&gt; — the foundation the community registry builds on.
+See &lt;a href="architecture.md"&gt;How Trinity Hub works&lt;/a&gt;.&lt;/p&gt;</description>
+</item>
+<item>
+<title>2026-06-19 — Group chat and mobile app</title>
+<link>https://docs.trinityscience.org/whats-new/#2026-06-19-group-chat-and-mobile-app</link>
+<guid isPermaLink="true">https://docs.trinityscience.org/whats-new/#2026-06-19-group-chat-and-mobile-app</guid>
+<pubDate>Fri, 19 Jun 2026 00:00:00 +0000</pubDate>
+<description>&lt;p&gt;Shared rooms let multiple people and agents collaborate in one conversation;
+a companion mobile app (Expo) brings Trinity to iOS and Android.&lt;/p&gt;</description>
+</item>
+</channel>
+</rss>

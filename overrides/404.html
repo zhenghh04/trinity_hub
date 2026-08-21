@@ -1,0 +1,25 @@
+{% extends "main.html" %}
+
+{% block content %}
+<div class="tx-404">
+  <svg class="tx-404__orbits" viewBox="0 0 96 96" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <g fill="none" stroke-linecap="round" stroke-width="0.9">
+      <ellipse cx="48" cy="34" rx="13" ry="26" transform="rotate(0 48 48)" stroke="#38bdf8"/>
+      <ellipse cx="48" cy="34" rx="13" ry="26" transform="rotate(120 48 48)" stroke="#2dd4bf"/>
+      <ellipse cx="48" cy="34" rx="13" ry="26" transform="rotate(240 48 48)" stroke="#a3e635"/>
+    </g>
+  </svg>
+  <p class="tx-404__code">404</p>
+  <h1 class="tx-404__title">This page isn't in the queue</h1>
+  <p class="tx-404__lead">
+    The page you asked for may have completed, moved, or was never submitted.
+    Try the search above, or start from one of these:
+  </p>
+  <p class="tx-404__actions">
+    <a class="md-button md-button--primary" href="{{ config.site_url | default('/', true) }}">Home</a>
+    <a class="md-button" href="{{ config.site_url | default('/', true) }}campaigns/">Science Campaigns</a>
+    <a class="md-button" href="{{ config.site_url | default('/', true) }}software/">Supported software</a>
+    <a class="md-button" href="{{ config.site_url | default('/', true) }}using-trinity/getting-started/">Getting started</a>
+  </p>
+</div>
+{% endblock %}

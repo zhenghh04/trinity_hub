@@ -56,6 +56,23 @@ of rigor than one that just reports success.
 
 </div>
 
+## All campaigns
+
+Every documented campaign in one place — filter by category or system, or search
+by application, technique, or outcome.
+
+<div class="sw-controls">
+  <input type="search" id="ci-search" placeholder="Filter by title, application, system, outcome…" autocomplete="off">
+  <select id="ci-category"><option value="">All categories</option></select>
+  <select id="ci-system"><option value="">All systems</option></select>
+</div>
+
+<div id="ci-index">
+  <div id="ci-table"></div>
+  <p id="ci-empty" class="sw-empty" hidden>No campaigns match the current filters.</p>
+  <noscript>This index needs JavaScript — browse the category pages above instead.</noscript>
+</div>
+
 ## Have a campaign to add?
 
 This page is curated from Trinity's own execution traces and campaign reports. If

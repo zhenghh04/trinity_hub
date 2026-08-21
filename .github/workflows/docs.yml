@@ -5,6 +5,7 @@ on:
     branches: [main]
     paths:
       - "docs/**"
+      - "registry/**"
       - "mkdocs.yml"
       - "requirements.txt"
       - ".github/workflows/docs.yml"
@@ -44,8 +45,26 @@ jobs:
         with:
           enablement: true
 
+      # Render registry/*.yaml entries as the docs catalog page, so the deployed
+      # site always reflects the registry even if the committed page went stale.
+      - name: Regenerate registry catalog page
+        run: python scripts/build_registry_page.py
+
+      # Rebuild the campaign-index data from the campaign pages themselves,
+      # so the "All campaigns" table can never go stale on the deployed site.
+      - name: Regenerate campaign index data
+        run: python scripts/build_campaign_index.py
+
+      - name: Regenerate What's-new RSS feed
+        run: python scripts/build_whats_new_feed.py
+
       - name: Build site
         run: mkdocs build --strict
+
+      # --strict only validates markdown-to-markdown links; this also covers
+      # raw-HTML links (hero, registry catalog, 404) and anchor fragments.
+      - name: Check internal links
+        run: python scripts/check_links.py site
 
       - uses: actions/upload-pages-artifact@v3
         with:
