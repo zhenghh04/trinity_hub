@@ -41,11 +41,11 @@ hide:
     </div>
   </div>
   <div class="tx-stats">
-    <div class="tx-stat"><span class="tx-stat__n">66</span><span class="tx-stat__l">applications</span></div>
-    <div class="tx-stat"><span class="tx-stat__n">11</span><span class="tx-stat__l">HPC systems</span></div>
-    <div class="tx-stat"><span class="tx-stat__n">245</span><span class="tx-stat__l">verified recipes</span></div>
-    <div class="tx-stat"><span class="tx-stat__n">29/29</span><span class="tx-stat__l">smoke tests passing</span></div>
-    <div class="tx-stat"><span class="tx-stat__n">40+</span><span class="tx-stat__l">documented campaigns</span></div>
+    <div class="tx-stat"><span class="tx-stat__n" data-stat="apps">66</span><span class="tx-stat__l">applications</span></div>
+    <div class="tx-stat"><span class="tx-stat__n" data-stat="systems">11</span><span class="tx-stat__l">HPC systems</span></div>
+    <div class="tx-stat"><span class="tx-stat__n" data-stat="recipes">245</span><span class="tx-stat__l">verified recipes</span></div>
+    <div class="tx-stat"><span class="tx-stat__n" data-stat="smoke">29/29</span><span class="tx-stat__l">smoke tests passing</span></div>
+    <div class="tx-stat"><span class="tx-stat__n" data-stat="campaigns">40+</span><span class="tx-stat__l">documented campaigns</span></div>
   </div>
 </div>
 
