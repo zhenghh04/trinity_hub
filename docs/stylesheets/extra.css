@@ -373,6 +373,67 @@
 }
 
 /* --------------------------------------------------------------------------
+   Campaign metadata chips (rendered by docs/javascripts/campaign-meta.js)
+   -------------------------------------------------------------------------- */
+
+.md-typeset .tx-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin: 0.3rem 0 1.1rem;
+}
+.md-typeset .tx-meta__item {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.45rem;
+  padding: 0.32rem 0.7rem;
+  border: 1px solid var(--md-default-fg-color--lightest);
+  border-radius: 0.55rem;
+  background: color-mix(in srgb, var(--md-default-fg-color) 3%, var(--md-default-bg-color));
+  font-size: 0.68rem;
+  line-height: 1.45;
+}
+.md-typeset .tx-meta__item--wide { flex-basis: 100%; }
+.md-typeset .tx-meta__key {
+  flex-shrink: 0;
+  font-family: var(--tx-display);
+  font-size: 0.56rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--md-default-fg-color--light);
+}
+.md-typeset .tx-meta__val .twemoji { color: var(--tx-iris); }
+
+/* outcome chips reuse the dashboard status palette */
+.md-typeset .tx-meta__item--pass        { background: #d9f3e1; border-color: #b2e5c4; }
+.md-typeset .tx-meta__item--pass        .tx-meta__key,
+.md-typeset .tx-meta__item--pass        .tx-meta__val { color: #14683a; }
+.md-typeset .tx-meta__item--available   { background: #dcecfb; border-color: #bcd9f4; }
+.md-typeset .tx-meta__item--available   .tx-meta__key,
+.md-typeset .tx-meta__item--available   .tx-meta__val { color: #1d5c96; }
+.md-typeset .tx-meta__item--in_progress { background: #fdf0d2; border-color: #f5dfa6; }
+.md-typeset .tx-meta__item--in_progress .tx-meta__key,
+.md-typeset .tx-meta__item--in_progress .tx-meta__val { color: #8a5b0b; }
+.md-typeset .tx-meta__item--blocked     { background: #fbdfdf; border-color: #f3c2c2; }
+.md-typeset .tx-meta__item--blocked     .tx-meta__key,
+.md-typeset .tx-meta__item--blocked     .tx-meta__val { color: #a52a2a; }
+.md-typeset :is(.tx-meta__item--pass, .tx-meta__item--available, .tx-meta__item--in_progress, .tx-meta__item--blocked) .tx-meta__val .twemoji { color: inherit; }
+
+[data-md-color-scheme="slate"] .md-typeset .tx-meta__item--pass        { background: rgba(45, 212, 191, 0.14); border-color: rgba(45, 212, 191, 0.35); }
+[data-md-color-scheme="slate"] .md-typeset .tx-meta__item--pass        .tx-meta__key,
+[data-md-color-scheme="slate"] .md-typeset .tx-meta__item--pass        .tx-meta__val { color: #7ce8c9; }
+[data-md-color-scheme="slate"] .md-typeset .tx-meta__item--available   { background: rgba(56, 189, 248, 0.13); border-color: rgba(56, 189, 248, 0.35); }
+[data-md-color-scheme="slate"] .md-typeset .tx-meta__item--available   .tx-meta__key,
+[data-md-color-scheme="slate"] .md-typeset .tx-meta__item--available   .tx-meta__val { color: #8ed3f8; }
+[data-md-color-scheme="slate"] .md-typeset .tx-meta__item--in_progress { background: rgba(251, 191, 36, 0.13); border-color: rgba(251, 191, 36, 0.35); }
+[data-md-color-scheme="slate"] .md-typeset .tx-meta__item--in_progress .tx-meta__key,
+[data-md-color-scheme="slate"] .md-typeset .tx-meta__item--in_progress .tx-meta__val { color: #f3cf74; }
+[data-md-color-scheme="slate"] .md-typeset .tx-meta__item--blocked     { background: rgba(248, 113, 113, 0.14); border-color: rgba(248, 113, 113, 0.35); }
+[data-md-color-scheme="slate"] .md-typeset .tx-meta__item--blocked     .tx-meta__key,
+[data-md-color-scheme="slate"] .md-typeset .tx-meta__item--blocked     .tx-meta__val { color: #f1a3a3; }
+
+/* --------------------------------------------------------------------------
    Release timeline (What's new)
    -------------------------------------------------------------------------- */
 
