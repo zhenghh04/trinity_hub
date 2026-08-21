@@ -373,6 +373,48 @@
 }
 
 /* --------------------------------------------------------------------------
+   404 page (overrides/404.html)
+   -------------------------------------------------------------------------- */
+
+.tx-404 {
+  position: relative;
+  max-width: 34rem;
+  margin: 3rem auto 4rem;
+  text-align: center;
+}
+.tx-404__orbits {
+  width: 9rem;
+  height: 9rem;
+  margin-bottom: 0.6rem;
+  opacity: 0.75;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .tx-404__orbits { animation: tx-precess 60s linear infinite; }
+}
+.tx-404__code {
+  margin: 0;
+  font-family: var(--tx-display);
+  font-size: 3.2rem;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  background: linear-gradient(100deg, var(--tx-iris) 0%, var(--tx-cyan) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.md-typeset .tx-404__title {
+  margin: 0.4rem 0 0.6rem;
+  font-size: 1.3rem;
+}
+.tx-404__lead {
+  margin: 0 0 1.2rem;
+  font-size: 0.76rem;
+  color: var(--md-default-fg-color--light);
+}
+.tx-404__actions .md-button { margin: 0.2rem 0.3rem; }
+
+/* --------------------------------------------------------------------------
    Campaign metadata chips (rendered by docs/javascripts/campaign-meta.js)
    -------------------------------------------------------------------------- */
 
