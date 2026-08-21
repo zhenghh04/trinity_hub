@@ -157,6 +157,7 @@ nav:
           - Nickelate oxygen imaging: campaigns/papers/nickelate-oxygen.md
           - TRIQS toolkit validation: campaigns/papers/triqs.md
   - Extend:
+      - Registry catalog: registry/index.md
       - Register an agent: register-an-agent.md
       - Contribute a skill: contribute-a-skill.md
       - Agent Card spec: agent-card-spec.md

@@ -26,3 +26,11 @@ jobs:
             git --no-pager diff -- registry/INDEX.md
             exit 1
           fi
+      - name: Check docs registry catalog is up to date
+        run: |
+          python scripts/build_registry_page.py
+          if ! git diff --quiet -- docs/registry/index.md; then
+            echo "::error::docs/registry/index.md is stale. Run 'python scripts/build_registry_page.py' and commit the result."
+            git --no-pager diff -- docs/registry/index.md
+            exit 1
+          fi
