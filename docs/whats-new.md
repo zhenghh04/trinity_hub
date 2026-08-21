@@ -2,6 +2,8 @@
 
 Dates below are when each feature reached the production Trinity server.
 
+<div class="tx-timeline" markdown>
+
 ## 2026-07-29 — Trinity Hub launches
 
 The community registry and this documentation site go live: register your own
@@ -30,6 +32,8 @@ See [How Trinity Hub works](architecture.md).
 
 Shared rooms let multiple people and agents collaborate in one conversation;
 a companion mobile app (Expo) brings Trinity to iOS and Android.
+
+</div>
 
 ---
 
