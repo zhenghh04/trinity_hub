@@ -1,0 +1,546 @@
+{
+ "campaigns": [
+  {
+   "title": "Building PyTorch from source for Intel GPUs \u2014 23 iterations to a working build",
+   "path": "engineering/aurora-pytorch-build/",
+   "category": "engineering",
+   "categoryLabel": "Performance engineering",
+   "systems": [
+    "Aurora"
+   ],
+   "systemsRaw": "Aurora",
+   "kind": "PyTorch source \u2192 Intel GPU (SYCL) build",
+   "outcome": "Completed",
+   "outcomeClass": "pass"
+  },
+  {
+   "title": "Building a GPU compiler stack \u2014 and confirming a known Intel compiler bug still exists",
+   "path": "engineering/aurora-pytorch-triton/",
+   "category": "engineering",
+   "categoryLabel": "Performance engineering",
+   "systems": [
+    "Aurora"
+   ],
+   "systemsRaw": "Aurora",
+   "kind": "",
+   "outcome": "Completed",
+   "outcomeClass": "pass"
+  },
+  {
+   "title": "BEM2D: 1,041x speedup porting a 2008 PhD electromagnetic-scattering code to CUDA",
+   "path": "engineering/bem2d-cuda-port/",
+   "category": "engineering",
+   "categoryLabel": "Performance engineering",
+   "systems": [
+    "Polaris"
+   ],
+   "systemsRaw": "Polaris",
+   "kind": "Fortran 90 + OpenMP + LAPACK (CPU) \u2192 CUDA / cuSolverDn (NVIDIA A100)",
+   "outcome": "Completed",
+   "outcomeClass": "pass"
+  },
+  {
+   "title": "BEM3D: from a 40GB memory wall to a 2TB-equivalent problem via matrix-free GMRES",
+   "path": "engineering/bem3d-cuda-port/",
+   "category": "engineering",
+   "categoryLabel": "Performance engineering",
+   "systems": [
+    "Sirius"
+   ],
+   "systemsRaw": "Sirius",
+   "kind": "Fortran 90 + OpenMP + LAPACK/ScaLAPACK (CPU) \u2192 CUDA / cuSolverDn + custom iterative solver (NVIDIA A100)",
+   "outcome": "Completed",
+   "outcomeClass": "pass"
+  },
+  {
+   "title": "Getting a lightweight protein-folding model running on Aurora",
+   "path": "engineering/chai-lab-aurora/",
+   "category": "engineering",
+   "categoryLabel": "Performance engineering",
+   "systems": [
+    "Aurora"
+   ],
+   "systemsRaw": "Aurora",
+   "kind": "PyTorch/CUDA fork \u2192 PyTorch/Intel XPU",
+   "outcome": "Completed",
+   "outcomeClass": "pass"
+  },
+  {
+   "title": "GeoSeries: a 7,638x speedup from finding four stacked performance bugs",
+   "path": "engineering/geoseries-pvc/",
+   "category": "engineering",
+   "categoryLabel": "Performance engineering",
+   "systems": [
+    "Sunspot"
+   ],
+   "systemsRaw": "Sunspot",
+   "kind": "",
+   "outcome": "Completed",
+   "outcomeClass": "pass"
+  },
+  {
+   "title": "Adding GPU support to GROMACS on Frontier \u2014 a work in progress",
+   "path": "engineering/gromacs-frontier-port/",
+   "category": "engineering",
+   "categoryLabel": "Performance engineering",
+   "systems": [
+    "Frontier"
+   ],
+   "systemsRaw": "Frontier",
+   "kind": "CPU-only GROMACS \u2192 GPU-accelerated (AMD MI250X)",
+   "outcome": "In progress",
+   "outcomeClass": "available"
+  },
+  {
+   "title": "Building a cosmology simulation code with no direct system access",
+   "path": "engineering/hacc-build/",
+   "category": "engineering",
+   "categoryLabel": "Performance engineering",
+   "systems": [
+    "Polaris"
+   ],
+   "systemsRaw": "Polaris",
+   "kind": "",
+   "outcome": "Completed",
+   "outcomeClass": "pass"
+  },
+  {
+   "title": "Designing a physics experiment from a single sentence",
+   "path": "engineering/lammps-pvnrt/",
+   "category": "engineering",
+   "categoryLabel": "Performance engineering",
+   "systems": [
+    "Polaris"
+   ],
+   "systemsRaw": "Polaris",
+   "kind": "",
+   "outcome": "Completed",
+   "outcomeClass": "pass"
+  },
+  {
+   "title": "Porting a spatiotemporal foundation model from AMD to NVIDIA GPUs \u2014 in under an hour",
+   "path": "engineering/matey-port/",
+   "category": "engineering",
+   "categoryLabel": "Performance engineering",
+   "systems": [
+    "Polaris"
+   ],
+   "systemsRaw": "Polaris",
+   "kind": "AMD ROCm / Slurm (Frontier) \u2192 NVIDIA CUDA / PBS (Polaris)",
+   "outcome": "Completed",
+   "outcomeClass": "pass"
+  },
+  {
+   "title": "Porting a multiphysics finite-element framework across GPU vendors \u2014 and a 209x kernel speedup",
+   "path": "engineering/moose-libceed/",
+   "category": "engineering",
+   "categoryLabel": "Performance engineering",
+   "systems": [
+    "Sunspot"
+   ],
+   "systemsRaw": "Sunspot",
+   "kind": "CUDA (NVIDIA A100, Polaris) \u2192 SYCL/oneAPI (Intel GPU, Sunspot)",
+   "outcome": "Completed",
+   "outcomeClass": "pass"
+  },
+  {
+   "title": "Porting an AlphaFold2 reimplementation to Intel GPUs \u2014 finding the second hidden kernel",
+   "path": "engineering/openfold-xpu/",
+   "category": "engineering",
+   "categoryLabel": "Performance engineering",
+   "systems": [
+    "Sunspot"
+   ],
+   "systemsRaw": "Sunspot",
+   "kind": "PyTorch/CUDA \u2192 PyTorch/Intel XPU (SYCL)",
+   "outcome": "Completed",
+   "outcomeClass": "pass"
+  },
+  {
+   "title": "Building PyTorch on a system where the usual submission paths didn't work",
+   "path": "engineering/sophia-pytorch-build/",
+   "category": "engineering",
+   "categoryLabel": "Performance engineering",
+   "systems": [
+    "Sophia"
+   ],
+   "systemsRaw": "Sophia",
+   "kind": "PyTorch source \u2192 CUDA + MPI build",
+   "outcome": "Completed",
+   "outcomeClass": "pass"
+  },
+  {
+   "title": "Do different DFT codes agree with each other? Testing 4 elements",
+   "path": "papers/delta-factor-dft/",
+   "category": "papers",
+   "categoryLabel": "Paper reproductions",
+   "systems": [
+    "Crux"
+   ],
+   "systemsRaw": "Crux",
+   "kind": "",
+   "outcome": "Completed for this subset",
+   "outcomeClass": "pass"
+  },
+  {
+   "title": "Fact-checking an AI agent's claim about oxygen imaging in a nickelate superconductor",
+   "path": "papers/nickelate-oxygen/",
+   "category": "papers",
+   "categoryLabel": "Paper reproductions",
+   "systems": [
+    "Polaris"
+   ],
+   "systemsRaw": "Polaris",
+   "kind": "",
+   "outcome": "Completed for this scope",
+   "outcomeClass": "pass"
+  },
+  {
+   "title": "Does an open-source ptychography framework reproduce its own paper?",
+   "path": "papers/ptyrad/",
+   "category": "papers",
+   "categoryLabel": "Paper reproductions",
+   "systems": [
+    "Polaris"
+   ],
+   "systemsRaw": "Polaris",
+   "kind": "",
+   "outcome": "In progress",
+   "outcomeClass": "available"
+  },
+  {
+   "title": "Building a quantum many-body toolkit from scratch \u2014 and an exact validation, phase 1 of 2",
+   "path": "papers/triqs/",
+   "category": "papers",
+   "categoryLabel": "Paper reproductions",
+   "systems": [
+    "Crux"
+   ],
+   "systemsRaw": "Crux",
+   "kind": "",
+   "outcome": "Phase 1 of 2 completed",
+   "outcomeClass": "available"
+  },
+  {
+   "title": "Vanadium dioxide's metal-insulator transition, revisited",
+   "path": "papers/vo2-mit/",
+   "category": "papers",
+   "categoryLabel": "Paper reproductions",
+   "systems": [],
+   "systemsRaw": "Local/HPC (DFT + Monte Carlo)",
+   "kind": "",
+   "outcome": "Completed",
+   "outcomeClass": "pass"
+  },
+  {
+   "title": "Finding argon's melting point via molecular dynamics",
+   "path": "science-campaigns/c1-argon-melting/",
+   "category": "science-campaigns",
+   "categoryLabel": "Autonomous science",
+   "systems": [
+    "Polaris"
+   ],
+   "systemsRaw": "Polaris",
+   "kind": "LAMMPS",
+   "outcome": "Success",
+   "outcomeClass": "pass"
+  },
+  {
+   "title": "Breaking a nitrogen molecule apart, three ways, across three supercomputers",
+   "path": "science-campaigns/c12-block2-n2/",
+   "category": "science-campaigns",
+   "categoryLabel": "Autonomous science",
+   "systems": [
+    "Aurora",
+    "Crux",
+    "Frontier"
+   ],
+   "systemsRaw": "Aurora, Crux & Frontier",
+   "kind": "block2 (DMRG)",
+   "outcome": "Success",
+   "outcomeClass": "pass"
+  },
+  {
+   "title": "Silicon's electronic band structure from first principles",
+   "path": "science-campaigns/c2-silicon-bands/",
+   "category": "science-campaigns",
+   "categoryLabel": "Autonomous science",
+   "systems": [
+    "Polaris"
+   ],
+   "systemsRaw": "Polaris",
+   "kind": "Quantum ESPRESSO",
+   "outcome": "Success",
+   "outcomeClass": "pass"
+  },
+  {
+   "title": "Trp-cage mini-protein thermal stability across three temperatures",
+   "path": "science-campaigns/c3-gromacs-trp-cage/",
+   "category": "science-campaigns",
+   "categoryLabel": "Autonomous science",
+   "systems": [
+    "Polaris"
+   ],
+   "systemsRaw": "Polaris",
+   "kind": "GROMACS",
+   "outcome": "Success",
+   "outcomeClass": "pass"
+  },
+  {
+   "title": "Water dimer binding energy \u2014 DFT vs. quantum Monte Carlo",
+   "path": "science-campaigns/c4-water-dimer/",
+   "category": "science-campaigns",
+   "categoryLabel": "Autonomous science",
+   "systems": [
+    "Polaris"
+   ],
+   "systemsRaw": "Polaris",
+   "kind": "Quantum ESPRESSO + QMCPACK",
+   "outcome": "Partial",
+   "outcomeClass": "in_progress"
+  },
+  {
+   "title": "Turbulent pipe flow across two facilities: Polaris vs. Aurora",
+   "path": "science-campaigns/c5-nekrs-turbulent-pipe/",
+   "category": "science-campaigns",
+   "categoryLabel": "Autonomous science",
+   "systems": [
+    "Aurora",
+    "Polaris"
+   ],
+   "systemsRaw": "Polaris & Aurora",
+   "kind": "NekRS",
+   "outcome": "Success",
+   "outcomeClass": "pass"
+  },
+  {
+   "title": "Reproducing the same GPU bug on two different supercomputers",
+   "path": "science-campaigns/c6-hacc-gpu-bug/",
+   "category": "science-campaigns",
+   "categoryLabel": "Autonomous science",
+   "systems": [
+    "Perlmutter",
+    "Polaris"
+   ],
+   "systemsRaw": "Polaris & Perlmutter",
+   "kind": "HACC (cosmology N-body)",
+   "outcome": "Bug confirmed",
+   "outcomeClass": "pass"
+  },
+  {
+   "title": "GROMACS water box: GPU (Polaris) vs. CPU-only (Frontier)",
+   "path": "science-campaigns/c7-gromacs-multi-facility/",
+   "category": "science-campaigns",
+   "categoryLabel": "Autonomous science",
+   "systems": [
+    "Frontier",
+    "Polaris"
+   ],
+   "systemsRaw": "Polaris & Frontier",
+   "kind": "GROMACS",
+   "outcome": "Success",
+   "outcomeClass": "pass"
+  },
+  {
+   "title": "Opening silicon's band gap the right way: G0W0 many-body corrections",
+   "path": "science-campaigns/c8-berkeleygw-g0w0/",
+   "category": "science-campaigns",
+   "categoryLabel": "Autonomous science",
+   "systems": [
+    "Aurora"
+   ],
+   "systemsRaw": "Aurora",
+   "kind": "BerkeleyGW",
+   "outcome": "Success",
+   "outcomeClass": "pass"
+  },
+  {
+   "title": "Verifying HPC applications actually run",
+   "path": "science-campaigns/smoke-tests/",
+   "category": "science-campaigns",
+   "categoryLabel": "Autonomous science",
+   "systems": [
+    "Aurora",
+    "Crux",
+    "Frontier",
+    "Odo",
+    "Perlmutter",
+    "Polaris",
+    "Sirius",
+    "Sophia",
+    "Sunspot"
+   ],
+   "systemsRaw": "Aurora, Crux, Frontier, Odo, Perlmutter, Polaris, Sirius, Sophia, Sunspot",
+   "kind": "",
+   "outcome": "Ongoing coverage sweep",
+   "outcomeClass": "available"
+  },
+  {
+   "title": "Copper's melting point via a heating-ramp simulation",
+   "path": "science-campaigns/t3-1-cu-melting/",
+   "category": "science-campaigns",
+   "categoryLabel": "Autonomous science",
+   "systems": [
+    "Polaris"
+   ],
+   "systemsRaw": "Polaris",
+   "kind": "LAMMPS",
+   "outcome": "Success",
+   "outcomeClass": "pass"
+  },
+  {
+   "title": "Pushing turbulent pipe flow to a higher Reynolds number",
+   "path": "science-campaigns/t3-2-nekrs-high-re/",
+   "category": "science-campaigns",
+   "categoryLabel": "Autonomous science",
+   "systems": [
+    "Polaris"
+   ],
+   "systemsRaw": "Polaris",
+   "kind": "NekRS",
+   "outcome": "Success",
+   "outcomeClass": "pass"
+  },
+  {
+   "title": "Running four molecular dynamics replicas at once",
+   "path": "science-campaigns/t3-3-gromacs-ensemble/",
+   "category": "science-campaigns",
+   "categoryLabel": "Autonomous science",
+   "systems": [
+    "Polaris"
+   ],
+   "systemsRaw": "Polaris",
+   "kind": "GROMACS",
+   "outcome": "Success",
+   "outcomeClass": "pass"
+  },
+  {
+   "title": "Silicon carbide's vibrational spectrum from first principles",
+   "path": "science-campaigns/t3-4-sic-phonons/",
+   "category": "science-campaigns",
+   "categoryLabel": "Autonomous science",
+   "systems": [
+    "Polaris"
+   ],
+   "systemsRaw": "Polaris",
+   "kind": "Quantum ESPRESSO (DFPT)",
+   "outcome": "Success",
+   "outcomeClass": "pass"
+  },
+  {
+   "title": "Graphene band structure via DFT \u2014 a 3-round convergence study",
+   "path": "trinity-runs/dft-graphene/",
+   "category": "trinity-runs",
+   "categoryLabel": "Trinity runs",
+   "systems": [
+    "Polaris"
+   ],
+   "systemsRaw": "Polaris",
+   "kind": "DFT calculation (Quantum ESPRESSO)",
+   "outcome": "Success",
+   "outcomeClass": "pass"
+  },
+  {
+   "title": "First job on Perlmutter \u2014 and two infrastructure bugs it surfaced",
+   "path": "trinity-runs/iri-smoketest-perlmutter/",
+   "category": "trinity-runs",
+   "categoryLabel": "Trinity runs",
+   "systems": [
+    "Perlmutter"
+   ],
+   "systemsRaw": "Perlmutter (NERSC)",
+   "kind": "Infrastructure smoke test",
+   "outcome": "Success",
+   "outcomeClass": "pass"
+  },
+  {
+   "title": "Liquid argon MD \u2014 catching its own supercritical-fluid mistake",
+   "path": "trinity-runs/lammps-argon/",
+   "category": "trinity-runs",
+   "categoryLabel": "Trinity runs",
+   "systems": [
+    "Polaris"
+   ],
+   "systemsRaw": "Polaris",
+   "kind": "Molecular dynamics (LAMMPS)",
+   "outcome": "Success, self-corrected",
+   "outcomeClass": "pass"
+  },
+  {
+   "title": "N2 gas molecular dynamics \u2014 two models, one open-ended ask",
+   "path": "trinity-runs/lammps-n2-gas/",
+   "category": "trinity-runs",
+   "categoryLabel": "Trinity runs",
+   "systems": [
+    "Polaris"
+   ],
+   "systemsRaw": "Polaris",
+   "kind": "Molecular dynamics (LAMMPS)",
+   "outcome": "Partial",
+   "outcomeClass": "in_progress"
+  },
+  {
+   "title": "MLPerf Storage vector-database benchmark: DAOS vs. Lustre on Aurora",
+   "path": "trinity-runs/mlperf-vectordb-aurora/",
+   "category": "trinity-runs",
+   "categoryLabel": "Trinity runs",
+   "systems": [
+    "Aurora"
+   ],
+   "systemsRaw": "Aurora",
+   "kind": "Storage/ML benchmark",
+   "outcome": "Success",
+   "outcomeClass": "pass"
+  },
+  {
+   "title": "Fixing OpenFold's GPU kernel \u2014 from silent CPU fallback to a verified rebuild",
+   "path": "trinity-runs/openfold-cuda-rebuild/",
+   "category": "trinity-runs",
+   "categoryLabel": "Trinity runs",
+   "systems": [
+    "Polaris"
+   ],
+   "systemsRaw": "Polaris",
+   "kind": "Software build / GPU kernel fix",
+   "outcome": "Success",
+   "outcomeClass": "pass"
+  },
+  {
+   "title": "Closing out Polaris application verification: NWChem, QMCPACK, and WRF",
+   "path": "trinity-runs/polaris-cseries/",
+   "category": "trinity-runs",
+   "categoryLabel": "Trinity runs",
+   "systems": [
+    "Polaris"
+   ],
+   "systemsRaw": "Polaris",
+   "kind": "Multi-code functional verification",
+   "outcome": "Success",
+   "outcomeClass": "pass"
+  },
+  {
+   "title": "3C-SiC ground-state energy via Quantum ESPRESSO \u2014 and two honestly-flagged caveats",
+   "path": "trinity-runs/sic-dft/",
+   "category": "trinity-runs",
+   "categoryLabel": "Trinity runs",
+   "systems": [
+    "Polaris"
+   ],
+   "systemsRaw": "Polaris",
+   "kind": "DFT calculation (Quantum ESPRESSO)",
+   "outcome": "Success, with caveats",
+   "outcomeClass": "pass"
+  },
+  {
+   "title": "Predicting Ti K-edge XANES spectra across three TiO2 polymorphs",
+   "path": "trinity-runs/xanes-tio2/",
+   "category": "trinity-runs",
+   "categoryLabel": "Trinity runs",
+   "systems": [],
+   "systemsRaw": "Local (ML inference)",
+   "kind": "ML spectral prediction",
+   "outcome": "Success",
+   "outcomeClass": "pass"
+  }
+ ]
+}

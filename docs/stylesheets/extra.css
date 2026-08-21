@@ -527,8 +527,15 @@
 [data-md-color-scheme="slate"] .md-typeset .sw-chip.sw-listed,
 [data-md-color-scheme="slate"] .md-typeset .sw-tag.sw-listed      { background: rgba(148, 163, 184, 0.14); color: #aeb6c8; border-color: rgba(148, 163, 184, 0.3); }
 
-/* filter controls */
-.md-typeset .sw-controls { gap: 0.55rem; margin: 0.9rem 0 0.7rem; }
+/* filter controls — base layout lives here (not only in the generated page's
+   inline styles) so other pages, e.g. the campaign index, can reuse them */
+.md-typeset .sw-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+  margin: 0.9rem 0 0.7rem;
+}
+.md-typeset .sw-controls input[type="search"] { flex: 1 1 16rem; min-width: 12rem; }
 .md-typeset .sw-controls input[type="search"],
 .md-typeset .sw-controls select {
   border: 1px solid var(--md-default-fg-color--lightest);
@@ -580,8 +587,29 @@
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
 }
 
+/* shared bits used by both the software dashboard and the campaign index */
+.md-typeset .sw-tag {
+  display: inline-block;
+  padding: 0.08rem 0.55rem;
+  border: 1px solid transparent;
+  border-radius: 1rem;
+  font-size: 0.62rem;
+  white-space: nowrap;
+}
+.md-typeset .sw-app-cat {
+  display: block;
+  font-size: 0.62rem;
+  color: var(--md-default-fg-color--light);
+}
+.md-typeset .sw-empty {
+  margin: 1rem 0;
+  font-style: italic;
+  color: var(--md-default-fg-color--light);
+}
+
 /* dashboard tables */
 .md-typeset table.sw-table {
+  width: 100%;
   font-size: 0.7rem;
   border: 1px solid var(--md-default-fg-color--lightest);
   border-radius: 0.6rem;

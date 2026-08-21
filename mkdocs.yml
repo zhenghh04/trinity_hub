@@ -60,6 +60,7 @@ extra_css:
 
 extra_javascript:
   - javascripts/software-dashboard.js
+  - javascripts/campaign-index.js
 
 markdown_extensions:
   - admonition

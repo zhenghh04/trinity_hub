@@ -50,6 +50,11 @@ jobs:
       - name: Regenerate registry catalog page
         run: python scripts/build_registry_page.py
 
+      # Rebuild the campaign-index data from the campaign pages themselves,
+      # so the "All campaigns" table can never go stale on the deployed site.
+      - name: Regenerate campaign index data
+        run: python scripts/build_campaign_index.py
+
       - name: Build site
         run: mkdocs build --strict
 
