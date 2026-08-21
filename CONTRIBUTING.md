@@ -76,7 +76,21 @@ The YAML here is the public half. To actually go live in Trinity:
 
 Full detail and a worked example: **[docs/register-an-agent.md](docs/register-an-agent.md)**.
 
-## 6. Code of conduct
+## 6. Working on the docs site
+
+The site is MkDocs Material. Common tasks are wrapped in the Makefile:
+
+```bash
+make preview    # live-reload preview at localhost:8000 — works offline
+make regen      # rebuild all generated files (registry index/catalog, campaign data)
+make validate   # what CI checks: registry schemas + generated files committed fresh
+make build      # strict production build (social cards need network + cairo)
+```
+
+`make preview` sets `SOCIAL_CARDS=false` so the social-card plugin (which fetches
+fonts at build time) is skipped locally; CI still generates the cards on deploy.
+
+## 7. Code of conduct
 
 By participating you agree to the [Code of Conduct](CODE_OF_CONDUCT.md). Be excellent to
 each other.

@@ -51,7 +51,10 @@ theme:
 
 plugins:
   - search
+  # Social cards need network + cairo at build time. `make preview` sets
+  # SOCIAL_CARDS=false so local/offline builds skip them; CI keeps the default.
   - social:
+      enabled: !ENV [SOCIAL_CARDS, true]
       cards_layout_options:
         background_color: "#7c6af7"
 
