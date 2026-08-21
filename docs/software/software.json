@@ -1,9 +1,9 @@
 {
- "generated": "2026-08-15T09:01:13Z",
+ "generated": "2026-08-21T07:32:17Z",
  "counts": {
   "apps": 66,
   "systems": 11,
-  "cards": 245,
+  "cards": 264,
   "smoke": 29,
   "passed": 29
  },
@@ -13,7 +13,7 @@
    "name": "Polaris",
    "facility": "ALCF",
    "description": "560-node A100 GPU cluster at Argonne National Laboratory",
-   "app_count": 45
+   "app_count": 47
   },
   {
    "id": "perlmutter",
@@ -35,6 +35,13 @@
    "facility": "OLCF",
    "description": "9408-node AMD MI250X exascale GPU system at Oak Ridge National Laboratory",
    "app_count": 31
+  },
+  {
+   "id": "tara",
+   "name": "Tara",
+   "facility": "ALCF",
+   "description": "ALCF Tara North — GH200 (Grace-Hopper) inference cluster; cabinet-isolated, max 112-node jobs",
+   "app_count": 28
   },
   {
    "id": "crux",
@@ -72,13 +79,6 @@
    "app_count": 11
   },
   {
-   "id": "tara",
-   "name": "Tara",
-   "facility": "ALCF",
-   "description": "ALCF Tara North — GH200 (Grace-Hopper) inference cluster; cabinet-isolated, max 112-node jobs",
-   "app_count": 11
-  },
-  {
    "id": "cerebras",
    "name": "Cerebras",
    "facility": "ALCF",
@@ -94,6 +94,10 @@
    "description": "ABACUS (Atomic-orbital Based Ab-initio Computation at UStc) — first-principles DFT / electronic-structure package. This is the plane-wave (PW) parallel engine abacus_pw_para; the LCAO engine is disabled (needs ELPA, absent on Perlmutter).",
    "systems": {
     "perlmutter": {
+     "state": "available",
+     "build": "installed"
+    },
+    "tara": {
      "state": "available",
      "build": "installed"
     }
@@ -136,6 +140,10 @@
      "smoke_date": "2026-07-10",
      "smoke_result": "FULL end-to-end PASS: MSA (features 3757s) -> 5-model JAX inference (~50-84s each) -> Amber GPU relaxation (Einit 1227.84 -> Efinal -1262.51, 0 residue violations) -> ranking. Wrote ranked_0.pdb, relaxed_model_1_pred_0.pdb, ranking_debug.json. pLDDT model_1=95.73 (95.7/95.6/93.2/89.8/89.7).",
      "smoke_cmd": "run_alphafold.py, 78-res monomer, full_dbs, staged /eagle/datasets/alphafold; GPU relax"
+    },
+    "tara": {
+     "state": "available",
+     "build": "built"
     }
    }
   },
@@ -204,6 +212,10 @@
     "sunspot": {
      "state": "available",
      "build": "success"
+    },
+    "tara": {
+     "state": "available",
+     "build": "built"
     }
    }
   },
@@ -262,6 +274,10 @@
    "description": "CGYRO — Eulerian gyrokinetic solver for multiscale plasma turbulence in tokamaks (part of the GACODE suite, General Atomics). Solves the 5D gyrokinetic-Maxwell equations for electron+ion transport; MPI+OpenMP. Built from the gacode monorepo; the deliverable is the cgyro MPI executable.",
    "systems": {
     "perlmutter": {
+     "state": "available",
+     "build": "installed"
+    },
+    "tara": {
      "state": "available",
      "build": "installed"
     }
@@ -440,6 +456,14 @@
     "perlmutter": {
      "state": "available",
      "build": "installed"
+    },
+    "polaris": {
+     "state": "available",
+     "build": "built"
+    },
+    "tara": {
+     "state": "available",
+     "build": "installed"
     }
    }
   },
@@ -468,6 +492,10 @@
     "perlmutter": {
      "state": "available",
      "build": "installed"
+    },
+    "tara": {
+     "state": "available",
+     "build": "built"
     }
    }
   },
@@ -612,6 +640,10 @@
      "smoke_date": "2026-07-09",
      "smoke_result": "rc=0; synthetic data range [8,72] rL=64 oL=8; 262144 particles; 5 subcycles; kick completed",
      "smoke_cmd": "driver_short-range -s -t 0 -c 064.indat.params  (1 rank, 1 A100)"
+    },
+    "tara": {
+     "state": "available",
+     "build": "installed"
     }
    }
   },
@@ -716,6 +748,18 @@
    }
   },
   {
+   "key": "matey",
+   "name": "MATEY",
+   "category": "ml-framework",
+   "description": "Transformer-based spatiotemporal foundation-model framework (multiscale adaptive; vit/svit/avit/turbt) from ORNL.",
+   "systems": {
+    "polaris": {
+     "state": "available",
+     "build": ""
+    }
+   }
+  },
+  {
    "key": "megatron",
    "name": "Megatron-LM",
    "category": "ml-framework",
@@ -740,6 +784,10 @@
     "polaris": {
      "state": "available",
      "build": "built"
+    },
+    "tara": {
+     "state": "available",
+     "build": "installed"
     }
    }
   },
@@ -856,6 +904,10 @@
     "sunspot": {
      "state": "available",
      "build": "built"
+    },
+    "tara": {
+     "state": "available",
+     "build": "installed"
     }
    }
   },
@@ -988,6 +1040,10 @@
     "sunspot": {
      "state": "available",
      "build": "installed"
+    },
+    "tara": {
+     "state": "available",
+     "build": "built"
     }
    }
   },
@@ -1060,6 +1116,10 @@
     "sunspot": {
      "state": "available",
      "build": "built"
+    },
+    "tara": {
+     "state": "available",
+     "build": "needs_escalation"
     }
    }
   },
@@ -1100,6 +1160,10 @@
     "sunspot": {
      "state": "available",
      "build": "installed"
+    },
+    "tara": {
+     "state": "available",
+     "build": "installed"
     }
    }
   },
@@ -1128,6 +1192,10 @@
      "smoke_date": "2026-07-09",
      "smoke_result": "1335 atoms, minimized + 20k steps completed (coverage campaign). OpenCL path also validated 2026-05-11 (30.7 ns/day).",
      "smoke_cmd": "TIP3P water box (Modeller.addSolvent), NVT 20k steps, CPU platform (simulation.py)"
+    },
+    "tara": {
+     "state": "available",
+     "build": "installed"
     }
    }
   },
@@ -1380,15 +1448,7 @@
     "sunspot": {
      "state": "available",
      "build": ""
-    }
-   }
-  },
-  {
-   "key": "quantum_espresso",
-   "name": "Quantum ESPRESSO",
-   "category": "dft",
-   "description": "Plane-wave DFT (pw.x et al.) — CPU MPI+OpenMP+ScaLAPACK build on Tara North (aarch64 Grace) with cray-libsci",
-   "systems": {
+    },
     "tara": {
      "state": "available",
      "build": "built"
@@ -1404,6 +1464,10 @@
     "perlmutter": {
      "state": "available",
      "build": ""
+    },
+    "tara": {
+     "state": "available",
+     "build": "installed"
     }
    }
   },
@@ -1414,6 +1478,10 @@
    "description": "SPARTA: Stochastic PArallel Rarefied-gas Time-accurate Analyzer — DSMC (Direct Simulation Monte Carlo) for low-density / rarefied gas flows (Sandia)",
    "systems": {
     "perlmutter": {
+     "state": "available",
+     "build": "installed"
+    },
+    "tara": {
      "state": "available",
      "build": "installed"
     }
@@ -1436,6 +1504,10 @@
      "smoke_date": "2026-07-09",
      "smoke_result": "Exit Success (SU2_CFD); transonic NACA0012 converged (coverage campaign)",
      "smoke_cmd": "QuickStart inv_NACA0012 (transonic Euler): wget cfg+mesh from su2code/SU2 master, mpiexec -n 32 SU2_CFD"
+    },
+    "tara": {
+     "state": "available",
+     "build": "installed"
     }
    }
   },
@@ -1468,6 +1540,10 @@
     "sophia": {
      "state": "in_progress",
      "build": "needs_build"
+    },
+    "tara": {
+     "state": "listed",
+     "build": "unavailable"
     }
    }
   },
