@@ -1,6 +1,7 @@
 # What's new
 
 Dates below are when each feature reached the production Trinity server.
+Subscribe via the [RSS feed](feed.xml) to get new entries in your reader.
 
 <div class="tx-timeline" markdown>
 

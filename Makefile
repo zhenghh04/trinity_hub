@@ -18,6 +18,7 @@ regen:  ## Regenerate all generated artifacts from their sources
 	$(PYTHON) scripts/build_index.py
 	$(PYTHON) scripts/build_registry_page.py
 	$(PYTHON) scripts/build_campaign_index.py
+	$(PYTHON) scripts/build_whats_new_feed.py
 
 linkcheck:  ## Build offline and check every internal link and anchor
 	SOCIAL_CARDS=false mkdocs build --strict -d .linkcheck-site

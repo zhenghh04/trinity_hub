@@ -55,6 +55,9 @@ jobs:
       - name: Regenerate campaign index data
         run: python scripts/build_campaign_index.py
 
+      - name: Regenerate What's-new RSS feed
+        run: python scripts/build_whats_new_feed.py
+
       - name: Build site
         run: mkdocs build --strict
 
