@@ -1,9 +1,9 @@
 {
- "generated": "2026-08-21T07:32:17Z",
+ "generated": "2026-08-22T04:44:13Z",
  "counts": {
   "apps": 66,
   "systems": 11,
-  "cards": 264,
+  "cards": 269,
   "smoke": 29,
   "passed": 29
  },
@@ -13,7 +13,7 @@
    "name": "Polaris",
    "facility": "ALCF",
    "description": "560-node A100 GPU cluster at Argonne National Laboratory",
-   "app_count": 47
+   "app_count": 49
   },
   {
    "id": "perlmutter",
@@ -27,7 +27,7 @@
    "name": "Aurora",
    "facility": "ALCF",
    "description": "10,624-node Intel Data Center GPU Max Series exascale supercomputer at Argonne National Laboratory",
-   "app_count": 32
+   "app_count": 35
   },
   {
    "id": "frontier",
@@ -91,9 +91,17 @@
    "key": "abacus",
    "name": "ABACUS",
    "category": "simulation",
-   "description": "ABACUS (Atomic-orbital Based Ab-initio Computation at UStc) — first-principles DFT / electronic-structure package. This is the plane-wave (PW) parallel engine abacus_pw_para; the LCAO engine is disabled (needs ELPA, absent on Perlmutter).",
+   "description": "ABACUS (Atomic-orbital Based Ab-initio Computation at UStc) — first-principles DFT / electronic-structure package. Aurora build is the plane-wave (PW) parallel engine with Intel oneAPI + oneMKL (BLAS/LAPACK/ScaLAPACK/FFT); the LCAO engine is disabled (needs ELPA).",
    "systems": {
+    "aurora": {
+     "state": "available",
+     "build": "installed"
+    },
     "perlmutter": {
+     "state": "available",
+     "build": "installed"
+    },
+    "polaris": {
      "state": "available",
      "build": "installed"
     },
@@ -277,6 +285,10 @@
      "state": "available",
      "build": "installed"
     },
+    "polaris": {
+     "state": "available",
+     "build": "built"
+    },
     "tara": {
      "state": "available",
      "build": "installed"
@@ -427,8 +439,12 @@
    "key": "flare",
    "name": "FLARE",
    "category": "machine_learning",
-   "description": "Bayesian ML interatomic force fields (GP / sparse GP FFs) — mir-group/flare",
+   "description": "Bayesian ML interatomic force fields (GP / sparse GP FFs) — mir-group/flare. Aurora CPU build: the mir-flare C++ kernel extension (Eigen + LAPACKE from oneMKL + OpenMP + pybind11) built with Intel icx/icpx into an isolated Python venv off the frameworks python.",
    "systems": {
+    "aurora": {
+     "state": "available",
+     "build": "installed"
+    },
     "perlmutter": {
      "state": "available",
      "build": ""
@@ -487,8 +503,12 @@
    "key": "genesis",
    "name": "GENESIS",
    "category": "simulation",
-   "description": "GENESIS: GENeralized-Ensemble SImulation System — molecular dynamics for biomolecules (spdyn: large-system MD engine; atdyn: atomic-decomposition MD + REMD/replica-exchange, free-energy) from RIKEN R-CCS",
+   "description": "GENESIS: GENeralized-Ensemble SImulation System — molecular dynamics for biomolecules (spdyn: large-system MD engine; atdyn: atomic-decomposition MD + REMD/replica-exchange, free-energy) from RIKEN R-CCS. Aurora CPU build with Intel oneAPI ifx + Intel MPICH + oneMKL.",
    "systems": {
+    "aurora": {
+     "state": "available",
+     "build": "installed"
+    },
     "perlmutter": {
      "state": "available",
      "build": "installed"
