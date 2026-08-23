@@ -1,9 +1,9 @@
 {
- "generated": "2026-08-22T04:44:13Z",
+ "generated": "2026-08-23T09:00:09Z",
  "counts": {
-  "apps": 66,
+  "apps": 67,
   "systems": 11,
-  "cards": 269,
+  "cards": 270,
   "smoke": 29,
   "passed": 29
  },
@@ -27,7 +27,7 @@
    "name": "Aurora",
    "facility": "ALCF",
    "description": "10,624-node Intel Data Center GPU Max Series exascale supercomputer at Argonne National Laboratory",
-   "app_count": 35
+   "app_count": 36
   },
   {
    "id": "frontier",
@@ -1214,6 +1214,18 @@
      "smoke_cmd": "TIP3P water box (Modeller.addSolvent), NVT 20k steps, CPU platform (simulation.py)"
     },
     "tara": {
+     "state": "available",
+     "build": "installed"
+    }
+   }
+  },
+  {
+   "key": "pmkokkos",
+   "name": "pmkokkos",
+   "category": "",
+   "description": "",
+   "systems": {
+    "aurora": {
      "state": "available",
      "build": "installed"
     }
