@@ -5,8 +5,46 @@
 <link>https://docs.trinityscience.org/whats-new/</link>
 <description>Feature announcements for Trinity, the multi-tenant agentic HPC workspace.</description>
 <language>en</language>
-<lastBuildDate>Wed, 29 Jul 2026 00:00:00 +0000</lastBuildDate>
+<lastBuildDate>Sun, 23 Aug 2026 00:00:00 +0000</lastBuildDate>
 <atom:link href="https://docs.trinityscience.org/feed.xml" rel="self" type="application/rss+xml"/>
+<item>
+<title>2026-08-23 — Redesigned interface, attachments, artifact gallery &amp; more</title>
+<link>https://docs.trinityscience.org/whats-new/#2026-08-23-redesigned-interface-attachments-artifact-gallery-more</link>
+<guid isPermaLink="true">https://docs.trinityscience.org/whats-new/#2026-08-23-redesigned-interface-attachments-artifact-gallery-more</guid>
+<pubDate>Sun, 23 Aug 2026 00:00:00 +0000</pubDate>
+<description>&lt;p&gt;A large batch of updates reaches the production server:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Redesigned interface&lt;/strong&gt; — a rebuilt, faster web UI is now the default, with a
+  consistent visual language across chat, Settings, and Admin, and a
+  theme-following look throughout.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Attach files in the composer&lt;/strong&gt; — upload, drag-and-drop, or paste files
+  straight into a message, the way you would in ChatGPT or Claude.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Artifact gallery&lt;/strong&gt; — plots, reports, and other files your session produces
+  are collected per session so you can find and open them in one place, with
+  inline preview for images and video.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Better file viewer&lt;/strong&gt; — LaTeX and Fortran syntax highlighting, optional
+  one-click LaTeX compile, a line-wrap toggle, a collapsible file tree, and a
+  manual refresh button.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Pick your model per chat&lt;/strong&gt; — a per-session model picker, plus the ability to
+  register your own model providers (with write-only API keys) from Settings.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Smarter sidebar&lt;/strong&gt; — full-text search with ranked, highlighted snippets across
+  folder names and conversation content; a &lt;em&gt;By Project&lt;/em&gt; / &lt;em&gt;By Recent&lt;/em&gt; toggle;
+  activity ordering; and inline folder rename / move.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Sub-sessions&lt;/strong&gt; — work that a chat spawns in the background now appears as its
+  own nested session under its parent, and status dots show when it's &lt;em&gt;your turn&lt;/em&gt;
+  versus a background agent still working.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Interrupted chats resume&lt;/strong&gt; — if a turn is cut off (a disconnect or restart),
+  Trinity now safely picks it back up without re-running work it already did.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Reviews &amp;amp; scientist feedback&lt;/strong&gt; — campaign owners can invite reviewers, and a
+  review dashboard lets scientists read runs and write structured feedback back.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Modernized terminal&lt;/strong&gt; — GPU-accelerated rendering, clickable links, in-terminal
+  search, and automatic reconnect.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Monthly schedules&lt;/strong&gt; — schedule recurring tasks on a day-of-month interval.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;API access&lt;/strong&gt; — mint a personal bearer token from Settings to call Trinity's
+  &lt;code&gt;/query&lt;/code&gt; endpoint from your own scripts. See &lt;a href="using-trinity/api-access.md"&gt;API access&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Customizable keyboard shortcuts&lt;/strong&gt; and a thinking-level control in the composer.&lt;/li&gt;
+&lt;/ul&gt;</description>
+</item>
 <item>
 <title>2026-07-29 — Trinity Hub launches</title>
 <link>https://docs.trinityscience.org/whats-new/#2026-07-29-trinity-hub-launches</link>
