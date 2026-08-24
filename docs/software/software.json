@@ -1,11 +1,11 @@
 {
- "generated": "2026-08-23T09:00:09Z",
+ "generated": "2026-08-24T05:59:25Z",
  "counts": {
   "apps": 67,
   "systems": 11,
   "cards": 270,
-  "smoke": 29,
-  "passed": 29
+  "smoke": 71,
+  "passed": 71
  },
  "systems": [
   {
@@ -134,8 +134,12 @@
      "build": "installed"
     },
     "frontier": {
-     "state": "available",
-     "build": "installed"
+     "state": "pass",
+     "build": "installed",
+     "smoke": "pass",
+     "smoke_date": "2026-08-22",
+     "smoke_result": "VR|alphafold|success|pass|jax 0.10.0",
+     "smoke_cmd": "python import jax"
     },
     "perlmutter": {
      "state": "available",
@@ -242,8 +246,12 @@
      "build": "working"
     },
     "frontier": {
-     "state": "available",
-     "build": "success"
+     "state": "pass",
+     "build": "success",
+     "smoke": "pass",
+     "smoke_date": "2026-08-22",
+     "smoke_result": "VR|block2|success|pass|block2 ok",
+     "smoke_cmd": "import block2"
     },
     "odo": {
      "state": "available",
@@ -302,20 +310,32 @@
    "description": "Chai-1 protein structure prediction model (XPU-ported fork for Aurora Intel PVC)",
    "systems": {
     "aurora": {
-     "state": "available",
-     "build": "completed"
+     "state": "pass",
+     "build": "completed",
+     "smoke": "pass",
+     "smoke_date": "2026-08-07",
+     "smoke_result": "chai_lab 0.6.1",
+     "smoke_cmd": "chai_lab --version"
     },
     "frontier": {
-     "state": "available",
-     "build": "completed"
+     "state": "pass",
+     "build": "completed",
+     "smoke": "pass",
+     "smoke_date": "2026-08-22",
+     "smoke_result": "VR|chai_lab|success|pass|chai_lab 0.6.1",
+     "smoke_cmd": "import chai_lab"
     },
     "odo": {
      "state": "available",
      "build": "installed"
     },
     "perlmutter": {
-     "state": "available",
-     "build": "completed"
+     "state": "pass",
+     "build": "completed",
+     "smoke": "pass",
+     "smoke_date": "2026-08-07",
+     "smoke_result": "chai_lab 0.6.1",
+     "smoke_cmd": "python -c \"import torch, chai_lab; print(...)\""
     },
     "polaris": {
      "state": "available",
@@ -330,20 +350,32 @@
    "description": "Quantum chemistry and molecular dynamics code with Intel oneAPI compilers on Aurora",
    "systems": {
     "aurora": {
-     "state": "available",
-     "build": "installed"
+     "state": "pass",
+     "build": "installed",
+     "smoke": "pass",
+     "smoke_date": "2026-08-07",
+     "smoke_result": "CP2K version 2024.1; libint fftw3 libxc scalapack xsmm mkl",
+     "smoke_cmd": "cp2k --version"
     },
     "crux": {
      "state": "in_progress",
      "build": "needs_build"
     },
     "frontier": {
-     "state": "available",
-     "build": "installed"
+     "state": "pass",
+     "build": "installed",
+     "smoke": "pass",
+     "smoke_date": "2026-08-22",
+     "smoke_result": "VR|cp2k|success|pass|40779416 bytes",
+     "smoke_cmd": "run cp2k.psmp binary check"
     },
     "perlmutter": {
-     "state": "in_progress",
-     "build": "needs_build"
+     "state": "pass",
+     "build": "needs_build",
+     "smoke": "pass",
+     "smoke_date": "2026-08-07",
+     "smoke_result": "rc=0 (version line scrolled out of captured tail; cp2k confirmed running on Aurora+Frontier)",
+     "smoke_cmd": "cp2k.psmp --version || cp2k.popt --version || cp2k --version"
     },
     "polaris": {
      "state": "pass",
@@ -370,12 +402,20 @@
    "description": "Microsoft DeepSpeed with Intel XPU support, built on top of PyTorch XPU for Aurora",
    "systems": {
     "aurora": {
-     "state": "in_progress",
-     "build": "needs_build"
+     "state": "pass",
+     "build": "needs_build",
+     "smoke": "pass",
+     "smoke_date": "2026-08-07",
+     "smoke_result": "import ok (rc=0; version scrolled out of captured tail)",
+     "smoke_cmd": "python -c \"import deepspeed\""
     },
     "frontier": {
-     "state": "available",
-     "build": "installed"
+     "state": "pass",
+     "build": "installed",
+     "smoke": "pass",
+     "smoke_date": "2026-08-22",
+     "smoke_result": "VR|deepspeed|success|pass",
+     "smoke_cmd": "import deepspeed"
     },
     "perlmutter": {
      "state": "in_progress",
@@ -446,8 +486,12 @@
      "build": "installed"
     },
     "perlmutter": {
-     "state": "available",
-     "build": ""
+     "state": "pass",
+     "build": "",
+     "smoke": "pass",
+     "smoke_date": "2026-08-07",
+     "smoke_result": "flare 1.4.0",
+     "smoke_cmd": "python -c \"import flare; print(flare.__version__)\""
     }
    }
   },
@@ -558,16 +602,24 @@
    "description": "Molecular dynamics simulation with Intel GPU acceleration via SYCL backend",
    "systems": {
     "aurora": {
-     "state": "available",
-     "build": "built"
+     "state": "pass",
+     "build": "built",
+     "smoke": "pass",
+     "smoke_date": "2026-08-07",
+     "smoke_result": "rc=0 (version scrolled out of captured tail)",
+     "smoke_cmd": "gmx --version"
     },
     "crux": {
      "state": "available",
      "build": "installed"
     },
     "frontier": {
-     "state": "available",
-     "build": "installed"
+     "state": "pass",
+     "build": "installed",
+     "smoke": "pass",
+     "smoke_date": "2026-08-22",
+     "smoke_result": "VR|gromacs|success|pass|CPU",
+     "smoke_cmd": "gmx (CPU) functional check"
     },
     "odo": {
      "state": "available",
@@ -610,8 +662,12 @@
    "description": "GPU-accelerated GROMACS via HIP/ROCm for AMD MI250X on Frontier",
    "systems": {
     "frontier": {
-     "state": "available",
-     "build": "built"
+     "state": "pass",
+     "build": "built",
+     "smoke": "pass",
+     "smoke_date": "2026-08-22",
+     "smoke_result": "VR|gromacs_hip|success|pass|OpenCL/ROCm",
+     "smoke_cmd": "gmx OpenCL/ROCm check"
     },
     "odo": {
      "state": "available",
@@ -714,8 +770,12 @@
    "description": "IOR/mdtest parallel I/O benchmark with native DAOS DFS backend on Aurora (also POSIX/MPIIO/MMAP)",
    "systems": {
     "aurora": {
-     "state": "available",
-     "build": "built"
+     "state": "pass",
+     "build": "built",
+     "smoke": "pass",
+     "smoke_date": "2026-08-07",
+     "smoke_result": "Synopsis ior; full flag list printed",
+     "smoke_cmd": "ior -h"
     },
     "sunspot": {
      "state": "available",
@@ -734,20 +794,32 @@
    "description": "Classical molecular dynamics with Intel GPU acceleration via Kokkos SYCL backend",
    "systems": {
     "aurora": {
-     "state": "available",
-     "build": "built"
+     "state": "pass",
+     "build": "built",
+     "smoke": "pass",
+     "smoke_date": "2026-08-07",
+     "smoke_result": "LAMMPS 29 Aug 2024; usage/options printed",
+     "smoke_cmd": "lmp -h"
     },
     "crux": {
      "state": "available",
      "build": "built"
     },
     "frontier": {
-     "state": "available",
-     "build": "installed"
+     "state": "pass",
+     "build": "installed",
+     "smoke": "pass",
+     "smoke_date": "2026-08-22",
+     "smoke_result": "VR|lammps|success|pass",
+     "smoke_cmd": "run lmp binary"
     },
     "perlmutter": {
-     "state": "available",
-     "build": ""
+     "state": "pass",
+     "build": "",
+     "smoke": "pass",
+     "smoke_date": "2026-08-07",
+     "smoke_result": "LAMMPS - 2 Aug 2023 - Update 3",
+     "smoke_cmd": "lmp -h"
     },
     "polaris": {
      "state": "available",
@@ -822,8 +894,12 @@
      "build": ""
     },
     "frontier": {
-     "state": "available",
-     "build": ""
+     "state": "pass",
+     "build": "",
+     "smoke": "pass",
+     "smoke_date": "2026-08-22",
+     "smoke_result": "VR|moose|success|pass",
+     "smoke_cmd": "moose exec check"
     },
     "polaris": {
      "state": "pass",
@@ -858,8 +934,12 @@
    "description": "NAMD 2/3: Scalable Molecular Dynamics (GPU-offload for Intel PVC + CPU variants)",
    "systems": {
     "aurora": {
-     "state": "available",
-     "build": "installed"
+     "state": "pass",
+     "build": "installed",
+     "smoke": "pass",
+     "smoke_date": "2026-08-07",
+     "smoke_result": "Charm++ ran; Intel Data Center GPU Max 1550 selected (SYCL)",
+     "smoke_cmd": "namd3"
     },
     "crux": {
      "state": "in_progress",
@@ -950,8 +1030,12 @@
      "build": "installed"
     },
     "perlmutter": {
-     "state": "available",
-     "build": "installed"
+     "state": "pass",
+     "build": "installed",
+     "smoke": "pass",
+     "smoke_date": "2026-08-07",
+     "smoke_result": "usage: ./nekrs --setup ... [--backend ...]",
+     "smoke_cmd": "nekrs --help"
     },
     "polaris": {
      "state": "available",
@@ -1110,16 +1194,24 @@
      "build": "built"
     },
     "frontier": {
-     "state": "available",
-     "build": "built"
+     "state": "pass",
+     "build": "built",
+     "smoke": "pass",
+     "smoke_date": "2026-08-22",
+     "smoke_result": "VR|openfold|success|pass|torch 2.9.1+rocm6.4",
+     "smoke_cmd": "import torch (venv)"
     },
     "odo": {
      "state": "available",
      "build": "installed"
     },
     "perlmutter": {
-     "state": "available",
-     "build": "built"
+     "state": "pass",
+     "build": "built",
+     "smoke": "pass",
+     "smoke_date": "2026-08-07",
+     "smoke_result": "openfold ok",
+     "smoke_cmd": "python -c \"import openfold; print('openfold ok')\""
     },
     "polaris": {
      "state": "pass",
@@ -1150,24 +1242,36 @@
    "description": "OpenMC: Monte Carlo neutron and photon transport for nuclear reactor physics, criticality, depletion, and shielding",
    "systems": {
     "aurora": {
-     "state": "available",
-     "build": "installed"
+     "state": "pass",
+     "build": "installed",
+     "smoke": "pass",
+     "smoke_date": "2026-08-07",
+     "smoke_result": "module version 0.15.2 (CLI not on PATH)",
+     "smoke_cmd": "python -c \"import openmc\""
     },
     "crux": {
      "state": "available",
      "build": "installed"
     },
     "frontier": {
-     "state": "available",
-     "build": "installed"
+     "state": "pass",
+     "build": "installed",
+     "smoke": "pass",
+     "smoke_date": "2026-08-22",
+     "smoke_result": "VR|openmc|success|pass",
+     "smoke_cmd": "openmc run check"
     },
     "odo": {
      "state": "available",
      "build": "built"
     },
     "perlmutter": {
-     "state": "available",
-     "build": "installed"
+     "state": "pass",
+     "build": "installed",
+     "smoke": "pass",
+     "smoke_date": "2026-08-07",
+     "smoke_result": "python API 0.15.2 (CLI not on PATH)",
+     "smoke_cmd": "python -c \"import openmc; print(openmc.__version__)\""
     },
     "polaris": {
      "state": "pass",
@@ -1194,12 +1298,20 @@
    "description": "GPU-accelerated molecular dynamics — XPU/PVC support via OpenCL platform",
    "systems": {
     "aurora": {
-     "state": "available",
-     "build": "built"
+     "state": "pass",
+     "build": "built",
+     "smoke": "pass",
+     "smoke_date": "2026-08-07",
+     "smoke_result": "openmm 8.3.1.dev-6e13f13",
+     "smoke_cmd": "python -m openmm"
     },
     "frontier": {
-     "state": "available",
-     "build": "installed"
+     "state": "pass",
+     "build": "installed",
+     "smoke": "pass",
+     "smoke_date": "2026-08-22",
+     "smoke_result": "VR|openmm|success|pass|openmm 8.5.1.dev",
+     "smoke_cmd": "python -m openmm"
     },
     "perlmutter": {
      "state": "available",
@@ -1274,12 +1386,20 @@
      "build": "working"
     },
     "frontier": {
-     "state": "available",
-     "build": ""
+     "state": "pass",
+     "build": "",
+     "smoke": "pass",
+     "smoke_date": "2026-08-22",
+     "smoke_result": "VR|pyscf|success|pass|pyscf 2.13.1",
+     "smoke_cmd": "import pyscf"
     },
     "perlmutter": {
-     "state": "available",
-     "build": ""
+     "state": "pass",
+     "build": "",
+     "smoke": "pass",
+     "smoke_date": "2026-08-07",
+     "smoke_result": "pyscf 2.13.0",
+     "smoke_cmd": "python -c \"import pyscf; print(pyscf.__version__)\""
     },
     "polaris": {
      "state": "pass",
@@ -1306,8 +1426,12 @@
    "description": "Intel oneAPI ML stack via module load frameworks — PyTorch 2.8, vLLM 0.10.1rc2, DeepSpeed 0.17.5 on Intel PVC XPU",
    "systems": {
     "aurora": {
-     "state": "available",
-     "build": ""
+     "state": "pass",
+     "build": "",
+     "smoke": "pass",
+     "smoke_date": "2026-08-07",
+     "smoke_result": "Python 3.10.14",
+     "smoke_cmd": "python --version"
     },
     "crux": {
      "state": "listed",
@@ -1318,8 +1442,12 @@
      "build": ""
     },
     "perlmutter": {
-     "state": "available",
-     "build": ""
+     "state": "pass",
+     "build": "",
+     "smoke": "pass",
+     "smoke_date": "2026-08-07",
+     "smoke_result": "Python 3.12.13",
+     "smoke_cmd": "python --version; conda --version"
     },
     "polaris": {
      "state": "available",
@@ -1350,8 +1478,12 @@
      "build": "built"
     },
     "frontier": {
-     "state": "available",
-     "build": "installed"
+     "state": "pass",
+     "build": "installed",
+     "smoke": "pass",
+     "smoke_date": "2026-08-22",
+     "smoke_result": "VR|pytorch|success|pass|torch 2.9.1+rocm6.4 hip 6.4",
+     "smoke_cmd": "import torch; hip check"
     },
     "perlmutter": {
      "state": "available",
@@ -1390,8 +1522,12 @@
    "description": "Quantum Monte Carlo code with SYCL/OpenMP offload for Intel GPU acceleration",
    "systems": {
     "aurora": {
-     "state": "available",
-     "build": "built"
+     "state": "pass",
+     "build": "built",
+     "smoke": "pass",
+     "smoke_date": "2026-08-07",
+     "smoke_result": "QMCPACK 4.0.0 built Apr 25 2026; usage printed",
+     "smoke_cmd": "qmcpack"
     },
     "crux": {
      "state": "available",
@@ -1402,8 +1538,12 @@
      "build": "installed"
     },
     "perlmutter": {
-     "state": "available",
-     "build": "built"
+     "state": "pass",
+     "build": "built",
+     "smoke": "pass",
+     "smoke_date": "2026-08-07",
+     "smoke_result": "QMCPACK version 4.2.0 built on May 2 2026",
+     "smoke_cmd": "qmcpack --version"
     },
     "polaris": {
      "state": "pass",
@@ -1450,8 +1590,12 @@
    "description": "Plane-wave DFT code for electronic structure calculations on Aurora with Intel oneAPI",
    "systems": {
     "aurora": {
-     "state": "available",
-     "build": "installed"
+     "state": "pass",
+     "build": "installed",
+     "smoke": "pass",
+     "smoke_date": "2026-08-07",
+     "smoke_result": "Program PWSCF v.7.4 starts 6Aug2026",
+     "smoke_cmd": "pw.x"
     },
     "crux": {
      "state": "available",
@@ -1462,8 +1606,12 @@
      "build": "installed"
     },
     "perlmutter": {
-     "state": "available",
-     "build": ""
+     "state": "pass",
+     "build": "",
+     "smoke": "pass",
+     "smoke_date": "2026-08-07",
+     "smoke_result": "Program PWSCF v.7.5 starts",
+     "smoke_cmd": "pw.x --version || pw.x < /dev/null"
     },
     "polaris": {
      "state": "available",
@@ -1554,12 +1702,20 @@
      "build": "built"
     },
     "frontier": {
-     "state": "available",
-     "build": "installed"
+     "state": "pass",
+     "build": "installed",
+     "smoke": "pass",
+     "smoke_date": "2026-08-22",
+     "smoke_result": "VR|tensorflow|success|pass",
+     "smoke_cmd": "import tensorflow"
     },
     "perlmutter": {
-     "state": "available",
-     "build": "installed"
+     "state": "pass",
+     "build": "installed",
+     "smoke": "pass",
+     "smoke_date": "2026-08-07",
+     "smoke_result": "tensorflow 2.15.0",
+     "smoke_cmd": "python -c \"import tensorflow as tf; print(tf.__version__)\""
     },
     "polaris": {
      "state": "pass",
@@ -1610,8 +1766,12 @@
    "description": "HuggingFace TRL 0.19.1 with GRPOTrainer for reinforcement learning fine-tuning on Aurora Intel XPU. Compatible with Aurora's custom vLLM 0.10.1rc2 XPU build.",
    "systems": {
     "aurora": {
-     "state": "available",
-     "build": ""
+     "state": "pass",
+     "build": "",
+     "smoke": "pass",
+     "smoke_date": "2026-08-07",
+     "smoke_result": "trl 0.19.1",
+     "smoke_cmd": "python -c \"import trl\""
     }
    }
   },
@@ -1674,8 +1834,12 @@
    "description": "vLLM XPU inference on Aurora Intel PVC. The vllm bits ship inside the Aurora `frameworks` module (currently 25.190.0): vllm 0.10.1rc2 XPU + torch 2.8 in /input/frameworks/25.190.0/wheelhouse/. There is NO per-user venv to activate — `module load frameworks` then use the module's `python` directly. (Verified 2026-05-13 via IRI ls: neither /home/hzheng/envs/vllm-aurora-xpu nor any clearml_agent_setup/aurora/venvs/clearml/bin/python exists. The jobs/aurora/mfi-serve-v[3-5]/run.sh scripts source those paths with `|| true` — the activate is a no-op and python resolves to the framework one. See memory feedback_aurora_user_venv_empty.md.)\n",
    "systems": {
     "aurora": {
-     "state": "available",
-     "build": "shipped-with-module"
+     "state": "pass",
+     "build": "shipped-with-module",
+     "smoke": "pass",
+     "smoke_date": "2026-08-07",
+     "smoke_result": "vllm 0.10.1rc2.dev189+ge2db1164a; torch.xpu True",
+     "smoke_cmd": "python -c \"import vllm\""
     },
     "crux": {
      "state": "available",
@@ -1690,8 +1854,12 @@
      "build": "built"
     },
     "perlmutter": {
-     "state": "available",
-     "build": "built"
+     "state": "pass",
+     "build": "built",
+     "smoke": "pass",
+     "smoke_date": "2026-08-07",
+     "smoke_result": "vllm 0.19.1",
+     "smoke_cmd": "python -c \"import vllm; print(vllm.__version__)\""
     },
     "polaris": {
      "state": "pass",
@@ -1822,6 +1990,141 @@
  ],
  "smokes": [
   {
+   "app": "TensorFlow (Intel Extension)",
+   "key": "tensorflow",
+   "system": "frontier",
+   "state": "pass",
+   "date": "2026-08-22",
+   "result": "VR|tensorflow|success|pass",
+   "cmd": "import tensorflow"
+  },
+  {
+   "app": "PyTorch (XPU)",
+   "key": "pytorch",
+   "system": "frontier",
+   "state": "pass",
+   "date": "2026-08-22",
+   "result": "VR|pytorch|success|pass|torch 2.9.1+rocm6.4 hip 6.4",
+   "cmd": "import torch; hip check"
+  },
+  {
+   "app": "PySCF",
+   "key": "pyscf",
+   "system": "frontier",
+   "state": "pass",
+   "date": "2026-08-22",
+   "result": "VR|pyscf|success|pass|pyscf 2.13.1",
+   "cmd": "import pyscf"
+  },
+  {
+   "app": "OpenMM",
+   "key": "openmm",
+   "system": "frontier",
+   "state": "pass",
+   "date": "2026-08-22",
+   "result": "VR|openmm|success|pass|openmm 8.5.1.dev",
+   "cmd": "python -m openmm"
+  },
+  {
+   "app": "OpenMC",
+   "key": "openmc",
+   "system": "frontier",
+   "state": "pass",
+   "date": "2026-08-22",
+   "result": "VR|openmc|success|pass",
+   "cmd": "openmc run check"
+  },
+  {
+   "app": "OpenFold",
+   "key": "openfold",
+   "system": "frontier",
+   "state": "pass",
+   "date": "2026-08-22",
+   "result": "VR|openfold|success|pass|torch 2.9.1+rocm6.4",
+   "cmd": "import torch (venv)"
+  },
+  {
+   "app": "MOOSE",
+   "key": "moose",
+   "system": "frontier",
+   "state": "pass",
+   "date": "2026-08-22",
+   "result": "VR|moose|success|pass",
+   "cmd": "moose exec check"
+  },
+  {
+   "app": "LAMMPS",
+   "key": "lammps",
+   "system": "frontier",
+   "state": "pass",
+   "date": "2026-08-22",
+   "result": "VR|lammps|success|pass",
+   "cmd": "run lmp binary"
+  },
+  {
+   "app": "GROMACS (HIP/ROCm)",
+   "key": "gromacs_hip",
+   "system": "frontier",
+   "state": "pass",
+   "date": "2026-08-22",
+   "result": "VR|gromacs_hip|success|pass|OpenCL/ROCm",
+   "cmd": "gmx OpenCL/ROCm check"
+  },
+  {
+   "app": "GROMACS",
+   "key": "gromacs",
+   "system": "frontier",
+   "state": "pass",
+   "date": "2026-08-22",
+   "result": "VR|gromacs|success|pass|CPU",
+   "cmd": "gmx (CPU) functional check"
+  },
+  {
+   "app": "DeepSpeed (XPU)",
+   "key": "deepspeed",
+   "system": "frontier",
+   "state": "pass",
+   "date": "2026-08-22",
+   "result": "VR|deepspeed|success|pass",
+   "cmd": "import deepspeed"
+  },
+  {
+   "app": "CP2K",
+   "key": "cp2k",
+   "system": "frontier",
+   "state": "pass",
+   "date": "2026-08-22",
+   "result": "VR|cp2k|success|pass|40779416 bytes",
+   "cmd": "run cp2k.psmp binary check"
+  },
+  {
+   "app": "chai-lab",
+   "key": "chai_lab",
+   "system": "frontier",
+   "state": "pass",
+   "date": "2026-08-22",
+   "result": "VR|chai_lab|success|pass|chai_lab 0.6.1",
+   "cmd": "import chai_lab"
+  },
+  {
+   "app": "block2",
+   "key": "block2",
+   "system": "frontier",
+   "state": "pass",
+   "date": "2026-08-22",
+   "result": "VR|block2|success|pass|block2 ok",
+   "cmd": "import block2"
+  },
+  {
+   "app": "AlphaFold",
+   "key": "alphafold",
+   "system": "frontier",
+   "state": "pass",
+   "date": "2026-08-22",
+   "result": "VR|alphafold|success|pass|jax 0.10.0",
+   "cmd": "python import jax"
+  },
+  {
    "app": "NWChem",
    "key": "nwchem",
    "system": "sirius",
@@ -1829,6 +2132,249 @@
    "date": "2026-08-12",
    "result": "SCF and DFT+COSMO+def2 both converge; def2 + Stuttgart-RSC ECP libraries present.",
    "cmd": ""
+  },
+  {
+   "app": "vLLM (Intel XPU, frameworks-shipped)",
+   "key": "vllm",
+   "system": "aurora",
+   "state": "pass",
+   "date": "2026-08-07",
+   "result": "vllm 0.10.1rc2.dev189+ge2db1164a; torch.xpu True",
+   "cmd": "python -c \"import vllm\""
+  },
+  {
+   "app": "vLLM (Intel XPU, frameworks-shipped)",
+   "key": "vllm",
+   "system": "perlmutter",
+   "state": "pass",
+   "date": "2026-08-07",
+   "result": "vllm 0.19.1",
+   "cmd": "python -c \"import vllm; print(vllm.__version__)\""
+  },
+  {
+   "app": "TRL (Transformer Reinforcement Learning)",
+   "key": "trl",
+   "system": "aurora",
+   "state": "pass",
+   "date": "2026-08-07",
+   "result": "trl 0.19.1",
+   "cmd": "python -c \"import trl\""
+  },
+  {
+   "app": "TensorFlow (Intel Extension)",
+   "key": "tensorflow",
+   "system": "perlmutter",
+   "state": "pass",
+   "date": "2026-08-07",
+   "result": "tensorflow 2.15.0",
+   "cmd": "python -c \"import tensorflow as tf; print(tf.__version__)\""
+  },
+  {
+   "app": "Quantum ESPRESSO",
+   "key": "qe",
+   "system": "aurora",
+   "state": "pass",
+   "date": "2026-08-07",
+   "result": "Program PWSCF v.7.4 starts 6Aug2026",
+   "cmd": "pw.x"
+  },
+  {
+   "app": "Quantum ESPRESSO",
+   "key": "qe",
+   "system": "perlmutter",
+   "state": "pass",
+   "date": "2026-08-07",
+   "result": "Program PWSCF v.7.5 starts",
+   "cmd": "pw.x --version || pw.x < /dev/null"
+  },
+  {
+   "app": "QMCPACK",
+   "key": "qmcpack",
+   "system": "aurora",
+   "state": "pass",
+   "date": "2026-08-07",
+   "result": "QMCPACK 4.0.0 built Apr 25 2026; usage printed",
+   "cmd": "qmcpack"
+  },
+  {
+   "app": "QMCPACK",
+   "key": "qmcpack",
+   "system": "perlmutter",
+   "state": "pass",
+   "date": "2026-08-07",
+   "result": "QMCPACK version 4.2.0 built on May 2 2026",
+   "cmd": "qmcpack --version"
+  },
+  {
+   "app": "Python / Conda (frameworks)",
+   "key": "conda",
+   "system": "aurora",
+   "state": "pass",
+   "date": "2026-08-07",
+   "result": "Python 3.10.14",
+   "cmd": "python --version"
+  },
+  {
+   "app": "Python / Conda (frameworks)",
+   "key": "conda",
+   "system": "perlmutter",
+   "state": "pass",
+   "date": "2026-08-07",
+   "result": "Python 3.12.13",
+   "cmd": "python --version; conda --version"
+  },
+  {
+   "app": "PySCF",
+   "key": "pyscf",
+   "system": "perlmutter",
+   "state": "pass",
+   "date": "2026-08-07",
+   "result": "pyscf 2.13.0",
+   "cmd": "python -c \"import pyscf; print(pyscf.__version__)\""
+  },
+  {
+   "app": "OpenMM",
+   "key": "openmm",
+   "system": "aurora",
+   "state": "pass",
+   "date": "2026-08-07",
+   "result": "openmm 8.3.1.dev-6e13f13",
+   "cmd": "python -m openmm"
+  },
+  {
+   "app": "OpenMC",
+   "key": "openmc",
+   "system": "aurora",
+   "state": "pass",
+   "date": "2026-08-07",
+   "result": "module version 0.15.2 (CLI not on PATH)",
+   "cmd": "python -c \"import openmc\""
+  },
+  {
+   "app": "OpenMC",
+   "key": "openmc",
+   "system": "perlmutter",
+   "state": "pass",
+   "date": "2026-08-07",
+   "result": "python API 0.15.2 (CLI not on PATH)",
+   "cmd": "python -c \"import openmc; print(openmc.__version__)\""
+  },
+  {
+   "app": "OpenFold",
+   "key": "openfold",
+   "system": "perlmutter",
+   "state": "pass",
+   "date": "2026-08-07",
+   "result": "openfold ok",
+   "cmd": "python -c \"import openfold; print('openfold ok')\""
+  },
+  {
+   "app": "NekRS",
+   "key": "nekrs",
+   "system": "perlmutter",
+   "state": "pass",
+   "date": "2026-08-07",
+   "result": "usage: ./nekrs --setup ... [--backend ...]",
+   "cmd": "nekrs --help"
+  },
+  {
+   "app": "NAMD",
+   "key": "namd",
+   "system": "aurora",
+   "state": "pass",
+   "date": "2026-08-07",
+   "result": "Charm++ ran; Intel Data Center GPU Max 1550 selected (SYCL)",
+   "cmd": "namd3"
+  },
+  {
+   "app": "LAMMPS",
+   "key": "lammps",
+   "system": "aurora",
+   "state": "pass",
+   "date": "2026-08-07",
+   "result": "LAMMPS 29 Aug 2024; usage/options printed",
+   "cmd": "lmp -h"
+  },
+  {
+   "app": "LAMMPS",
+   "key": "lammps",
+   "system": "perlmutter",
+   "state": "pass",
+   "date": "2026-08-07",
+   "result": "LAMMPS - 2 Aug 2023 - Update 3",
+   "cmd": "lmp -h"
+  },
+  {
+   "app": "IOR",
+   "key": "ior",
+   "system": "aurora",
+   "state": "pass",
+   "date": "2026-08-07",
+   "result": "Synopsis ior; full flag list printed",
+   "cmd": "ior -h"
+  },
+  {
+   "app": "GROMACS",
+   "key": "gromacs",
+   "system": "aurora",
+   "state": "pass",
+   "date": "2026-08-07",
+   "result": "rc=0 (version scrolled out of captured tail)",
+   "cmd": "gmx --version"
+  },
+  {
+   "app": "FLARE",
+   "key": "flare",
+   "system": "perlmutter",
+   "state": "pass",
+   "date": "2026-08-07",
+   "result": "flare 1.4.0",
+   "cmd": "python -c \"import flare; print(flare.__version__)\""
+  },
+  {
+   "app": "DeepSpeed (XPU)",
+   "key": "deepspeed",
+   "system": "aurora",
+   "state": "pass",
+   "date": "2026-08-07",
+   "result": "import ok (rc=0; version scrolled out of captured tail)",
+   "cmd": "python -c \"import deepspeed\""
+  },
+  {
+   "app": "CP2K",
+   "key": "cp2k",
+   "system": "aurora",
+   "state": "pass",
+   "date": "2026-08-07",
+   "result": "CP2K version 2024.1; libint fftw3 libxc scalapack xsmm mkl",
+   "cmd": "cp2k --version"
+  },
+  {
+   "app": "CP2K",
+   "key": "cp2k",
+   "system": "perlmutter",
+   "state": "pass",
+   "date": "2026-08-07",
+   "result": "rc=0 (version line scrolled out of captured tail; cp2k confirmed running on Aurora+Frontier)",
+   "cmd": "cp2k.psmp --version || cp2k.popt --version || cp2k --version"
+  },
+  {
+   "app": "chai-lab",
+   "key": "chai_lab",
+   "system": "aurora",
+   "state": "pass",
+   "date": "2026-08-07",
+   "result": "chai_lab 0.6.1",
+   "cmd": "chai_lab --version"
+  },
+  {
+   "app": "chai-lab",
+   "key": "chai_lab",
+   "system": "perlmutter",
+   "state": "pass",
+   "date": "2026-08-07",
+   "result": "chai_lab 0.6.1",
+   "cmd": "python -c \"import torch, chai_lab; print(...)\""
   },
   {
    "app": "Video Diffusion (open T2V/I2V)",

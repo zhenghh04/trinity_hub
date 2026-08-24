@@ -1,12 +1,12 @@
 # Supported software
 
-*Auto-generated from Trinity's internal software cards on 2026-08-23T09:00:09Z. Do not edit
+*Auto-generated from Trinity's internal software cards on 2026-08-24T05:59:25Z. Do not edit
 by hand — regenerate with `scripts/build_software_dashboard.py`.*
 
 Trinity maintains verified build + run recipes ("software cards") for HPC
 applications across DOE systems. This dashboard shows **67 applications** with
-**270 recipes** across **11 systems**, and the **29 functional
-smoke tests** (29 passing) that confirm an app doesn't just compile but
+**270 recipes** across **11 systems**, and the **71 functional
+smoke tests** (71 passing) that confirm an app doesn't just compile but
 produces a physically sensible result.
 
 <div class="sw-legend">
