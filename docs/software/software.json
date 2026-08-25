@@ -1,9 +1,9 @@
 {
- "generated": "2026-08-24T05:59:25Z",
+ "generated": "2026-08-25T02:46:19Z",
  "counts": {
-  "apps": 67,
-  "systems": 11,
-  "cards": 270,
+  "apps": 62,
+  "systems": 10,
+  "cards": 263,
   "smoke": 71,
   "passed": 71
  },
@@ -13,14 +13,14 @@
    "name": "Polaris",
    "facility": "ALCF",
    "description": "560-node A100 GPU cluster at Argonne National Laboratory",
-   "app_count": 49
+   "app_count": 47
   },
   {
    "id": "perlmutter",
    "name": "Perlmutter",
    "facility": "NERSC",
    "description": "GPU/CPU hybrid supercomputer at NERSC (NVIDIA A100 GPUs + AMD Milan CPUs)",
-   "app_count": 41
+   "app_count": 40
   },
   {
    "id": "aurora",
@@ -48,14 +48,14 @@
    "name": "Crux",
    "facility": "ALCF",
    "description": "256-node AMD EPYC CPU-only cluster at Argonne National Laboratory",
-   "app_count": 24
+   "app_count": 22
   },
   {
    "id": "sunspot",
    "name": "Sunspot",
    "facility": "ALCF",
    "description": "128-node Intel Data Center GPU Max Series testbed for Aurora at Argonne National Laboratory",
-   "app_count": 20
+   "app_count": 19
   },
   {
    "id": "sirius",
@@ -77,13 +77,6 @@
    "facility": "ALCF",
    "description": "24-node DGX A100 GPU cluster at Argonne National Laboratory",
    "app_count": 11
-  },
-  {
-   "id": "cerebras",
-   "name": "Cerebras",
-   "facility": "ALCF",
-   "description": "4 CS-3 wafer-scale engines + 4 worker nodes + 4 activation servers; AI testbed (Kubernetes appliance)",
-   "app_count": 1
   }
  ],
  "apps": [
@@ -268,18 +261,6 @@
     "sunspot": {
      "state": "available",
      "build": "working"
-    }
-   }
-  },
-  {
-   "key": "cerebras_pt",
-   "name": "Cerebras PyTorch venv (R_2.9.0)",
-   "category": "ml-framework",
-   "description": "Python 3.11 virtualenv for Cerebras CS-3 PyTorch jobs on cer-usn-01/02",
-   "systems": {
-    "cerebras": {
-     "state": "listed",
-     "build": ""
     }
    }
   },
@@ -560,22 +541,6 @@
     "tara": {
      "state": "available",
      "build": "built"
-    }
-   }
-  },
-  {
-   "key": "globus_compute_env",
-   "name": "Globus Compute Endpoint Environment",
-   "category": "infrastructure",
-   "description": "Python 3.11 conda environment for running Globus Compute endpoints on Crux",
-   "systems": {
-    "crux": {
-     "state": "listed",
-     "build": ""
-    },
-    "polaris": {
-     "state": "listed",
-     "build": ""
     }
    }
   },
@@ -1537,6 +1502,10 @@
      "state": "available",
      "build": "installed"
     },
+    "odo": {
+     "state": "available",
+     "build": "built"
+    },
     "perlmutter": {
      "state": "pass",
      "build": "built",
@@ -1566,18 +1535,6 @@
      "build": "built"
     },
     "tara": {
-     "state": "available",
-     "build": "built"
-    }
-   }
-  },
-  {
-   "key": "qmcpack_hip",
-   "name": "QMCPACK (HIP)",
-   "category": "simulation",
-   "description": "Quantum Monte Carlo ab initio electronic structure code — HIP GPU build for Odo AMD MI250X",
-   "systems": {
-    "odo": {
      "state": "available",
      "build": "built"
     }
@@ -1788,26 +1745,6 @@
    }
   },
   {
-   "key": "vasp",
-   "name": "VASP",
-   "category": "dft",
-   "description": "Vienna Ab initio Simulation Package (VASP) plane-wave DFT (CPU-only build, license required)",
-   "systems": {
-    "crux": {
-     "state": "blocked",
-     "build": "license_required"
-    },
-    "perlmutter": {
-     "state": "available",
-     "build": ""
-    },
-    "polaris": {
-     "state": "available",
-     "build": ""
-    }
-   }
-  },
-  {
    "key": "video-diffusion",
    "name": "Video Diffusion (open T2V/I2V)",
    "category": "ml-framework",
@@ -1972,18 +1909,6 @@
      "smoke_date": "2026-07-09",
      "smoke_result": "ideal rc=0, wrf rc=0; 'd01 ... wrf: SUCCESS COMPLETE WRF' after 1 simulated hour; wrfout_d01 (13.5MB) written (campaign C17)",
      "smoke_cmd": "em_quarter_ss idealized case: compile em_quarter_ss -> ideal.exe -> wrf.exe (n=4)"
-    }
-   }
-  },
-  {
-   "key": "xpu-smi",
-   "name": "XPU SMI",
-   "category": "profiling",
-   "description": "Intel XPU System Management Interface — GPU utilization, memory, power monitoring for Intel PVC (Data Center GPU Max).",
-   "systems": {
-    "sunspot": {
-     "state": "available",
-     "build": "installed"
     }
    }
   }
