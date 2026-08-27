@@ -108,6 +108,7 @@ nav:
       - Running HPC jobs: using-trinity/running-jobs.md
       - Files & projects: using-trinity/files-and-projects.md
       - Settings: using-trinity/settings.md
+      - Connecting GitHub: using-trinity/github-token.md
       - Agents & rooms: using-trinity/agents-and-rooms.md
       - API access: using-trinity/api-access.md
       - Roles & access: using-trinity/roles-and-access.md

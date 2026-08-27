@@ -52,7 +52,9 @@ refreshes tokens automatically; reconnect here if one lapses. → [Getting start
 
 **Settings → Environment** stores **per-user environment variables** that your tools
 need — e.g. experiment-tracking tokens, service credentials, or API keys. They're
-scoped to your account and injected when Trinity runs work on your behalf.
+scoped to your account and injected when Trinity runs work on your behalf. To let
+Trinity act on GitHub as you (private repos, issues, PRs), set a `GITHUB_TOKEN`
+here → [Connecting GitHub](github-token.md).
 
 ## Profile
 
