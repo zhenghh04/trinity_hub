@@ -1,11 +1,11 @@
 # Supported software
 
-*Auto-generated from Trinity's internal software cards on 2026-08-29T09:00:46Z. Do not edit
+*Auto-generated from Trinity's internal software cards on 2026-08-30T09:00:26Z. Do not edit
 by hand — regenerate with `scripts/build_software_dashboard.py`.*
 
 Trinity maintains verified build + run recipes ("software cards") for HPC
-applications across DOE systems. This dashboard shows **61 applications** with
-**262 recipes** across **10 systems**, and the **71 functional
+applications across DOE systems. This dashboard shows **62 applications** with
+**263 recipes** across **10 systems**, and the **71 functional
 smoke tests** (71 passing) that confirm an app doesn't just compile but
 produces a physically sensible result.
 
@@ -48,7 +48,7 @@ produces a physically sensible result.
 
 | System | Facility | Description | Recipes |
 |---|---|---|---|
-| **Aurora** | ALCF | 10,624-node Intel Data Center GPU Max Series exascale supercomputer at Argonne National… | 35 |
+| **Aurora** | ALCF | 10,624-node Intel Data Center GPU Max Series exascale supercomputer at Argonne National… | 36 |
 | **Crux** | ALCF | 256-node AMD EPYC CPU-only cluster at Argonne National Laboratory | 22 |
 | **Polaris** | ALCF | 560-node A100 GPU cluster at Argonne National Laboratory | 47 |
 | **Sirius** | ALCF | ALCF staging cluster | 16 |
