@@ -1,5 +1,5 @@
 {
- "generated": "2026-09-07T09:00:09Z",
+ "generated": "2026-09-08T09:00:42Z",
  "counts": {
   "apps": 62,
   "systems": 10,
@@ -96,7 +96,7 @@
     },
     "polaris": {
      "state": "available",
-     "build": "verified 2026-09-06: cpe2603 shim (job 7596460.polaris-pbs-01)"
+     "build": "installed"
     },
     "tara": {
      "state": "available",
@@ -112,7 +112,7 @@
    "systems": {
     "polaris": {
      "state": "available",
-     "build": "verified 2026-09-05 (compute-node smoke, job 7593804.polaris-pbs-01)"
+     "build": "completed"
     }
    }
   },
@@ -140,7 +140,7 @@
     },
     "polaris": {
      "state": "pass",
-     "build": "verified 2026-09-05 (compute-node smoke, job 7593804.polaris-pbs-01)",
+     "build": "working",
      "smoke": "pass",
      "smoke_date": "2026-07-10",
      "smoke_result": "FULL end-to-end PASS: MSA (features 3757s) -> 5-model JAX inference (~50-84s each) -> Amber GPU relaxation (Einit 1227.84 -> Efinal -1262.51, 0 residue violations) -> ranking. Wrote ranked_0.pdb, relaxed_model_1_pred_0.pdb, ranking_debug.json. pLDDT model_1=95.73 (95.7/95.6/93.2/89.8/89.7).",
@@ -212,7 +212,7 @@
     },
     "polaris": {
      "state": "available",
-     "build": "verified 2026-09-06: cpe2603 shim (job 7596460.polaris-pbs-01)"
+     "build": ""
     },
     "sunspot": {
      "state": "available",
@@ -256,7 +256,7 @@
     },
     "polaris": {
      "state": "available",
-     "build": "verified 2026-09-05 (compute-node smoke, job 7593804.polaris-pbs-01)"
+     "build": "working"
     },
     "sunspot": {
      "state": "available",
@@ -276,7 +276,7 @@
     },
     "polaris": {
      "state": "available",
-     "build": "verified 2026-09-06: cpe2603 shim (job 7596460.polaris-pbs-01)"
+     "build": "built"
     },
     "tara": {
      "state": "available",
@@ -320,7 +320,7 @@
     },
     "polaris": {
      "state": "available",
-     "build": "verified 2026-09-05 (compute-node smoke, job 7593804.polaris-pbs-01)"
+     "build": "completed"
     }
    }
   },
@@ -360,7 +360,7 @@
     },
     "polaris": {
      "state": "pass",
-     "build": "verified 2026-09-05 (compute-node smoke, job 7593804.polaris-pbs-01)",
+     "build": "installed (conda-forge cp2k.psmp)",
      "smoke": "pass",
      "smoke_date": "2026-07-09",
      "smoke_result": "SCF converged 6/6; MD advanced 5 steps; T~300 K (287->316); E ~= -551.45 Ha; 0 warnings",
@@ -404,7 +404,7 @@
     },
     "polaris": {
      "state": "pass",
-     "build": "BROKEN 2026-09-05: venv_broken (job 7593804.polaris-pbs-01)",
+     "build": "installed",
      "smoke": "pass",
      "smoke_date": "2026-07-09",
      "smoke_result": "loss 1.05 -> 1.03 over 60 steps, DONE_DEEPSPEED (coverage campaign)",
@@ -435,8 +435,8 @@
    "description": "E3SM EAMxx / SCREAM — the C++/Kokkos rewrite of E3SM's atmosphere physics\n(P3 microphysics, SHOC turbulence, RRTMGP radiation, etc.), GPU-portable via\nKokkos. INCITE-demanded climate code (5 proposals), no prior Polaris recipe.\nThis is a STANDALONE library build of components/eamxx driven directly by\nCMake — deliberately NOT the CIME case / test-all-eamxx wrapper, which would\nrequire porting a CIME machine config for Polaris (out of scope for a first\nbuild). E3SM's own committed machine file cmake/machine-files/polaris.cmake\nsupplies the compiler + Kokkos config (it includes EKAT's nvidia-a100.cmake =>\nKokkos_ARCH_AMPERE80 + CMAKE_CUDA_ARCHITECTURES=80, and cuda.cmake =>\nKokkos_ENABLE_CUDA + CUDA_LAMBDA). Adapted from the WarpX/Polaris Kokkos-CUDA\nsibling (software/polaris/warpx.yaml) for the toolchain + nvcc-MPI lessons.\n",
    "systems": {
     "polaris": {
-     "state": "blocked",
-     "build": "BROKEN 2026-09-05: missing_install (job 7593804.polaris-pbs-01)"
+     "state": "available",
+     "build": "working"
     }
    }
   },
@@ -448,7 +448,7 @@
    "systems": {
     "polaris": {
      "state": "pass",
-     "build": "verified 2026-09-07: verified (self-contained cu124 venv) (job 7596614.polaris-pbs-01)",
+     "build": "completed",
      "smoke": "pass",
      "smoke_date": "2026-07-09",
      "smoke_result": "folded; mean pLDDT 69.2 (coverage campaign)",
@@ -483,8 +483,8 @@
    "description": "Adaptive mesh refinement astrophysics simulation code for reactive flows, MHD, and gravity",
    "systems": {
     "polaris": {
-     "state": "blocked",
-     "build": "BROKEN 2026-09-05: missing_install (job 7593804.polaris-pbs-01)"
+     "state": "in_progress",
+     "build": "needs_build"
     }
    }
   },
@@ -500,7 +500,7 @@
     },
     "polaris": {
      "state": "available",
-     "build": "verified 2026-09-06: cpe2603 shim (job 7596460.polaris-pbs-01)"
+     "build": "built"
     },
     "tara": {
      "state": "available",
@@ -596,7 +596,7 @@
     },
     "polaris": {
      "state": "pass",
-     "build": "verified 2026-09-06: cpe2603 shim (job 7596460.polaris-pbs-01)",
+     "build": "built",
      "smoke": "pass",
      "smoke_date": "2026-07-09",
      "smoke_result": "grompp rc=0; mdrun rc=0; Performance = 1547 ns/day (A100)",
@@ -676,7 +676,7 @@
     },
     "polaris": {
      "state": "pass",
-     "build": "verified 2026-09-07: verified (cpe2603 shim+cuda12) (job 7596501.polaris-pbs-01)",
+     "build": "",
      "smoke": "pass",
      "smoke_date": "2026-07-09",
      "smoke_result": "rc=0; synthetic data range [8,72] rL=64 oL=8; 262144 particles; 5 subcycles; kick completed",
@@ -712,7 +712,7 @@
     },
     "polaris": {
      "state": "pass",
-     "build": "verified 2026-09-06: cpe2603 shim (job 7596460.polaris-pbs-01)",
+     "build": "installed",
      "smoke": "pass",
      "smoke_date": "2026-07-09",
      "smoke_result": "residual PASSED; 201 Gflops (campaign C18). Note: no HPL.dat is bundled - generate one.",
@@ -787,8 +787,8 @@
      "smoke_cmd": "lmp -h"
     },
     "polaris": {
-     "state": "blocked",
-     "build": "BROKEN 2026-09-06: cpe2603_env_fix (job 7596460.polaris-pbs-01)"
+     "state": "available",
+     "build": ""
     },
     "sirius": {
      "state": "in_progress",
@@ -812,7 +812,7 @@
    "systems": {
     "polaris": {
      "state": "available",
-     "build": "verified 2026-09-05 (compute-node smoke, job 7593804.polaris-pbs-01)"
+     "build": ""
     }
    }
   },
@@ -824,7 +824,7 @@
    "systems": {
     "polaris": {
      "state": "blocked",
-     "build": "BROKEN 2026-09-05: cpe2603_gnu_abi (job 7593804.polaris-pbs-01)"
+     "build": "installed (venv BROKEN — needs rebuild before it runs)"
     }
    }
   },
@@ -839,8 +839,8 @@
      "build": "installed"
     },
     "polaris": {
-     "state": "blocked",
-     "build": "BROKEN 2026-09-05: missing_install (job 7593804.polaris-pbs-01)"
+     "state": "available",
+     "build": "built"
     },
     "tara": {
      "state": "available",
@@ -868,7 +868,7 @@
     },
     "polaris": {
      "state": "pass",
-     "build": "BROKEN 2026-09-06: cpe2603_rebuild (job 7596460.polaris-pbs-01)",
+     "build": "",
      "smoke": "pass",
      "smoke_date": "2026-07-09",
      "smoke_result": "Solve Converged! (coverage campaign)",
@@ -960,7 +960,7 @@
     },
     "polaris": {
      "state": "pass",
-     "build": "verified 2026-09-05 (compute-node smoke, job 7593804.polaris-pbs-01)",
+     "build": "",
      "smoke": "pass",
      "smoke_date": "2026-07-09",
      "smoke_result": "solver ran to 'end of time-step loop', total solver time 3.94 s (coverage campaign)",
@@ -1004,7 +1004,7 @@
     },
     "polaris": {
      "state": "available",
-     "build": "verified 2026-09-07: verified (cpe2603 shim+cuda13) (job 7596501.polaris-pbs-01)"
+     "build": ""
     },
     "sophia": {
      "state": "available",
@@ -1048,7 +1048,7 @@
     },
     "polaris": {
      "state": "pass",
-     "build": "verified 2026-09-06: cpe2603 shim (job 7596460.polaris-pbs-01)",
+     "build": "built",
      "smoke": "pass",
      "smoke_date": "2026-07-09",
      "smoke_result": "Total DFT energy = -76.408731 Ha (campaign C14). Correct basis lib path was the fix.",
@@ -1100,7 +1100,7 @@
     },
     "polaris": {
      "state": "pass",
-     "build": "verified 2026-09-06: cpe2603 shim (job 7596460.polaris-pbs-01)",
+     "build": "working",
      "smoke": "pass",
      "smoke_date": "2026-07-09",
      "smoke_result": "4x A100 detected; [Level 0 step 5] Advanced 32768 cells; STEP=5; Run time=0.198s; AMReX finalized; rc=0",
@@ -1140,7 +1140,7 @@
     },
     "polaris": {
      "state": "pass",
-     "build": "verified 2026-09-07: verified (cpe2603 shim+foamenv) (job 7596501.polaris-pbs-01)",
+     "build": "built",
      "smoke": "pass",
      "smoke_date": "2026-07-09",
      "smoke_result": "solver converges: Ux resid->7.8e-7, p->5.6e-7, continuity 3e-10, time advancing (campaign C16)",
@@ -1180,7 +1180,7 @@
     },
     "polaris": {
      "state": "pass",
-     "build": "verified 2026-09-05 (compute-node smoke, job 7593804.polaris-pbs-01)",
+     "build": "working",
      "smoke": "pass",
      "smoke_date": "2026-07-10",
      "smoke_result": "PASS: GPU inference 9.18 s on one A100 (rebuilt attn_core CUDA kernel), wrote seq_model_1_ptm_unrelaxed.pdb (78 residues). mean pLDDT = 95.71 — matches the AlphaFold2 pass (95.7), same weights + sequence.",
@@ -1240,7 +1240,7 @@
     },
     "polaris": {
      "state": "pass",
-     "build": "verified 2026-09-06: cpe2603 shim (job 7596460.polaris-pbs-01)",
+     "build": "installed",
      "smoke": "pass",
      "smoke_date": "2026-07-09",
      "smoke_result": "Combined k-effective = 1.01968 +/- 0.01554 (Godiva-like); rc=0",
@@ -1284,7 +1284,7 @@
     },
     "polaris": {
      "state": "pass",
-     "build": "verified 2026-09-05 (compute-node smoke, job 7593804.polaris-pbs-01)",
+     "build": "built",
      "smoke": "pass",
      "smoke_date": "2026-07-09",
      "smoke_result": "1335 atoms, minimized + 20k steps completed (coverage campaign). OpenCL path also validated 2026-05-11 (30.7 ns/day).",
@@ -1316,7 +1316,7 @@
    "systems": {
     "polaris": {
      "state": "available",
-     "build": "verified 2026-09-05 (compute-node smoke, job 7593804.polaris-pbs-01)"
+     "build": ""
     }
    }
   },
@@ -1328,7 +1328,7 @@
    "systems": {
     "polaris": {
      "state": "available",
-     "build": "verified 2026-09-05 (compute-node smoke, job 7593804.polaris-pbs-01)"
+     "build": "installed"
     },
     "sirius": {
      "state": "available",
@@ -1368,7 +1368,7 @@
     },
     "polaris": {
      "state": "pass",
-     "build": "verified 2026-09-05 (compute-node smoke, job 7593804.polaris-pbs-01)",
+     "build": "",
      "smoke": "pass",
      "smoke_date": "2026-07-09",
      "smoke_result": "E(RHF)=-76.0268, E(MP2)=-76.2308 (Ecorr -0.204), E(B3LYP)=-76.4204 Ha (coverage campaign)",
@@ -1456,7 +1456,7 @@
     },
     "polaris": {
      "state": "pass",
-     "build": "verified 2026-09-07: verified (pip torch cu124 venv) (job 7596526.polaris-pbs-01)",
+     "build": "installed",
      "smoke": "pass",
      "smoke_date": "2026-07-09",
      "smoke_result": "torch 2.8.0; world_size=4; loss 2.31 -> 0.31 over 60 steps (campaign C19)",
@@ -1516,7 +1516,7 @@
     },
     "polaris": {
      "state": "pass",
-     "build": "verified 2026-09-06: cpe2603 shim (job 7596460.polaris-pbs-01)",
+     "build": "",
      "smoke": "pass",
      "smoke_date": "2026-07-09",
      "smoke_result": "H2 DMC mean LocalEnergy = -1.17407 Ha over 90 blocks (matches reference -1.174064 Ha to 5 digits); Total Execution 1401 s (campaign C15)",
@@ -1572,7 +1572,7 @@
     },
     "polaris": {
      "state": "available",
-     "build": "verified 2026-09-05 (compute-node smoke, job 7593804.polaris-pbs-01)"
+     "build": ""
     },
     "sirius": {
      "state": "available",
@@ -1636,7 +1636,7 @@
     },
     "polaris": {
      "state": "pass",
-     "build": "verified 2026-09-06: cpe2603 shim (job 7596460.polaris-pbs-01)",
+     "build": "built",
      "smoke": "pass",
      "smoke_date": "2026-07-09",
      "smoke_result": "Exit Success (SU2_CFD); transonic NACA0012 converged (coverage campaign)",
@@ -1676,7 +1676,7 @@
     },
     "polaris": {
      "state": "pass",
-     "build": "verified 2026-09-05 (compute-node smoke, job 7593804.polaris-pbs-01)",
+     "build": "installed",
      "smoke": "pass",
      "smoke_date": "2026-07-09",
      "smoke_result": "TF 2.21.0; test accuracy 0.9791 (coverage campaign)",
@@ -1700,7 +1700,7 @@
    "systems": {
     "polaris": {
      "state": "available",
-     "build": "verified 2026-09-05 (compute-node smoke, job 7593804.polaris-pbs-01)"
+     "build": "installed + confirmed (v0.1.0 imports and trains under torch 2.8.0)"
     }
    }
   },
@@ -1752,7 +1752,7 @@
    "systems": {
     "polaris": {
      "state": "pass",
-     "build": "verified 2026-09-05 (compute-node smoke, job 7593804.polaris-pbs-01)",
+     "build": "built",
      "smoke": "pass",
      "smoke_date": "2026-07-17",
      "smoke_result": "ltx_smoke.mp4 generated, decode-verified 1.04s @ 24fps, 73K, H.264; torch 2.6.0+cu124 avail True on A100-SXM4-40GB",
@@ -1800,7 +1800,7 @@
     },
     "polaris": {
      "state": "pass",
-     "build": "verified 2026-09-07: verified (self-contained cu130 venv) (job 7596550.polaris-pbs-01)",
+     "build": "built",
      "smoke": "pass",
      "smoke_date": "2026-07-09",
      "smoke_result": "1721.8 tok/s (coverage campaign); serving path earlier confirmed 2514 tok/s Llama-3.1-8B TP=4",
@@ -1852,7 +1852,7 @@
     },
     "polaris": {
      "state": "pass",
-     "build": "BROKEN 2026-09-05: cpe2603_gnu_abi (job 7593804.polaris-pbs-01)",
+     "build": "working",
      "smoke": "pass",
      "smoke_date": "2026-07-09",
      "smoke_result": "ran 100 steps; Total Time 0.29 s; rc=0 (campaign C10). No rebuild needed.",
@@ -1904,7 +1904,7 @@
     },
     "polaris": {
      "state": "pass",
-     "build": "verified 2026-09-06: cpe2603 shim (job 7596460.polaris-pbs-01)",
+     "build": "installed",
      "smoke": "pass",
      "smoke_date": "2026-07-09",
      "smoke_result": "ideal rc=0, wrf rc=0; 'd01 ... wrf: SUCCESS COMPLETE WRF' after 1 simulated hour; wrfout_d01 (13.5MB) written (campaign C17)",
