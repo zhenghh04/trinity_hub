@@ -1,0 +1,48 @@
+schema: trinity.hub.agent/v1
+
+id: xas-calculation-agent
+name: XAS calculation agent
+owner: Dr.XAS team
+
+maintainers:
+  - github: JingTang-Enid
+    contact: https://github.com/Dr-XAS/xas-calculation-agent
+
+type: external
+protocol: a2a
+
+discovery:
+  card_url: https://<HOST>/.well-known/agent-card.json
+
+auth:
+  scheme: bearer
+
+domains:
+  - xas
+  - xanes
+  - exafs
+  - materials-science
+  - hpc
+
+description: >-
+  Conversational calculation agent for first-principles XAS workflows: generates
+  native exciting, OCEAN, and XSpectra inputs, prepares HPC submission bundles,
+  monitors runs, diagnoses failures, regenerates inputs, and plots completed
+  spectra.
+
+skills:
+  - id: xas-input-generation
+    description: Generate and self-check native input bundles for exciting, OCEAN, and XSpectra calculations.
+  - id: hpc-submission-monitoring
+    description: Prepare PBS submission bundles for configured Aurora or Califone resources and monitor job status.
+  - id: failure-diagnosis-regeneration
+    description: Inspect run inputs and logs, diagnose failed calculations, and regenerate repaired inputs from structured evidence.
+  - id: xas-result-plotting
+    description: Locate method-specific result files and produce raw and normalized XAS spectrum plots.
+
+homepage: https://github.com/Dr-XAS/xas-calculation-agent
+icon: "🩻"
+color: "#b95532"
+
+status: pending
+added: "2026-08"
