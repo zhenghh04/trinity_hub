@@ -9,6 +9,10 @@ repo_url: https://github.com/zhenghh04/trinity_hub
 repo_name: zhenghh04/trinity_hub
 edit_uri: edit/main/docs/
 
+# Local preview address: `mkdocs serve` always binds here → http://127.0.0.1:8010
+# (8000 is taken by Ollama on the GB10 box; 8010 avoids that collision.)
+dev_addr: 127.0.0.1:8010
+
 theme:
   name: material
   custom_dir: overrides
