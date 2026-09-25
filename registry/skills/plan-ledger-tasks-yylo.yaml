@@ -1,0 +1,36 @@
+# Reusable skill registration — YYLO Ledger task planning.
+
+schema: trinity.hub.skill/v1
+
+id: plan-ledger-tasks-yylo
+name: Plan Ledger Tasks (YYLO)
+owner: YYLO
+
+maintainers:
+  - github: InsightFactoryAPP
+
+description: >-
+  Create a concise Product Development Requirement and one or more implementation-sized
+  YYLO Ledger tasks when planning or registering work: reads the project context, splits
+  scope into independently implementable tasks, and records dependency-linked Kanban
+  entries with immutable artifact provenance.
+
+trigger: >-
+  "plan this project", "break down work into tasks", "register tasks for this feature", "plan and register work".
+
+domains:
+  - project-planning
+  - task-management
+  - agent-orchestration
+
+inputs: A goal or feature request; the target repository's project instructions and product code context.
+outputs: A concise Product Development Requirement; created YYLO Ledger task IDs with dependencies and order summary.
+requirements: YYLO CLI (npm i -g @yylo/cli) with an initialized YYLO Ledger.
+
+source:
+  repo: https://github.com/yylo-dev/yylo-skills
+  path: skills/plan-ledger-tasks-yylo
+  license: MIT
+
+status: active
+added: "2026-09"
