@@ -67,7 +67,7 @@ def main() -> int:
               "| id | name | domains | status | source |",
               "|---|---|---|---|---|"]
     for e in skills:
-        src = (e.get("source") or {}).get("repo", "")
+        src = (e.get("source") or {}).get("repo") or (e.get("source") or {}).get("url", "")
         lines.append("| `{id}` | {name} | {domains} | {status} | {src} |".format(
             id=e["id"], name=e.get("name", ""),
             domains=", ".join(e.get("domains") or []),

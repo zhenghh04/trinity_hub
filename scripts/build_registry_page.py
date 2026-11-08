@@ -108,7 +108,7 @@ def _skill_card(e: dict) -> str:
     io_html = f'<ul class="tx-reg-sub">{"".join(io_rows)}</ul>' if io_rows else ""
     links = _links([
         (f"@{gh}", f"https://github.com/{gh}" if gh else ""),
-        ("source", src.get("repo", "")),
+        ("source", src.get("repo") or src.get("url", "")),
         ("YAML", f"https://github.com/zhenghh04/trinity_hub/blob/main/registry/skills/{e['id']}.yaml"),
     ])
     return f"""<li class="tx-reg-card">

@@ -34,6 +34,10 @@ source:
   repo: https://github.com/your-org/your-repo
   path: .claude/skills/xanes-analysis        # optional, where it lives in the repo
   license: MIT
+# Alternatively, point at a served skill body (no git repo required):
+# source:
+#   url: https://example.com/api/v1/skills/my-skill
+#   license: MIT
 requirements: >-
   Materials Project API key; LightshowAI MCP server (optional).
 status: active                     # active | experimental | deprecated
@@ -54,8 +58,11 @@ git checkout -b add-skill-<id> && git commit -am "add skill <id>" && git push -u
 - **A precise `trigger`.** This is how an agent (or a person) knows when to reach for it.
   Write the phrases that should invoke it.
 - **Clear `inputs`/`outputs`.** A planner needs to know what to feed it and what comes back.
-- **A real `source.repo`.** The skill itself lives in your repo (e.g. a `SKILL.md` plus
-  scripts); the entry here is a pointer. List the `license` so adopters know the terms.
+- **A real `source`.** The skill body can live in a git repo (`source.repo` + optional
+  `source.path`) **or** be served by an existing HTTPS endpoint (`source.url`), e.g. a
+  generated `SKILL.md`. Use `source.url` to keep a single source of truth when the body
+  is produced by a web service; the entry here is a pointer. List the `license` so
+  adopters know the terms.
 - **Honest `requirements`.** API keys, MCP servers, system access — say what's needed.
 - **No secrets.** Same golden rule as agents: never commit keys or tokens.
 
