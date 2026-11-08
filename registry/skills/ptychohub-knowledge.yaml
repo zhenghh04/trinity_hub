@@ -25,5 +25,9 @@ requirements: Network access to https://www.ptychohub.com (public, unauthenticat
 source:
   url: https://www.ptychohub.com/api/v1/skills/ptychohub-knowledge
   license: MIT
-status: active
+status: experimental
+# NOTE: source.url returns 404 as of 2026-11 — the PtychoHub maintainer
+# has not yet deployed the /api/v1/skills/* endpoint that serves the
+# skill body. Flip to `active` once `curl -f` against that URL returns
+# text/markdown. Until then, the skill is registered but not loadable.
 added: "2026-09"

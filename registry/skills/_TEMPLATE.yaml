@@ -31,6 +31,10 @@ source:
   repo: https://github.com/your-org/your-repo     # where the skill actually lives (HTTPS)
   path: .claude/skills/your-skill-id              # optional path within the repo
   license: MIT                                    # optional
+# Alternatively, if the skill body is served by an HTTPS endpoint (no git repo):
+# source:
+#   url: https://example.com/api/v1/skills/your-skill-id
+#   license: MIT
 
 status: active                    # active | experimental | deprecated
 added: "2026-06"                  # YYYY-MM

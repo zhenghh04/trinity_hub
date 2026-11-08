@@ -13,7 +13,7 @@
 
 | id | name | domains | status | source |
 |---|---|---|---|---|
-| `ptychohub-knowledge` | PtychoHub Knowledge | ptychography, x-ray-microscopy, electron-microscopy, coherent-diffractive-imaging, scientific-literature | active | https://www.ptychohub.com/api/v1/skills/ptychohub-knowledge |
+| `ptychohub-knowledge` | PtychoHub Knowledge | ptychography, x-ray-microscopy, electron-microscopy, coherent-diffractive-imaging, scientific-literature | experimental | https://www.ptychohub.com/api/v1/skills/ptychohub-knowledge |
 | `xanes-analysis` | XANES Analysis | materials-science, xanes, spectroscopy | active | https://github.com/zhenghh04/trinity |
 
 ---

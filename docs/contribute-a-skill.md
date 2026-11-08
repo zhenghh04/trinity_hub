@@ -50,6 +50,7 @@ added: "2026-06"
 pip install pyyaml jsonschema
 python scripts/validate_registry.py
 python scripts/build_index.py
+python scripts/build_registry_page.py
 git checkout -b add-skill-<id> && git commit -am "add skill <id>" && git push -u origin add-skill-<id>
 ```
 
