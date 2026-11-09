@@ -23,7 +23,7 @@ except ImportError:
 ROOT = Path(__file__).resolve().parent.parent
 OUT = ROOT / "docs" / "registry" / "index.md"
 
-STATUSES = {"active", "pending", "deprecated"}
+STATUSES = {"active", "pending", "experimental", "deprecated"}
 
 
 def _load(kind: str) -> list[dict]:
@@ -108,7 +108,7 @@ def _skill_card(e: dict) -> str:
     io_html = f'<ul class="tx-reg-sub">{"".join(io_rows)}</ul>' if io_rows else ""
     links = _links([
         (f"@{gh}", f"https://github.com/{gh}" if gh else ""),
-        ("source", src.get("repo", "")),
+        ("source", src.get("repo") or src.get("url", "")),
         ("YAML", f"https://github.com/zhenghh04/trinity_hub/blob/main/registry/skills/{e['id']}.yaml"),
     ])
     return f"""<li class="tx-reg-card">
@@ -164,6 +164,7 @@ def main() -> int:
         "| Status | Meaning |",
         "|---|---|",
         "| `active` | Reachable and usable in Trinity rooms today. |",
+        "| `experimental` | Registered and usable, but still evolving; may change. |",
         "| `pending` | Registered; endpoint or credentials still being finalized. |",
         "| `deprecated` | Kept for the record; no longer maintained. |",
         "",

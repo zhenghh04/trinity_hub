@@ -29,13 +29,17 @@
     "requirements": {"type": "string"},
     "source": {
       "type": "object",
-      "required": ["repo"],
       "additionalProperties": false,
       "properties": {
         "repo":    {"type": "string", "pattern": "^https://"},
         "path":    {"type": "string"},
+        "url":     {"type": "string", "pattern": "^https://"},
         "license": {"type": "string"}
-      }
+      },
+      "anyOf": [
+        {"required": ["repo"]},
+        {"required": ["url"]}
+      ]
     },
     "status": {"enum": ["active", "experimental", "deprecated"]},
     "added":  {"type": "string", "pattern": "^[0-9]{4}-[0-9]{2}$"}

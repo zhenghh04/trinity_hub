@@ -1,0 +1,33 @@
+schema: trinity.hub.skill/v1
+id: ptychohub-knowledge
+name: PtychoHub Knowledge
+owner: PtychoHub
+maintainers:
+  - github: yijiang1
+    contact: https://www.ptychohub.com/about
+description: >-
+  Query PtychoHub, the ptychography community's claim-level knowledge graph, for
+  papers, techniques, software packages, benchmark datasets, reproducibility
+  claims, and peer-review-style paper comments. Read-only HTTP; no credentials.
+trigger: >-
+  Ptychography literature or method questions, e.g. "search ptychography papers
+  for <topic>", "what does PtychoHub say about <method/parameter>", "find a
+  ptychography benchmark dataset", "list open ptychography verification tasks".
+domains:
+  - ptychography
+  - x-ray-microscopy
+  - electron-microscopy
+  - coherent-diffractive-imaging
+  - scientific-literature
+inputs: Free-text topic, method, parameter, or paper identifier; optional filters (search, runnable tasks).
+outputs: Matching papers with metadata/summaries, verification tasks with claims, paper comments.
+requirements: Network access to https://www.ptychohub.com (public, unauthenticated).
+source:
+  url: https://www.ptychohub.com/api/v1/skills/ptychohub-knowledge
+  license: MIT
+status: experimental
+# NOTE: source.url returns 404 as of 2026-11 — the PtychoHub maintainer
+# has not yet deployed the /api/v1/skills/* endpoint that serves the
+# skill body. Flip to `active` once `curl -f` against that URL returns
+# text/markdown. Until then, the skill is registered but not loadable.
+added: "2026-09"
