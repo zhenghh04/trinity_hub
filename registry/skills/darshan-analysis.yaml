@@ -1,0 +1,48 @@
+# Darshan I/O analysis: the skill, the two-layer Darshan schema template, and tools (an MCP
+# server) that retrieve exact numbers from the log for the agent to answer with. One repository.
+
+schema: trinity.hub.skill/v1
+
+id: darshan-analysis
+name: Darshan I/O Analysis
+owner: "Baixi Sun — Argonne National Laboratory (ALCF)"
+
+maintainers:
+  - github: Presciman
+    contact: sunbaixi@163.com
+
+description: >-
+  Diagnose an HPC job's I/O from its Darshan log: small or unaligned accesses, metadata and open
+  storms, missing collective MPI-IO, rank imbalance, Lustre striping. Bundled tools fill a
+  two-layer Darshan schema from the binary log, return exact facts as one card of measures per
+  analysis concern, and do exact arithmetic, so the agent reports numbers retrieved from the log
+  instead of estimating them.
+
+trigger: >-
+  "analyze this Darshan log", "why is my I/O slow", "is this job I/O-bound", "what bandwidth did
+  <job> get", "is rank 0 serialising the I/O", "does it use collective MPI-IO", "check the Lustre
+  striping of <log>".
+
+domains:
+  - hpc-io
+  - darshan
+  - io-performance
+  - mpi-io
+  - lustre
+
+inputs: >-
+  A .darshan binary log; optionally the node count, when DXT did not trace every rank.
+outputs: >-
+  Answers or a structured report in which every figure names the card it came from. Absent
+  modules are reported as not applicable.
+requirements: >-
+  Python 3.10 or newer and PyDarshan (pip install darshan; it needs libdarshan-util). The tools run
+  as the darshan-tools MCP server (stdio) from the same repository, or as the darshan-tools
+  command. No network access and no credentials.
+
+source:
+  repo: https://github.com/Presciman/darshan-io-skill
+  license: MIT
+
+status: experimental
+added: "2026-11"
