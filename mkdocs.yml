@@ -100,6 +100,7 @@ extra:
 
 copyright: >-
   Trinity is developed at ALCF / Argonne National Laboratory.
+  &nbsp;·&nbsp; <a href="/privacy/">Privacy policy</a>
 
 nav:
   - Home: index.md
@@ -177,4 +178,5 @@ nav:
       - How Trinity Hub works: architecture.md
       - For operators: operator.md
       - Security & trust: security.md
+      - Privacy policy: privacy.md
 
